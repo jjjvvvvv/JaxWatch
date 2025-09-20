@@ -9,6 +9,10 @@ on:
     branches: [ main ]
     paths: [ 'backend/**' ]
 
+concurrency:
+  group: daily
+  cancel-in-progress: false
+
 jobs:
   test-schema:
     runs-on: ubuntu-latest
