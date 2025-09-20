@@ -1,0 +1,44 @@
+name: Nightly Dry Run
+
+on:
+  schedule:
+    - cron: '0 9 * * *'  # 09:00 UTC daily
+  workflow_dispatch:
+
+jobs:
+  nightly:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pydantic PyYAML requests google-cloud-firestore
+
+      - name: Run Observatory (local write)
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          python -m backend.core.municipal_observatory
+
+      - name: Aggregate outputs
+        run: |
+          python backend/tools/aggregate_data.py
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: municipal-data
+          path: |
+            data/outputs/
+            frontend/municipal-data.json
+          retention-days: 14
+

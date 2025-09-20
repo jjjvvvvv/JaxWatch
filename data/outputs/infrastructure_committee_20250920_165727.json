@@ -1,0 +1,25 @@
+{
+  "source_id": "infrastructure_committee",
+  "timestamp": "2025-09-20T16:57:27.965033",
+  "total_items": 1,
+  "items": [
+    {
+      "board": "Infrastructure Committee",
+      "date": "2025-09-20",
+      "title": "Fallback: Infrastructure data collection in progress",
+      "url": "https://maps.coj.net/capitalprojects/",
+      "notes": [
+        "Real infrastructure data collection being developed"
+      ],
+      "item_number": null,
+      "parcel_address": null,
+      "parcel_lat": null,
+      "parcel_lon": null,
+      "council_district": null,
+      "flagged": true,
+      "status": "Data Collection Development",
+      "extracted_at": "2025-09-20 16:57:27.963826",
+      "source_id": "infrastructure_committee"
+    }
+  ]
+}

@@ -10,6 +10,8 @@ venv/
 
 # Data files - separate inputs (tracked) from runtime outputs (ignored)
 data/runtime/
+data/**/*.db
+*.tmp
 *.pdf
 
 # Runtime artifacts

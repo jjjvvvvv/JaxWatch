@@ -15,9 +15,31 @@ $(document).ready(function() {
     loadProjectData(projectId);
 
     function loadProjectData(projectId) {
-        $.getJSON('all-projects.json')
+        $.getJSON('municipal-data.json')
             .done(function(data) {
-                const projects = Array.isArray(data) ? data : (data.projects || []);
+                let projects = Array.isArray(data) ? data : (data.projects || []);
+
+                // Convert municipal data format to frontend format
+                projects = projects.map(item => ({
+                    ...item,
+                    project_id: item.item_number || `${item.board}-${item.date}`,
+                    meeting_date: item.date,
+                    project_type: item.board || 'Municipal',
+                    latitude: item.parcel_lat,
+                    longitude: item.parcel_lon,
+                    location: item.parcel_address || item.address,
+                    title: item.title,
+                    request: item.title, // Use title as request for now
+                    staff_recommendation: item.status || 'Under Review',
+                    owners: 'N/A', // Municipal data doesn't have owners
+                    agent: 'N/A',   // Municipal data doesn't have agents
+                    planning_district: 'N/A', // Municipal data doesn't have planning districts
+                    signs_posted: false,
+                    source_pdf: item.url,
+                    extracted_at: item.extracted_at,
+                    tags: [], // Municipal data doesn't have tags yet
+                    category: getProjectCategory(item)
+                }));
 
                 // Find the project by ID
                 const project = projects.find(p => p.project_id === projectId);
@@ -33,6 +55,33 @@ $(document).ready(function() {
             .fail(function() {
                 showNotFound();
             });
+    }
+
+    function getProjectCategory(project) {
+        const board = (project.board || '').toLowerCase();
+
+        if (board.includes('planning') || board.includes('zoning')) {
+            return 'zoning';
+        }
+        if (board.includes('development') || board.includes('ddrb') || board.includes('private')) {
+            return 'private_development';
+        }
+        if (board.includes('infrastructure') || board.includes('transportation') || board.includes('public works')) {
+            return 'infrastructure';
+        }
+        if (board.includes('council') || board.includes('public')) {
+            return 'public_projects';
+        }
+
+        if (project.source_id) {
+            const source = project.source_id.toLowerCase();
+            if (source.includes('private')) return 'private_development';
+            if (source.includes('infrastructure')) return 'infrastructure';
+            if (source.includes('public')) return 'public_projects';
+            if (source.includes('planning')) return 'zoning';
+        }
+
+        return 'zoning';
     }
 
     function displayProjectDetail(project) {

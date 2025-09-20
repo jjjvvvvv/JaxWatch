@@ -220,39 +220,43 @@ enhanced-setup: install upload-dedup-stats
 	@echo "✅ Enhanced processing system ready!"
 
 # =============================================================================
-# SOURCE HEALTH MONITORING COMMANDS
+# SOURCE HEALTH MONITORING COMMANDS (advanced; gated)
 # =============================================================================
+
+# Set ADVANCED=1 or HEALTH_MODULE=experiments.advanced.source_health_monitor to enable
+ADVANCED ?= 0
+HEALTH_MODULE ?= $(if $(filter 1 yes true on,$(ADVANCED)),experiments.advanced.source_health_monitor,backend.common.source_health_monitor)
 
 # Show system health status
 health-status:
 	@echo "🏥 Checking system health status:"
-	python3 -m backend.common.source_health_monitor --status
+	python3 -m $(HEALTH_MODULE) --status
 
 # Show detailed metrics for specific source
 health-source:
 	@echo "📊 Source health metrics (specify SOURCE=name):"
 	@if [ -z "$(SOURCE)" ]; then echo "Usage: make health-source SOURCE=planning_commission"; exit 1; fi
-	python3 -m backend.common.source_health_monitor --source $(SOURCE)
+	python3 -m $(HEALTH_MODULE) --source $(SOURCE)
 
 # Export health report
 health-report:
 	@echo "📋 Exporting health report:"
-	python3 -m backend.common.source_health_monitor --export data/health_report.json
+	python3 -m $(HEALTH_MODULE) --export data/health_report.json
 
 # Start health monitoring web dashboard
 health-web:
 	@echo "🌐 Starting health dashboard:"
-	python3 -m backend.common.source_health_monitor --web --port 5003
+	python3 -m $(HEALTH_MODULE) --web --port 5003
 
 # Clean up old health data
 health-cleanup:
 	@echo "🧹 Cleaning up old health data (30+ days):"
-	python3 -m backend.common.source_health_monitor --cleanup 30
+	python3 -m $(HEALTH_MODULE) --cleanup 30
 
 # Quick health check (for daily monitoring)
 health-check:
 	@echo "⚡ Quick health check:"
-	@python3 -m backend.common.source_health_monitor --status | grep -E "(Overall Status|Critical Sources)" || echo "No critical issues detected"
+	@python3 -m $(HEALTH_MODULE) --status | grep -E "(Overall Status|Critical Sources)" || echo "No critical issues detected"
 
 # =============================================================================
 # THREE PILLARS DATA COLLECTION

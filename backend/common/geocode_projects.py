@@ -6,7 +6,10 @@ import time
 import sys
 from pathlib import Path
 
+from .retry_utils import GEOCODING_RETRY, safe_execute
 
+
+@GEOCODING_RETRY
 def geocode_address(address, city="Jacksonville", state="FL"):
     """
     Geocode an address using the free geocode.maps.co API.
@@ -24,31 +27,26 @@ def geocode_address(address, city="Jacksonville", state="FL"):
         "format": "json",
     }
 
-    try:
-        response = requests.get(url, params=params, timeout=10)
-        response.raise_for_status()
+    response = requests.get(url, params=params, timeout=10)
+    response.raise_for_status()
 
-        data = response.json()
-        if data:
-            result = data[0]
-            lat = float(result.get("lat", 0))
-            lng = float(result.get("lon", 0))
+    data = response.json()
+    if data:
+        result = data[0]
+        lat = float(result.get("lat", 0))
+        lng = float(result.get("lon", 0))
 
-            # Rough Jacksonville bounds
-            if 29.5 <= lat <= 31.0 and -82.5 <= lng <= -80.5:
-                print(f"✅ Geocoded: {address} -> ({lat:.6f}, {lng:.6f})")
-                return lat, lng
-            else:
-                print(
-                    f"⚠️  Coordinates outside Jacksonville area: {address} -> ({lat:.6f}, {lng:.6f})"
-                )
-                return None, None
+        # Rough Jacksonville bounds
+        if 29.5 <= lat <= 31.0 and -82.5 <= lng <= -80.5:
+            print(f"✅ Geocoded: {address} -> ({lat:.6f}, {lng:.6f})")
+            return lat, lng
         else:
-            print(f"❌ No results for: {address}")
+            print(
+                f"⚠️  Coordinates outside Jacksonville area: {address} -> ({lat:.6f}, {lng:.6f})"
+            )
             return None, None
-
-    except Exception as e:
-        print(f"❌ Error geocoding {address}: {str(e)}")
+    else:
+        print(f"❌ No results for: {address}")
         return None, None
 
 

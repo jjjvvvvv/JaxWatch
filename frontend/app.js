@@ -8,12 +8,13 @@ $(document).ready(function() {
     loadProjectData();
 
     // Initialize UI elements
+    setActiveCategory('all');  // Ensure proper tab state initialization
     updateSearchPlaceholder('all');
     updateMapLegend('all');
 
     // Event listeners
     $('#search').on('input', filterProjects);
-    $('#project-type-filter, #council-district-filter, #status-filter').on('change', filterProjects);
+    $('#board-filter, #date-filter, #project-type-filter, #council-district-filter, #status-filter').on('change', filterProjects);
 
     // Category tab event listeners
     $('.category-tab').on('click', function() {
@@ -82,9 +83,27 @@ $(document).ready(function() {
     });
 
     function loadProjectData() {
-        $.getJSON('all-projects.json')
+        // Try to load from new municipal data first, fallback to legacy all-projects.json
+        $.getJSON('municipal-data.json')
             .done(function(data) {
                 allProjects = Array.isArray(data) ? data : (data.projects || []);
+
+                // Convert municipal data format to frontend format
+                allProjects = allProjects.map(item => ({
+                    ...item,
+                    // Map fields for frontend compatibility
+                    project_id: item.item_number || `${item.board}-${item.date}`,
+                    meeting_date: item.date,
+                    project_type: item.board || 'Municipal',
+                    latitude: item.parcel_lat,
+                    longitude: item.parcel_lon,
+                    address: item.parcel_address || item.location,
+                    // Keep original fields
+                    board: item.board,
+                    council_district: item.council_district,
+                    status: item.status,
+                    flagged: item.flagged
+                }));
 
                 // Sort projects by meeting date (newest first) then by item number
                 allProjects.sort((a, b) => {
@@ -112,22 +131,57 @@ $(document).ready(function() {
                     $('#date-range').text(`${earliest} - ${latest}`);
                 }
 
+                // Update data source info
+                if (data.sources) {
+                    const sourceCount = Object.keys(data.sources).length;
+                    const lastUpdate = data.timestamp ? new Date(data.timestamp).toLocaleString() : 'Unknown';
+                    $('#data-source-info').html(`
+                        <small class="text-muted">
+                            Municipal Observatory Data | ${sourceCount} sources | Updated: ${lastUpdate}
+                        </small>
+                    `);
+
+                    // Update footer with detailed source information
+                    const sourceDetails = Object.entries(data.sources).map(([id, info]) =>
+                        `${info.total_items} items from ${id.replace('_', ' ').toLowerCase()}`
+                    ).join(' • ');
+                    $('#data-source-details').html(`<strong>Latest Collection:</strong> ${sourceDetails} • Last updated: ${lastUpdate}`);
+                }
+
                 // Populate filter options
                 populateFilters();
 
-                // Display projects
+                // Initialize filtering (this sets up filteredProjects properly)
+                filterProjects();
+
+                // Display projects and show content
                 displayProjects();
                 updateStats(data);
-
-                // Content is ready
-                $('#projects-list').show();
             })
             .fail(function() {
-                $('#projects-list').html('<p style="color: #dc3545; padding: 20px;">Error loading project data. Please check that all-projects.json exists.</p>');
+                // Fallback to legacy all-projects.json
+                console.warn('Municipal data not found, trying legacy all-projects.json...');
+                $.getJSON('all-projects.json')
+                    .done(function(data) {
+                        allProjects = Array.isArray(data) ? data : (data.projects || []);
+                        populateFilters();
+                        filterProjects();
+                        displayProjects();
+                        updateStats(data);
+                    })
+                    .fail(function() {
+                        $('#projects-list').html('<p style="color: #dc3545; padding: 20px;">Error loading project data. Please check that municipal-data.json or all-projects.json exists.</p>');
+                    });
             });
     }
 
     function populateFilters() {
+        // Boards
+        const boards = [...new Set(allProjects.map(p => p.board))].sort();
+        boards.forEach(board => {
+            $('#board-filter').append(`<option value="${board}">${board}</option>`);
+        });
+
         // Project types
         const projectTypes = [...new Set(allProjects.map(p => p.project_type))].sort();
         projectTypes.forEach(type => {
@@ -182,25 +236,46 @@ $(document).ready(function() {
         updateMapLegend(category);
     }
 
+    function getProjectCategory(project) {
+        // Map board names to UI categories
+        const board = (project.board || '').toLowerCase();
+
+        if (board.includes('planning') || board.includes('zoning')) {
+            return 'zoning';
+        }
+        if (board.includes('development') || board.includes('ddrb') || board.includes('private')) {
+            return 'private_development';
+        }
+        if (board.includes('infrastructure') || board.includes('transportation') || board.includes('public works')) {
+            return 'infrastructure';
+        }
+        if (board.includes('council') || board.includes('public')) {
+            return 'public_projects';
+        }
+
+        // Default fallback based on source_id
+        if (project.source_id) {
+            const source = project.source_id.toLowerCase();
+            if (source.includes('private')) return 'private_development';
+            if (source.includes('infrastructure')) return 'infrastructure';
+            if (source.includes('public')) return 'public_projects';
+            if (source.includes('planning')) return 'zoning';
+        }
+
+        return 'zoning'; // Default category
+    }
+
     function filterProjects() {
         const searchTerm = $('#search').val().toLowerCase();
+        const boardFilter = $('#board-filter').val();
+        const dateFilter = $('#date-filter').val();
         const projectTypeFilter = $('#project-type-filter').val();
         const councilDistrictFilter = $('#council-district-filter').val();
         const statusFilter = $('#status-filter').val();
 
         filteredProjects = allProjects.filter(project => {
-            // Category filter - support both new layer-based and legacy category-based systems
-            let projectCategory = project.category;
-            if (!projectCategory && project.layer) {
-                // Map new layer system to legacy categories for UI compatibility
-                const layerToCategoryMap = {
-                    'zoning': 'zoning',
-                    'private_dev': 'private_development',
-                    'public_project': 'public_projects',
-                    'infrastructure': 'infrastructure'
-                };
-                projectCategory = layerToCategoryMap[project.layer] || 'zoning';
-            }
+            // Category filter - map board names to categories
+            let projectCategory = getProjectCategory(project);
 
             if (activeCategory !== 'all' && projectCategory !== activeCategory) {
                 return false;
@@ -214,6 +289,18 @@ $(document).ready(function() {
                 (project.project_id || '').toLowerCase().includes(searchTerm) ||
                 (project.request || '').toLowerCase().includes(searchTerm);
 
+            // Board filter
+            const boardMatch = !boardFilter || project.board === boardFilter;
+
+            // Date filter
+            let dateMatch = true;
+            if (dateFilter) {
+                const projectDate = new Date(project.meeting_date || project.date);
+                const cutoffDate = new Date();
+                cutoffDate.setDate(cutoffDate.getDate() - parseInt(dateFilter));
+                dateMatch = projectDate >= cutoffDate;
+            }
+
             // Project type filter
             const typeMatch = !projectTypeFilter || project.project_type === projectTypeFilter;
 
@@ -221,9 +308,9 @@ $(document).ready(function() {
             const districtMatch = !councilDistrictFilter || project.council_district === councilDistrictFilter;
 
             // Status filter
-            const statusMatch = !statusFilter || getStatusCategory(project.staff_recommendation) === statusFilter;
+            const statusMatch = !statusFilter || (project.status && project.status.includes(statusFilter));
 
-            return searchMatch && typeMatch && districtMatch && statusMatch;
+            return searchMatch && boardMatch && dateMatch && typeMatch && districtMatch && statusMatch;
         });
 
         displayProjects();
@@ -253,37 +340,48 @@ $(document).ready(function() {
     }
 
     function createProjectCard(project) {
-        const statusClass = getStatusClass(project.staff_recommendation);
-        const statusText = getStatusCategory(project.staff_recommendation);
-        const location = project.location || 'Location not specified';
-        const categoryColor = getCategoryColor(project.category || 'zoning');
+        const status = project.status || 'Unknown';
+        const location = project.parcel_address || project.address || 'Location not specified';
+        const board = project.board || 'Unknown Board';
+        const councilDistrict = project.council_district ? `District ${project.council_district}` : '';
 
-        // Format tags for display
-        const tags = project.tags || [];
-        const tagElements = tags.slice(0, 3).map(tag =>
-            `<span class="project-tag">${formatTagForDisplay(tag)}</span>`
-        ).join('');
+        // Determine category color based on board
+        const categoryColor = getBoardColor(board);
+
+        // Format date
+        const meetingDate = formatDateShort(project.meeting_date || project.date);
+
+        // Flagged badge
+        const flaggedBadge = project.flagged ? '<span class="flagged-badge">⚠️ Flagged</span>' : '';
+
+        // Create notes preview
+        const notes = project.notes || [];
+        const notesPreview = notes.length > 0 ? notes[0].substring(0, 100) + (notes[0].length > 100 ? '...' : '') : '';
 
         return `
-            <div class="project-card" data-project-id="${escapeHtml(project.project_id)}" style="border-left-color: ${categoryColor};">
+            <div class="project-card" data-project-id="${escapeHtml(project.project_id)}" style="border-left-color: ${categoryColor};" data-lat="${project.parcel_lat || ''}" data-lon="${project.parcel_lon || ''}">
                 <div class="project-header">
-                    <div class="project-id">${escapeHtml(project.project_id)}</div>
-                    <div class="project-meeting-date">${formatDateShort(project.meeting_date)}</div>
+                    <div class="project-board">${escapeHtml(board)}</div>
+                    <div class="project-meeting-date">${meetingDate}</div>
+                    ${flaggedBadge}
                 </div>
 
                 <div class="project-title">${escapeHtml(project.title)}</div>
 
                 <div class="project-meta">
                     <div class="project-location">📍 ${escapeHtml(location)}</div>
-                    <div class="project-status ${statusClass}">📋 ${escapeHtml(statusText)}</div>
+                    <div class="project-status">📋 ${escapeHtml(status)}</div>
+                    ${councilDistrict ? `<div class="project-district">🏛️ ${escapeHtml(councilDistrict)}</div>` : ''}
+                    ${project.source ? `<div class="project-source">🔗 ${escapeHtml(project.source)}</div>` : ''}
+                    ${project.last_updated ? `<div class="project-updated">🕒 ${escapeHtml(new Date(project.last_updated).toLocaleString())}</div>` : ''}
                 </div>
 
-                ${tags.length > 0 ? `<div class="project-tags">${tagElements}</div>` : ''}
+                ${notesPreview ? `<div class="project-notes">${escapeHtml(notesPreview)}</div>` : ''}
 
                 <div class="project-card-actions">
-                    <button class="btn btn-primary view-details-btn" data-project-id="${escapeHtml(project.project_id)}">
-                        View Details
-                    </button>
+                    <a href="${escapeHtml(project.url)}" target="_blank" class="btn btn-primary source-btn">
+                        View Source
+                    </a>
                 </div>
             </div>
         `;
@@ -549,29 +647,22 @@ $(document).ready(function() {
 
         // Only show projects with valid coordinates on the map
         const mappableProjects = projectsToShow.filter(project => {
-            return project.latitude && project.longitude &&
-                typeof project.latitude === 'number' && typeof project.longitude === 'number' &&
-                !isNaN(project.latitude) && !isNaN(project.longitude);
+            return project.parcel_lat && project.parcel_lon &&
+                typeof project.parcel_lat === 'number' && typeof project.parcel_lon === 'number' &&
+                !isNaN(project.parcel_lat) && !isNaN(project.parcel_lon);
         });
 
         mappableProjects.forEach((project, index) => {
-            const lat = project.latitude;
-            const lng = project.longitude;
+            const lat = project.parcel_lat;
+            const lng = project.parcel_lon;
 
-            // Get marker color based on active category and project type
-            let markerColor;
-            if (activeCategory === 'zoning') {
-                // For zoning view, use project type colors
-                markerColor = getProjectTypeColor(project.project_type);
-            } else {
-                // For all other views, use category colors
-                markerColor = getCategoryColor(project.category || 'zoning');
-            }
+            // Get marker color based on board
+            const markerColor = getBoardColor(project.board);
 
-            // Create colored marker
+            // Create colored marker with flagged indicator
             const marker = L.circleMarker([lat, lng], {
-                color: '#fff',
-                weight: 2,
+                color: project.flagged ? '#fbbf24' : '#fff',
+                weight: project.flagged ? 3 : 2,
                 opacity: 1,
                 fillColor: markerColor,
                 fillOpacity: 0.8,
@@ -580,29 +671,33 @@ $(document).ready(function() {
 
             // Enhanced popup with more details
             const popupContent = `
-                <div style="min-width: 250px;">
-                    <strong style="color: #1e3a8a; font-size: 14px;">${escapeHtml(project.project_id)}</strong><br>
-                    <div style="margin: 8px 0; font-weight: 600;">${escapeHtml(project.title)}</div>
-                    <div style="color: #6c757d; margin-bottom: 8px;">
-                        📍 ${escapeHtml(project.location || 'Location not specified')}<br>
-                        🗓️ ${formatDateShort(project.meeting_date)}<br>
-                        🏛️ District ${project.council_district}
+                <div style="min-width: 250px;" class="map-popup">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                        <strong style="color: ${markerColor}; font-size: 14px;">${escapeHtml(project.board)}</strong>
+                        ${project.flagged ? '<span style="background: #fef3c7; color: #92400e; padding: 2px 6px; border-radius: 10px; font-size: 10px;">⚠️ Flagged</span>' : ''}
                     </div>
-                    <div style="margin: 8px 0;">
-                        <span style="background: ${markerColor}; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">
-                            ${escapeHtml(project.project_type)}
-                        </span>
+                    <div style="margin: 8px 0; font-weight: 600; line-height: 1.3;">${escapeHtml(project.title)}</div>
+                    <div style="color: #6c757d; margin-bottom: 8px; font-size: 12px;">
+                        📍 ${escapeHtml(project.parcel_address || project.address || 'Location not specified')}<br>
+                        🗓️ ${formatDateShort(project.meeting_date || project.date)}<br>
+                        ${project.council_district ? `🏛️ District ${project.council_district}<br>` : ''}
+                        📋 ${escapeHtml(project.status || 'Status unknown')}
                     </div>
-                    <div style="margin-top: 8px; font-size: 12px;">
-                        <strong>Status:</strong> ${getStatusCategory(project.staff_recommendation)}
-                    </div>
-                    ${project.source_pdf ? `
-                        <div style="margin-top: 8px;">
-                            <a href="${escapeHtml(project.source_pdf)}" target="_blank" style="color: #1e3a8a; text-decoration: none; font-size: 12px;">
-                                📄 View Source PDF
-                            </a>
+                    ${project.notes && project.notes.length > 0 ? `
+                        <div style="margin: 8px 0; font-size: 11px; color: #777; font-style: italic;">
+                            "${escapeHtml(project.notes[0].substring(0, 100))}${project.notes[0].length > 100 ? '...' : ''}"
                         </div>
                     ` : ''}
+                    <div style="margin-top: 8px;">
+                        <a href="${escapeHtml(project.url)}" target="_blank" style="color: ${markerColor}; text-decoration: none; font-size: 12px; font-weight: 600;">
+                            📄 View Source Document
+                        </a>
+                    </div>
+                    <div style="margin-top: 4px;">
+                        <button onclick="highlightProjectCard('${escapeHtml(project.project_id)}')" style="background: none; border: 1px solid ${markerColor}; color: ${markerColor}; padding: 4px 8px; border-radius: 4px; font-size: 11px; cursor: pointer;">
+                            📍 Find in List
+                        </button>
+                    </div>
                 </div>
             `;
 
@@ -622,6 +717,35 @@ $(document).ready(function() {
         mapMarkers = [];
     }
 
+    // Highlight project card when clicked from map
+    window.highlightProjectCard = function(projectId) {
+        // Switch to list view if not already visible
+        if (!$('#list-content').is(':visible')) {
+            $('#list-view-btn').click();
+        }
+
+        // Find and highlight the project card
+        const $card = $(`.project-card[data-project-id="${projectId}"]`);
+        if ($card.length > 0) {
+            // Remove previous highlights
+            $('.project-card').removeClass('highlighted');
+
+            // Add highlight to target card
+            $card.addClass('highlighted');
+
+            // Scroll to the card
+            $card[0].scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+
+            // Remove highlight after 3 seconds
+            setTimeout(() => {
+                $card.removeClass('highlighted');
+            }, 3000);
+        }
+    };
+
     // Get color for project type
     function getCategoryColor(category) {
         const colors = {
@@ -631,6 +755,20 @@ $(document).ready(function() {
             'infrastructure': '#7c3aed'       // Purple - Infrastructure
         };
         return colors[category] || '#1e3a8a';
+    }
+
+    function getBoardColor(board) {
+        const colors = {
+            'Planning Commission': '#1e3a8a',           // Blue
+            'City Council': '#dc2626',                  // Red
+            'Downtown Development Review Board': '#7c3aed',  // Purple
+            'Development Services': '#059669',          // Green
+            'Public Works': '#ea580c',                  // Orange
+            'Parks and Recreation': '#16a34a',          // Light Green
+            'Transportation': '#0891b2',                // Cyan
+            'Infrastructure Committee': '#7c3aed'       // Purple
+        };
+        return colors[board] || '#6b7280';  // Default gray
     }
 
     function updateSearchPlaceholder(category) {
