@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+
+# Data files - separate inputs (tracked) from runtime outputs (ignored)
+data/runtime/
+*.pdf
+
+# Runtime artifacts
+data/source_health.db
+data/health_report.json
+data/polling_config.json
+data/processed_pdfs.json
+frontend/all-projects.json
+
+# Test artifacts
+test_report.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+*.pid
+server.log
