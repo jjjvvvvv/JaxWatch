@@ -178,3 +178,20 @@ Each project includes 15+ fields:
 ---
 
 *This tracker contains real data extracted from Jacksonville Planning Commission meetings. All information comes directly from official city documents.*
+ 
+## 🚀 Deployment
+
+This project auto-deploys to Vercel via GitHub Actions.
+
+- Daily Run (6am ET): Executes the municipal observatory, aggregates data, commits `frontend/municipal-data.json`, and deploys to Vercel.
+- Manual Runs: You can trigger both `Daily Observatory Run` and `Update Data` workflows from the Actions tab.
+
+### Vercel Authentication
+To enable deploys:
+1. Generate a Vercel Personal Token: https://vercel.com/account/tokens
+2. Add it as a GitHub Actions secret: `VERCEL_TOKEN`.
+3. On the next run, GitHub Actions will build and deploy to your Vercel project.
+
+If no token is set, workflows will skip deploy and log:
+
+⚠️  Skipping Vercel deploy — VERCEL_TOKEN not configured.

@@ -136,21 +136,21 @@ jobs:
         retention-days: 30
 
     - name: Setup Node.js
-      if: ${{ secrets.VERCEL_TOKEN != '' }}
+      if: ${{ github.ref == 'refs/heads/main' && secrets.VERCEL_TOKEN != '' }}
       uses: actions/setup-node@v4
       with:
         node-version: '20'
 
     - name: Install Vercel CLI
-      if: ${{ secrets.VERCEL_TOKEN != '' }}
+      if: ${{ github.ref == 'refs/heads/main' && secrets.VERCEL_TOKEN != '' }}
       run: npm i -g vercel@latest
 
     - name: Deploy to Vercel
-      if: ${{ secrets.VERCEL_TOKEN != '' }}
+      if: ${{ github.ref == 'refs/heads/main' && secrets.VERCEL_TOKEN != '' }}
       run: vercel --prod --yes --token=${{ secrets.VERCEL_TOKEN }} frontend/
 
     - name: Skip Vercel Deploy (no token set)
-      if: ${{ secrets.VERCEL_TOKEN == '' }}
+      if: ${{ github.ref == 'refs/heads/main' && secrets.VERCEL_TOKEN == '' }}
       run: echo "⚠️  Skipping Vercel deploy — VERCEL_TOKEN not configured."
 
     - name: Commit data updates
