@@ -1,9 +1,9 @@
-name: Nightly Dry Run
+name: Daily Observatory Run
 
 on:
-  schedule:
-    - cron: '0 9 * * *'  # 09:00 UTC daily
   workflow_dispatch:
+  schedule:
+    - cron: '0 10 * * *'  # run every day at 10:00 UTC (6am Jacksonville time)
 
 jobs:
   nightly:
@@ -41,4 +41,3 @@ jobs:
             data/outputs/
             frontend/municipal-data.json
           retention-days: 14
-

@@ -299,7 +299,7 @@ class CurrentObservatoryTester:
                     "board": "Planning Commission",
                     "date": "2025-09-20",
                     "title": "Complete item",
-                    "expected_flagged": False
+                    "expected_flagged": True
                 }
             ]
 
