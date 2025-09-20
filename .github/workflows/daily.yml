@@ -3,7 +3,12 @@ name: Daily Observatory Run
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 10 * * *'  # run every day at 10:00 UTC (6am Jacksonville time)
+    - cron: '0 6 * * *'
+      timezone: 'America/New_York'  # lock to 6am Jacksonville time
+
+concurrency:
+  group: daily
+  cancel-in-progress: false
 
 jobs:
   nightly:
@@ -21,7 +26,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pydantic PyYAML requests google-cloud-firestore
+          pip install pydantic PyYAML requests google-cloud-firestore pytest
+
+      - name: Run validation tests
+        run: |
+          pytest -v test_current_observatory.py
 
       - name: Run Observatory (local write)
         env:
