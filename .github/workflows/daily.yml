@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '0 6 * * *'
-      timezone: 'America/New_York'  # lock to 6am Jacksonville time
 
 concurrency:
   group: daily
