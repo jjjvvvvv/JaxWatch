@@ -52,19 +52,19 @@ jobs:
           retention-days: 14
 
       - name: Setup Node.js
-        if: ${{ github.ref == 'refs/heads/main' && secrets.JAX_OBSRV != '' }}
+        if: ${{ github.ref == 'refs/heads/main' && secrets.JAX_OBSRV }}
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
       - name: Install Vercel CLI
-        if: ${{ github.ref == 'refs/heads/main' && secrets.JAX_OBSRV != '' }}
+        if: ${{ github.ref == 'refs/heads/main' && secrets.JAX_OBSRV }}
         run: npm i -g vercel@latest
 
       - name: Deploy to Vercel
-        if: ${{ github.ref == 'refs/heads/main' && secrets.JAX_OBSRV != '' }}
+        if: ${{ github.ref == 'refs/heads/main' && secrets.JAX_OBSRV }}
         run: vercel --prod --yes --token=${{ secrets.JAX_OBSRV }} frontend/
 
       - name: Skip Vercel Deploy (no token set)
-        if: ${{ github.ref == 'refs/heads/main' && secrets.JAX_OBSRV == '' }}
+        if: ${{ github.ref == 'refs/heads/main' && !secrets.JAX_OBSRV }}
         run: echo "⚠️  Skipping Vercel deploy — VERCEL_TOKEN not configured."
