@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details - Jacksonville Planning Commission Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-nav">
+                <a href="index.html" class="back-link">← Back to All Projects</a>
+                <h1>Project Details</h1>
+            </div>
+        </header>
+
+        <div id="loading" class="loading">Loading project details...</div>
+
+        <div id="project-not-found" class="no-results" style="display: none;">
+            <p>Project not found.</p>
+            <a href="index.html" class="back-link">← Back to All Projects</a>
+        </div>
+
+        <div id="project-detail-content" class="project-detail-page" style="display: none;">
+            <div class="detail-header">
+                <div class="detail-header-main">
+                    <h2 id="detail-title" class="detail-project-title"></h2>
+                    <div id="detail-id" class="detail-project-id"></div>
+                    <div id="detail-type" class="detail-project-type"></div>
+                </div>
+                <div id="detail-meeting-date" class="detail-meeting-date"></div>
+            </div>
+
+            <div class="detail-body">
+                <div class="detail-left">
+                    <div class="detail-section">
+                        <h3>Location & Status</h3>
+                        <div id="detail-location" class="detail-location"></div>
+                        <div id="detail-status" class="detail-status"></div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>Project Information</h3>
+                        <div class="detail-grid">
+                            <div class="detail-row">
+                                <span class="detail-label">Request:</span>
+                                <span id="detail-request" class="detail-value"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Council District:</span>
+                                <span id="detail-council-district" class="detail-value"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Planning District:</span>
+                                <span id="detail-planning-district" class="detail-value"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Owners:</span>
+                                <span id="detail-owners" class="detail-value"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Agent:</span>
+                                <span id="detail-agent" class="detail-value"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Staff Recommendation:</span>
+                                <span id="detail-staff-recommendation" class="detail-value"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Signs Posted:</span>
+                                <span id="detail-signs-posted" class="detail-value"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-section">
+                        <h3>Source & Documentation</h3>
+                        <div class="detail-grid">
+                            <div class="detail-row">
+                                <span class="detail-label">Source PDF:</span>
+                                <span id="detail-source-pdf" class="detail-value"></span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">Extracted:</span>
+                                <span id="detail-extracted-at" class="detail-value"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="detail-tags-section" class="detail-section">
+                        <h3>Tags</h3>
+                        <div id="detail-tags" class="detail-tags"></div>
+                    </div>
+                </div>
+
+                <div class="detail-right">
+                    <div id="detail-map-section" class="detail-section">
+                        <h3>Location Map</h3>
+                        <div id="detail-map" class="detail-map"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-actions">
+                <a href="index.html" class="btn btn-secondary">← Back to All Projects</a>
+                <button id="view-on-main-map" class="btn btn-primary">View on Main Map</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="project-detail.js"></script>
+</body>
+</html>
