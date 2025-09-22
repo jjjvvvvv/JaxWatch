@@ -10,7 +10,6 @@ from bs4 import BeautifulSoup
 import re
 from datetime import datetime, timedelta
 from typing import List, Dict, Any
-import time
 
 from ..common.retry_utils import WEB_SCRAPING_RETRY, HttpRetrySession, ErrorContext
 
@@ -101,7 +100,7 @@ def _parse_ddrb_page(response: requests.Response, url: str) -> List[Dict[str, An
                     else:
                         date_obj = datetime.strptime(date_str, '%m-%d-%Y')
                 formatted_date = date_obj.strftime('%Y-%m-%d')
-            except:
+            except (ValueError, AttributeError):
                 formatted_date = datetime.now().strftime('%Y-%m-%d')
         else:
             # Default to current month for DDRB (they meet monthly)
@@ -172,10 +171,8 @@ def _search_ddrb_documents(session: HttpRetrySession) -> List[Dict[str, Any]]:
         search_url = "https://www.jacksonville.gov/departments/planning-and-development/"
 
         response = session.get(search_url)
-        soup = BeautifulSoup(response.content, 'html.parser')
 
         # Look for any mention of DDRB or Downtown Development Review Board
-        ddrb_mentions = soup.find_all(text=re.compile(r'(ddrb|downtown development review)', re.I))
 
         # Remove unprofessional placeholder - if DDRB mentions found but no real agendas, return empty
 

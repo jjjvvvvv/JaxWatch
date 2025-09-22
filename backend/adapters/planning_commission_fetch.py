@@ -5,12 +5,10 @@ Single-purpose: fetch and parse agenda items, return standardized dicts
 """
 
 import logging
-import requests
 from bs4 import BeautifulSoup
 import re
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import List, Dict, Any
-import time
 
 from ..common.retry_utils import WEB_SCRAPING_RETRY, HttpRetrySession, ErrorContext
 
@@ -56,7 +54,7 @@ def fetch() -> List[Dict[str, Any]]:
                     else:
                         date_obj = datetime.strptime(date_str, '%m-%d-%y')
                     formatted_date = date_obj.strftime('%Y-%m-%d')
-                except:
+                except (ValueError, AttributeError):
                     formatted_date = datetime.now().strftime('%Y-%m-%d')
             else:
                 formatted_date = datetime.now().strftime('%Y-%m-%d')

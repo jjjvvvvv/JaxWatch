@@ -8,11 +8,11 @@ development applications, and related sources.
 
 import asyncio
 import aiohttp
-import logging
 from datetime import datetime, timedelta
-from typing import List, Dict, Any, Optional
-from pathlib import Path
-import json
+from typing import List, Dict, Any, Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from ..core.municipal_observatory import MunicipalObservatory
 import re
 
 from ..core.municipal_schema import CivicProject, DataSource, ProjectLayer, ProcessStage, DecisionAuthority
@@ -160,8 +160,7 @@ class PrivateDevelopmentAdapter(DataSourceAdapter):
             project_date = None
             if permit_date:
                 try:
-                    project_date = datetime.fromisoformat(permit_date)
-                except:
+                except ValueError:
                     pass
 
             # Determine stage based on permit type and status

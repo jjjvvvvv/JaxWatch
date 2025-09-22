@@ -201,13 +201,22 @@ def alert_pipeline_failure(source: str, error: str, **kwargs):
 def alert_rare_document(source: str, document_type: str, link: str = None, **kwargs):
     """Alert for rare or important document detection"""
     alerter = get_alerter()
+
+    # Merge metadata from kwargs with default metadata
+    default_metadata = {"document_type": document_type}
+    if "metadata" in kwargs:
+        # Merge with provided metadata, giving precedence to provided values
+        metadata = {**default_metadata, **kwargs.pop("metadata")}
+    else:
+        metadata = default_metadata
+
     return alerter.send_alert(
         level=AlertLevel.INFO,
         alert_type=AlertType.RARE_DOCUMENT,
         message=f"Rare document detected: {document_type} in {source}",
         board=source,
         link=link,
-        metadata={"document_type": document_type},
+        metadata=metadata,
         **kwargs
     )
 

@@ -5,12 +5,10 @@ Single-purpose: fetch City Council agenda items, return standardized dicts
 """
 
 import logging
-import requests
 from bs4 import BeautifulSoup
 import re
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import List, Dict, Any
-import time
 
 from ..common.retry_utils import WEB_SCRAPING_RETRY, HttpRetrySession, ErrorContext
 
@@ -39,13 +37,11 @@ def fetch() -> List[Dict[str, Any]]:
 
         agenda_items = []
         soup = None
-        working_url = None
 
         for url in potential_urls:
             try:
                 response = session.get(url)
                 soup = BeautifulSoup(response.content, 'html.parser')
-                working_url = url
                 logger.info(f"Successfully connected to {url}")
                 break  # Success, use this URL
             except Exception as e:
@@ -103,7 +99,7 @@ def fetch() -> List[Dict[str, Any]]:
                         else:
                             date_obj = datetime.strptime(date_str, '%m-%d-%Y')
                     formatted_date = date_obj.strftime('%Y-%m-%d')
-                except:
+                except (ValueError, AttributeError):
                     formatted_date = datetime.now().strftime('%Y-%m-%d')
             else:
                 # Try to extract year from context
@@ -202,7 +198,7 @@ def _fetch_from_legistar(session: HttpRetrySession) -> List[Dict[str, Any]]:
                     try:
                         date_obj = datetime.strptime(date_cell, '%m/%d/%Y')
                         formatted_date = date_obj.strftime('%Y-%m-%d')
-                    except:
+                    except (ValueError, AttributeError):
                         formatted_date = datetime.now().strftime('%Y-%m-%d')
 
                     # Skip JavaScript and invalid URLs

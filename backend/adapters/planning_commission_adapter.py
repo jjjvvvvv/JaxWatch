@@ -7,7 +7,7 @@ Integrates existing Planning Commission scraper with new observatory architectur
 import asyncio
 import json
 import subprocess
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any
 
@@ -315,7 +315,7 @@ class PlanningCommissionAdapter(DataSourceAdapter):
 if __name__ == "__main__":
     # Test the adapter
     import asyncio
-    from municipal_observatory import DataSourceConfig, MunicipalObservatory
+    from municipal_observatory import DataSourceConfig
 
     async def test_adapter():
         config = DataSourceConfig(

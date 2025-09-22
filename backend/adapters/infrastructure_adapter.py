@@ -8,11 +8,11 @@ dashboard and other public works sources.
 
 import asyncio
 import aiohttp
-import logging
 from datetime import datetime, timedelta
-from typing import List, Dict, Any, Optional
-from pathlib import Path
-import json
+from typing import List, Dict, Any, Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from ..core.municipal_observatory import MunicipalObservatory
 import re
 
 from ..core.municipal_schema import CivicProject, DataSource, ProjectLayer, ProcessStage, DecisionAuthority
@@ -291,15 +291,9 @@ class InfrastructureAdapter(DataSourceAdapter):
 
         try:
             # Basic HTML parsing - would need to be refined based on actual structure
-            # Look for project patterns in the HTML
-            project_patterns = [
-                r'(?i)project[:\s]+([^<\n]+)',
-                r'(?i)location[:\s]+([^<\n]+)',
-                r'(?i)estimated completion[:\s]+([^<\n]+)'
-            ]
-
             # This is a simplified parser - real implementation would use BeautifulSoup
             # or similar for proper HTML parsing
+            pass
 
         except Exception as e:
             self.logger.error(f"Error parsing construction HTML: {e}")
@@ -313,7 +307,7 @@ def create_infrastructure_adapter(config: DataSourceConfig, observatory) -> Infr
 
 async def main():
     """Test the infrastructure adapter"""
-    from municipal_observatory import MunicipalObservatory, DataSourceConfig
+    from municipal_observatory import DataSourceConfig
 
     # Create test configuration
     config = DataSourceConfig(

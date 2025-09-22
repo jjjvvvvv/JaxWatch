@@ -6,8 +6,7 @@ Single-purpose: fetch infrastructure projects, return standardized dicts
 
 import logging
 import requests
-import json
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import List, Dict, Any
 
 logger = logging.getLogger(__name__)
@@ -44,7 +43,7 @@ def fetch() -> List[Dict[str, Any]]:
                     logger.info(f"Found data at {endpoint}")
                     infrastructure_items.extend(parse_infrastructure_data(data))
                     break
-            except:
+            except Exception:
                 continue
 
         # If no API data found, try scraping the main infrastructure pages
