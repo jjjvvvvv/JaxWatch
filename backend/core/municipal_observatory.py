@@ -13,7 +13,7 @@ import json
 import time
 
 from .agenda_schema import AgendaItem, NoticeItem, validate_agenda_item, validate_notice_item
-from ..common.alerts import alert_validation_failure, alert_pipeline_failure, alert_system_health
+from ..common.alerts import alert_validation_failure, alert_pipeline_failure, alert_system_health, alert_rare_document, AlertLevel, AlertType, get_alerter
 from ..common.geocode_client import geocode_address
 from ..common.retry_utils import safe_execute, ErrorContext
 from urllib.parse import urlparse
@@ -100,6 +100,7 @@ def write_to_firestore(validated_items: List[Dict[str, Any]], source_id: str):
 
 def run_observatory():
     """Main orchestrator function - reads config and runs all enabled sources"""
+    start_time = time.time()
     logger.info("🏛️ Starting JaxWatch Municipal Observatory")
 
     sources, config = load_sources()
@@ -166,12 +167,29 @@ def run_observatory():
                 # Check if item was flagged during validation
                 if validated_item.flagged:
                     flagged_count += 1
+
+                    # Alert for validation errors
                     if hasattr(validated_item, 'validation_error'):
                         alert_validation_failure(
                             source=source_name,
                             project_id=getattr(validated_item, 'item_number', 'unknown'),
                             error=validated_item.validation_error
                         )
+
+                    # Alert for flagged projects (important civic information)
+                    alert_rare_document(
+                        source=source_name,
+                        document_type="Flagged Municipal Project",
+                        link=validated_item.url if hasattr(validated_item, 'url') and validated_item.url else None,
+                        date=validated_item.date if hasattr(validated_item, 'date') else None,
+                        metadata={
+                            "title": getattr(validated_item, 'title', 'Unknown'),
+                            "board": getattr(validated_item, 'board', source_name),
+                            "item_number": getattr(validated_item, 'item_number', None),
+                            "address": getattr(validated_item, 'parcel_address', None),
+                            "council_district": getattr(validated_item, 'council_district', None)
+                        }
+                    )
 
                 validated_items.append(validated_item.dict())
 
@@ -184,6 +202,35 @@ def run_observatory():
             total_flagged += flagged_count
 
     logger.info(f"🏁 Observatory run complete: {total_processed} items processed, {total_flagged} flagged")
+
+    # Send success summary to Slack
+    alerter = get_alerter()
+    if total_processed > 0:
+        # Success notification with summary
+        summary_msg = f"Municipal Observatory completed successfully: {total_processed} items processed"
+        if total_flagged > 0:
+            summary_msg += f", {total_flagged} flagged for attention"
+
+        alerter.send_alert(
+            level=AlertLevel.INFO,
+            alert_type=AlertType.SYSTEM_HEALTH,
+            message=summary_msg,
+            metadata={
+                "total_processed": total_processed,
+                "total_flagged": total_flagged,
+                "run_duration": f"{time.time() - start_time:.1f}s",
+                "sources_processed": len([s for s in sources if s.get('enabled', False)])
+            }
+        )
+    else:
+        # Warning if no data was processed
+        alerter.send_alert(
+            level=AlertLevel.WARNING,
+            alert_type=AlertType.SYSTEM_HEALTH,
+            message="Municipal Observatory completed but no data was processed",
+            metadata={"sources_checked": len([s for s in sources if s.get('enabled', False)])}
+        )
+
     return {
         "total_processed": total_processed,
         "total_flagged": total_flagged,
