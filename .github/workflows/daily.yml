@@ -1,7 +1,7 @@
 name: Daily Observatory Run
 
-on:
-  workflow_dispatch:
+"on":
+  workflow_dispatch: {}
   schedule:
     - cron: '0 6 * * *'
 
