@@ -3,14 +3,15 @@ $(document).ready(function() {
     let filteredProjects = [];
     let map = null;
     let mapMarkers = [];
+    let activeCategory = 'all';  // Move activeCategory declaration to top
 
     // Load and initialize data
     loadProjectData();
 
-    // Initialize UI elements
-    setActiveCategory('all');  // Ensure proper tab state initialization
-    updateSearchPlaceholder('all');
-    updateMapLegend('all');
+    // Initialize UI elements after data loads - moved to loadProjectData function
+    // setActiveCategory('all');  // Will be called after data loads
+    // updateSearchPlaceholder('all');
+    // updateMapLegend('all');
 
     // Event listeners
     $('#search').on('input', filterProjects);
@@ -151,6 +152,11 @@ $(document).ready(function() {
                 // Populate filter options
                 populateFilters();
 
+                // Initialize UI elements now that data is loaded
+                setActiveCategory('all');
+                updateSearchPlaceholder('all');
+                updateMapLegend('all');
+
                 // Initialize filtering (this sets up filteredProjects properly)
                 filterProjects();
 
@@ -165,6 +171,10 @@ $(document).ready(function() {
                     .done(function(data) {
                         allProjects = Array.isArray(data) ? data : (data.projects || []);
                         populateFilters();
+                        // Initialize UI elements now that data is loaded
+                        setActiveCategory('all');
+                        updateSearchPlaceholder('all');
+                        updateMapLegend('all');
                         filterProjects();
                         displayProjects();
                         updateStats(data);
@@ -215,17 +225,15 @@ $(document).ready(function() {
         // Status options (based on staff recommendations)
         const statuses = [...new Set(allProjects.map(p => {
             const rec = p.staff_recommendation;
-            if (rec.includes('APPROVE')) return 'Approve';
-            if (rec.includes('DEFER')) return 'Defer';
-            if (rec.includes('DENY')) return 'Deny';
+            if (rec && rec.includes('APPROVE')) return 'Approve';
+            if (rec && rec.includes('DEFER')) return 'Defer';
+            if (rec && rec.includes('DENY')) return 'Deny';
             return 'Other';
         }))].sort();
         statuses.forEach(status => {
             $('#status-filter').append(new Option(status, status));
         });
     }
-
-    let activeCategory = 'all';
 
     function setActiveCategory(category) {
         activeCategory = category;
