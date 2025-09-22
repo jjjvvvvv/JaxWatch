@@ -1,216 +1,216 @@
 {
   "summary": {
     "total_tests": 34,
-    "passed": 31,
-    "failed": 3,
-    "success_rate": 91.17647058823529
+    "passed": 34,
+    "failed": 0,
+    "success_rate": 100.0
   },
   "test_results": [
     {
       "test": "Sources Configuration Loading",
       "passed": true,
       "details": "Loaded 7 sources from sources.yaml",
-      "timestamp": "2025-09-20T15:57:57.317085"
+      "timestamp": "2025-09-22T12:06:26.245065"
     },
     {
       "test": "Required Source: city_council",
       "passed": true,
       "details": "Found city_council in configuration",
-      "timestamp": "2025-09-20T15:57:57.317101"
+      "timestamp": "2025-09-22T12:06:26.245073"
     },
     {
       "test": "Required Source: ddrb",
       "passed": true,
       "details": "Found ddrb in configuration",
-      "timestamp": "2025-09-20T15:57:57.317105"
+      "timestamp": "2025-09-22T12:06:26.245075"
     },
     {
       "test": "Required Source: planning_commission",
       "passed": true,
       "details": "Found planning_commission in configuration",
-      "timestamp": "2025-09-20T15:57:57.317107"
+      "timestamp": "2025-09-22T12:06:26.245076"
     },
     {
       "test": "Required Source: infrastructure_committee",
       "passed": true,
       "details": "Found infrastructure_committee in configuration",
-      "timestamp": "2025-09-20T15:57:57.317110"
+      "timestamp": "2025-09-22T12:06:26.245077"
     },
     {
       "test": "Enabled Sources",
       "passed": true,
       "details": "6 sources enabled",
-      "timestamp": "2025-09-20T15:57:57.317114"
+      "timestamp": "2025-09-22T12:06:26.245079"
     },
     {
       "test": "Schema Validation - Valid Item",
       "passed": true,
       "details": "Validated item: Test agenda item",
-      "timestamp": "2025-09-20T15:57:57.317198"
+      "timestamp": "2025-09-22T12:06:26.245822"
     },
     {
       "test": "Schema Validation - Flagged Item",
-      "passed": false,
+      "passed": true,
       "details": "Item correctly flagged for missing fields",
-      "timestamp": "2025-09-20T15:57:57.317207"
+      "timestamp": "2025-09-22T12:06:26.245828"
     },
     {
       "test": "Schema Validation - Notice Item",
       "passed": true,
       "details": "Validated notice: Development notice",
-      "timestamp": "2025-09-20T15:57:57.317219"
+      "timestamp": "2025-09-22T12:06:26.245836"
     },
     {
       "test": "Adapter Import: planning_commission_adapter",
       "passed": true,
       "details": "Successfully imported planning_commission_adapter",
-      "timestamp": "2025-09-20T15:57:57.317400"
+      "timestamp": "2025-09-22T12:06:26.245839"
     },
     {
       "test": "Adapter Import: infrastructure_adapter",
       "passed": true,
       "details": "Successfully imported infrastructure_adapter",
-      "timestamp": "2025-09-20T15:57:57.317555"
+      "timestamp": "2025-09-22T12:06:26.245840"
     },
     {
       "test": "Adapter Import: private_development_adapter",
       "passed": true,
       "details": "Successfully imported private_development_adapter",
-      "timestamp": "2025-09-20T15:57:57.317685"
+      "timestamp": "2025-09-22T12:06:26.245842"
     },
     {
       "test": "Adapter Import: public_projects_adapter",
       "passed": true,
       "details": "Successfully imported public_projects_adapter",
-      "timestamp": "2025-09-20T15:57:57.317818"
+      "timestamp": "2025-09-22T12:06:26.245843"
     },
     {
       "test": "Adapter Import: city_council_adapter",
       "passed": true,
       "details": "Successfully imported city_council_adapter",
-      "timestamp": "2025-09-20T15:57:57.317824"
+      "timestamp": "2025-09-22T12:06:26.245844"
     },
     {
       "test": "Adapter Import: ddrb_adapter",
       "passed": true,
       "details": "Successfully imported ddrb_adapter",
-      "timestamp": "2025-09-20T15:57:57.317828"
+      "timestamp": "2025-09-22T12:06:26.245845"
     },
     {
       "test": "City Council Fetch",
       "passed": true,
-      "details": "Fetched 19 items from City Council",
-      "timestamp": "2025-09-20T15:57:59.638936"
+      "details": "Fetched 16 items from City Council",
+      "timestamp": "2025-09-22T12:06:29.041834"
     },
     {
       "test": "City Council Item - board",
       "passed": true,
       "details": "Field 'board' present in item",
-      "timestamp": "2025-09-20T15:57:59.638943"
+      "timestamp": "2025-09-22T12:06:29.041839"
     },
     {
       "test": "City Council Item - date",
       "passed": true,
       "details": "Field 'date' present in item",
-      "timestamp": "2025-09-20T15:57:59.638946"
+      "timestamp": "2025-09-22T12:06:29.041840"
     },
     {
       "test": "City Council Item - title",
       "passed": true,
       "details": "Field 'title' present in item",
-      "timestamp": "2025-09-20T15:57:59.638949"
+      "timestamp": "2025-09-22T12:06:29.041842"
     },
     {
       "test": "City Council Item - url",
       "passed": true,
       "details": "Field 'url' present in item",
-      "timestamp": "2025-09-20T15:57:59.638951"
+      "timestamp": "2025-09-22T12:06:29.041843"
     },
     {
       "test": "City Council Schema Validation",
       "passed": true,
-      "details": "Item validates as: City Council Meeting - Meeting Date...",
-      "timestamp": "2025-09-20T15:57:59.638991"
+      "details": "Item validates as: City Council Meeting - Meeting\u00a0details...",
+      "timestamp": "2025-09-22T12:06:29.042820"
     },
     {
       "test": "DDRB Fetch",
       "passed": true,
       "details": "Fetched 1 items from DDRB",
-      "timestamp": "2025-09-20T15:58:04.363922"
+      "timestamp": "2025-09-22T12:06:32.715581"
     },
     {
       "test": "DDRB Item Structure",
       "passed": true,
       "details": "Board: Downtown Development Review Board",
-      "timestamp": "2025-09-20T15:58:04.363939"
+      "timestamp": "2025-09-22T12:06:32.715589"
     },
     {
       "test": "DDRB Schema Validation",
       "passed": true,
       "details": "Item validates: True",
-      "timestamp": "2025-09-20T15:58:04.364010"
+      "timestamp": "2025-09-22T12:06:32.715653"
     },
     {
       "test": "Data Aggregation",
       "passed": true,
-      "details": "Aggregated 27 total items",
-      "timestamp": "2025-09-20T15:58:04.368869"
+      "details": "Aggregated 23 total items",
+      "timestamp": "2025-09-22T12:06:32.721062"
     },
     {
       "test": "Aggregation Output File",
       "passed": true,
       "details": "Created output file: frontend/municipal-data.json",
-      "timestamp": "2025-09-20T15:58:04.368895"
+      "timestamp": "2025-09-22T12:06:32.721092"
     },
     {
       "test": "Aggregation Structure - timestamp",
       "passed": true,
       "details": "Field 'timestamp' present in output",
-      "timestamp": "2025-09-20T15:58:04.369067"
+      "timestamp": "2025-09-22T12:06:32.721256"
     },
     {
       "test": "Aggregation Structure - total_items",
       "passed": true,
       "details": "Field 'total_items' present in output",
-      "timestamp": "2025-09-20T15:58:04.369071"
+      "timestamp": "2025-09-22T12:06:32.721260"
     },
     {
       "test": "Aggregation Structure - sources",
       "passed": true,
       "details": "Field 'sources' present in output",
-      "timestamp": "2025-09-20T15:58:04.369074"
+      "timestamp": "2025-09-22T12:06:32.721262"
     },
     {
       "test": "Aggregation Structure - projects",
       "passed": true,
       "details": "Field 'projects' present in output",
-      "timestamp": "2025-09-20T15:58:04.369076"
+      "timestamp": "2025-09-22T12:06:32.721264"
     },
     {
       "test": "Aggregation Structure - summary",
       "passed": true,
       "details": "Field 'summary' present in output",
-      "timestamp": "2025-09-20T15:58:04.369078"
+      "timestamp": "2025-09-22T12:06:32.721267"
     },
     {
       "test": "Flagged Item Test 1",
-      "passed": false,
-      "details": "Expected flagged=True, got flagged=False",
-      "timestamp": "2025-09-20T15:58:04.369117"
+      "passed": true,
+      "details": "Expected flagged=True, got flagged=True",
+      "timestamp": "2025-09-22T12:06:32.721313"
     },
     {
       "test": "Flagged Item Test 2",
-      "passed": false,
-      "details": "Expected flagged=True, got flagged=False",
-      "timestamp": "2025-09-20T15:58:04.369125"
+      "passed": true,
+      "details": "Expected flagged=True, got flagged=True",
+      "timestamp": "2025-09-22T12:06:32.721321"
     },
     {
       "test": "Flagged Item Test 3",
       "passed": true,
-      "details": "Expected flagged=False, got flagged=False",
-      "timestamp": "2025-09-20T15:58:04.369131"
+      "details": "Expected flagged=True, got flagged=True",
+      "timestamp": "2025-09-22T12:06:32.721328"
     }
   ],
   "errors": [],
-  "generated_at": "2025-09-20T15:58:04.369265"
+  "generated_at": "2025-09-22T12:06:32.721694"
 }
