@@ -19,7 +19,17 @@
             </nav>
         </header>
 
-        <div class="admin-form-container">
+        <!-- Admin Navigation -->
+        <div class="admin-nav">
+            <button id="nav-add-project" class="nav-btn active">Add Project</button>
+            <button id="nav-manage-projects" class="nav-btn">Manage Projects</button>
+            <button id="nav-system-health" class="nav-btn">System Health</button>
+            <button id="logout-btn" class="nav-btn logout">Logout</button>
+        </div>
+
+        <!-- Add Project Section -->
+        <div id="add-project-section" class="admin-section">
+            <h2>Add New Project</h2>
             <form id="project-form" class="project-form">
                 <div class="form-section">
                     <h3>Basic Information</h3>
@@ -167,6 +177,39 @@
                 <p>Project saved successfully!</p>
             </div>
         </div>
+
+        <!-- Manage Projects Section -->
+        <div id="manage-projects-section" class="admin-section" style="display: none;">
+            <h2>Manage Projects</h2>
+
+            <div class="project-filters">
+                <input type="text" id="project-search" placeholder="Search projects..." class="search-input">
+                <select id="project-filter-source" class="filter-select">
+                    <option value="">All Sources</option>
+                    <option value="planning_commission">Planning Commission</option>
+                    <option value="city_council">City Council</option>
+                    <option value="manual">Manual Entry</option>
+                </select>
+                <select id="project-filter-flagged" class="filter-select">
+                    <option value="">All Projects</option>
+                    <option value="true">Flagged Only</option>
+                    <option value="false">Not Flagged</option>
+                </select>
+            </div>
+
+            <div id="projects-list" class="projects-list">
+                <div class="loading">Loading projects...</div>
+            </div>
+        </div>
+
+        <!-- System Health Section -->
+        <div id="system-health-section" class="admin-section" style="display: none;">
+            <h2>System Health</h2>
+            <div id="health-report" class="health-report">
+                <div class="loading">Loading health report...</div>
+            </div>
+        </div>
+
     </div>
 
     <script src="admin.js"></script>

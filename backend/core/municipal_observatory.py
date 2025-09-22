@@ -176,20 +176,20 @@ def run_observatory():
                             error=validated_item.validation_error
                         )
 
-                    # Alert for flagged projects (important civic information)
-                    alert_rare_document(
-                        source=source_name,
-                        document_type="Flagged Municipal Project",
-                        link=validated_item.url if hasattr(validated_item, 'url') and validated_item.url else None,
-                        date=validated_item.date if hasattr(validated_item, 'date') else None,
-                        metadata={
-                            "title": getattr(validated_item, 'title', 'Unknown'),
-                            "board": getattr(validated_item, 'board', source_name),
-                            "item_number": getattr(validated_item, 'item_number', None),
-                            "address": getattr(validated_item, 'parcel_address', None),
-                            "council_district": getattr(validated_item, 'council_district', None)
-                        }
-                    )
+                    # Individual flagged item alerts disabled for MVP - only daily summary sent
+                    # alert_rare_document(
+                    #     source=source_name,
+                    #     document_type="Flagged Municipal Project",
+                    #     link=validated_item.url if hasattr(validated_item, 'url') and validated_item.url else None,
+                    #     date=validated_item.date if hasattr(validated_item, 'date') else None,
+                    #     metadata={
+                    #         "title": getattr(validated_item, 'title', 'Unknown'),
+                    #         "board": getattr(validated_item, 'board', source_name),
+                    #         "item_number": getattr(validated_item, 'item_number', None),
+                    #         "address": getattr(validated_item, 'parcel_address', None),
+                    #         "council_district": getattr(validated_item, 'council_district', None)
+                    #     }
+                    # )
 
                 validated_items.append(validated_item.dict())
 

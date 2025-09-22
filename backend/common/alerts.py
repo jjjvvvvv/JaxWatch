@@ -99,14 +99,7 @@ class SlackAlerter:
             AlertLevel.CRITICAL: "#9c27b0"   # Purple
         }
 
-        # Emoji for alert types
-        emojis = {
-            AlertType.VALIDATION_FAILURE: "⚠️",
-            AlertType.PIPELINE_FAILURE: "🚨",
-            AlertType.RARE_DOCUMENT: "📋",
-            AlertType.SYSTEM_HEALTH: "💊",
-            AlertType.DATA_QUALITY: "🔍"
-        }
+        # Clean professional alerts without emojis
 
         level = AlertLevel(alert_data["level"])
         alert_type = AlertType(alert_data["type"])
@@ -146,7 +139,7 @@ class SlackAlerter:
 
         attachment = {
             "color": colors.get(level, "#cccccc"),
-            "title": f"{emojis.get(alert_type, '📢')} {alert_type.value.replace('_', ' ').title()}",
+            "title": f"{alert_type.value.replace('_', ' ').title()}",
             "text": alert_data["message"],
             "fields": fields,
             "footer": "JaxWatch Municipal Observatory",
