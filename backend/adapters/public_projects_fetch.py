@@ -5,7 +5,6 @@ Single-purpose: fetch public project data, return standardized dicts
 """
 
 import logging
-from datetime import datetime
 from typing import List, Dict, Any
 
 logger = logging.getLogger(__name__)

@@ -7,13 +7,11 @@ and other city-sponsored projects.
 """
 
 import asyncio
-import aiohttp
-import logging
 from datetime import datetime, timedelta
-from typing import List, Dict, Any, Optional
-from pathlib import Path
-import json
-import re
+from typing import List, Dict, Any, Optional, TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from ..core.municipal_observatory import MunicipalObservatory
 
 from ..core.municipal_schema import CivicProject, DataSource, ProjectLayer, ProcessStage, DecisionAuthority
 from ..core.municipal_observatory import DataSourceAdapter, DataSourceConfig

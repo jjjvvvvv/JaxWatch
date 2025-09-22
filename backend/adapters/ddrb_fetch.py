@@ -170,7 +170,6 @@ def _search_ddrb_documents(session: HttpRetrySession) -> List[Dict[str, Any]]:
         # Try Jacksonville's general search for DDRB documents
         search_url = "https://www.jacksonville.gov/departments/planning-and-development/"
 
-        response = session.get(search_url)
 
         # Look for any mention of DDRB or Downtown Development Review Board
 

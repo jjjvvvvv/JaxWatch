@@ -160,6 +160,7 @@ class PrivateDevelopmentAdapter(DataSourceAdapter):
             project_date = None
             if permit_date:
                 try:
+                    datetime.fromisoformat(permit_date)
                 except ValueError:
                     pass
 
