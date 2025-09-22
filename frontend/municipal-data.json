@@ -1,31 +1,31 @@
 {
-  "timestamp": "2025-09-20T16:58:49.245972",
+  "timestamp": "2025-09-22T13:47:20.830589",
   "total_items": 23,
   "sources": {
     "infrastructure_committee": {
       "total_items": 1,
-      "timestamp": "2025-09-20T16:58:37.219688",
-      "file": "infrastructure_committee_20250920_165837.json"
+      "timestamp": "2025-09-22T13:21:34.165482",
+      "file": "infrastructure_committee_20250922_132134.json"
     },
     "private_development": {
       "total_items": 2,
-      "timestamp": "2025-09-20T16:58:37.221654",
-      "file": "private_development_20250920_165837.json"
+      "timestamp": "2025-09-22T13:21:34.167123",
+      "file": "private_development_20250922_132134.json"
     },
     "public_projects": {
       "total_items": 3,
-      "timestamp": "2025-09-20T16:58:38.372224",
-      "file": "public_projects_20250920_165838.json"
+      "timestamp": "2025-09-22T13:21:35.174334",
+      "file": "public_projects_20250922_132135.json"
     },
     "city_council": {
       "total_items": 16,
-      "timestamp": "2025-09-20T16:58:40.664579",
-      "file": "city_council_20250920_165840.json"
+      "timestamp": "2025-09-22T13:21:37.369705",
+      "file": "city_council_20250922_132137.json"
     },
     "ddrb": {
       "total_items": 1,
-      "timestamp": "2025-09-20T16:58:43.840737",
-      "file": "ddrb_20250920_165843.json"
+      "timestamp": "2025-09-22T13:21:40.668440",
+      "file": "ddrb_20250922_132140.json"
     }
   },
   "projects": [
@@ -34,26 +34,29 @@
       "date": "2025-10-09",
       "title": "Fallback: DDRB data collection in progress",
       "url": "https://www.jacksonville.gov/departments/planning-and-development/downtown-development-review-board.aspx",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Real DDRB data collection being developed",
         "DDRB typically meets monthly on 2nd Thursday",
         "Reviews downtown development projects"
       ],
-      "item_number": "DDRB-FALLBACK-20250920",
+      "item_number": "DDRB-FALLBACK-20250922",
       "parcel_address": "214 North Hogan Street, Jacksonville, FL 32202",
       "parcel_lat": 30.3369,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Data Collection Development",
-      "extracted_at": "2025-09-20 16:58:43.840585",
-      "source_id": "ddrb"
+      "extracted_at": "2025-09-22 13:21:40.668257",
+      "source_id": "ddrb",
+      "last_updated": "2025-09-22T13:21:40.668219"
     },
     {
       "board": "Transportation",
       "date": "2025-09-25",
       "title": "Beach Boulevard Intersection Improvement",
       "url": "https://www.jacksonville.gov/departments/public-works/",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Traffic signal upgrades",
         "Pedestrian crossing improvements",
@@ -66,8 +69,9 @@
       "council_district": "4",
       "flagged": false,
       "status": "Planning",
-      "extracted_at": "2025-09-20 16:58:38.371725",
-      "source_id": "public_projects"
+      "extracted_at": "2025-09-22 13:21:35.173927",
+      "source_id": "public_projects",
+      "last_updated": "2025-09-22T13:21:34.168031"
     },
     {
       "board": "Development Services",
@@ -81,7 +85,7 @@
       "parcel_lat": 30.4738,
       "parcel_lon": -81.4321,
       "flagged": false,
-      "extracted_at": "2025-09-20 16:58:37.221422",
+      "extracted_at": "2025-09-22 13:21:34.166860",
       "source_id": "private_development",
       "notes": [
         "45-lot subdivision",
@@ -91,7 +95,9 @@
       "item_number": "DEV-2025-0892",
       "parcel_address": "10000 Block Heckscher Drive, Jacksonville, FL",
       "council_district": "2",
-      "status": "Under Review"
+      "status": "Under Review",
+      "source": "www.jacksonville.gov",
+      "last_updated": "2025-09-22T13:21:34.166500"
     },
     {
       "board": "Development Services",
@@ -105,7 +111,7 @@
       "parcel_lat": 30.2984,
       "parcel_lon": -81.4209,
       "flagged": false,
-      "extracted_at": "2025-09-20 16:58:37.221527",
+      "extracted_at": "2025-09-22 13:21:34.166996",
       "source_id": "private_development",
       "notes": [
         "15,000 sq ft retail plaza",
@@ -115,13 +121,36 @@
       "item_number": "DEV-2025-0901",
       "parcel_address": "Beach Boulevard & Kernan Boulevard, Jacksonville, FL",
       "council_district": "4",
-      "status": "Pending Documentation"
+      "status": "Pending Documentation",
+      "source": "www.jacksonville.gov",
+      "last_updated": "2025-09-22T13:21:34.166982"
+    },
+    {
+      "board": "Infrastructure Committee",
+      "date": "2025-09-22",
+      "title": "Fallback: Infrastructure data collection in progress",
+      "url": "https://maps.coj.net/capitalprojects/",
+      "source": "maps.coj.net",
+      "notes": [
+        "Real infrastructure data collection being developed"
+      ],
+      "item_number": null,
+      "parcel_address": null,
+      "parcel_lat": null,
+      "parcel_lon": null,
+      "council_district": null,
+      "flagged": true,
+      "status": "Data Collection Development",
+      "extracted_at": "2025-09-22 13:21:34.162314",
+      "source_id": "infrastructure_committee",
+      "last_updated": "2025-09-22T13:21:34.160891"
     },
     {
       "board": "Parks and Recreation",
       "date": "2025-09-22",
       "title": "Memorial Park Playground Renovation",
       "url": "https://www.jacksonville.gov/departments/parks-recreation-community-services/",
+      "source": "www.jacksonville.gov",
       "notes": [
         "ADA-compliant playground equipment",
         "New safety surfacing",
@@ -134,14 +163,16 @@
       "council_district": "14",
       "flagged": false,
       "status": "Design Phase",
-      "extracted_at": "2025-09-20 16:58:37.223026",
-      "source_id": "public_projects"
+      "extracted_at": "2025-09-22 13:21:34.167930",
+      "source_id": "public_projects",
+      "last_updated": "2025-09-22T13:21:34.167898"
     },
     {
       "board": "Public Works",
       "date": "2025-09-22",
       "title": "Downtown Library Roof Replacement",
       "url": "https://www.jacksonville.gov/departments/public-works/",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Emergency roof repair due to storm damage",
         "Temporary closure of north wing",
@@ -154,362 +185,377 @@
       "council_district": "7",
       "flagged": true,
       "status": "Emergency Repair",
-      "extracted_at": "2025-09-20 16:58:37.223077",
-      "source_id": "public_projects"
-    },
-    {
-      "board": "Infrastructure Committee",
-      "date": "2025-09-20",
-      "title": "Fallback: Infrastructure data collection in progress",
-      "url": "https://maps.coj.net/capitalprojects/",
-      "notes": [
-        "Real infrastructure data collection being developed"
-      ],
-      "item_number": null,
-      "parcel_address": null,
-      "parcel_lat": null,
-      "parcel_lon": null,
-      "council_district": null,
-      "flagged": true,
-      "status": "Data Collection Development",
-      "extracted_at": "2025-09-20 16:58:37.216516",
-      "source_id": "infrastructure_committee"
+      "extracted_at": "2025-09-22 13:21:34.167993",
+      "source_id": "public_projects",
+      "last_updated": "2025-09-22T13:21:34.167984"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317679&GUID=13053DED-C7C9-491F-9528-5A43E00A33ED&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664278",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369258",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369235"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317679&GUID=13053DED-C7C9-491F-9528-5A43E00A33ED&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664326",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369312",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369305"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317813&GUID=A5F44BB9-9D49-496D-986C-4652BECC2D37&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664346",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369342",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369337"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317812&GUID=C9434267-CFF0-401A-B0D3-C9F0DE0741E7&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664361",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369366",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369362"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317739&GUID=70E5D08E-AA33-4E9A-B7A8-ABBCE1DE9193&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664376",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369389",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369384"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317782&GUID=41C4A3A9-67BB-4EFD-A345-55D7BBC2DF54&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664390",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369411",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369407"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317705&GUID=A37D4576-6C0D-49FC-B8B7-CA0C9D19A426&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664402",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369433",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369428"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317738&GUID=FCD31E0C-40E9-46D0-8817-D5F765F4AC34&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664413",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369454",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369449"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1327639&GUID=955C8456-C1B5-4C2C-ACD0-E5685A99B66D&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664425",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369479",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369475"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317678&GUID=6D38E6A6-0E27-4937-BEDF-AD84EB5D7E54&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664436",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369500",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369496"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317811&GUID=7B0FEC88-2EB7-4E4E-BC9A-1F9E34A1C121&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664447",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369521",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369517"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317810&GUID=BD37C6EF-6969-4856-A6A4-8B7A9F5451CC&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664458",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369541",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369537"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317736&GUID=2CC04386-A609-47A6-A40A-5AA6AA4D0DDB&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664469",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369561",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369557"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317781&GUID=2EE152AD-8095-4FFB-AE56-6E581ACF89D4&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664481",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369588",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369583"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317704&GUID=4E6F1480-1E2E-490B-85B2-1143CE4A6210&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664491",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369609",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369605"
     },
     {
       "board": "City Council",
-      "date": "2025-09-20",
+      "date": "2025-09-22",
       "title": "City Council Meeting - Meeting\u00a0details",
       "url": "https://www.jacksonville.gov/departments/city-council/MeetingDetail.aspx?ID=1317737&GUID=4358AED4-3495-46C9-9F89-55A46D8D19A1&Options=info|&Search=",
+      "source": "www.jacksonville.gov",
       "notes": [
         "Date extracted from context or defaulted",
         "City Council meetings held at City Hall",
         "117 West Duval Street, Jacksonville, FL 32202",
         "Typical meeting time: 5:00 PM on Tuesdays"
       ],
-      "item_number": "CC-2025-09-20",
+      "item_number": "CC-2025-09-22",
       "parcel_address": "117 West Duval Street, Jacksonville, FL 32202",
       "parcel_lat": 30.337,
       "parcel_lon": -81.6557,
       "council_district": "7",
       "flagged": true,
       "status": "Posted",
-      "extracted_at": "2025-09-20 16:58:40.664502",
-      "source_id": "city_council"
+      "extracted_at": "2025-09-22 13:21:37.369630",
+      "source_id": "city_council",
+      "last_updated": "2025-09-22T13:21:37.369626"
     }
   ],
   "summary": {
@@ -517,15 +563,15 @@
     "flagged_count": 19,
     "boards": [
       "Public Works",
-      "City Council",
-      "Development Services",
-      "Transportation",
-      "Parks and Recreation",
       "Infrastructure Committee",
-      "Downtown Development Review Board"
+      "Parks and Recreation",
+      "Downtown Development Review Board",
+      "City Council",
+      "Transportation",
+      "Development Services"
     ],
     "date_range": {
-      "earliest": "2025-09-20",
+      "earliest": "2025-09-22",
       "latest": "2025-10-09"
     }
   }

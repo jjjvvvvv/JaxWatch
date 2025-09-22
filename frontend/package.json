@@ -1,0 +1,11 @@
+{
+  "name": "jaxwatch-frontend",
+  "version": "1.0.0",
+  "description": "JaxWatch Municipal Observatory frontend",
+  "scripts": {
+    "build": "echo 'Static site - no build needed' && exit 0",
+    "start": "echo 'Static site - serve directly' && exit 0"
+  },
+  "devDependencies": {},
+  "dependencies": {}
+}
