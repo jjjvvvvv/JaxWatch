@@ -1,0 +1,29 @@
+{
+  "source_id": "ddrb",
+  "timestamp": "2025-09-22T13:21:40.668440",
+  "total_items": 1,
+  "items": [
+    {
+      "board": "Downtown Development Review Board",
+      "date": "2025-10-09",
+      "title": "Fallback: DDRB data collection in progress",
+      "url": "https://www.jacksonville.gov/departments/planning-and-development/downtown-development-review-board.aspx",
+      "source": "www.jacksonville.gov",
+      "notes": [
+        "Real DDRB data collection being developed",
+        "DDRB typically meets monthly on 2nd Thursday",
+        "Reviews downtown development projects"
+      ],
+      "item_number": "DDRB-FALLBACK-20250922",
+      "parcel_address": "214 North Hogan Street, Jacksonville, FL 32202",
+      "parcel_lat": 30.3369,
+      "parcel_lon": -81.6557,
+      "council_district": "7",
+      "flagged": true,
+      "status": "Data Collection Development",
+      "extracted_at": "2025-09-22 13:21:40.668257",
+      "source_id": "ddrb",
+      "last_updated": "2025-09-22T13:21:40.668219"
+    }
+  ]
+}
