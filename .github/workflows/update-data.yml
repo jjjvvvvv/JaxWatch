@@ -7,7 +7,7 @@ name: JaxWatch Municipal Observatory
   workflow_dispatch: {} # Allow manual triggering
   push:
     branches: [ main ]
-    paths: [ 'backend/**' ]
+    # paths: [ 'backend/**' ]  # Removed to allow frontend deployments
 
 concurrency:
   group: daily
