@@ -12,7 +12,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-from urllib.parse import urljoin, urlparse
+from urllib.parse import urljoin, urlparse, parse_qs
 
 import yaml
 from bs4 import BeautifulSoup
@@ -98,6 +98,82 @@ def absolute_link(page_url: str, href: str) -> str:
     return urljoin(page_url, href)
 
 
+def classify_doc_type(source_id: str, url: str, title: str) -> str:
+    u = (url or "").lower()
+    t = (title or "").lower()
+    sid = (source_id or "").lower()
+
+    if sid == "city_council":
+        try:
+            q = parse_qs(urlparse(url).query)
+            m = (q.get("M") or q.get("m") or [""])[0].upper()
+        except Exception:
+            m = ""
+        return {
+            "A": "agenda",
+            "M": "minutes",
+            "E2": "addendum",
+            "E3": "amendments",
+            "IC": "calendar_invite",
+        }.get(m, "other")
+
+    if sid == "planning_commission":
+        s = f"{t} {u}"
+        if ("meeting-agenda" in s) or ("pc meeting agenda" in s):
+            return "agenda"
+        if ("results" in s) or ("results agenda" in s):
+            return "results"
+        if ("staff" in s) or ("filedrop.coj.net" in s):
+            return "staff_reports"
+        return "other"
+
+    if sid == "ddrb":
+        if "agenda" in u:
+            return "agenda"
+        if "packet" in u:
+            return "packet"
+        if "minutes" in u:
+            return "minutes"
+        return "other"
+
+    if sid == "capital_projects":
+        return "gis_layer"
+
+    return "other"
+
+
+def load_year_store(source_id: str) -> tuple[list[dict], dict[str, dict]]:
+    year = datetime.now().strftime("%Y")
+    year_dir = RAW_OUT_DIR / source_id / year
+    path = year_dir / f"{source_id}.json"
+    if not path.exists():
+        return [], {}
+    try:
+        data = json.load(path.open("r"))
+        items: list[dict] = data.get("items", [])
+    except Exception:
+        items = []
+    by_url = {it.get("url"): it for it in items if it.get("url")}
+    return items, by_url
+
+
+def save_year_store(source_id: str, source_name: str, items: list[dict]) -> Path:
+    year = datetime.now().strftime("%Y")
+    year_dir = RAW_OUT_DIR / source_id / year
+    year_dir.mkdir(parents=True, exist_ok=True)
+    path = year_dir / f"{source_id}.json"
+    payload = {
+        "source": source_id,
+        "source_name": source_name,
+        "year": year,
+        "updated_at": datetime.now().isoformat(),
+        "items": items,
+    }
+    with open(path, "w") as f:
+        json.dump(payload, f, indent=2)
+    return path
+
+
 def _collect_city_council(source: Dict[str, Any], session: HttpRetrySession, logger: logging.Logger) -> Dict[str, Any]:
     name = source.get("name") or source.get("id") or "unknown"
     sid = source.get("id") or slugify(name)
@@ -158,6 +234,7 @@ def _collect_city_council(source: Dict[str, Any], session: HttpRetrySession, log
                     "status": "discovered",
                     "http_status": "discovered",
                     "seen_before": already,
+                    "doc_type": classify_doc_type(sid, abs_url, title),
                 }
                 discovered.append(item)
                 local_seen.add(abs_url)
@@ -198,6 +275,7 @@ def _collect_city_council(source: Dict[str, Any], session: HttpRetrySession, log
                 "status": "discovered",
                 "http_status": "discovered",
                 "seen_before": already,
+                "doc_type": classify_doc_type(sid, abs_url, title),
             }
             discovered.append(item)
             local_seen.add(abs_url)
@@ -273,6 +351,7 @@ def _collect_ddrb(source: Dict[str, Any], session: HttpRetrySession, logger: log
                     "status": "discovered",
                     "http_status": "discovered",
                     "seen_before": already,
+                    "doc_type": classify_doc_type(sid, abs_url, title),
                 })
                 local_seen.add(abs_url)
                 continue
@@ -314,6 +393,7 @@ def _collect_ddrb(source: Dict[str, Any], session: HttpRetrySession, logger: log
                     "status": "discovered",
                     "http_status": "discovered",
                     "seen_before": already,
+                    "doc_type": classify_doc_type(sid, abs_url, title),
                 })
                 local_seen.add(abs_url)
 
@@ -400,6 +480,7 @@ def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: lo
                     "status": "discovered",
                     "http_status": "discovered",
                     "seen_before": already,
+                    "doc_type": classify_doc_type(sid, abs_url, title),
                 })
     else:
         # Normal generic collection from candidate pages
@@ -444,6 +525,7 @@ def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: lo
                         "status": "discovered",
                         "http_status": "discovered",
                         "seen_before": already,
+                        "doc_type": classify_doc_type(sid, abs_url, title),
                     }
                     discovered.append(item)
                     logger.info(f"Kept: {abs_url} title='{title}'")
@@ -479,29 +561,48 @@ def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: lo
             "status": "discovered",
             "http_status": "discovered",
             "seen_before": already,
+            "doc_type": classify_doc_type(sid, layer_url, "known_layer"),
         })
     if layer_list:
         logger.info(f"Recorded {len(layer_list)} known layer endpoint(s) for source {sid}")
 
-    # Write output JSON
+    # Merge with year-based store and write
+    existing_items, existing_by_url = load_year_store(sid)
+    existing_urls = set(existing_by_url.keys())
+    run_seen = set(existing_urls)
+    reseen_urls: set[str] = set()
 
-    # Write output JSON
-    out_dir = RAW_OUT_DIR / sid
-    out_dir.mkdir(parents=True, exist_ok=True)
-    date_key = datetime.now().strftime("%Y-%m-%d")
-    out_path = out_dir / f"{date_key}.json"
-    payload = {
+    new_items: List[Dict[str, Any]] = []
+    for it in discovered:
+        url = it.get("url")
+        if not url:
+            continue
+        if url in run_seen:
+            reseen_urls.add(url)
+            continue
+        it["seen_before"] = url in existing_urls
+        new_items.append(it)
+        run_seen.add(url)
+
+    # Flip seen_before to True on any existing items that were observed again
+    if reseen_urls and existing_by_url:
+        for u in reseen_urls:
+            ex = existing_by_url.get(u)
+            if ex and not ex.get("seen_before"):
+                ex["seen_before"] = True
+
+    combined = existing_items + new_items
+    out_path = save_year_store(sid, name, combined)
+    logger.info(f"✅ Source finished: {name} added={len(new_items)} existing={len(existing_items)} file={out_path}")
+    return {
         "source": sid,
         "source_name": name,
-        "timestamp": datetime.now().isoformat(),
+        "file": str(out_path),
+        "added": len(new_items),
+        "existing": len(existing_items),
         "pages_fetched": pages_fetched,
         "links_discovered": links_total,
-        "items": discovered,
     }
-    with open(out_path, "w") as f:
-        json.dump(payload, f, indent=2)
-    logger.info(f"✅ Source finished: {name} saved={len(discovered)} file={out_path}")
-    return payload
 
 
 def collect_all(config_path: Optional[str] = None, only_source: Optional[str] = None) -> int:

@@ -8,7 +8,7 @@ Features:
 - Optional HEAD checks for URLs
 
 CLI:
-  python3 -m backend.tools.verify_outputs [--check-urls] [--source ID] [--date YYYY-MM-DD]
+  python3 -m backend.tools.verify_outputs [--check-urls] [--source ID] [--date YYYY|YYYY-MM-DD]
 """
 
 from __future__ import annotations
@@ -33,6 +33,7 @@ REQUIRED_FIELDS = [
     "status",
     "http_status",
     "seen_before",
+    "doc_type",
 ]
 
 
@@ -53,11 +54,20 @@ def iter_source_files(source_id: Optional[str], date_key: Optional[str]) -> List
         if not src_dir.exists():
             return []
         if date_key:
-            fp = src_dir / f"{date_key}.json"
-            if fp.exists():
-                files.append(fp)
+            # Support year-based store: outputs/raw/<src>/<YYYY>/<src>.json
+            year_dir = src_dir / date_key
+            legacy_path = src_dir / f"{date_key}.json"
+            if year_dir.exists():
+                files.extend(sorted(year_dir.glob("*.json")))
+            elif legacy_path.exists():
+                files.append(legacy_path)
         else:
-            files.extend(sorted(src_dir.glob("*.json")))
+            # Prefer year-based files; fallback to legacy flat files
+            year_files = list(src_dir.glob("[0-9][0-9][0-9][0-9]/*.json"))
+            if year_files:
+                files.extend(sorted(year_files))
+            else:
+                files.extend(sorted(src_dir.glob("*.json")))
         return files
 
     # All sources
@@ -67,11 +77,18 @@ def iter_source_files(source_id: Optional[str], date_key: Optional[str]) -> List
         if not src_dir.is_dir():
             continue
         if date_key:
-            fp = src_dir / f"{date_key}.json"
-            if fp.exists():
-                files.append(fp)
+            year_dir = src_dir / date_key
+            legacy_path = src_dir / f"{date_key}.json"
+            if year_dir.exists():
+                files.extend(sorted(year_dir.glob("*.json")))
+            elif legacy_path.exists():
+                files.append(legacy_path)
         else:
-            files.extend(sorted(src_dir.glob("*.json")))
+            year_files = list(src_dir.glob("[0-9][0-9][0-9][0-9]/*.json"))
+            if year_files:
+                files.extend(sorted(year_files))
+            else:
+                files.extend(sorted(src_dir.glob("*.json")))
     return files
 
 
@@ -91,8 +108,9 @@ def verify_file(fp: Path, do_head: bool = False) -> FileResult:
         return FileResult(source=fp.parent.name, date_key=fp.stem, file_path=fp, item_count=0, missing_field_items=0, bad_urls=0)
 
     items = data.get("items", [])
-    source = data.get("source") or fp.parent.name
-    date_key = fp.stem
+    # Path layout: outputs/raw/<src>/<YYYY>/<src>.json OR legacy outputs/raw/<src>/<date>.json
+    source = data.get("source") or (fp.parent.parent.name if fp.parent.name.isdigit() else fp.parent.name)
+    date_key = data.get("year") or (fp.parent.name if fp.parent.name.isdigit() else fp.stem)
     missing_field_items = 0
     bad_urls = 0
 
@@ -171,4 +189,3 @@ def main(argv: Optional[List[str]] = None) -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-
