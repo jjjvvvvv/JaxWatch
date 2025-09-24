@@ -3,8 +3,8 @@
 Verify collected outputs under outputs/raw/*.
 
 Features:
-- Summarize counts per date file
-- Validate required item fields
+- Summarize counts per file and per doc_type
+- Validate required item fields (including doc_type)
 - Optional HEAD checks for URLs
 
 CLI:
@@ -159,6 +159,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         return 1
 
     per_source_totals: Dict[str, Dict[str, int]] = defaultdict(lambda: defaultdict(int))
+    doc_type_totals: Dict[str, int] = defaultdict(int)
     any_warnings = False
 
     for fp in files:
@@ -171,6 +172,14 @@ def main(argv: Optional[List[str]] = None) -> int:
         t["bad_urls"] += res.bad_urls
         if res.item_count == 0 or res.missing_field_items > 0 or res.bad_urls > 0:
             any_warnings = True
+        # Aggregate doc_type totals for this file
+        try:
+            data = json.load(fp.open("r"))
+            for it in data.get("items", []):
+                dt = (it.get("doc_type") or "").strip() or "(missing)"
+                doc_type_totals[dt] += 1
+        except Exception:
+            pass
 
     print("\nTotals by source:")
     for src, t in sorted(per_source_totals.items()):
@@ -178,6 +187,10 @@ def main(argv: Optional[List[str]] = None) -> int:
             f"  {src}: files={t['files']} items={t['items']} zeros={t['zeros']} "
             f"missing_fields={t['missing_fields']} bad_urls={t['bad_urls']}"
         )
+
+    print("\nItems by doc_type:")
+    for dt, n in sorted(doc_type_totals.items(), key=lambda x: (-x[1], x[0])):
+        print(f"  {dt}: {n}")
 
     if any_warnings:
         print("\n⚠️  Verification completed with warnings.")

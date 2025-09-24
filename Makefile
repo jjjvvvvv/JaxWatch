@@ -8,7 +8,7 @@ help:
 	@echo "  collect-all      Run all sources and verify outputs"
 	@echo "  collect-source   Run a single source: make collect-source name=<id|Name>"
 	@echo "  admin-view       Start minimal admin (http://localhost:5010)"
-	@echo "  verify-outputs   Validate outputs/raw JSON files"
+	@echo "  verify-outputs   Validate outputs/raw JSON (doc_type, required fields)"
 	@echo "  show-logs        Print logs: make show-logs date=YYYY-MM-DD"
 
 collect-all:
@@ -39,4 +39,3 @@ show-logs:
 	fi
 	@echo "📜 Logs for $(date):"
 	@if [ -f outputs/logs/$(date).log ]; then cat outputs/logs/$(date).log; else echo "No log file for $(date)"; fi
-
