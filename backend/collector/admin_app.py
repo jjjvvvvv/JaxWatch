@@ -66,9 +66,9 @@ YEAR_TMPL = """
       <th>title</th>
       <th>url</th>
     </tr>
-    {% for i, it in enumerate(items) %}
+    {% for it in items %}
       <tr>
-        <td>{{ i + 1 }}</td>
+        <td>{{ loop.index }}</td>
         <td>{{ it.get('date_collected', '') }}</td>
         <td>{{ it.get('doc_type', '(missing)') }}</td>
         <td>{{ it.get('title', '') }}</td>
