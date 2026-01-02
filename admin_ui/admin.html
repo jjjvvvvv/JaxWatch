@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DIA Accountability Tracker - Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles_v2.css" />
+  <link rel="stylesheet" href="styles_extras.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+  <header class="page-header">
+    <h1>DIA Project Accountability Tracker</h1>
+    <p class="subtitle">Monitoring promises vs delivery of taxpayer-funded development</p>
+  </header>
+
+  <main class="page-body">
+    <!-- Accountability Dashboard Overview -->
+    <section class="accountability-dashboard" aria-label="Accountability Overview">
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <h3>Active Projects</h3>
+          <span id="active-count">—</span>
+        </div>
+        <div class="stat-card">
+          <h3>Total Investment</h3>
+          <span id="total-investment">—</span>
+        </div>
+        <div class="stat-card">
+          <h3>On Schedule</h3>
+          <span id="on-schedule-percent">—</span>
+        </div>
+        <div class="stat-card">
+          <h3>Need Review</h3>
+          <span id="review-needed-count">—</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters and Controls -->
+    <section class="controls" aria-label="Filters">
+      <label>
+        Search
+        <input id="search-input" type="search" placeholder="Find by project name, developer, or keyword" />
+      </label>
+      <label>
+        Status
+        <select id="status-filter">
+          <option value="">All Status</option>
+          <option value="needs_review">Needs Review</option>
+          <option value="in_progress">In Progress</option>
+          <option value="completed">Completed</option>
+          <option value="delayed">Delayed</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+      </label>
+      <label>
+        Year
+        <select id="year-filter"></select>
+      </label>
+      <label>
+        Confidence
+        <select id="confidence-filter">
+          <option value="">All Confidence Levels</option>
+          <option value="high">High Confidence</option>
+          <option value="medium">Medium Confidence</option>
+          <option value="low">Low Confidence</option>
+          <option value="not_extracted">Needs Extraction</option>
+        </select>
+      </label>
+      <span id="result-count" aria-live="polite">Loading…</span>
+    </section>
+
+    <!-- Projects Table -->
+    <section class="table-section" aria-live="polite">
+      <div id="status-message" class="status">Loading accountability projects…</div>
+      <table id="projects-table" hidden>
+        <thead>
+          <tr>
+            <th data-sort="name" scope="col">Project Name</th>
+            <th data-sort="importance_score" scope="col">Importance</th>
+            <th data-sort="status" scope="col">Status</th>
+            <th data-sort="last_mentioned" scope="col">Last Mentioned</th>
+            <th data-sort="money_mentioned" scope="col">$ Mentioned</th>
+            <th data-sort="confidence" scope="col">Confidence</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p>DIA accountability tracking - Promises vs Delivery. Last updated: <span id="last-updated">—</span></p>
+  </footer>
+
+  <script src="admin.js"></script>
+</body>
+
+</html>

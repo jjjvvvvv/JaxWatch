@@ -1,0 +1,4687 @@
+[
+  {
+    "id": "DIA-RES-2024-11-10",
+    "title": "Projection Tower Construction Funding",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-11-10",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-11-10",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/09232a7e-cd03-4afd-87d6-965786699f0b/RESOLUTION-2024-11-10_PROJECTION-TOWER-CONSTRUCTIO",
+        "title": "RESOLUTION 2024-11-10_PROJECTION TOWER CONSTRUCTION FUNDING",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Projection Tower Construction Funding",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-11-10",
+    "last_update": "2024-11-10",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.243027",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486164",
+      "priority_score": 14.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Projection Tower Construction Funding."
+  },
+  {
+    "id": "DIA-RES-2024-11-09",
+    "title": "Ed Ball Building Retail Shell",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-11-09",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-11-09",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/493e1812-3f1c-43eb-b213-44d4631a23ce/RESOLUTION-2024-11-09_ED-BALL-BUILDING-RETAIL-SHEL",
+        "title": "RESOLUTION 2024-11-09_ED BALL BUILDING RETAIL SHELL",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Ed Ball Building Retail Shell",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-11-09",
+    "last_update": "2024-11-09",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.243415",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486189",
+      "priority_score": 14.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Ed Ball Building Retail Shell. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2022-02-02",
+    "title": "Riverfront Plaza Development Pad Notice Of Disposition",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2022-02-02",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2022-02-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/dba5b7f2-c8e6-4b98-afac-c9c87557da9e/R-2022-02-02-Riverfront-Plaza-Development-Pad-NOD",
+        "title": "RESOLUTION 2022-02-02_RIVERFRONT PLAZA DEVELOPMENT PAD NOTICE OF DISPOSITION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Riverfront Plaza Development Pad Notice Of Disposition",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2022-02-02",
+    "last_update": "2022-02-02",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": "Riverfront Plaza Development Pad Notice Of Disposition Riverfront Plaza Development Pad Notice Of Disposition",
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": "Riverfront Plaza Development Pad Notice Of Disposition Riverfront Plaza Development Pad Notice Of Disposition",
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "medium",
+      "developer": "high",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.243558",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486198",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Infrastructure project by Riverfront Plaza Development Pad Notice Of Disposition Riverfront Plaza Development Pad Notice Of Disposition."
+  },
+  {
+    "id": "DIA-RES-2024-02-08",
+    "title": "Sally Dark Rides Parking Screening Grant",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-02-08",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-02-08",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/30f6fcb1-c13a-4fd6-9950-cee401998475/RESOLUTION-2024-02-08-Sally-Dark-Rides-Parking-Scr",
+        "title": "RESOLUTION 2024-02-08_SALLY DARK RIDES PARKING SCREENING GRANT",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Sally Dark Rides Parking Screening Grant",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-02-08",
+    "last_update": "2024-02-08",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.243673",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486206",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Sally Dark Rides Parking Screening Grant. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2022-09-02",
+    "title": "American Lions Riverfront Plaza",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2022-09-02",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2022-09-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/05d72aff-917c-493d-a23d-7f10854e4588/R-2022-09-02-American-Lions-Riverfront-Plaza-EXECU",
+        "title": "RESOLUTION 2022-09-02_AMERICAN LIONS RIVERFRONT PLAZA",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      },
+      {
+        "id": "DIA-RES-2022-05-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/0d7cc22f-a035-4ca6-8879-38f8b511f44e/R-2022-05-02-American-Lions-EXECUTED",
+        "title": "RESOLUTION 2022-05-02_AMERICAN LIONS RIVERFRONT PLAZA NOTICE OF DISPOSITION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "American Lions Riverfront Plaza",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2022-09-02",
+    "last_update": "2022-09-02",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "merged_ids": [
+      "DIA-RES-2022-09-02",
+      "DIA-RES-2022-05-02"
+    ],
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.243763",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486265",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Infrastructure project."
+  },
+  {
+    "id": "DIA-RES-2025-02-07",
+    "title": "Baptist Allocation Of Development Rights",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-02-07",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-02-07",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/06cc4745-0380-4613-88c4-e84e80a47ffb/RESOLUTION-2025-02-07_BAPTIST-ALLOCATION-OF-DEVELO",
+        "title": "RESOLUTION 2025-02-07_BAPTIST ALLOCATION OF DEVELOPMENT RIGHTS",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Baptist Allocation Of Development Rights",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2025-02-07",
+    "last_update": "2025-02-07",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": "Baptist Allocation Of Development Rights Baptist Allocation Of Development Rights",
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": "Baptist Allocation Of Development Rights Baptist Allocation Of Development Rights",
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "medium",
+      "developer": "high",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.243847",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486273",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Development rights allocation by Baptist Allocation Of Development Rights Baptist Allocation Of Development Rights."
+  },
+  {
+    "id": "DIA-RES-2022-09-01",
+    "title": "Iguana Office Parcel Disposition",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2022-09-01",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2022-09-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/14b46b91-5063-4daa-b2a8-c831f28589d9/R-2022-09-01-Iguana-Office-Parcel-Disposition-EXEC",
+        "title": "RESOLUTION 2022-09-01_IGUANA OFFICE PARCEL DISPOSITION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Iguana Office Parcel Disposition",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2022-09-01",
+    "last_update": "2022-09-01",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.243939",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486279",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Iguana Office Parcel Disposition. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2023-11-03",
+    "title": "Ambassador Hotel Extension",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2023-11-03",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2023-11-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/16a82305-4668-4916-98ad-6453b9db1d5d/R-2023-11-03-AMBASSADOR-HOTEL-COUNCIL-EXTENSION_ex",
+        "title": "RESOLUTION 2023-11-03_AMBASSADOR HOTEL EXTENSION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      },
+      {
+        "id": "DIA-RES-2023-03-07",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/57729b6c-709d-4adb-910a-2990fa88722b/R-2023-03-07-AMBASSADOR-HOTEL-EXTENSION-v2_BOARD",
+        "title": "RESOLUTION 2023-03-07_AMBASSADOR HOTEL EXTENSION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      },
+      {
+        "id": "DIA-RES-2022-10-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/2d345604-8009-4a9e-9451-50f7aac86d26/R-2022-10-03-Ambassador-Hotel-Extension_Executed",
+        "title": "RESOLUTION 2022-10-03_AMBASSADOR HOTEL EXTENSION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      },
+      {
+        "id": "DIA-RES-2021-06-08",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/4f3f9c47-1513-4d26-b00f-9edafa11abc3/RESOLUTION-2021-06-08-AMBASSADOR-HOTEL",
+        "title": "RESOLUTION-2021-06-08-AMBASSADOR-HOTEL",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      },
+      {
+        "id": "DIA-RES-2019-12-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/c0dd70ff-41ef-4f3b-b9d4-0cc32bb71d50/RESOLUTION-2019-12-03_AMBASSADOR-HOTEL",
+        "title": "RESOLUTION-2019-12-03_AMBASSADOR-HOTEL",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Ambassador Hotel Extension",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2023-11-03",
+    "last_update": "2023-11-03",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "merged_ids": [
+      "DIA-RES-2023-11-03",
+      "DIA-RES-2023-03-07",
+      "DIA-RES-2022-10-03",
+      "DIA-RES-2021-06-08",
+      "DIA-RES-2019-12-03"
+    ],
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.244014",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486285",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Ambassador Hotel Extension. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2023-08-11",
+    "title": "Rfp For Mps Parkiing Garages And Jta",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": null,
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2023-08-11",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/2a2ed01b-5b27-4049-bab9-a200a2a344fa/R-2023-08-11-NB-FY-22-23-Unallocated-to-Program-Pr",
+        "title": "RESOLUTION 2023-08-10_RFP FOR MPS PARKIING GARAGES AND JTA",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Rfp For Mps Parkiing Garages And Jta",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2023-08-11",
+    "last_update": "2023-08-11",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "merged_ids": [
+      "DIA-RES-2023-08-11",
+      "DIA-RES-2023-08-10"
+    ],
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.244119",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486293",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Rfp For Mps Parkiing Garages And Jta. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2024-04-06",
+    "title": "Co Op Retail Enhancement Program",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-04-06",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-04-06",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/2d9a0e04-9dfc-4d60-92e3-b0b3f941ecbc/Resolution-2024-04-06-Co-Op-with-Exhibit-A-final-u",
+        "title": "RESOLUTION 2024-04-06_CO-OP RETAIL ENHANCEMENT PROGRAM",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Co Op Retail Enhancement Program",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-04-06",
+    "last_update": "2024-04-06",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.244211",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486300",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Co Op Retail Enhancement Program. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2024-05-07",
+    "title": "Florida Theatre Parking",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-05-07",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-05-07",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/322c3e6b-336a-446c-b458-30bbc4849f97/Florida-Theatre-Parking-Resolution-2024-05-07-with",
+        "title": "RESOLUTION 2024-05-07_FLORIDA THEATRE PARKING",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Florida Theatre Parking",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-05-07",
+    "last_update": "2024-05-07",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.244276",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486306",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Florida Theatre Parking. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2024-02-02",
+    "title": "Riverfront Plaza Restaurant",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-02-02",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-02-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/32e51adf-2b00-4f94-91dc-3a7d56bdeec3/RESOLUTION-2024-02-02-Riverfront-Plaza-Restaurant",
+        "title": "RESOLUTION 2024-02-02_RIVERFRONT PLAZA RESTAURANT",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Riverfront Plaza Restaurant",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-02-02",
+    "last_update": "2024-02-02",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.244344",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486315",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Riverfront Plaza Restaurant. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2022-06-05",
+    "title": "600 Park Street Allocation",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2022-06-05",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2022-06-05",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/32e93af8-78d7-44e4-aa91-1bf1fd02c482/R-2022-06-05-600-Park-Street-Allocation-EXECUTED",
+        "title": "RESOLUTION 2022-06-05_600 PARK STREET ALLOCATION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "600 Park Street Allocation",
+    "address": "600 Park Street",
+    "status": "needs_review",
+    "date_opened": "2022-06-05",
+    "last_update": "2022-06-05",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.244412",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486323",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Infrastructure project."
+  },
+  {
+    "id": "DIA-RES-2024-06-14",
+    "title": "Cathedral District Jax Contribution",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-06-14",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-06-14",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/33b2ac40-13b9-49cf-802e-209e5652e026/R-2024-06-14_Cathedral-District-Jax-Contriubtion_E",
+        "title": "RESOLUTION 2024-06-14_CATHEDRAL DISTRICT JAX CONTRIBUTION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Cathedral District Jax Contribution",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-06-14",
+    "last_update": "2024-06-14",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.244495",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486329",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Cathedral District Jax Contribution. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2025-04-12",
+    "title": "Bcbs Restrictive Covenants & Parking Rights Agreement Amendment",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-04-12",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-04-12",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/3a75baf7-d65b-4071-a45e-313df60e1058/RESOLUTION-2025-04-12_BCBS-RESTRICTIVE-COVENANTS-P",
+        "title": "RESOLUTION 2025-04-12_BCBS RESTRICTIVE COVENANTS & PARKING RIGHTS AGREEMENT AMENDMENT",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Bcbs Restrictive Covenants & Parking Rights Agreement Amendment",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2025-04-12",
+    "last_update": "2025-04-12",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.244639",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486335",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Bcbs Restrictive Covenants & Parking Rights Agreement Amendment. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2023-10-06",
+    "title": "Specialty Center",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2023-10-06",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2023-10-06",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/3c1f4cdf-81e3-452e-8f50-5cab720a7a1c/R2023-10-06-Specialty-Center_Executed",
+        "title": "RESOLUTION 2023-10-06_SPECIALTY CENTER",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Specialty Center",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2023-10-06",
+    "last_update": "2023-10-06",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.244704",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486341",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Specialty Center. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2022-03-04",
+    "title": "Mayo Clinic Parking Agreement",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2022-03-04",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2022-03-04",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/416d2351-05df-4307-9125-7fd0a992320f/R-2022-03-04-Mayo-Clinic-Parking-Agreement-EXECUTE",
+        "title": "RESOLUTION 2022-03-04_MAYO CLINIC PARKING AGREEMENT",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Mayo Clinic Parking Agreement",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2022-03-04",
+    "last_update": "2022-03-04",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.244784",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486348",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Mayo Clinic Parking Agreement. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2024-02-04",
+    "title": "Hyatt Parking",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-02-04",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-02-04",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/471cac54-0b6d-4240-b541-cd73127cc235/RESOLUTION-2024-02-04-Hyatt-Parking-Resolution-Exe",
+        "title": "RESOLUTION 2024-02-04_HYATT PARKING",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Hyatt Parking",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-02-04",
+    "last_update": "2024-02-04",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.244833",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486354",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Hyatt Parking. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2022-12-02",
+    "title": "Jones Bros Jfrd Parking Lot Disposition",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2022-12-02",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2022-12-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/48ecd919-9925-4d14-837d-3ae9c4d4c280/R-2022-12-02-Jones-Bros-JFRD-Parking-lot-Dispositi",
+        "title": "RESOLUTION 2022-12-02_JONES BROS JFRD PARKING LOT DISPOSITION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Jones Bros Jfrd Parking Lot Disposition",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2022-12-02",
+    "last_update": "2022-12-02",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.244932",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486360",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Jones Bros Jfrd Parking Lot Disposition. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2023-12-05",
+    "title": "The Cereal Box Retail Enhancement Program",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2023-12-05",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2023-12-05",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/5b530349-6baa-4416-9c64-0222b1eee1eb/R-2023-12-05-The-Cereal-Box-REP-w-Ex-A-Term-Sheet",
+        "title": "RESOLUTION 2023-12-05_THE CEREAL BOX RETAIL ENHANCEMENT PROGRAM",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "The Cereal Box Retail Enhancement Program",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2023-12-05",
+    "last_update": "2023-12-05",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.245040",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486365",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "The Cereal Box Retail Enhancement Program. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2023-10-01",
+    "title": "Sogro Retail Enhancement Program",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2023-10-01",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2023-10-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/61cc77c4-adc7-43ad-a76b-600ec2caf086/R2023-10-01-SoGro-Retail-Enhancement-Program_Execu",
+        "title": "RESOLUTION 2023-10-01_SOGRO RETAIL ENHANCEMENT PROGRAM",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Sogro Retail Enhancement Program",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2023-10-01",
+    "last_update": "2023-10-01",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.245120",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486374",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Sogro Retail Enhancement Program. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2024-05-05",
+    "title": "Related Development",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-05-05",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-05-05",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/62a9ab17-1f64-43b1-98c5-418df957f0a6/R-2024-05-05-Related-SIC-v3_EXECUTED-(1)",
+        "title": "RESOLUTION 2024-05-05_RELATED DEVELOPMENT",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Related Development",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-05-05",
+    "last_update": "2024-05-05",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": "Related Development Related Development",
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": "Related Development Related Development",
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "medium",
+      "developer": "high",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.245175",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486380",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Related Development."
+  },
+  {
+    "id": "DIA-RES-2024-02-07",
+    "title": "Parking Code Updates",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-02-07",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-02-07",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/732f83fa-1217-46ea-8a5d-5ed37f24923a/Resolution-2024-02-07-Parking-Code-Updated-Execute",
+        "title": "RESOLUTION 2024-02-07_PARKING CODE UPDATES",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Parking Code Updates",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-02-07",
+    "last_update": "2024-02-07",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.245236",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486385",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Parking Code Updates. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2024-04-07",
+    "title": "Pour Tap Room Retail Enhancement Program",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-04-07",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-04-07",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/788eb038-0176-4471-89e8-649a9d2d26ad/Resolution-2024-04-07-Pour-Taproom-final-ALD-(RE-P",
+        "title": "RESOLUTION 2024-04-07_POUR TAP ROOM RETAIL ENHANCEMENT PROGRAM",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Pour Tap Room Retail Enhancement Program",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-04-07",
+    "last_update": "2024-04-07",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.245341",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486393",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Pour Tap Room Retail Enhancement Program. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2022-06-06",
+    "title": "600 Park Street Stormwater Credit",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2022-06-06",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2022-06-06",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/7bd6435f-11e7-41c4-b04a-0810de1f6394/R-2022-06-06-600-Park-Street-Stormwater-Credit-EXE",
+        "title": "RESOLUTION 2022-06-06_600 PARK STREET STORMWATER CREDIT",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "600 Park Street Stormwater Credit",
+    "address": "600 Park Street",
+    "status": "needs_review",
+    "date_opened": "2022-06-06",
+    "last_update": "2022-06-06",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.245423",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486399",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Infrastructure project."
+  },
+  {
+    "id": "DIA-RES-2023-08-06",
+    "title": "Dedf Parks And Programming Jwj",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2023-08-06",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2023-08-06",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/7d8f576e-6860-4c5b-8195-f5089cf32da3/R-2023-08-06-DEDF-Parks-and-Programming_JWJ-Execut",
+        "title": "RESOLUTION 2023-08-06_DEDF PARKS AND PROGRAMMING_JWJ",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Dedf Parks And Programming Jwj",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2023-08-06",
+    "last_update": "2023-08-06",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.245504",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486405",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Infrastructure project."
+  },
+  {
+    "id": "DIA-RES-2025-01-02",
+    "title": "100 Fest Park Ave Signage",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-01-02",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-01-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/7e316aee-5edf-445e-9ff6-240d16e7ad1a/RESOLUTION-2025-01-02_100-FEST-PARK-AVE-SIGNAGE",
+        "title": "RESOLUTION 2025-01-02_100 FEST PARK AVE SIGNAGE",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "100 Fest Park Ave Signage",
+    "address": "100 Fest Park Ave",
+    "status": "needs_review",
+    "date_opened": "2025-01-02",
+    "last_update": "2025-01-02",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.245567",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486414",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Infrastructure project."
+  },
+  {
+    "id": "DIA-RES-2023-11-04",
+    "title": "Cady Club Retail Enhancement Program",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2023-11-04",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2023-11-04",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/844d3514-43c5-464b-88b9-87f2dba2136d/R-2023-11-04-Cady-Club-REP-rev-5_Executed",
+        "title": "RESOLUTION 2023-11-04_CADY CLUB RETAIL ENHANCEMENT PROGRAM",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Cady Club Retail Enhancement Program",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2023-11-04",
+    "last_update": "2023-11-04",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.245657",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486419",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Cady Club Retail Enhancement Program. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2022-06-04",
+    "title": "Shipyards Office Parcel Disposition",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2022-06-04",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2022-06-04",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/9882fcf5-4fcf-47c1-8e2c-6f92b2d1fefe/R-2022-06-04-Shipyards-Office-Parcel-Disposition-E",
+        "title": "RESOLUTION 2022-06-04_SHIPYARDS OFFICE PARCEL DISPOSITION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Shipyards Office Parcel Disposition",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2022-06-04",
+    "last_update": "2022-06-04",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.245741",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486425",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Shipyards Office Parcel Disposition. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2022-03-05",
+    "title": "Furchotts Building Dprp",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2022-03-05",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2022-03-05",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/af17f590-3b03-496a-9ea4-d335f1975ab3/R-2022-03-05-Furchgott-s-Building-DPRP-EXECUTED",
+        "title": "RESOLUTION 2022-03-05_FURCHOTTS BUILDING DPRP",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Furchotts Building Dprp",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2022-03-05",
+    "last_update": "2022-03-05",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.245803",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486430",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Furchotts Building Dprp."
+  },
+  {
+    "id": "DIA-RES-2024-03-01",
+    "title": "Jfrd Parking Lot Disposition",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-03-01",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-03-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/b2be92f9-c043-46d6-8d5e-54c9bd176655/R-2024-03-01-JFRD-PARKING-LOT-DISPOSITION_EXECUTED",
+        "title": "RESOLUTION 2024-03-01_JFRD PARKING LOT DISPOSITION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      },
+      {
+        "id": "DIA-RES-2023-02-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/d77ff67b-5797-424e-b7eb-ad21c76155d1/R-2023-02-03-JFRD-PARKING-LOT-DISPOSITION",
+        "title": "RESOLUTION 2023-02-03_JFRD PARKING LOT DISPOSITION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Jfrd Parking Lot Disposition",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-03-01",
+    "last_update": "2024-03-01",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "merged_ids": [
+      "DIA-RES-2024-03-01",
+      "DIA-RES-2023-02-03"
+    ],
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.245881",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486436",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Jfrd Parking Lot Disposition. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2024-04-08",
+    "title": "Urban Dough Retail Enhancement Program",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-04-08",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-04-08",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/bdf54bf3-9b89-4555-9324-4a76c2146ad5/Resolution-2024-04-08-Urban-Dough-final-ALD-(RE-PD",
+        "title": "RESOLUTION 2024-04-08_URBAN DOUGH RETAIL ENHANCEMENT PROGRAM",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Urban Dough Retail Enhancement Program",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-04-08",
+    "last_update": "2024-04-08",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.245975",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486443",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Urban Dough Retail Enhancement Program. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2024-04-09",
+    "title": "St. Johns River Park Restaurant Parcel",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-04-09",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-04-09",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/be81d962-b8b5-4631-a013-a0cdb24eccb3/RESOLUTION-2024-04-09-St-Johns-River-Park-Restaura",
+        "title": "RESOLUTION 2024-04-09_ST. JOHNS RIVER PARK RESTAURANT PARCEL",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "St. Johns River Park Restaurant Parcel",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-04-09",
+    "last_update": "2024-04-09",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.246059",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486449",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "St. Johns River Park Restaurant Parcel. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2023-03-09",
+    "title": "Broadcast Place Park",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2023-03-09",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2023-03-09",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/cd2bfada-25a1-4a90-913c-1596b14bddb0/R-2023-03-09-BROADCAST-PLACE-PARK_BOARD",
+        "title": "RESOLUTION 2023-03-09_BROADCAST PLACE PARK",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Broadcast Place Park",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2023-03-09",
+    "last_update": "2023-03-09",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.246120",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486455",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Infrastructure project."
+  },
+  {
+    "id": "DIA-RES-2023-10-02",
+    "title": "Alder & Oak Retail Enhancement Program",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2023-10-02",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2023-10-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/cd955358-9ed4-4959-a444-6e1018541767/R2023-10-02-Alder-Oak-Retail-Enhancement-Program_E",
+        "title": "RESOLUTION 2023-10-02_ALDER & OAK RETAIL ENHANCEMENT PROGRAM",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Alder & Oak Retail Enhancement Program",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2023-10-02",
+    "last_update": "2023-10-02",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.246209",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486460",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Alder & Oak Retail Enhancement Program. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2023-03-08",
+    "title": "Riverfront Plaza Speakers And Projectors",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2023-03-08",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2023-03-08",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/d3fdfdcc-23a8-4b69-9847-b1bf1d102856/R-2023-03-08-RIVERFRONT-PLAZA-SPEAKERS-AND-PROJECT",
+        "title": "RESOLUTION 2023-03-08_RIVERFRONT PLAZA SPEAKERS AND PROJECTORS",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Riverfront Plaza Speakers And Projectors",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2023-03-08",
+    "last_update": "2023-03-08",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.246305",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486471",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Infrastructure project."
+  },
+  {
+    "id": "DIA-RES-2024-08-02",
+    "title": "The Flamingo Retail Enhancement Program",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-08-02",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-08-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/d62855b3-899c-43f9-9c38-9e3c2da3aa3a/2024-08-02-Resolution-Flamingo-REP-v2_EXECUTED",
+        "title": "RESOLUTION 2024-08-02_THE FLAMINGO RETAIL ENHANCEMENT PROGRAM",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "The Flamingo Retail Enhancement Program",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-08-02",
+    "last_update": "2024-08-02",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.246397",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486477",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "The Flamingo Retail Enhancement Program. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2023-12-02",
+    "title": "Armada Parking",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2023-12-02",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2023-12-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/e4ad5a75-666d-468e-848f-bcb7154c8c5e/R-2023-12-02-Armada-Parking-Executed",
+        "title": "RESOLUTION 2023-12-02_ARMADA PARKING",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Armada Parking",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2023-12-02",
+    "last_update": "2023-12-02",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.246448",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486483",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Armada Parking. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2022-10-02",
+    "title": "Parking Lot Disposition",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2022-10-02",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2022-10-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/e60ba691-c038-4f38-a7eb-e74c871b7411/R-2022-10-02-Parking-lot-Disposition_Executed",
+        "title": "RESOLUTION 2022-10-02_PARKING LOT DISPOSITION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Parking Lot Disposition",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2022-10-02",
+    "last_update": "2022-10-02",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.246512",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486488",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Parking Lot Disposition. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2022-12-05",
+    "title": "Riversedge Confirmation Of Allocation Of Development Rights",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2022-12-05",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2022-12-05",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/ead4de83-41a4-4ac7-9826-ffd689a9ec81/R-2022-12-05-Rivers-Edge_Confirmation-of-Allocatio",
+        "title": "RESOLUTION 2022-12-05_RIVERSEDGE CONFIRMATION OF ALLOCATION OF DEVELOPMENT RIGHTS",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Riversedge Confirmation Of Allocation Of Development Rights",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2022-12-05",
+    "last_update": "2022-12-05",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": "Riversedge Confirmation Of Allocation Of Development Rights Riversedge Confirmation Of Allocation Of Development Rights",
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": "Riversedge Confirmation Of Allocation Of Development Rights Riversedge Confirmation Of Allocation Of Development Rights",
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "medium",
+      "developer": "high",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.246629",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486493",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Development rights allocation by Riversedge Confirmation Of Allocation Of Development Rights Riversedge Confirmation Of Allocation Of Development Rights."
+  },
+  {
+    "id": "DIA-RES-2025-01-05",
+    "title": "Water Street Garage Parking For Citizens",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-01-05",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-01-05",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/eba5b34e-d5a4-4be3-9c26-a2dd59e54c04/RESOLUTION-2025-01-05_WATER-STREET-GARAGE-PARKING",
+        "title": "RESOLUTION 2025-01-05_WATER STREET GARAGE PARKING FOR CITIZENS",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Water Street Garage Parking For Citizens",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2025-01-05",
+    "last_update": "2025-01-05",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.246729",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486526",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Water Street Garage Parking For Citizens. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2025-02-02",
+    "title": "Convention Center Disposition",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-02-02",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-02-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/ed7d8177-875c-44a6-93c3-1e31c2d96266/RESOLUTION-2025-02-02_CONVENTION-CENTER-DISPOSITIO",
+        "title": "RESOLUTION 2025-02-02_CONVENTION CENTER DISPOSITION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Convention Center Disposition",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2025-02-02",
+    "last_update": "2025-02-02",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.246801",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486533",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Development rights allocation."
+  },
+  {
+    "id": "DIA-RES-2024-04-04",
+    "title": "Downtown Economic Development Fund Fy24 25",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-04-04",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-04-04",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/f6776573-9daf-45aa-8f9a-24cc3b058669/R-2024-04-04-DEDF-FY-25-proposed-budget-With-Exhib",
+        "title": "RESOLUTION 2024-04-04_DOWNTOWN ECONOMIC DEVELOPMENT FUND FY24-25",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Downtown Economic Development Fund Fy24 25",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-04-04",
+    "last_update": "2024-04-04",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": "Downtown Economic Development Fund",
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": "Downtown Economic Development Fund",
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "medium",
+      "developer": "high",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.246882",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486538",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Downtown Economic Development Fund Fy24 25."
+  },
+  {
+    "id": "DIA-RES-2024-10-03",
+    "title": "Core Residential Program",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-10-03",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-10-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/f723bccd-6033-4abd-8e8b-7ea6bd4a9449/RESOLUTION-2024-10-03_CORE-RESIDENTIAL-PROGRAM",
+        "title": "RESOLUTION 2024-10-03_CORE RESIDENTIAL PROGRAM",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Core Residential Program",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-10-03",
+    "last_update": "2024-10-03",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.246951",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486544",
+      "priority_score": 12.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Residential development."
+  },
+  {
+    "id": "DIA-RES-2024-06-12",
+    "title": "45 W Bay Street Facade Grant",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-06-12",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-06-12",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/06cb7d72-b3d6-427f-aa81-fccd5d9d07a4/R-2024-06-12-45-W-Bay-St-facade_EXECUTED",
+        "title": "RESOLUTION 2024-06-12_45 W BAY STREET FACADE GRANT",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "45 W Bay Street Facade Grant",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-06-12",
+    "last_update": "2024-06-12",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.247016",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486550",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "45 W Bay Street Facade Grant. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2024-08-06",
+    "title": "Rise Doro Emergency Rapid Response Grant Allocation",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-08-06",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-08-06",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/06d53d0c-bc0d-470e-baf8-59006c35f27c/R-2024-08-06-RISE-DORO-EMERGENCY-RAPID-RESPONSDE-G",
+        "title": "RESOLUTION 2024-08-06_RISE DORO EMERGENCY RAPID RESPONSE GRANT ALLOCATION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Rise Doro Emergency Rapid Response Grant Allocation",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-08-06",
+    "last_update": "2024-08-06",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.247138",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486555",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Rise Doro Emergency Rapid Response Grant Allocation. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2022-01-08",
+    "title": "Hatfield & Hatfield Facade Grant Agreement Extension",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2022-01-08",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2022-01-08",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/0fbde179-0172-4cf3-801f-87bb86c15816/R-2022-01-08-Hatfield-Hatfield-Facade-Grant-Agreem",
+        "title": "RESOLUTION 2022-01-08_HATFIELD & HATFIELD FACADE GRANT AGREEMENT EXTENSION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Hatfield & Hatfield Facade Grant Agreement Extension",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2022-01-08",
+    "last_update": "2022-01-08",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.247274",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486565",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Hatfield & Hatfield Facade Grant Agreement Extension. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2025-03-01",
+    "title": "315 W. Forsyth St. Facade Grant",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-03-01",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-03-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/1102e9b0-eb0d-48bd-912f-6cfae6bf0abb/RESOLUTION-2025-03-01_315-W-FORSYTH-ST-FACADE-GRAN",
+        "title": "RESOLUTION 2025-03-01_315 W. FORSYTH ST. FACADE GRANT",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "315 W. Forsyth St. Facade Grant",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2025-03-01",
+    "last_update": "2025-03-01",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.247398",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486574",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "315 W. Forsyth St. Facade Grant. Additional details pending review."
+  },
+  {
+    "id": "DIA-RES-2024-11-08",
+    "title": "Hogan St. Kioskis & Easement Funding",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-11-08",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-11-08",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/1499d08e-8914-4576-922b-bf28ea082b68/RESOLUTION-2024-11-08_HOGAN-ST-KIOSKIS-EASEMENT-FU",
+        "title": "RESOLUTION 2024-11-08_HOGAN ST. KIOSKIS & EASEMENT FUNDING",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Hogan St. Kioskis & Easement Funding",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-11-08",
+    "last_update": "2024-11-08",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.247492",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486580",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Hogan St. Kioskis & Easement Funding."
+  },
+  {
+    "id": "DIA-RES-2024-11-05",
+    "title": "Due Diligence Funding",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2024-11-05",
+    "meeting_title": null,
+    "mentions": [
+      {
+        "id": "DIA-RES-2024-11-05",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/153d4be5-76b2-42c3-aa7f-169ada104662/RESOLUTION-2024-11-05_DUE-DILIGENCE-FUNDING",
+        "title": "RESOLUTION 2024-11-05_DUE DILIGENCE FUNDING",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": null,
+        "meeting_title": null,
+        "snippet": ""
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Due Diligence Funding",
+    "address": null,
+    "status": "needs_review",
+    "date_opened": "2024-11-05",
+    "last_update": "2024-11-05",
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "developer": null,
+    "public_investment": {
+      "total_approved": null,
+      "disbursed_to_date": null,
+      "funding_types": [],
+      "notes": ""
+    },
+    "promises": {
+      "residential_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "commercial_sqft": {
+        "promised": null,
+        "delivered": null
+      },
+      "jobs_created": {
+        "promised": null,
+        "delivered": null
+      },
+      "affordable_units": {
+        "promised": null,
+        "delivered": null
+      },
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "actual": {
+      "residential_units": null,
+      "commercial_sqft": null,
+      "jobs_created": null,
+      "affordable_units": null,
+      "completion_date": null,
+      "construction_start_date": null,
+      "other_deliverables": []
+    },
+    "accountability": {
+      "days_delayed": null,
+      "completion_percentage": null,
+      "last_verified": "2026-01-01",
+      "notes": "",
+      "responsible_party": null,
+      "next_milestone": null,
+      "risk_level": "unknown"
+    },
+    "extraction_confidence": {
+      "overall": "low",
+      "developer": "not_extracted",
+      "financial": "not_extracted",
+      "promises": "not_extracted",
+      "timeline": "not_extracted",
+      "last_extraction_run": "2026-01-01T15:44:28.247563",
+      "manual_review_needed": true
+    },
+    "accountability_tracking": {
+      "added_to_tracking": "2026-01-01T14:04:39.486585",
+      "priority_score": 10.0,
+      "tracking_version": "1.0"
+    },
+    "summary": "Due Diligence Funding."
+  }
+]

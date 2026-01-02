@@ -19,11 +19,12 @@ import sys
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 
 import requests
 
 ROOT_RAW = Path("outputs/raw")
+FILES_DIR = Path("outputs/files")
 
 
 REQUIRED_FIELDS = [
@@ -92,6 +93,10 @@ def iter_source_files(source_id: Optional[str], date_key: Optional[str]) -> List
     return files
 
 
+def is_cms_getattachment(url: str) -> bool:
+    return bool(url and "cms/getattachment" in url.lower())
+
+
 def check_url_head(url: str, timeout: float = 15.0) -> int:
     try:
         resp = requests.head(url, allow_redirects=True, timeout=timeout)
@@ -100,7 +105,40 @@ def check_url_head(url: str, timeout: float = 15.0) -> int:
         return -1
 
 
-def verify_file(fp: Path, do_head: bool = False) -> FileResult:
+def check_cms_pdf(url: str, timeout: float = 15.0) -> Tuple[int, str]:
+    """For cms/getattachment URLs, prefer HEAD; if not 200, try a ranged GET.
+    Returns (status_code, content_type)."""
+    try:
+        resp = requests.head(url, allow_redirects=True, timeout=timeout)
+        if resp.status_code == 200:
+            return 200, resp.headers.get("Content-Type", "") or ""
+    except Exception:
+        pass
+    # Some servers disallow HEAD; try a tiny GET
+    try:
+        resp = requests.get(url, headers={"Range": "bytes=0-0"}, timeout=timeout)
+        return resp.status_code, resp.headers.get("Content-Type", "") or ""
+    except Exception:
+        return -1, ""
+
+
+def load_meta_map(source: str, year: str) -> Dict[str, dict]:
+    meta_dir = FILES_DIR / source / year / "meta"
+    out: Dict[str, dict] = {}
+    if not meta_dir.exists():
+        return out
+    for j in meta_dir.glob("*.json"):
+        try:
+            data = json.load(j.open("r"))
+            url = data.get("url")
+            if url:
+                out[url] = data
+        except Exception:
+            continue
+    return out
+
+
+def verify_file(fp: Path, do_head: bool = False, warn_nonpdf: bool = False) -> FileResult:
     try:
         data = json.load(fp.open("r"))
     except Exception as e:
@@ -113,6 +151,8 @@ def verify_file(fp: Path, do_head: bool = False) -> FileResult:
     date_key = data.get("year") or (fp.parent.name if fp.parent.name.isdigit() else fp.stem)
     missing_field_items = 0
     bad_urls = 0
+    meta_map = load_meta_map(source, date_key)
+    pdf_types = {"agenda", "minutes", "packet", "resolution", "transcript", "addendum", "amendments", "staff_report", "presentation", "exhibit"}
 
     # Summary
     print(f"{date_key}  {source}  count={len(items)}  file={fp}")
@@ -126,15 +166,32 @@ def verify_file(fp: Path, do_head: bool = False) -> FileResult:
             missing_field_items += 1
             print(f"⚠️  Missing fields in item {idx} of {fp.name}: {', '.join(missing)}")
 
-        if do_head:
+        # Warn if meta exists but content-type is not PDF for PDF-like types
+        if warn_nonpdf:
+            dt = (it.get("doc_type") or "").lower()
+            if dt in pdf_types:
+                meta = meta_map.get(it.get("url") or "")
+                if meta:
+                    ctype = (meta.get("content_type") or "").lower()
+                    if ctype and "pdf" not in ctype:
+                        print(f"⚠️  Non-PDF content-type '{ctype}' for {dt} url={it.get('url')}")
+
+        # Only run HEAD when meta is missing
+        if do_head and not meta_map.get(it.get("url") or ""):
             url = it.get("url")
             if not url:
                 bad_urls += 1
                 continue
-            status = check_url_head(url)
-            if status != 200:
-                bad_urls += 1
-                print(f"⚠️  URL HEAD non-200 ({status}) for {url}")
+            if is_cms_getattachment(url):
+                status, ctype = check_cms_pdf(url)
+                if status != 200 or (ctype and "pdf" not in ctype.lower()):
+                    bad_urls += 1
+                    print(f"⚠️  CMS getattachment check failed (status={status} ctype='{ctype}') for {url}")
+            else:
+                status = check_url_head(url)
+                if status != 200:
+                    bad_urls += 1
+                    print(f"⚠️  URL HEAD non-200 ({status}) for {url}")
 
     return FileResult(
         source=source,
@@ -148,7 +205,8 @@ def verify_file(fp: Path, do_head: bool = False) -> FileResult:
 
 def main(argv: Optional[List[str]] = None) -> int:
     ap = argparse.ArgumentParser(description="Verify outputs/raw/* JSON files")
-    ap.add_argument("--check-urls", action="store_true", help="Issue HEAD requests for each URL and log non-200 responses")
+    ap.add_argument("--check-urls", action="store_true", help="Only run HEAD for items missing meta")
+    ap.add_argument("--warn-nonpdf", action="store_true", help="Warn if PDF-like doc_type has non-PDF content-type in meta")
     ap.add_argument("--source", help="Limit to a single source id", default=None)
     ap.add_argument("--date", help="Limit to a single date YYYY-MM-DD", default=None)
     args = ap.parse_args(argv)
@@ -163,7 +221,7 @@ def main(argv: Optional[List[str]] = None) -> int:
     any_warnings = False
 
     for fp in files:
-        res = verify_file(fp, do_head=args.check_urls)
+        res = verify_file(fp, do_head=args.check_urls, warn_nonpdf=args.warn_nonpdf)
         t = per_source_totals[res.source]
         t["files"] += 1
         t["items"] += res.item_count

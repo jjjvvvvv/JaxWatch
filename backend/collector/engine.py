@@ -8,17 +8,18 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 from urllib.parse import urljoin, urlparse, parse_qs
 
 import yaml
 from bs4 import BeautifulSoup
 
 from .retry_utils import HttpRetrySession
-from .meeting_detail_scraper import scrape_meeting_attachments
+from .dia_meeting_scraper import scrape_dia_meeting_detail
 import logging
 
 
@@ -26,6 +27,183 @@ DEFAULT_CONFIG_PATH = Path(__file__).parent / "sources.yaml"
 RAW_OUT_DIR = Path("outputs/raw")
 LOG_DIR = Path("outputs/logs")
 # Note: no persistent state in MVP (only logs + raw outputs)
+
+try:  # pragma: no cover - optional dependency
+    from dateutil import parser as dateparser  # type: ignore
+except Exception:  # pragma: no cover
+    dateparser = None
+
+DATE_WITH_SEPARATORS_RE = re.compile(r"(20\d{2})[-_/](\d{1,2})[-_/](\d{1,2})")
+DATE_CONTIGUOUS_RE = re.compile(r"(20\d{2})(\d{2})(\d{2})")
+US_NUMERIC_RE = re.compile(r"(\d{1,2})[/-](\d{1,2})[/-](20\d{2})")
+MONTH_NAME_RE = re.compile(
+    r"\b(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\s+(\d{1,2})(?:st|nd|rd|th)?[,]?\s+(20\d{2})",
+    re.IGNORECASE,
+)
+DAY_MONTH_NAME_RE = re.compile(
+    r"(\d{1,2})(?:st|nd|rd|th)?\s+(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Sept|Oct|Nov|Dec)\s+(20\d{2})",
+    re.IGNORECASE,
+)
+
+MONTH_MAP = {
+    "jan": 1,
+    "feb": 2,
+    "mar": 3,
+    "apr": 4,
+    "may": 5,
+    "jun": 6,
+    "jul": 7,
+    "aug": 8,
+    "sep": 9,
+    "sept": 9,
+    "oct": 10,
+    "nov": 11,
+    "dec": 12,
+}
+
+
+def _reasonable_year(year: int) -> bool:
+    current_year = datetime.now().year
+    return 2000 <= year <= current_year + 1
+
+
+def _coerce_iso_date(year: int, month: int, day: int) -> Optional[str]:
+    if not _reasonable_year(year):
+        return None
+    try:
+        return datetime(year, month, day).date().isoformat()
+    except ValueError:
+        return None
+
+
+def _parse_month_name(name: str) -> Optional[int]:
+    if not name:
+        return None
+    return MONTH_MAP.get(name.strip().lower())
+
+
+def extract_date_from_text(value: Optional[str]) -> Optional[str]:
+    """Extract an ISO YYYY-MM-DD date from free-form text if present."""
+    if not value:
+        return None
+    text = str(value)
+
+    for match in DATE_WITH_SEPARATORS_RE.finditer(text):
+        year, month, day = (int(match.group(1)), int(match.group(2)), int(match.group(3)))
+        iso = _coerce_iso_date(year, month, day)
+        if iso:
+            return iso
+
+    for match in DATE_CONTIGUOUS_RE.finditer(text):
+        year, month, day = (int(match.group(1)), int(match.group(2)), int(match.group(3)))
+        iso = _coerce_iso_date(year, month, day)
+        if iso:
+            return iso
+
+    for match in US_NUMERIC_RE.finditer(text):
+        month, day, year = (int(match.group(1)), int(match.group(2)), int(match.group(3)))
+        iso = _coerce_iso_date(year, month, day)
+        if iso:
+            return iso
+
+    for match in MONTH_NAME_RE.finditer(text):
+        month = _parse_month_name(match.group(1))
+        if month is None:
+            continue
+        day = int(match.group(2))
+        year = int(match.group(3))
+        iso = _coerce_iso_date(year, month, day)
+        if iso:
+            return iso
+
+    for match in DAY_MONTH_NAME_RE.finditer(text):
+        day = int(match.group(1))
+        month = _parse_month_name(match.group(2))
+        if month is None:
+            continue
+        year = int(match.group(3))
+        iso = _coerce_iso_date(year, month, day)
+        if iso:
+            return iso
+
+    if dateparser is not None:
+        try:
+            dt = dateparser.parse(text, fuzzy=True, dayfirst=False)
+            if dt and _reasonable_year(dt.year):
+                return dt.date().isoformat()
+        except Exception:  # pragma: no cover - guard against unexpected parse errors
+            pass
+
+    return None
+
+
+def normalize_meeting_date(value: Optional[str]) -> Optional[str]:
+    if not value:
+        return None
+    value = value.strip()
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", value):
+        try:
+            year, month, day = (int(value[0:4]), int(value[5:7]), int(value[8:10]))
+        except ValueError:
+            return None
+        return _coerce_iso_date(year, month, day)
+    return extract_date_from_text(value)
+
+
+def determine_item_year(item: Dict[str, Any]) -> str:
+    meeting_date = normalize_meeting_date(item.get("meeting_date"))
+    if meeting_date:
+        item["meeting_date"] = meeting_date
+        return meeting_date[:4]
+
+    for key in ("meeting_title", "title", "filename", "url"):
+        candidate = extract_date_from_text(item.get(key))
+        if candidate:
+            item.setdefault("meeting_date", candidate)
+            return candidate[:4]
+
+    collected = item.get("date_collected") or ""
+    if collected and re.match(r"\d{4}", collected):
+        return collected[:4]
+
+    return datetime.now().strftime("%Y")
+
+
+def enrich_item_metadata(item: Dict[str, Any]) -> Tuple[str, List[str]]:
+    """Ensure meeting_date is populated when possible and return the storage year."""
+    notes: List[str] = []
+
+    normalized = normalize_meeting_date(item.get("meeting_date"))
+    if normalized:
+        item["meeting_date"] = normalized
+    else:
+        for key in ("meeting_title", "title", "filename", "url"):
+            candidate = extract_date_from_text(item.get(key))
+            if candidate:
+                item["meeting_date"] = candidate
+                notes.append(f"inferred meeting_date={candidate} from {key}")
+                break
+
+    storage_year = determine_item_year(item)
+
+    meeting_date = item.get("meeting_date")
+    collected = item.get("date_collected") or ""
+    if meeting_date and collected and re.match(r"\d{4}", collected):
+        try:
+            meeting_year = int(meeting_date[:4])
+            collected_year = int(collected[:4])
+            if meeting_year - collected_year > 2:
+                notes.append(
+                    f"meeting_date {meeting_date} is more than 2 years after date_collected {collected}"
+                )
+            elif collected_year - meeting_year > 20:
+                notes.append(
+                    f"meeting_date {meeting_date} is more than 20 years before date_collected {collected}"
+                )
+        except ValueError:
+            pass
+
+    return storage_year, notes
 
 
 def setup_logger() -> logging.Logger:
@@ -103,194 +281,128 @@ def classify_doc_type(source_id: str, url: str, title: str) -> str:
     t = (title or "").lower()
     sid = (source_id or "").lower()
 
-    if sid == "city_council":
-        try:
-            q = parse_qs(urlparse(url).query)
-            m = (q.get("M") or q.get("m") or [""])[0].upper()
-        except Exception:
-            m = ""
-        return {
-            "A": "agenda",
-            "M": "minutes",
-            "E2": "addendum",
-            "E3": "amendments",
-            "IC": "calendar_invite",
-        }.get(m, "other")
 
-    if sid == "planning_commission":
+    if sid in ("dia_ddrb", "dia_board", "dia_transcripts", "dia_resolutions"):
+        # Normalize combined string for keyword checks
         s = f"{t} {u}"
-        if ("meeting-agenda" in s) or ("pc meeting agenda" in s):
+        if "agenda" in s:
             return "agenda"
-        if ("results" in s) or ("results agenda" in s):
-            return "results"
-        if ("staff" in s) or ("filedrop.coj.net" in s):
-            return "staff_reports"
-        return "other"
-
-    if sid == "ddrb":
-        if "agenda" in u:
-            return "agenda"
-        if "packet" in u:
+        if "packet" in s:
             return "packet"
-        if "minutes" in u:
+        if "minutes" in s:
             return "minutes"
+        if "transcript" in s:
+            return "transcript"
+        # Treat DIA CMS attachments under the resolutions archive as resolutions
+        if "cms/getattachment" in u and sid == "dia_resolutions":
+            return "resolution"
+        # Common supporting document types
+        if "addendum" in s:
+            return "addendum"
+        if "presentation" in s:
+            return "presentation"
+        if "staff" in s:
+            return "staff_report"
+        if "exhibit" in s:
+            return "exhibit"
+        if "resolution" in s or " res " in f" {t} ":
+            return "resolution"
         return "other"
 
-    if sid == "capital_projects":
-        return "gis_layer"
 
     return "other"
 
 
-def load_year_store(source_id: str) -> tuple[list[dict], dict[str, dict]]:
-    year = datetime.now().strftime("%Y")
-    year_dir = RAW_OUT_DIR / source_id / year
-    path = year_dir / f"{source_id}.json"
-    if not path.exists():
-        return [], {}
-    try:
-        data = json.load(path.open("r"))
-        items: list[dict] = data.get("items", [])
-    except Exception:
-        items = []
-    by_url = {it.get("url"): it for it in items if it.get("url")}
-    return items, by_url
+def load_year_store(source_id: str) -> Tuple[Dict[str, List[dict]], Dict[str, Tuple[str, dict]]]:
+    base = RAW_OUT_DIR / source_id
+    items_by_year: Dict[str, List[dict]] = {}
+    url_index: Dict[str, Tuple[str, dict]] = {}
+    if not base.exists():
+        return items_by_year, url_index
 
-
-def save_year_store(source_id: str, source_name: str, items: list[dict]) -> Path:
-    year = datetime.now().strftime("%Y")
-    year_dir = RAW_OUT_DIR / source_id / year
-    year_dir.mkdir(parents=True, exist_ok=True)
-    path = year_dir / f"{source_id}.json"
-    payload = {
-        "source": source_id,
-        "source_name": source_name,
-        "year": year,
-        "updated_at": datetime.now().isoformat(),
-        "items": items,
-    }
-    with open(path, "w") as f:
-        json.dump(payload, f, indent=2)
-    return path
-
-
-def _collect_city_council(source: Dict[str, Any], session: HttpRetrySession, logger: logging.Logger) -> Dict[str, Any]:
-    name = source.get("name") or source.get("id") or "unknown"
-    sid = source.get("id") or slugify(name)
-    candidates = source.get("candidates")
-    if not candidates:
-        u = source.get("url")
-        candidates = [u] if u else []
-    patterns = source.get("patterns") or []
-
-    discovered: List[Dict[str, Any]] = []
-    local_seen: set[str] = set()
-    pages_fetched = 0
-    links_total = 0
-
-    meeting_detail_links: List[str] = []
-
-    # 1) Fetch calendar/meetings pages and harvest MeetingDetail.aspx links
-    for url in candidates:
-        if not url:
+    year_dirs = sorted([p for p in base.iterdir() if p.is_dir() and p.name.isdigit()])
+    for year_dir in year_dirs:
+        year = year_dir.name
+        path = year_dir / f"{source_id}.json"
+        if not path.exists():
             continue
         try:
-            resp = session.get(url)
-            pages_fetched += 1
-            logger.info(f"Fetched page: {url} status={resp.status_code} bytes={len(resp.content)}")
-        except Exception as e:
-            logger.warning(f"Page fetch failed: {url} err={e}")
-            continue
+            data = json.load(path.open("r"))
+            items = data.get("items", [])
+            if not isinstance(items, list):
+                items = []
+        except Exception:
+            items = []
+        items_by_year[year] = items
+        for item in items:
+            url = item.get("url")
+            if url:
+                url_index[url] = (year, item)
 
-        soup = BeautifulSoup(resp.content, "html.parser")
-        anchors = soup.find_all("a", href=True)
-        links_total += len(anchors)
-        for a in anchors:
-            href = a.get("href", "").strip()
-            if not href:
-                continue
-            abs_url = absolute_link(url, href)
-            if not abs_url:
-                continue
-            if "meetingdetail.aspx" in abs_url.lower():
-                meeting_detail_links.append(abs_url)
-                continue
-            # Also capture direct Agenda/Minutes/Addendum/etc. links on the calendar rows
-            title = a.get_text(strip=True) or ""
-            title_l = title.lower()
-            if 'view.ashx' in abs_url.lower():
-                # Accept all direct Legistar document endpoints; many have empty text with only an icon
-                if abs_url in local_seen:
-                    continue
-                filename = Path(urlparse(abs_url).path).name or 'document.pdf'
-                already = False
-                item = {
-                    "url": abs_url,
-                    "filename": filename,
-                    "title": title,
-                    "source": sid,
-                    "source_name": name,
-                    "date_collected": datetime.now().isoformat(),
-                    "status": "discovered",
-                    "http_status": "discovered",
-                    "seen_before": already,
-                    "doc_type": classify_doc_type(sid, abs_url, title),
-                }
-                discovered.append(item)
-                local_seen.add(abs_url)
-                logger.info(f"Kept direct calendar link: {abs_url} title='{title}'")
-
-    meeting_detail_links = list(dict.fromkeys(meeting_detail_links))  # de-dup preserve order
-    logger.info(f"Found {len(meeting_detail_links)} MeetingDetail.aspx links to follow")
-
-    # 2) For each meeting detail, scrape attachments and record them
-    for detail_url in meeting_detail_links:
+    legacy_path = base / f"{source_id}.json"
+    if legacy_path.exists():
         try:
-            atts = scrape_meeting_attachments(detail_url=detail_url, session=session)
-            pages_fetched += 1  # one fetch inside scraper
-        except Exception as e:
-            logger.warning(f"Attachment scrape failed: {detail_url} err={e}")
-            atts = []
+            data = json.load(legacy_path.open("r"))
+            items = data.get("items", [])
+            if not isinstance(items, list):
+                items = []
+        except Exception:
+            items = []
+        legacy_year = str(data.get("year") or datetime.now().year)
+        bucket = items_by_year.setdefault(legacy_year, [])
+        bucket.extend(items)
+        for item in items:
+            url = item.get("url")
+            if url and url not in url_index:
+                url_index[url] = (legacy_year, item)
 
-        for att in atts:
-            abs_url = att.get("url")
-            title = att.get("title") or att.get("type") or ""
-            if not abs_url:
-                continue
-            # Optional: enforce pattern match if patterns configured
-            keep = is_match(abs_url, title, patterns) if patterns else True
-            if not keep:
-                continue
-            if abs_url in local_seen:
-                continue
-            filename = Path(urlparse(abs_url).path).name
-            already = False
-            item = {
-                "url": abs_url,
-                "filename": filename,
-                "title": title,
-                "source": sid,
-                "source_name": name,
-                "date_collected": datetime.now().isoformat(),
-                "status": "discovered",
-                "http_status": "discovered",
-                "seen_before": already,
-                "doc_type": classify_doc_type(sid, abs_url, title),
-            }
-            discovered.append(item)
-            local_seen.add(abs_url)
-            logger.info(f"Kept attachment: {abs_url} title='{title}' from {detail_url}")
+    return items_by_year, url_index
 
-    return {
-        "discovered": discovered,
-        "pages_fetched": pages_fetched,
-        "links_total": links_total,
-    }
+
+def sort_items_for_storage(items: List[dict]) -> List[dict]:
+    def _key(it: dict) -> Tuple[str, str, str]:
+        return (
+            (it.get("meeting_date") or ""),
+            (it.get("date_collected") or ""),
+            (it.get("title") or ""),
+        )
+
+    return sorted(items, key=_key)
+
+
+def save_year_store(
+    source_id: str,
+    source_name: str,
+    items_by_year: Dict[str, List[dict]],
+    root_url: str | None = None,
+) -> Dict[str, Path]:
+    saved: Dict[str, Path] = {}
+    now_iso = datetime.now().isoformat()
+    for year, items in sorted(items_by_year.items()):
+        year_dir = RAW_OUT_DIR / source_id / str(year)
+        year_dir.mkdir(parents=True, exist_ok=True)
+        path = year_dir / f"{source_id}.json"
+        payload = {
+            "source": source_id,
+            "source_name": source_name,
+            "year": str(year),
+            "updated_at": now_iso,
+            "last_collected_at": now_iso,
+            "root_url": root_url,
+            "items": sort_items_for_storage(items),
+        }
+        with open(path, "w") as f:
+            json.dump(payload, f, indent=2)
+        saved[str(year)] = path
+    return saved
+
+
 
 
 def _collect_ddrb(source: Dict[str, Any], session: HttpRetrySession, logger: logging.Logger) -> Dict[str, Any]:
     name = source.get("name") or source.get("id") or "unknown"
     sid = source.get("id") or slugify(name)
+    root_url = source.get("root_url") or ""
     candidates = source.get("candidates")
     if not candidates:
         u = source.get("url")
@@ -302,16 +414,13 @@ def _collect_ddrb(source: Dict[str, Any], session: HttpRetrySession, logger: log
     links_total = 0
     local_seen: set[str] = set()
 
-    meeting_pages: List[str] = []
+    def is_preferred_doc(url: str) -> bool:
+        lu = url.lower()
+        if "coj365-my.sharepoint.com" in lu:
+            return False
+        return lu.endswith(".pdf") or "cms/getattachment" in lu
 
-    def keep_doc(url: str, title: str) -> bool:
-        u = url.lower()
-        t = (title or "").lower()
-        if u.endswith('.pdf'):
-            return any(k in t or k in u for k in ["agenda", "minutes", "packet"])
-        if "coj365-my.sharepoint.com" in u:
-            return any(k in t or k in u for k in ["agenda", "minutes", "packet"])
-        return False
+    meeting_pages: List[str] = []
 
     # 1) Fetch listing page(s) and gather meeting detail links + direct docs
     for url in candidates:
@@ -335,28 +444,28 @@ def _collect_ddrb(source: Dict[str, Any], session: HttpRetrySession, logger: log
             if not abs_url:
                 continue
             lu = abs_url.lower()
-            # Direct doc links on listing page
-            if keep_doc(lu, title):
+            if is_preferred_doc(abs_url):
                 if abs_url in local_seen:
                     continue
-                filename = Path(urlparse(abs_url).path).name or 'document'
-                already = False
+                if patterns and not is_match(abs_url, title, patterns):
+                    continue
+                filename = Path(urlparse(abs_url).path).name or 'document.pdf'
                 discovered.append({
                     "url": abs_url,
                     "filename": filename,
                     "title": title,
                     "source": sid,
                     "source_name": name,
+                    "root_url": root_url,
                     "date_collected": datetime.now().isoformat(),
                     "status": "discovered",
                     "http_status": "discovered",
-                    "seen_before": already,
+                    "seen_before": False,
                     "doc_type": classify_doc_type(sid, abs_url, title),
                 })
                 local_seen.add(abs_url)
                 continue
-            # Collect internal meeting detail pages on dia.jacksonville.gov
-            if lu.startswith("http") and "dia.jacksonville.gov" in lu and not lu.endswith('.pdf') and "coj365-my.sharepoint.com" not in lu:
+            if lu.startswith("http") and "dia.jacksonville.gov" in lu and not lu.endswith('.pdf'):
                 meeting_pages.append(abs_url)
 
     meeting_pages = list(dict.fromkeys(meeting_pages))
@@ -365,23 +474,93 @@ def _collect_ddrb(source: Dict[str, Any], session: HttpRetrySession, logger: log
     # 2) Follow each meeting detail page to collect agenda/minutes/packet links
     for detail in meeting_pages:
         try:
-            resp = session.get(detail)
+            atts = scrape_dia_meeting_detail(detail)
             pages_fetched += 1
         except Exception as e:
-            logger.warning(f"DDRB detail fetch failed: {detail} err={e}")
+            logger.warning(f"DDRB detail scrape failed: {detail} err={e}")
+            atts = []
+        for att in atts:
+            abs_url = att.get("url")
+            title = att.get("title") or ""
+            if not abs_url or abs_url in local_seen:
+                continue
+            if not is_preferred_doc(abs_url):
+                continue
+            if patterns and not is_match(abs_url, title, patterns):
+                continue
+            filename = Path(urlparse(abs_url).path).name or 'document.pdf'
+            discovered.append({
+                "url": abs_url,
+                "filename": filename,
+                "title": title,
+                "source": sid,
+                "source_name": name,
+                "root_url": root_url,
+                "date_collected": datetime.now().isoformat(),
+                "status": "discovered",
+                "http_status": "discovered",
+                "seen_before": False,
+                "doc_type": att.get("doc_type") or classify_doc_type(sid, abs_url, title),
+                "meeting_url": detail,
+                "meeting_title": att.get("meeting_title"),
+                "meeting_date": att.get("meeting_date"),
+            })
+            local_seen.add(abs_url)
+
+    return {
+        "discovered": discovered,
+        "pages_fetched": pages_fetched,
+        "links_total": links_total,
+    }
+
+
+def _collect_dia_board(source: Dict[str, Any], session: HttpRetrySession, logger: logging.Logger) -> Dict[str, Any]:
+    name = source.get("name") or source.get("id") or "unknown"
+    sid = source.get("id") or slugify(name)
+    root_url = source.get("root_url") or ""
+    candidates = source.get("candidates")
+    if not candidates:
+        u = source.get("url")
+        candidates = [u] if u else []
+    patterns = source.get("patterns") or []
+
+    discovered: List[Dict[str, Any]] = []
+    pages_fetched = 0
+    links_total = 0
+    local_seen: set[str] = set()
+
+    meeting_pages: List[str] = []
+
+    # 1) Fetch listing page(s) and gather meeting detail links + direct PDFs
+    for url in candidates:
+        if not url:
             continue
+        try:
+            resp = session.get(url)
+            pages_fetched += 1
+            logger.info(f"Fetched page: {url} status={resp.status_code} bytes={len(resp.content)}")
+        except Exception as e:
+            logger.warning(f"Page fetch failed: {url} err={e}")
+            continue
+
         soup = BeautifulSoup(resp.content, "html.parser")
         anchors = soup.find_all("a", href=True)
+        links_total += len(anchors)
         for a in anchors:
             href = a.get("href", "").strip()
             title = a.get_text(strip=True) or ""
-            abs_url = absolute_link(detail, href)
+            abs_url = absolute_link(url, href)
             if not abs_url:
                 continue
-            if abs_url in local_seen:
-                continue
-            if keep_doc(abs_url, title):
-                filename = Path(urlparse(abs_url).path).name or 'document'
+            lu = abs_url.lower()
+            # Capture direct PDFs on listing page
+            if lu.endswith(".pdf"):
+                if abs_url in local_seen:
+                    continue
+                keep = is_match(abs_url, title, patterns) if patterns else True
+                if not keep:
+                    continue
+                filename = Path(urlparse(abs_url).path).name or 'document.pdf'
                 already = False
                 discovered.append({
                     "url": abs_url,
@@ -389,6 +568,7 @@ def _collect_ddrb(source: Dict[str, Any], session: HttpRetrySession, logger: log
                     "title": title,
                     "source": sid,
                     "source_name": name,
+                    "root_url": root_url,
                     "date_collected": datetime.now().isoformat(),
                     "status": "discovered",
                     "http_status": "discovered",
@@ -396,6 +576,169 @@ def _collect_ddrb(source: Dict[str, Any], session: HttpRetrySession, logger: log
                     "doc_type": classify_doc_type(sid, abs_url, title),
                 })
                 local_seen.add(abs_url)
+                continue
+            # Collect meeting detail pages within dia.jacksonville.gov
+            if lu.startswith("http") and "dia.jacksonville.gov" in lu and not lu.endswith('.pdf'):
+                meeting_pages.append(abs_url)
+
+    meeting_pages = list(dict.fromkeys(meeting_pages))
+    logger.info(f"DIA Board: following {len(meeting_pages)} meeting detail page(s)")
+
+    # 2) Follow each meeting detail page to collect agenda/minutes/packet links
+    for detail in meeting_pages:
+        try:
+            atts = scrape_dia_meeting_detail(detail)
+            pages_fetched += 1  # one fetch per detail page inside scraper
+        except Exception as e:
+            logger.warning(f"DIA Board detail scrape failed: {detail} err={e}")
+            atts = []
+        for att in atts:
+            abs_url = att.get("url")
+            title = att.get("title") or ""
+            if not abs_url or abs_url in local_seen:
+                continue
+            keep = is_match(abs_url, title, patterns) if patterns else True
+            if not keep:
+                continue
+            filename = Path(urlparse(abs_url).path).name or 'document.pdf'
+            already = False
+            discovered.append({
+                "url": abs_url,
+                "filename": filename,
+                "title": title,
+                "source": sid,
+                "source_name": name,
+                "root_url": root_url,
+                "date_collected": datetime.now().isoformat(),
+                "status": "discovered",
+                "http_status": "discovered",
+                "seen_before": already,
+                "doc_type": att.get("doc_type") or classify_doc_type(sid, abs_url, title),
+                "meeting_url": detail,
+                "meeting_title": att.get("meeting_title"),
+                "meeting_date": att.get("meeting_date"),
+            })
+            local_seen.add(abs_url)
+
+    return {
+        "discovered": discovered,
+        "pages_fetched": pages_fetched,
+        "links_total": links_total,
+    }
+
+
+def _collect_dia_archive(source: Dict[str, Any], session: HttpRetrySession, logger: logging.Logger) -> Dict[str, Any]:
+    """Generic DIA archive collector for transcripts/resolutions-like pages.
+
+    - Fetch listing pages
+    - Collect direct .pdf and cms/getattachment links
+    - Follow detail pages on dia.jacksonville.gov and collect same
+    """
+    name = source.get("name") or source.get("id") or "unknown"
+    sid = source.get("id") or slugify(name)
+    root_url = source.get("root_url") or ""
+    candidates = source.get("candidates")
+    if not candidates:
+        u = source.get("url")
+        candidates = [u] if u else []
+    patterns = source.get("patterns") or []
+
+    discovered: List[Dict[str, Any]] = []
+    pages_fetched = 0
+    links_total = 0
+    local_seen: set[str] = set()
+    detail_pages: List[str] = []
+
+    def is_doc(u: str) -> bool:
+        lu = u.lower()
+        return lu.endswith(".pdf") or ("cms/getattachment" in lu)
+
+    # 1) Scan listing page(s)
+    for url in candidates:
+        if not url:
+            continue
+        try:
+            resp = session.get(url)
+            pages_fetched += 1
+            logger.info(f"Fetched page: {url} status={resp.status_code} bytes={len(resp.content)}")
+        except Exception as e:
+            logger.warning(f"Page fetch failed: {url} err={e}")
+            continue
+        soup = BeautifulSoup(resp.content, "html.parser")
+        anchors = soup.find_all("a", href=True)
+        links_total += len(anchors)
+        for a in anchors:
+            href = a.get("href", "").strip()
+            title = a.get_text(strip=True) or ""
+            abs_url = absolute_link(url, href)
+            if not abs_url:
+                continue
+            lu = abs_url.lower()
+            if is_doc(lu):
+                if abs_url in local_seen:
+                    continue
+                if patterns and not is_match(abs_url, title, patterns):
+                    continue
+                filename = Path(urlparse(abs_url).path).name or 'document.pdf'
+                discovered.append({
+                    "url": abs_url,
+                    "filename": filename,
+                    "title": title,
+                    "source": sid,
+                    "source_name": name,
+                    "root_url": root_url,
+                    "date_collected": datetime.now().isoformat(),
+                    "status": "discovered",
+                    "http_status": "discovered",
+                    "seen_before": False,
+                    "doc_type": classify_doc_type(sid, abs_url, title),
+                })
+                local_seen.add(abs_url)
+                continue
+            # Collect detail pages on dia domain
+            if lu.startswith("http") and "dia.jacksonville.gov" in lu and not lu.endswith('.pdf'):
+                detail_pages.append(abs_url)
+
+    detail_pages = list(dict.fromkeys(detail_pages))
+    logger.info(f"DIA Archive: following {len(detail_pages)} detail page(s)")
+
+    # 2) Follow details
+    for detail in detail_pages:
+        try:
+            resp = session.get(detail)
+            pages_fetched += 1
+        except Exception as e:
+            logger.warning(f"DIA detail fetch failed: {detail} err={e}")
+            continue
+        soup = BeautifulSoup(resp.content, "html.parser")
+        for a in soup.find_all("a", href=True):
+            href = a.get("href", "").strip()
+            title = a.get_text(strip=True) or ""
+            abs_url = absolute_link(detail, href)
+            if not abs_url:
+                continue
+            lu = abs_url.lower()
+            if not is_doc(lu):
+                continue
+            if abs_url in local_seen:
+                continue
+            if patterns and not is_match(abs_url, title, patterns):
+                continue
+            filename = Path(urlparse(abs_url).path).name or 'document.pdf'
+            discovered.append({
+                "url": abs_url,
+                "filename": filename,
+                "title": title,
+                "source": sid,
+                "source_name": name,
+                "root_url": root_url,
+                "date_collected": datetime.now().isoformat(),
+                "status": "discovered",
+                "http_status": "discovered",
+                "seen_before": False,
+                "doc_type": classify_doc_type(sid, abs_url, title),
+            })
+            local_seen.add(abs_url)
 
     return {
         "discovered": discovered,
@@ -407,6 +750,7 @@ def _collect_ddrb(source: Dict[str, Any], session: HttpRetrySession, logger: log
 def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: logging.Logger) -> Dict[str, Any]:
     name = source.get("name") or source.get("id") or "unknown"
     sid = source.get("id") or slugify(name)
+    root_url = source.get("root_url") or ""
     candidates = source.get("candidates")
     if not candidates:
         u = source.get("url")
@@ -420,68 +764,25 @@ def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: lo
     pages_fetched = 0
     links_total = 0
 
-    # Special-case handling: City Council Legistar attachments
-    if sid == "city_council":
-        logger.info("Special handling for City Council: following MeetingDetail.aspx to collect attachments")
-        cc = _collect_city_council(source, session, logger)
-        discovered = cc["discovered"]
-        pages_fetched += cc["pages_fetched"]
-        links_total += cc["links_total"]
-    elif sid == "ddrb":
+    # Special-case handling for DIA sources
+    if sid == "dia_ddrb":
         logger.info("Special handling for DDRB: following meeting detail pages and collecting docs")
         dd = _collect_ddrb(source, session, logger)
         discovered = dd["discovered"]
         pages_fetched += dd["pages_fetched"]
         links_total += dd["links_total"]
-    elif sid == "planning_commission":
-        # Special handling: inclusive heuristics for AGENDA/RESULTS/STAFF REPORTS and filedrop links
-        for url in candidates:
-            if not url:
-                continue
-            try:
-                resp = session.get(url)
-                pages_fetched += 1
-                logger.info(f"Fetched page: {url} status={resp.status_code} bytes={len(resp.content)}")
-            except Exception as e:
-                logger.warning(f"Page fetch failed: {url} err={e}")
-                continue
-
-            soup = BeautifulSoup(resp.content, "html.parser")
-            anchors = soup.find_all("a", href=True)
-            links_total += len(anchors)
-            for a in anchors:
-                href = a.get("href", "").strip()
-                title = a.get_text(strip=True) or ""
-                abs_url = absolute_link(url, href)
-                if not abs_url:
-                    continue
-                s = f"{title} {abs_url}".lower()
-                keep = False
-                if any(k in s for k in ["pc meeting agenda", "results agenda", "staff reports", "planning commission"]):
-                    keep = True
-                if "filedrop.coj.net" in s:
-                    keep = True
-                if abs_url.lower().endswith('.pdf') and any(k in s for k in ["agenda", "results", "minutes", "staff", "packet"]):
-                    keep = True
-                if not keep:
-                    continue
-                if abs_url in seen:
-                    continue
-                seen.add(abs_url)
-                filename = Path(urlparse(abs_url).path).name or 'document'
-                already = False
-                discovered.append({
-                    "url": abs_url,
-                    "filename": filename,
-                    "title": title,
-                    "source": sid,
-                    "source_name": name,
-                    "date_collected": datetime.now().isoformat(),
-                    "status": "discovered",
-                    "http_status": "discovered",
-                    "seen_before": already,
-                    "doc_type": classify_doc_type(sid, abs_url, title),
-                })
+    elif sid == "dia_board":
+        logger.info("Special handling for DIA Board: follow meeting pages and collect PDFs")
+        db = _collect_dia_board(source, session, logger)
+        discovered = db["discovered"]
+        pages_fetched += db["pages_fetched"]
+        links_total += db["links_total"]
+    elif sid in ("dia_transcripts", "dia_resolutions"):
+        logger.info(f"Special handling for {sid}: DIA archive collector")
+        da = _collect_dia_archive(source, session, logger)
+        discovered = da["discovered"]
+        pages_fetched += da["pages_fetched"]
+        links_total += da["links_total"]
     else:
         # Normal generic collection from candidate pages
         for url in candidates:
@@ -521,6 +822,7 @@ def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: lo
                         "title": title,
                         "source": sid,
                         "source_name": name,
+                        "root_url": root_url,
                         "date_collected": datetime.now().isoformat(),
                         "status": "discovered",
                         "http_status": "discovered",
@@ -532,74 +834,92 @@ def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: lo
                 else:
                     logger.info(f"Skipped (no pattern match): {abs_url} title='{title}'")
 
-    # Prefer known_layer for ArcGIS sources (e.g., capital_projects)
-    # Prefer known_layer(s) for ArcGIS sources (e.g., capital_projects)
-    known_layer = source.get("known_layer")
-    known_layers = source.get("known_layers")
-    layer_list: List[str] = []
-    if isinstance(known_layers, list) and known_layers:
-        layer_list.extend([str(u) for u in known_layers])
-    if isinstance(known_layer, str) and known_layer:
-        layer_list.append(known_layer)
-
-    for layer_url in layer_list:
-        try:
-            resp = session.get(layer_url)
-            pages_fetched += 1
-            logger.info(f"Fetched known layer: {layer_url} status={resp.status_code} bytes={len(resp.content)}")
-        except Exception as e:
-            logger.warning(f"Known layer fetch failed: {layer_url} err={e}")
-        filename = Path(urlparse(layer_url).path).name
-        already = False
-        discovered.append({
-            "url": layer_url,
-            "filename": filename,
-            "title": "known_layer",
-            "source": sid,
-            "source_name": name,
-            "date_collected": datetime.now().isoformat(),
-            "status": "discovered",
-            "http_status": "discovered",
-            "seen_before": already,
-            "doc_type": classify_doc_type(sid, layer_url, "known_layer"),
-        })
-    if layer_list:
-        logger.info(f"Recorded {len(layer_list)} known layer endpoint(s) for source {sid}")
 
     # Merge with year-based store and write
-    existing_items, existing_by_url = load_year_store(sid)
-    existing_urls = set(existing_by_url.keys())
-    run_seen = set(existing_urls)
-    reseen_urls: set[str] = set()
+    items_by_year, existing_index = load_year_store(sid)
+    existing_total = sum(len(values) for values in items_by_year.values())
+    rebucketed = 0
 
-    new_items: List[Dict[str, Any]] = []
+    # Revisit previously saved items so legacy runs benefit from improved metadata
+    for year, items in list(items_by_year.items()):
+        for item in list(items):
+            url = item.get("url")
+            storage_year, notes = enrich_item_metadata(item)
+            for note in notes:
+                level = logging.WARNING if "more than" in note else logging.DEBUG
+                logger.log(level, f"{sid}: {note} url={url}")
+            if storage_year != year and url:
+                try:
+                    items.remove(item)
+                except ValueError:
+                    pass
+                target_bucket = items_by_year.setdefault(storage_year, [])
+                target_bucket.append(item)
+                existing_index[url] = (storage_year, item)
+                rebucketed += 1
+
+    run_seen: set[str] = set()
+    new_count = 0
+    moved_count = 0
+
     for it in discovered:
         url = it.get("url")
         if not url:
             continue
         if url in run_seen:
-            reseen_urls.add(url)
             continue
-        it["seen_before"] = url in existing_urls
-        new_items.append(it)
         run_seen.add(url)
 
-    # Flip seen_before to True on any existing items that were observed again
-    if reseen_urls and existing_by_url:
-        for u in reseen_urls:
-            ex = existing_by_url.get(u)
-            if ex and not ex.get("seen_before"):
-                ex["seen_before"] = True
+        storage_year, notes = enrich_item_metadata(it)
+        for note in notes:
+            level = logging.WARNING if "more than" in note else logging.DEBUG
+            logger.log(level, f"{sid}: {note} url={url}")
 
-    combined = existing_items + new_items
-    out_path = save_year_store(sid, name, combined)
-    logger.info(f"✅ Source finished: {name} added={len(new_items)} existing={len(existing_items)} file={out_path}")
+        existing_entry = existing_index.get(url)
+        if existing_entry:
+            current_year, existing_item = existing_entry
+            existing_item["seen_before"] = True
+            for key in ["title", "doc_type", "filename", "meeting_date", "meeting_title", "root_url"]:
+                if not existing_item.get(key) and it.get(key):
+                    existing_item[key] = it[key]
+            if storage_year != current_year:
+                try:
+                    items_by_year[current_year].remove(existing_item)
+                except (ValueError, KeyError):
+                    pass
+                bucket = items_by_year.setdefault(storage_year, [])
+                bucket.append(existing_item)
+                existing_index[url] = (storage_year, existing_item)
+                moved_count += 1
+            continue
+
+        it["seen_before"] = False
+        bucket = items_by_year.setdefault(storage_year, [])
+        bucket.append(it)
+        existing_index[url] = (storage_year, it)
+        new_count += 1
+
+    # Drop empty buckets to avoid writing hollow years
+    items_by_year = {year: items for year, items in items_by_year.items() if items}
+    saved_paths = save_year_store(sid, name, items_by_year, root_url=root_url)
+    total_after = sum(len(values) for values in items_by_year.values())
+    logger.info(
+        "✅ Source finished: %s added=%s moved=%s rebucketed=%s total=%s years=%s",
+        name,
+        new_count,
+        moved_count,
+        rebucketed,
+        total_after,
+        ",".join(sorted(saved_paths.keys())) or "-",
+    )
     return {
         "source": sid,
         "source_name": name,
-        "file": str(out_path),
-        "added": len(new_items),
-        "existing": len(existing_items),
+        "files": {year: str(path) for year, path in saved_paths.items()},
+        "added": new_count,
+        "existing": existing_total,
+        "rebucketed": rebucketed,
+        "moved": moved_count,
         "pages_fetched": pages_fetched,
         "links_discovered": links_total,
     }

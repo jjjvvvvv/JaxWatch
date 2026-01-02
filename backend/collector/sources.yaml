@@ -1,0 +1,9 @@
+sources:
+  - id: dia_board
+    artifact_policy: parse_then_discard
+  - id: dia_ddrb
+    artifact_policy: parse_then_discard
+  - id: city_council
+    artifact_policy: reference_only
+  - id: planning_commission
+    artifact_policy: reference_only

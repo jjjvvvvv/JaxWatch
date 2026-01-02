@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>DIA Project Accountability Tracker</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Jacksonville DIA Project Tracker</h1>
+      <p class="subtitle">Monitoring promises vs delivery of taxpayer-funded development</p>
+    </header>
+
+    <main class="page-body">
+      <!-- Public Overview -->
+      <section class="public-overview" aria-label="Project Overview">
+        <div class="overview-content">
+          <h2>Recent Updates</h2>
+          <ul id="recent-updates">
+            <li>Loading recent project updates...</li>
+          </ul>
+
+          <div class="quick-stats">
+            <div class="quick-stat">
+              <strong id="total-projects">—</strong>
+              <span>Projects Tracked</span>
+            </div>
+            <div class="quick-stat">
+              <strong id="total-public-investment">—</strong>
+              <span>Public Investment</span>
+            </div>
+            <div class="quick-stat">
+              <strong id="projects-on-schedule">—</strong>
+              <span>On Schedule</span>
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button id="view-all-btn" class="primary-btn">View All Projects</button>
+            <button id="export-data-btn" class="secondary-btn">Export Data</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search and Filters -->
+      <section class="public-controls" aria-label="Search and Filter">
+        <div class="control-row">
+          <label>
+            Search Projects
+            <input id="public-search" type="search" placeholder="Search by project name, developer, or location" />
+          </label>
+          <label>
+            Filter by Status
+            <select id="public-status-filter">
+              <option value="">All Projects</option>
+              <option value="in_progress">In Progress</option>
+              <option value="completed">Completed</option>
+              <option value="delayed">Delayed</option>
+              <option value="needs_review">Under Review</option>
+            </select>
+          </label>
+          <label>
+            Sort by
+            <select id="public-sort">
+              <option value="investment_desc">Investment (High to Low)</option>
+              <option value="investment_asc">Investment (Low to High)</option>
+              <option value="date_desc">Newest First</option>
+              <option value="date_asc">Oldest First</option>
+              <option value="name_asc">Project Name (A-Z)</option>
+              <option value="status">Status</option>
+            </select>
+          </label>
+        </div>
+        <div class="results-info">
+          <span id="public-result-count">Loading projects...</span>
+        </div>
+      </section>
+
+      <!-- Projects Grid -->
+      <section class="projects-grid" aria-live="polite">
+        <div id="public-status-message" class="status">Loading accountability projects...</div>
+        <div id="projects-container" class="grid-container" hidden>
+          <!-- Project cards will be inserted here -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="public-footer">
+      <div class="footer-content">
+        <p>
+          <strong>DIA Project Accountability Tracker</strong><br>
+          Tracking promises vs delivery of Downtown Investment Authority funded projects in Jacksonville, Florida.
+        </p>
+        <p>
+          Data sources: DIA Board meetings, resolutions, and public records.<br>
+          Last updated: <span id="public-last-updated">—</span>
+        </p>
+        <div class="footer-links">
+          <a href="admin.html">Admin Dashboard</a> |
+          <a href="#" id="about-link">About This Data</a> |
+          <a href="#" id="feedback-link">Report Issue</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="public.js"></script>
+  </body>
+</html>

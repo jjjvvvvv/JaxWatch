@@ -1,0 +1,17 @@
+{
+  "public": true,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "builds": [
+    { "src": "admin_ui/**/*", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/", "dest": "admin_ui/admin.html" },
+    { "src": "/admin.html", "dest": "admin_ui/admin.html" },
+    { "src": "/admin.js", "dest": "admin_ui/admin.js" },
+    { "src": "/project.html", "dest": "admin_ui/project.html" },
+    { "src": "/project.js", "dest": "admin_ui/project.js" },
+    { "src": "/styles.css", "dest": "admin_ui/styles.css" },
+    { "src": "/data/(.*)", "dest": "admin_ui/data/$1" }
+  ]
+}

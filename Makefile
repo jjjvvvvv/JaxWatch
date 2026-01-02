@@ -1,4 +1,4 @@
-.PHONY: help collect-all collect-source admin-view verify-outputs show-logs
+.PHONY: help collect-all collect-source admin-view verify-outputs show-logs fetch-pdfs extract-projects reset-projects inspect-project test-pdf test-project slack-digest copy-projects-json deploy-admin
 
 # Default target
 help:
@@ -7,8 +7,11 @@ help:
 	@echo "Commands:"
 	@echo "  collect-all      Run all sources and verify outputs"
 	@echo "  collect-source   Run a single source: make collect-source name=<id|Name>"
-	@echo "  admin-view       Start minimal admin (http://localhost:5010)"
+	@echo "  admin-view       Preview static admin UI (http://localhost:8005/admin.html)"
 	@echo "  verify-outputs   Validate outputs/raw JSON (doc_type, required fields)"
+	@echo "  fetch-pdfs       Download and extract text from PDFs"
+	@echo "  extract-projects Scan text files and update projects index"
+	@echo "  inspect-project  Print all mentions for a project id=<ID>"
 	@echo "  show-logs        Print logs: make show-logs date=YYYY-MM-DD"
 
 collect-all:
@@ -25,12 +28,61 @@ collect-source:
 	python3 -m backend.collector.engine --config backend/collector/sources.yaml --source "$(name)"
 
 admin-view:
-	@echo "🗂️  Starting admin view at http://localhost:5010"
-	python3 -m backend.collector.admin_app --port 5010
+	@if [ ! -f outputs/projects/projects_index.json ]; then \
+		echo "ERROR: outputs/projects/projects_index.json not found. Run extraction first."; \
+		exit 1; \
+	fi
+	@mkdir -p admin_ui/data
+	cp outputs/projects/projects_index.json admin_ui/data/projects_index.json
+	@if [ -f outputs/projects/extracted_accountability.json ]; then \
+		cp outputs/projects/extracted_accountability.json admin_ui/data/extracted_accountability.json; \
+		echo "📁 Copied outputs/projects/extracted_accountability.json -> admin_ui/data/extracted_accountability.json"; \
+	fi
+	@echo "📁 Copied outputs/projects/projects_index.json -> admin_ui/data/projects_index.json"
+	@echo "🛠️  Serving static admin UI at http://localhost:8005/admin.html"
+	@echo "    (Ctrl+C to stop when finished)"
+	python3 -m http.server 8005 --directory admin_ui
 
 verify-outputs:
 	@echo "🔎 Verifying outputs/raw health..."
 	python3 -m backend.tools.verify_outputs $(ARGS)
+
+fetch-pdfs:
+	@echo "📄 Processing artifacts per source policy (reference_only/download/parse_then_discard)..."
+	python3 -m backend.tools.pdf_extractor $(ARGS)
+
+extract-projects:
+	@echo "🏗️  Extracting candidate projects from text..."
+	python3 -m backend.tools.extract_projects $(ARGS)
+
+reset-projects:
+	@echo "♻️  Resetting projects index and re-extracting..."
+	rm -f outputs/projects/projects_index.json
+	python3 -m backend.tools.extract_projects --reset
+
+inspect-project:
+	@if [ -z "$(id)" ]; then \
+		echo "Usage: make inspect-project id=<project_id_or_substring>"; \
+		exit 2; \
+	fi
+	@echo "🔎 Inspecting project: $(id)"
+	python3 -m backend.tools.inspect_project --id "$(id)"
+
+test-pdf:
+	@if [ -z "$(file)" ]; then \
+		echo "Usage: make test-pdf file=path/to/example.pdf"; \
+		exit 2; \
+	fi
+	@echo "🧪 Extracting single PDF: $(file)"
+	python3 -m backend.tools.pdf_extractor --file "$(file)"
+
+test-project:
+	@if [ -z "$(file)" ]; then \
+		echo "Usage: make test-project file=path/to/example.pdf.txt"; \
+		exit 2; \
+	fi
+	@echo "🧪 Extracting projects from single text: $(file)"
+	python3 -m backend.tools.extract_projects --file "$(file)"
 
 show-logs:
 	@if [ -z "$(date)" ]; then \
@@ -39,3 +91,35 @@ show-logs:
 	fi
 	@echo "📜 Logs for $(date):"
 	@if [ -f outputs/logs/$(date).log ]; then cat outputs/logs/$(date).log; else echo "No log file for $(date)"; fi
+
+slack-digest:
+	@echo "🧵 Posting Slack digest (set SLACK_WEBHOOK_URL and ADMIN_URL, or pass ARGS=--dry-run)"
+	python3 -m backend.tools.slack_digest $(ARGS)
+
+copy-projects-json:
+	@if [ ! -f outputs/projects/projects_index.json ]; then \
+		echo "ERROR: outputs/projects/projects_index.json not found. Run extraction first."; \
+		exit 1; \
+	fi
+	@mkdir -p admin_ui/data
+	cp outputs/projects/projects_index.json admin_ui/data/projects_index.json
+	@if [ -f outputs/projects/extracted_accountability.json ]; then \
+		cp outputs/projects/extracted_accountability.json admin_ui/data/extracted_accountability.json; \
+		echo "📁 Copied outputs/projects/extracted_accountability.json -> admin_ui/data/extracted_accountability.json"; \
+	fi
+	@echo "📁 Copied outputs/projects/projects_index.json -> admin_ui/data/projects_index.json"
+
+deploy-admin:
+	@if [ ! -f outputs/projects/projects_index.json ]; then \
+		echo "ERROR: outputs/projects/projects_index.json not found. Run extraction first."; \
+		exit 1; \
+	fi
+	@mkdir -p admin_ui/data
+	cp outputs/projects/projects_index.json admin_ui/data/projects_index.json
+	@if [ -f outputs/projects/extracted_accountability.json ]; then \
+		cp outputs/projects/extracted_accountability.json admin_ui/data/extracted_accountability.json; \
+		echo "📁 Copied outputs/projects/extracted_accountability.json -> admin_ui/data/extracted_accountability.json"; \
+	fi
+	@echo "📁 Copied outputs/projects/projects_index.json -> admin_ui/data/projects_index.json"
+	@echo "🚀 Deploying admin_ui/ with Vercel"
+	vercel --prod --cwd admin_ui

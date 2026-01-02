@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jacksonville Observer Project</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles_extras.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+  <header class="page-header">
+    <div class="header-top">
+      <a class="back-link" href="admin.html">← Back to projects</a>
+    </div>
+    <h1 id="project-title">Project Detail</h1>
+  </header>
+
+  <main class="page-body">
+    <section class="detail-section" id="project-section">
+      <div id="detail-status" class="status">Loading project…</div>
+      <div id="detail-content" hidden></div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p>Projects are loaded from <code>admin_ui/data/projects_index.json</code>.</p>
+  </footer>
+
+  <script src="project.js"></script>
+</body>
+
+</html>
