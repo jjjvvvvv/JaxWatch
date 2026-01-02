@@ -14,12 +14,14 @@ data/**/*.db
 *.tmp
 *.pdf
 
-# Runtime artifacts
+# Runtime artifacts and outputs
 data/source_health.db
 data/health_report.json
 data/polling_config.json
 data/processed_pdfs.json
 frontend/all-projects.json
+outputs/
+backend/tools/outputs/
 
 # Test artifacts
 test_report.json
