@@ -123,6 +123,7 @@ YEAR_TMPL = """
       <th>date_collected</th>
       <th>doc_type</th>
       <th>title</th>
+      <th>summary</th>
       <th>url</th>
     </tr>
     {% for it in items %}
@@ -131,7 +132,17 @@ YEAR_TMPL = """
         <td>{{ it.get('date_collected', '') }}</td>
         <td>{{ it.get('doc_type', '(missing)') }}</td>
         <td>{{ it.get('title', '') }}</td>
-      <td>{% if it.get('url') %}<a href="{{ it.get('url') }}" target="_blank">{{ it.get('url') }}</a>{% else %}—{% endif %}</td>
+        <td style="max-width: 400px; font-size: 0.9em;">
+          {% if it.get('summary') %}
+            <details>
+              <summary>View Summary</summary>
+              <p style="white-space: pre-wrap;">{{ it.get('summary') }}</p>
+            </details>
+          {% else %}
+            <span style="color: #ccc;">(none)</span>
+          {% endif %}
+        </td>
+        <td>{% if it.get('url') %}<a href="{{ it.get('url') }}" target="_blank">Link</a>{% else %}—{% endif %}</td>
       </tr>
     {% endfor %}
   </table>
