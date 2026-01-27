@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JaxWatch BD Radar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles_v2.css" />
+  <link rel="stylesheet" href="bd.css" />
+  <!-- Leaflet for map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+  <header class="page-header">
+    <h1>JaxWatch BD Radar</h1>
+    <p class="subtitle">Deal radar + memory system for Jacksonville development</p>
+  </header>
+
+  <main class="page-body">
+    <!-- Map Section -->
+    <section class="map-section">
+      <div id="project-map"></div>
+      <div class="map-legend">
+        <span class="legend-item"><span class="dot hot"></span> Hot Opportunity</span>
+        <span class="legend-item"><span class="dot active"></span> Active Project</span>
+        <span class="legend-item"><span class="dot other"></span> Other</span>
+      </div>
+    </section>
+
+    <!-- Stats Overview -->
+    <section class="stats-row">
+      <div class="stat-card">
+        <h3>Projects Tracked</h3>
+        <span id="total-projects">-</span>
+      </div>
+      <div class="stat-card">
+        <h3>Hot Opportunities</h3>
+        <span id="hot-count">-</span>
+      </div>
+      <div class="stat-card">
+        <h3>Total Investment</h3>
+        <span id="total-investment">-</span>
+      </div>
+      <div class="stat-card">
+        <h3>Last Updated</h3>
+        <span id="last-updated">-</span>
+      </div>
+    </section>
+
+    <!-- Two Column Layout -->
+    <div class="two-column">
+      <!-- Recent Meetings -->
+      <section class="meetings-section">
+        <h2>Recent DIA Meetings</h2>
+        <div id="recent-meetings" class="meetings-list">
+          <p class="loading">Loading meetings...</p>
+        </div>
+      </section>
+
+      <!-- Upcoming Meetings -->
+      <section class="meetings-section">
+        <h2>Upcoming Meetings</h2>
+        <div id="upcoming-meetings" class="meetings-list">
+          <p class="muted">No upcoming meetings scheduled</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Hot Opportunities -->
+    <section class="opportunities-section">
+      <h2>Hot Opportunities</h2>
+      <div id="hot-opportunities" class="projects-grid">
+        <p class="loading">Loading opportunities...</p>
+      </div>
+    </section>
+
+    <!-- All Projects -->
+    <section class="all-projects-section">
+      <h2>All Projects</h2>
+      <div class="controls-row">
+        <input type="search" id="search-input" placeholder="Search projects..." />
+        <select id="type-filter">
+          <option value="">All Types</option>
+          <option value="hotel">Hotel</option>
+          <option value="residential">Residential</option>
+          <option value="mixed-use">Mixed-Use</option>
+          <option value="office">Office</option>
+          <option value="retail">Retail</option>
+          <option value="infrastructure">Infrastructure</option>
+          <option value="demolition">Demolition</option>
+          <option value="land_disposition">Land Disposition</option>
+        </select>
+        <span id="result-count"></span>
+      </div>
+      <div id="all-projects" class="projects-table-container">
+        <p class="loading">Loading projects...</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project Detail Modal -->
+  <div id="project-modal" class="modal" hidden>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modal-title">Project Details</h2>
+        <button class="close-modal" onclick="closeModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-body">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <footer class="page-footer">
+    <p>JaxWatch BD Radar - Tracking Jacksonville development opportunities</p>
+  </footer>
+
+  <script src="bd.js"></script>
+</body>
+
+</html>

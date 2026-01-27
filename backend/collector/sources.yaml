@@ -1,0 +1,14 @@
+sources:
+  - id: dia_board
+    name: DIA Board
+    candidates:
+      - https://dia.jacksonville.gov/meetings/dia-meetings/2026-ba5c0d7b519ec5dabb62735f937af4f5/20260121_dia-board-meeting
+      - https://dia.jacksonville.gov/meetings/dia-meetings/2025-d7cc5964eeef5aa6fd02ed071cba691f/20251217_dia-board-meeting
+    direct_meetings: true
+    artifact_policy: parse_then_discard
+  - id: dia_ddrb
+    artifact_policy: parse_then_discard
+  - id: city_council
+    artifact_policy: reference_only
+  - id: planning_commission
+    artifact_policy: reference_only
