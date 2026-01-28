@@ -1,0 +1,3051 @@
+[
+  {
+    "id": "PROJ-SHIPYARDS",
+    "title": "The Shipyards & Four Seasons",
+    "name": "The Shipyards & Four Seasons",
+    "doc_type": "ANCHOR",
+    "is_master_project": true,
+    "parent_project_id": null,
+    "child_project_ids": [
+      {
+        "id": "resolution-20260106-001",
+        "title": "RESOLUTION 2024-03-05_NORTHBANK BALANCE TRANSFER SHIPYARDS WEST TO RIVERWALK ENHANCEMENTS",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-002",
+        "title": "RESOLUTION 2024-03-04_NORTHBANK BALANCE TRANSFER SHIPYARDS WEST TO JEA DUCT BANK RELOCATION",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-003",
+        "title": "RESOLUTION 2022-06-04_SHIPYARDS OFFICE PARCEL DISPOSITION",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-004",
+        "title": "RESOLUTION-2021-02-02-SHIPYARDS-ACCESS-AGREEMENT",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-005",
+        "title": "20181213_DDRB-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 2
+      },
+      {
+        "id": "resolution-20260106-006",
+        "title": "RESOLUTION-2015-04-02_IGUANA INVESTMENTS - SHIPYARDS",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-007",
+        "title": "Agenda",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-008",
+        "title": "20150527_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-009",
+        "title": "20181206_Strategic-Implementation-Committee-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-010",
+        "title": "20201202_DIA-Special-Board-Meeting-Agenda-Packet_with Lot J Final Staff Report_MINUTES IN PROGRESS",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-011",
+        "title": "20180919_DIA-Board-Meeting-Agenda,-Minutes-Resolutions-(1)",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-012",
+        "title": "20230118_DIA Finance and Budget Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-013",
+        "title": "20230302_DIA Workshop Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-014",
+        "title": "20230315_DIA Board Meeting Amended Agenda Packet_v2",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-015",
+        "title": "20240221_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-016",
+        "title": "20200219_DIA-Board-Meeting-Agenda-Packet_Website-Upload",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-017",
+        "title": "20220118_DIA RE&PD Committee Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-018",
+        "title": "20230315_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-019",
+        "title": "20130503-DIA-Experience-Committee-Meeting-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-020",
+        "title": "20150722_DDRB-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-021",
+        "title": "20151028_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-022",
+        "title": "20240215_DIA Strategic Implementation Committee Meeting Agenda and Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 2
+      },
+      {
+        "id": "agenda-20260106-023",
+        "title": "20220217_DIA Board Workshop Agenda Packet_DRAFT BID Plan",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-024",
+        "title": "20210315_DIA-SIC-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-025",
+        "title": "20240105_DIA Public Workshop Agenda",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-026",
+        "title": "20230214_DIA Strategic Implementation Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-027",
+        "title": "20130923_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-028",
+        "title": "20130607_DIA-Experience-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-029",
+        "title": "20221214_DIA Strategic Implementation Committee Meeting Draft Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-030",
+        "title": "20240320_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-031",
+        "title": "20190320_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-032",
+        "title": "20141119_DIA-Board-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-033",
+        "title": "20240308_DIA Board Workshop Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-034",
+        "title": "20181212_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-035",
+        "title": "20150224_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-036",
+        "title": "20161214_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-037",
+        "title": "20200115_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-038",
+        "title": "20130417-DIA-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-039",
+        "title": "20210317_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-040",
+        "title": "20180620_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-041",
+        "title": "20150507_DIA-Special-Meeting-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-042",
+        "title": "20201118_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 2
+      },
+      {
+        "id": "agenda-20260106-043",
+        "title": "20150325_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-044",
+        "title": "20230118_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-045",
+        "title": "20200909_SIC-Agenda",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-046",
+        "title": "20230309_DIA Strategic Implementation Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-047",
+        "title": "20140401_DIA-Special-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-048",
+        "title": "20230112_DIA Strategic Implementation Committee Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-049",
+        "title": "20240216_DIA Finance and Budget Committee Meeting Amended Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-050",
+        "title": "20210421_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-051",
+        "title": "20200211-Retail-Enhancement-and-Property-Disposition-Committee-Agenda-Packet-Final",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-052",
+        "title": "20230118_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-053",
+        "title": "20170927_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-054",
+        "title": "20150430_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-055",
+        "title": "20210315_DIA SIC Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-056",
+        "title": "20140820_DIA-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-057",
+        "title": "20220118_DIA RE&PD Committee Agenda Packet_v3_FINAL",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-058",
+        "title": "20140616_DIA-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-059",
+        "title": "20130927-Redevelopment-Plan-Committee-Meeting-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-060",
+        "title": "20250214_DIA Finance & Budget Workshop Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-061",
+        "title": "20131023_Redevelopment-Plan-Committee-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-062",
+        "title": "20220119_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-063",
+        "title": "20131016_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-064",
+        "title": "20200221_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-065",
+        "title": "20220119_DIA Board Meeting Agenda Packet_V3_Final",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-066",
+        "title": "20230315_DIA Board Meeting Amended Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-067",
+        "title": "20190226_Strategic-Implementation-Committee-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-068",
+        "title": "20130814-Redevelopment-Plan-Committee-Meeting-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-069",
+        "title": "20150826_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-070",
+        "title": "20150729_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-071",
+        "title": "20220119_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-072",
+        "title": "20130405_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-073",
+        "title": "20240110_DIA Retail Enhancement & Property Disposition Committee Meeting Minutes",
+        "relationship_type": "disposition",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-074",
+        "title": "20230309_DIA Stratetic Implementation Committee Meeting Amended Agenda Packet_v2",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-075",
+        "title": "20210217_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-076",
+        "title": "20200819_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 2
+      },
+      {
+        "id": "agenda-20260106-077",
+        "title": "20230118_DIA Board Meeting Agenda Packet_v2",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-078",
+        "title": "20201008_DDRB-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-079",
+        "title": "20150528_DDRB-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-080",
+        "title": "20240215_DIA Retail Enhancement and Property Disposition Committee Meeting Agenda Packet",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-081",
+        "title": "20131113-Redevelopment-Plan-Committee-Meeting-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-082",
+        "title": "20240320_DIA Finance and Budget Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-083",
+        "title": "20240117_DIA Finance and Budget Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-084",
+        "title": "20130821_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-085",
+        "title": "20130619_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-086",
+        "title": "20240308_DIA Board Workshop Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-087",
+        "title": "20230309_DIA Strategic Implementation Committee Meeting Amended Agenda Packet_v3",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-088",
+        "title": "20170517_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-089",
+        "title": "20131206_DIA-Joint-Economy-Experience-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-090",
+        "title": "20200916_DIA-Board-Meeting-Agenda-Packet_Revised",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-091",
+        "title": "20130109_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-092",
+        "title": "20170418_DIA-Board-Meeting-Agenda,-Minutes-Resolution",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-093",
+        "title": "20140325_DIA-Special-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-094",
+        "title": "20220118_DIA RE&PD Committee Agenda Packet_v2",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-095",
+        "title": "20210317_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-096",
+        "title": "20150618_DIA-Board-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-097",
+        "title": "20121220_DIA-CRA-Committee-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-098",
+        "title": "20230309 DIA Stratetic Implementation Committee Meeting Amended Agenda Packet_v4",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-099",
+        "title": "20220119_DIA Board Meeting Agenda Packet_V2",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-100",
+        "title": "20130328-DIA-Environment-Meeting-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-101",
+        "title": "20121017_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-102",
+        "title": "20131120_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-103",
+        "title": "20201112_Strategic-Implementation-Committee-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-104",
+        "title": "20160518_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-105",
+        "title": "20230315_DIA Board Meeting Amended Agenda Packet_v3",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-106",
+        "title": "20171031_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-107",
+        "title": "20220118_RE&PD Committee Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-108",
+        "title": "20140424_DIA-Special-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-109",
+        "title": "20210223_DIA-Workshop-Agenda",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-110",
+        "title": "20240216_DIA Finance and Budget Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-111",
+        "title": "20150306_DIA-Special-Board-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-112",
+        "title": "20200909_SIC-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-113",
+        "title": "20170823_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-114",
+        "title": "20240216_DIA Finance & Budget Committee Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-115",
+        "title": "20210217_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-116",
+        "title": "20240320_DIA Finance & Budget Committee Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-117",
+        "title": "20230215_DIA Finance and Budget Committee Meeting Amended Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-118",
+        "title": "20130116_DIA-CRA-Plan-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      }
+    ],
+    "project_level": 0,
+    "total_child_mentions": 122,
+    "child_project_count": 118,
+    "summary": "Master project for The Shipyards & Four Seasons with 118 related documents",
+    "source": "hierarchy_migration",
+    "status": "needs_review",
+    "mentions": [],
+    "address": "The Shipyards & Four Seasons",
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "source_name": "hierarchy_migration",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "date_opened": null,
+    "last_update": null,
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "pending_review": true,
+    "clawdbot_analysis": {
+      "enhanced_summary": "The Shipyards development is a major mixed-use waterfront project featuring residential, commercial, and entertainment facilities. With 118 related documents spanning multiple years, this represents one of Jacksonville's most significant ongoing developments with substantial public investment and regulatory oversight.",
+      "processed_at": "2026-01-27T18:44:45.520425",
+      "version": "0.1.0-demo"
+    }
+  },
+  {
+    "id": "PROJ-RIVERFRONT",
+    "title": "Riverfront Plaza",
+    "name": "Riverfront Plaza",
+    "doc_type": "ANCHOR",
+    "is_master_project": true,
+    "parent_project_id": null,
+    "child_project_ids": [
+      {
+        "id": "resolution-20260106-001",
+        "title": "RESOLUTION 2025-02-08_FORMER LANDING ACCESS AGREEMENT",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-002",
+        "title": "RESOLUTION 2024-02-02_RIVERFRONT PLAZA RESTAURANT",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-003",
+        "title": "RESOLUTION 2023-03-08_RIVERFRONT PLAZA SPEAKERS AND PROJECTORS",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-004",
+        "title": "RESOLUTION 2022-09-02_AMERICAN LIONS RIVERFRONT PLAZA",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-005",
+        "title": "RESOLUTION 2022-05-02_AMERICAN LIONS RIVERFRONT PLAZA NOTICE OF DISPOSITION",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-006",
+        "title": "RESOLUTION 2022-02-02_RIVERFRONT PLAZA DEVELOPMENT PAD NOTICE OF DISPOSITION",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-007",
+        "title": "Resolution-2014-12-01_RFP SCOPE OF SERVICES_LANDING SITE",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-008",
+        "title": "Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 4
+      },
+      {
+        "id": "agenda-20260106-009",
+        "title": "20201202_DIA-Special-Board-Meeting-Agenda-Packet_with Lot J Final Staff Report_MINUTES IN PROGRESS",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-010",
+        "title": "20230118_DIA Finance and Budget Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-011",
+        "title": "20230302_DIA Workshop Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-012",
+        "title": "20230315_DIA Board Meeting Amended Agenda Packet_v2",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-013",
+        "title": "20141217-DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-014",
+        "title": "20240221_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-015",
+        "title": "20200219_DIA-Board-Meeting-Agenda-Packet_Website-Upload",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-016",
+        "title": "20220118_DIA RE&PD Committee Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-017",
+        "title": "20230315_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-018",
+        "title": "20240215_DIA Strategic Implementation Committee Meeting Agenda and Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 2
+      },
+      {
+        "id": "agenda-20260106-019",
+        "title": "20220217_DIA Board Workshop Agenda Packet_DRAFT BID Plan",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-020",
+        "title": "20240105_DIA Public Workshop Agenda",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-021",
+        "title": "20230214_DIA Strategic Implementation Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-022",
+        "title": "20221214_DIA Strategic Implementation Committee Meeting Draft Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-023",
+        "title": "20240320_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-024",
+        "title": "20250219_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-025",
+        "title": "20240308_DIA Board Workshop Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-026",
+        "title": "20240215_DIA Retail Enhancement and Property Disposition Committee Meeting Agenda",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-027",
+        "title": "20191218_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-028",
+        "title": "20210317_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-029",
+        "title": "20201118_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-030",
+        "title": "20201014_DIA-Board-Meeting-Agenda-Packet_Revised",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-031",
+        "title": "20240221_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-032",
+        "title": "20200909_SIC-Agenda",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-033",
+        "title": "20230309_DIA Strategic Implementation Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-034",
+        "title": "20240216_DIA Finance and Budget Committee Meeting Amended Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-035",
+        "title": "20210421_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-036",
+        "title": "20200211-Retail-Enhancement-and-Property-Disposition-Committee-Agenda-Packet-Final",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-037",
+        "title": "20220211_DIA RE&PD Committee Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-038",
+        "title": "20250319_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-039",
+        "title": "20220118_DIA RE&PD Committee Agenda Packet_v3_FINAL",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-040",
+        "title": "20250214_DIA Finance & Budget Workshop Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-041",
+        "title": "20220119_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-042",
+        "title": "20200221_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-043",
+        "title": "20220119_DIA Board Meeting Agenda Packet_V3_Final",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-044",
+        "title": "20230315_DIA Board Meeting Amended Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-045",
+        "title": "20220119_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-046",
+        "title": "20230309_DIA Stratetic Implementation Committee Meeting Amended Agenda Packet_v2",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-047",
+        "title": "20210217_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-048",
+        "title": "20240215_DIA Retail Enhancement and Property Disposition Committee Meeting Agenda Packet",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-049",
+        "title": "20240320_DIA Finance and Budget Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-050",
+        "title": "20220211_DIA RE&PD Committee Agenda",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-051",
+        "title": "20201009_Strategic-Implementation-Committee-Agenda_Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-052",
+        "title": "20240117_DIA Finance and Budget Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-053",
+        "title": "20240308_DIA Board Workshop Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-054",
+        "title": "20230309_DIA Strategic Implementation Committee Meeting Amended Agenda Packet_v3",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-055",
+        "title": "20200916_DIA-Board-Meeting-Agenda-Packet_Revised",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 2
+      },
+      {
+        "id": "minutes-20260106-056",
+        "title": "20210120_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-057",
+        "title": "20210421_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-058",
+        "title": "20230315_DIA Board Meeting Amended Agenda and Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-059",
+        "title": "20220118_DIA RE&PD Committee Agenda Packet_v2",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-060",
+        "title": "20210317_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-061",
+        "title": "20180411_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-062",
+        "title": "20230309 DIA Stratetic Implementation Committee Meeting Amended Agenda Packet_v4",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-063",
+        "title": "20220119_DIA Board Meeting Agenda Packet_V2",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-064",
+        "title": "20191028_Governance-Committee-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-065",
+        "title": "20230315_DIA Board Meeting Amended Agenda Packet_v3",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-066",
+        "title": "20250213_DIA Retail Enhancement & Property Disposition Committee Meeting Amended Agenda Packet",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-067",
+        "title": "20250213_DIA Retail Enhancement & Property Disposition Committee Meeting Agenda Packet",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-068",
+        "title": "20250219_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-069",
+        "title": "20240216_DIA Finance and Budget Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-070",
+        "title": "20250213_DIA Retail Enhancement & Property Disposition Committee Meeting Minutes",
+        "relationship_type": "disposition",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-071",
+        "title": "20200909_SIC-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-072",
+        "title": "20240216_DIA Finance & Budget Committee Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-073",
+        "title": "20210217_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-074",
+        "title": "20240320_DIA Finance & Budget Committee Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-075",
+        "title": "20230215_DIA Finance and Budget Committee Meeting Amended Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      }
+    ],
+    "project_level": 0,
+    "total_child_mentions": 80,
+    "child_project_count": 75,
+    "summary": "Master project for Riverfront Plaza with 75 related documents",
+    "source": "hierarchy_migration",
+    "status": "needs_review",
+    "mentions": [],
+    "address": "Riverfront Plaza",
+    "latitude": 30.324902,
+    "longitude": -81.6599697,
+    "geocoded_address": "Riverfront Plaza",
+    "geocoding_confidence": "high",
+    "source_name": "hierarchy_migration",
+    "geocoding_method": "direct_match",
+    "geocoded_at": "2026-01-06T19:14:55.915463",
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "date_opened": null,
+    "last_update": null,
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "pending_review": true,
+    "clawdbot_analysis": {
+      "enhanced_summary": "Riverfront Plaza represents a key downtown revitalization effort focused on waterfront accessibility and public space enhancement. The project involves coordination between multiple city departments and private developers, with emphasis on creating pedestrian-friendly riverside amenities.",
+      "processed_at": "2026-01-27T18:44:45.520434",
+      "version": "0.1.0-demo"
+    }
+  },
+  {
+    "id": "PROJ-LAVILLA",
+    "title": "LaVilla Redevelopment",
+    "name": "LaVilla Redevelopment",
+    "doc_type": "ANCHOR",
+    "is_master_project": true,
+    "parent_project_id": null,
+    "child_project_ids": [
+      {
+        "id": "resolution-20260106-001",
+        "title": "RESOLUTION 2025-01-08_LAVILLA PARCELS ACCESS AGREEMENTS",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-002",
+        "title": "RESOLUTION 2024-09-01_324 NORTH BROAD STREET DEMO_EXECUTED",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-003",
+        "title": "RESOLUTION 2022-09-04_LAVILLA PLACE",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-004",
+        "title": "RESOLUTION 2022-04-14_LAVILLA TOWNHOME MODIFICATION",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-005",
+        "title": "RESOLUTION-2021-03-02-LAVILLA-TOWNHOMES-NOTICE-OF-DISPOSITION",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-006",
+        "title": "RESOLUTION-2020-02-11_ALLOCATION-OF-DEVELOPMENT-RIGHTS_LAVILLA-TOWNHOMES",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-007",
+        "title": "RESOLUTION-2020-02-02_324-NORTH-BROAD-STREET",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-008",
+        "title": "RESOLUTION-2020-01-01_324-N-BROAD-STREET",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-009",
+        "title": "RESOLUTION-2019-09-04_VESTCOR-LAVILLA-TOWNHOMES",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-010",
+        "title": "RESOLUTION-2019-08-03_LAVILLA-NOTICE-OF-DISPOSITION-ISP-0552-19;",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-011",
+        "title": "RESOLUTION-2019-05-05_LAVILLA-UNSOLICITED",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-012",
+        "title": "20191212_DDRB-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 3
+      },
+      {
+        "id": "agenda-20260106-013",
+        "title": "20200213__DDRB-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 2
+      },
+      {
+        "id": "agenda-20260106-014",
+        "title": "20200612__DDRB-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-015",
+        "title": "20190919_DDRB-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-016",
+        "title": "20191010_DDRB-Nominating-Committee-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-017",
+        "title": "RESOLUTION-2018-06-02_SALE-OF-STORMWATER-CREDITS_LOFTS-AT-LAVILLA-2",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-018",
+        "title": "RESOLUTION-2017-10-01_ALLOCATION-OF-DEVELOPMENT-RIGHTS_LAVILLA-II",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-019",
+        "title": "RESOLUTION-2017-03-02-ALLOCATION-OF-DEVELOPMENT-RIGHTS_VESTCOR-LAVILLA",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-020",
+        "title": "RESOLUTION-2016-10-03_LOFTS-AT-LAVILLA,-MONROE",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-021",
+        "title": "RESOLUTION-2016-10-01_STORMWATER-CREDITS_LOFTS-AT-LAVILLA",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-022",
+        "title": "RESOLUTION-2016-08-02_SCOPE-OF-SERVICES-FOR-DISPOSITION-OF-CITY-OWNED-PROPERTY-IN-LAVILLA",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-023",
+        "title": "RESOLUTION-2016-06-04_ALLOCATION-OF-DEV-RIGHTS_VESCTOR-LAVILLA",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-024",
+        "title": "RESOLUTION-2015-10-09_LOFTS AT LAVILLA LOAN INCREASE",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-025",
+        "title": "RESOLUTION-2015-09-05_LAVILLA MASTER PLAN SCOPE",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-026",
+        "title": "RESOLUTION-2015-09-01_LOFTS AT LAVILLA",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-027",
+        "title": "20130724_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-028",
+        "title": "20180919_DIA-Board-Meeting-Agenda,-Minutes-Resolutions-(1)",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-029",
+        "title": "20230118_DIA Finance and Budget Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-030",
+        "title": "20230302_DIA Workshop Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-031",
+        "title": "20160427_Budget-Workshop-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-032",
+        "title": "20240221_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-033",
+        "title": "20170621_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-034",
+        "title": "20200219_DIA-Board-Meeting-Agenda-Packet_Website-Upload",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-035",
+        "title": "20160824_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-036",
+        "title": "20180815_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-037",
+        "title": "20151028_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-038",
+        "title": "20240215_DIA Strategic Implementation Committee Meeting Agenda and Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 2
+      },
+      {
+        "id": "agenda-20260106-039",
+        "title": "20220217_DIA Board Workshop Agenda Packet_DRAFT BID Plan",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-040",
+        "title": "20160316_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-041",
+        "title": "20151118_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-042",
+        "title": "20220214_DIA SIC Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-043",
+        "title": "20250219_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-044",
+        "title": "20180321_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-045",
+        "title": "20190320_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-046",
+        "title": "20160421_DDRB-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-047",
+        "title": "20190710_Retail-Enhancement-Program-Committee-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-048",
+        "title": "20240308_DIA Board Workshop Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-049",
+        "title": "20181212_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-050",
+        "title": "20170509_Budget-Committee-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-051",
+        "title": "20250131_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-052",
+        "title": "20210406_DIA Finance & Budget Committee Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-053",
+        "title": "20200115_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-054",
+        "title": "20250122_DIA Board Meeting Agenda Packet_MEETING CANCELLED",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-055",
+        "title": "20191218_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-056",
+        "title": "20200817_Strategic-Implementation-Committee-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-057",
+        "title": "20160413_DIA-Strategic-Implementation-Committee-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-058",
+        "title": "20130417-DIA-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-059",
+        "title": "20171109_Strategic-Implementation-Committee-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-060",
+        "title": "20210317_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-061",
+        "title": "20180620_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-062",
+        "title": "20220214_DIA SIC Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-063",
+        "title": "20240216_DIA Finance and Budget Committee Meeting Amended Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-064",
+        "title": "20190626_DDRB-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-065",
+        "title": "20210421_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-066",
+        "title": "20170316_DDRB-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-067",
+        "title": "20200211-Retail-Enhancement-and-Property-Disposition-Committee-Agenda-Packet-Final",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-068",
+        "title": "20190918_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-069",
+        "title": "20200914_DIA-Finance-Budget-Meeting-Agenda-Minutes-Handouts",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-070",
+        "title": "20161018_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-071",
+        "title": "20170927_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-072",
+        "title": "20250319_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-073",
+        "title": "20191113_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-074",
+        "title": "20250214_DIA Finance & Budget Workshop Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-075",
+        "title": "20131023_Redevelopment-Plan-Committee-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-076",
+        "title": "20220119_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-077",
+        "title": "20190515_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-078",
+        "title": "20200221_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-079",
+        "title": "20210317_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-080",
+        "title": "20220119_DIA Board Meeting Agenda Packet_V3_Final",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-081",
+        "title": "20160523_Strategic-Implementation-Committee-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-082",
+        "title": "20151216_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-083",
+        "title": "20210217_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-084",
+        "title": "20150930_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-085",
+        "title": "20130711_DDRB-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-086",
+        "title": "20200212_Finance-and-Budget-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-087",
+        "title": "20160616_DDRB-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-088",
+        "title": "20190619_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-089",
+        "title": "20240110_DIA Retail Enhancement & Property Disposition Committee Meeting Minutes",
+        "relationship_type": "disposition",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-090",
+        "title": "20200819_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 2
+      },
+      {
+        "id": "agenda-20260106-091",
+        "title": "20190807_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-092",
+        "title": "20161116_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-093",
+        "title": "20191125-Strategic-Implementation-Committee-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-094",
+        "title": "20240215_DIA Retail Enhancement and Property Disposition Committee Meeting Agenda Packet",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-095",
+        "title": "20131113-Redevelopment-Plan-Committee-Meeting-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-096",
+        "title": "20240320_DIA Finance and Budget Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-097",
+        "title": "20210315_DIA RE&PD Committee Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-098",
+        "title": "20130320_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-099",
+        "title": "20240117_DIA Finance and Budget Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-100",
+        "title": "20130821_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-101",
+        "title": "20180117_DIA-Board-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-102",
+        "title": "20240117_DIA Finance & Budget Committee Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-103",
+        "title": "20190909_Strategic-Implementation-Committee-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-104",
+        "title": "20240308_DIA Board Workshop Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-105",
+        "title": "20130109_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-106",
+        "title": "20190821_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-107",
+        "title": "20120802_DDRB-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-108",
+        "title": "20210421_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-109",
+        "title": "20170418_DIA-Board-Meeting-Agenda,-Minutes-Resolution",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-110",
+        "title": "20230315_DIA Board Meeting Amended Agenda and Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-111",
+        "title": "20210317_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-112",
+        "title": "20180523_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-113",
+        "title": "20171006_Strategic-Implementation-Committee-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-114",
+        "title": "20170118_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-115",
+        "title": "20171031_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-116",
+        "title": "20250213_DIA Retail Enhancement & Property Disposition Committee Meeting Amended Agenda Packet",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-117",
+        "title": "20160817_Strategic-Implementation-Committee-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-118",
+        "title": "20120607_DDRB-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-119",
+        "title": "20130328-DIA-Redevelopment-Committee-Meeting-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-120",
+        "title": "20181213_DDRB-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-121",
+        "title": "20250213_DIA Retail Enhancement & Property Disposition Committee Meeting Agenda Packet",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-122",
+        "title": "20160623_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-123",
+        "title": "20250219_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-124",
+        "title": "20250131_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-125",
+        "title": "20180418_Strategic-Implementation-Committee-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-126",
+        "title": "20140424_DIA-Special-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-127",
+        "title": "20181114_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-128",
+        "title": "20210315_DIA-RE-PD-Committee-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-129",
+        "title": "20240216_DIA Finance and Budget Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-130",
+        "title": "20250213_DIA Retail Enhancement & Property Disposition Committee Meeting Minutes",
+        "relationship_type": "disposition",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-131",
+        "title": "20180110_DIA-Board-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-132",
+        "title": "20240216_DIA Finance & Budget Committee Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-133",
+        "title": "20210315_DIA RE&PD Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-134",
+        "title": "20190411_DDRB-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-135",
+        "title": "20230215_DIA Finance and Budget Committee Meeting Amended Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      }
+    ],
+    "project_level": 0,
+    "total_child_mentions": 140,
+    "child_project_count": 135,
+    "summary": "Master project for LaVilla Redevelopment with 135 related documents",
+    "source": "hierarchy_migration",
+    "status": "needs_review",
+    "mentions": [],
+    "address": "LaVilla",
+    "latitude": 30.3305075,
+    "longitude": -81.6692874,
+    "geocoded_address": "LaVilla",
+    "geocoding_confidence": "high",
+    "source_name": "hierarchy_migration",
+    "geocoding_method": "direct_match",
+    "geocoded_at": "2026-01-06T19:16:50.612927",
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "date_opened": null,
+    "last_update": null,
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "pending_review": true,
+    "clawdbot_analysis": {
+      "enhanced_summary": "LaVilla Redevelopment is a historic district revitalization project aimed at preserving cultural heritage while promoting economic development. The initiative includes mixed-use development, historic preservation, and community engagement components with significant Community Redevelopment Agency involvement.",
+      "processed_at": "2026-01-27T18:44:45.520436",
+      "version": "0.1.0-demo"
+    }
+  },
+  {
+    "id": "PROJ-GATEWAY",
+    "title": "Pearl Square / Gateway Jax (Pearl Street)",
+    "name": "Pearl Square / Gateway Jax (Pearl Street)",
+    "doc_type": "ANCHOR",
+    "is_master_project": true,
+    "parent_project_id": null,
+    "child_project_ids": [
+      {
+        "id": "resolution-20260106-001",
+        "title": "RESOLUTION 2024-04-12_GATEWAY JAX MODIFICATION",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-002",
+        "title": "RESOLUTION 2023-11-08_GATEWAY JAX N8",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-003",
+        "title": "RESOLUTION 2023-11-07_GATEWAY JAX N5",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-004",
+        "title": "RESOLUTION 2023-11-06_GATEWAY JAX N4",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-005",
+        "title": "RESOLUTION-2021-08-12-PORTER-HOUSE-MANSION",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-006",
+        "title": "RESOLUTION-2014-08-03_PEARL STREET DOCKING LIMIT",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-007",
+        "title": "20230118_DIA Finance and Budget Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-008",
+        "title": "20240221_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-009",
+        "title": "20191024_DDRB-Workshop-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-010",
+        "title": "20160824_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-011",
+        "title": "20240215_DIA Strategic Implementation Committee Meeting Agenda and Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 2
+      },
+      {
+        "id": "agenda-20260106-012",
+        "title": "20220217_DIA Board Workshop Agenda Packet_DRAFT BID Plan",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-013",
+        "title": "20250219_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-014",
+        "title": "20190320_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-015",
+        "title": "20190710_Retail-Enhancement-Program-Committee-Meeting-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-016",
+        "title": "20250131_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-017",
+        "title": "20250122_DIA Board Meeting Agenda Packet_MEETING CANCELLED",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-018",
+        "title": "20250319_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-019",
+        "title": "20140820_DIA-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-020",
+        "title": "20190412_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-021",
+        "title": "20200617_DIA-Board-Meeting-Agenda-Packet_Revised",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-022",
+        "title": "20240117_DIA Finance and Budget Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-023",
+        "title": "20250213_DIA Retail Enhancement & Property Disposition Committee Meeting Amended Agenda Packet",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-024",
+        "title": "20250213_DIA Retail Enhancement & Property Disposition Committee Meeting Agenda Packet",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-025",
+        "title": "20160922_DDRB-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-026",
+        "title": "20250219_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-027",
+        "title": "20140917_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-028",
+        "title": "20250213_DIA Retail Enhancement & Property Disposition Committee Meeting Minutes",
+        "relationship_type": "disposition",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-029",
+        "title": "20131003_DDRB-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      }
+    ],
+    "project_level": 0,
+    "total_child_mentions": 30,
+    "child_project_count": 29,
+    "summary": "Master project for Pearl Square / Gateway Jax (Pearl Street) with 29 related documents",
+    "source": "hierarchy_migration",
+    "status": "needs_review",
+    "mentions": [],
+    "address": "Pearl Square",
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "source_name": "hierarchy_migration",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "date_opened": null,
+    "last_update": null,
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "pending_review": true,
+    "clawdbot_analysis": {
+      "enhanced_summary": "Pearl Square/Gateway Jax represents a transit-oriented development project designed to enhance connectivity and create mixed-use urban density. The project focuses on integrating transportation infrastructure with commercial and residential development in a key downtown gateway location.",
+      "processed_at": "2026-01-27T18:44:45.520438",
+      "version": "0.1.0-demo"
+    }
+  },
+  {
+    "id": "PROJ-FORD",
+    "title": "Ford on Bay",
+    "name": "Ford on Bay",
+    "doc_type": "ANCHOR",
+    "is_master_project": true,
+    "parent_project_id": null,
+    "child_project_ids": [
+      {
+        "id": "resolution-20260106-001",
+        "title": "RESOLUTION 2022-05-01_FORD ON BAY CARTER TERM SHEET",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-002",
+        "title": "RESOLUTION 2022-01-02_FORD ON BAY DISPOSITION",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-003",
+        "title": "RESOLUTION-2020-02-01_FORD-ON-BAY",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-004",
+        "title": "RESOLUTION-2021-11-05-FORD-ON-BAY-COURTHOUSE-DISPOSITION",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "resolution-20260106-005",
+        "title": "RESOLUTION-2021-10-01-330-EAST-BAY-DISPOSITION",
+        "relationship_type": "resolution",
+        "doc_type": "resolution",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-006",
+        "title": "20201202_DIA-Special-Board-Meeting-Agenda-Packet_with Lot J Final Staff Report_MINUTES IN PROGRESS",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-007",
+        "title": "20140226_DIA-Special-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-008",
+        "title": "20230118_DIA Finance and Budget Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-009",
+        "title": "20230315_DIA Board Meeting Amended Agenda Packet_v2",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-010",
+        "title": "20200219_DIA-Board-Meeting-Agenda-Packet_Website-Upload",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-011",
+        "title": "20220118_DIA RE&PD Committee Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-012",
+        "title": "20230315_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-013",
+        "title": "20220217_DIA Board Workshop Agenda Packet_DRAFT BID Plan",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-014",
+        "title": "20200715_DIA-Board-Meeting-Agenda-Packet_Revised",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-015",
+        "title": "20130923_DIA-Agenda-Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-016",
+        "title": "20200609_REP-PD-Committee-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-017",
+        "title": "20190320_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-018",
+        "title": "20181212_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-019",
+        "title": "20200115_DIA-Board-Meeting-Agenda,-Minutes-Resolutions",
+        "relationship_type": "resolution",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-020",
+        "title": "20191218_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-021",
+        "title": "20210317_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-022",
+        "title": "20201118_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-023",
+        "title": "20230118_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-024",
+        "title": "20240216_DIA Finance and Budget Committee Meeting Amended Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-025",
+        "title": "20200211-Retail-Enhancement-and-Property-Disposition-Committee-Agenda-Packet-Final",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-026",
+        "title": "20190918_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-027",
+        "title": "20200914_DIA-Finance-Budget-Meeting-Agenda-Minutes-Handouts",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-028",
+        "title": "20220118_DIA RE&PD Committee Agenda Packet_v3_FINAL",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-029",
+        "title": "20230214_DIA Retail Enhancement & Property Disposition Committee Agenda Packet",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-030",
+        "title": "20220119_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-031",
+        "title": "20200221_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-032",
+        "title": "20220119_DIA Board Meeting Agenda Packet_V3_Final",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-033",
+        "title": "20230315_DIA Board Meeting Amended Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-034",
+        "title": "20190226_Strategic-Implementation-Committee-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-035",
+        "title": "20220119_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-036",
+        "title": "20210217_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-037",
+        "title": "20200819_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 2
+      },
+      {
+        "id": "agenda-20260106-038",
+        "title": "20190807_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-039",
+        "title": "20240117_DIA Finance and Budget Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-040",
+        "title": "20210120_DIA Board Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-041",
+        "title": "20220118_DIA RE&PD Committee Agenda Packet_v2",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-042",
+        "title": "20210317_DIA-Board-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-043",
+        "title": "20200114_Retail-Enhancement-and-Property-Disposition-Committee-Agenda-Packet",
+        "relationship_type": "disposition",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-044",
+        "title": "20220119_DIA Board Meeting Agenda Packet_V2",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-045",
+        "title": "20230315_DIA Board Meeting Amended Agenda Packet_v3",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "minutes-20260106-046",
+        "title": "20220118_RE&PD Committee Meeting Minutes",
+        "relationship_type": "related_document",
+        "doc_type": "minutes",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-047",
+        "title": "20240216_DIA Finance and Budget Committee Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-048",
+        "title": "20200909_SIC-Meeting-Agenda-Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-049",
+        "title": "20210217_DIA Board Meeting Agenda Packet",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      },
+      {
+        "id": "agenda-20260106-050",
+        "title": "20200520_DIA-Board-Meeting-Agenda-Packet_Revised",
+        "relationship_type": "related_document",
+        "doc_type": "agenda",
+        "mention_count": 1
+      }
+    ],
+    "project_level": 0,
+    "total_child_mentions": 51,
+    "child_project_count": 50,
+    "summary": "Master project for Ford on Bay with 50 related documents",
+    "source": "hierarchy_migration",
+    "status": "needs_review",
+    "mentions": [],
+    "address": "Ford on Bay",
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "source_name": "hierarchy_migration",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "date_opened": null,
+    "last_update": null,
+    "activity_timeline": [],
+    "activity_count": 0,
+    "needs_attention": true,
+    "pending_review": true,
+    "clawdbot_analysis": {
+      "enhanced_summary": "Ford on Bay is a commercial development project involving adaptive reuse or redevelopment of automotive-related facilities. The project involves zoning considerations, environmental assessments, and coordination with economic development initiatives to transform underutilized urban space.",
+      "processed_at": "2026-01-27T18:44:45.520440",
+      "version": "0.1.0-demo"
+    }
+  }
+]
