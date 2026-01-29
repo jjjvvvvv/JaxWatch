@@ -23,6 +23,12 @@ JaxWatch operates as a "collection-first MVP" that distinguishes major civic pro
 - Project detail pages with source documents
 - Importance-based filtering and search
 
+### **Slack Integration**
+- Conversational remote control via molt.bot
+- Background document verification and reference scanning
+- Real-time status updates and completion notifications
+- Secure local processing (no cloud analysis)
+
 ## Architecture
 
 ```

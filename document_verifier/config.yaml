@@ -1,0 +1,7 @@
+# Clawdbot Configuration - SIMPLE
+llm_provider: "ollama"
+llm_model: "llama3.1:8b"
+
+# Data Paths
+input_path: "../outputs/projects/projects_index.json"
+output_path: "../outputs/projects/projects_enriched.json"
