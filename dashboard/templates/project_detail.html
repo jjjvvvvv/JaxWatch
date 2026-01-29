@@ -80,6 +80,57 @@
 </div>
 {% endif %}
 
+<!-- Derived References Section -->
+{% if derived_references %}
+<div class="card">
+    <div class="card-header">🤖 Derived References (AI-Detected)</div>
+    <div class="card-body">
+        <div style="max-height: 300px; overflow-y: auto;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Reference Type</th>
+                        <th>Target</th>
+                        <th>Evidence</th>
+                        <th>Confidence</th>
+                        <th>Source</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reference in derived_references %}
+                    <tr>
+                        <td><span class="badge badge-info">{{ reference.reference_type|title }}</span></td>
+                        <td><strong>{{ reference.target_identifier }}</strong></td>
+                        <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="{{ reference.evidence_excerpt }}">
+                            {{ reference.evidence_excerpt[:80] }}{% if reference.evidence_excerpt|length > 80 %}...{% endif %}
+                        </td>
+                        <td>
+                            <span class="badge {% if reference.confidence == 'high' %}badge-success{% elif reference.confidence == 'medium' %}badge-warning{% else %}badge-secondary{% endif %}">
+                                {{ reference.confidence|title }}
+                            </span>
+                        </td>
+                        <td>
+                            {% if reference.source_document_url and reference.source_document_url.startswith('http') %}
+                            <a href="{{ reference.source_document_url }}" target="_blank" class="btn" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">
+                                View ↗
+                            </a>
+                            {% else %}
+                            <span style="color: #999;">Local</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div style="margin-top: 1rem; padding: 0.75rem; background-color: #f8f9fa; border-radius: 0.25rem; font-size: 0.875rem;">
+            <strong>Note:</strong> These references are automatically detected by AI and are provided for informational purposes only.
+            Always verify against the original source documents above.
+        </div>
+    </div>
+</div>
+{% endif %}
+
 <div class="card">
     <div class="card-header">📄 Source Data (Derived from Documents)</div>
     <div class="card-body">

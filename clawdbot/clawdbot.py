@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Clawdbot - JaxWatch Enhancement Tool
-Entry point for running Clawdbot commands
+Clawdbot - JaxWatch Document Verification Tool
+Entry point for running document verification commands
 """
 
 import sys
@@ -11,6 +11,10 @@ from pathlib import Path
 
 def load_command(command_name):
     """Dynamically load a command module."""
+    # Handle command aliases
+    if command_name == "document_verify":
+        command_name = "summarize"
+
     command_path = Path(__file__).parent / "commands" / f"{command_name}.py"
 
     if not command_path.exists():
@@ -27,18 +31,25 @@ def load_command(command_name):
 def print_help():
     """Print help information."""
     print("""
-Clawdbot - JaxWatch Enhancement Tool
+Clawdbot - JaxWatch Document Verification Tool
 
 Usage:
-    python clawdbot.py <command>
+    python clawdbot.py <command> [options]
 
 Available Commands:
-    summarize    Enhance projects with LLM-generated summaries
-    demo         Run demonstration with mock responses (no API key needed)
+    document_verify  Verify civic documents with AI analysis (alias: summarize)
+    demo            Run demonstration with mock responses (no API key needed)
+
+Document Verification Options:
+    --project <ID>       Process only the specified project ID
+    --force              Ignore "already annotated" check and reprocess
+    --active-year <YEAR> Filter projects where latest_activity_date.year == YEAR
 
 Examples:
     python clawdbot.py demo
-    python clawdbot.py summarize
+    python clawdbot.py document_verify
+    python clawdbot.py document_verify --active-year 2026
+    python clawdbot.py document_verify --project DIA-RES-2025-12-03 --force
 
 For more information about JaxWatch, visit:
 https://github.com/your-repo/jaxwatch
@@ -67,7 +78,8 @@ def main():
         return 1
 
     try:
-        return command_module.main()
+        # Pass remaining command-line arguments to the command module
+        return command_module.main(sys.argv[2:])
     except KeyboardInterrupt:
         print("\nOperation cancelled by user")
         return 1

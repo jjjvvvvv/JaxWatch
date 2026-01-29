@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Clawdbot Summarize Command
-Enhances JaxWatch project data with LLM-generated analysis
+Clawdbot Document Verification Command
+Verifies JaxWatch civic documents with AI analysis
 """
 
 import json
@@ -215,7 +215,7 @@ def enhance_project(project, prompt_template, config):
         analysis = call_llm(prompt, config)
 
         project["clawdbot_analysis"] = {
-            "enhanced_summary": analysis.strip(),
+            "document_verification": analysis.strip(),
             "processed_at": datetime.now().isoformat(),
             "version": "0.1.0"
         }
@@ -224,7 +224,7 @@ def enhance_project(project, prompt_template, config):
     except Exception as e:
         print(f"✗ Failed to enhance project {project.get('id')}: {e}")
         project["clawdbot_analysis"] = {
-            "enhanced_summary": f"ERROR: {str(e)}",
+            "document_verification": f"ERROR: {str(e)}",
             "processed_at": datetime.now().isoformat(),
             "version": "0.1.0"
         }
@@ -310,7 +310,7 @@ def select_projects_to_process(projects, annotated_ids, limit=10, target_project
 def main(argv=None):
     """Main function to run the summarize command."""
     # Parse command line arguments
-    parser = argparse.ArgumentParser(description="Enhance projects with LLM-generated summaries")
+    parser = argparse.ArgumentParser(description="Verify civic documents with AI analysis")
     parser.add_argument("--project", help="Process only the specified project ID")
     parser.add_argument("--force", action="store_true", help="Ignore 'already annotated' check and reprocess")
     parser.add_argument("--active-year", type=int, help="Filter projects where latest_activity_date.year == specified year")
@@ -386,7 +386,7 @@ def main(argv=None):
             sample = newly_enhanced[0]
             print(f"\nSample enhancement for '{sample.get('title', 'N/A')}':")
             print("-" * 60)
-            print(sample["clawdbot_analysis"]["enhanced_summary"])
+            print(sample["clawdbot_analysis"]["document_verification"])
             print("-" * 60)
 
     except Exception as e:
