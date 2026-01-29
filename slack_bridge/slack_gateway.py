@@ -9,6 +9,7 @@ NO analysis - all processing delegated to JaxWatch CLI tools.
 
 import os
 import yaml
+import re
 from pathlib import Path
 from slack_sdk import WebClient
 from slack_bolt import App
@@ -41,14 +42,27 @@ class SlackGateway:
         """
         # Get credentials from environment if not provided
         self.slack_token = slack_token or os.getenv('SLACK_BOT_TOKEN')
-        self.slack_signing_secret = slack_signing_secret or os.getenv('SLACK_SIGNING_SECRET')
         self.app_token = app_token or os.getenv('SLACK_APP_TOKEN')
+        
+        # Decide if we are in Socket Mode early to handle signing_secret correctly
+        # Socket Mode is preferred if app_token is provided
+        self.is_socket_mode = bool(self.app_token)
+        
+        # If Socket Mode, we explicitly do NOT want to use signing_secret
+        if self.is_socket_mode:
+            self.slack_signing_secret = None
+        else:
+            self.slack_signing_secret = slack_signing_secret or os.getenv('SLACK_SIGNING_SECRET')
 
         if not self.slack_token:
             raise ValueError("SLACK_BOT_TOKEN is required")
 
-        # Initialize Slack app
-        self.app = App(token=self.slack_token, signing_secret=self.slack_signing_secret)
+        # Initialize Slack app - signing_secret is omitted for Socket Mode
+        # to prevent unnecessary signature verification middleware
+        self.app = App(
+            token=self.slack_token, 
+            signing_secret=self.slack_signing_secret
+        )
 
         # Initialize components
         self.command_parser = CommandParser()
@@ -93,19 +107,29 @@ class SlackGateway:
 
     def _setup_handlers(self):
         """Set up Slack event handlers."""
-        # Handle app mentions
+        # Handle app mentions - critical for bot interaction in channels
         @self.app.event("app_mention")
         def handle_app_mention(event, say):
             self._handle_message(event, say)
 
-        # Handle direct messages
+        # Handle message events for DMs and keywords
         @self.app.event("message")
         def handle_message(event, say):
-            # Only respond to DMs or messages with keywords
-            if event.get('channel_type') == 'im':
+            # Avoid responding to our own messages or other bots
+            if event.get('bot_id') or event.get('subtype') == 'bot_message':
+                return
+
+            text = event.get('text', '')
+            channel_type = event.get('channel_type')
+            
+            # 1. Always respond to Direct Messages
+            if channel_type == 'im':
                 self._handle_message(event, say)
-            elif any(keyword in event.get('text', '').lower()
-                    for keyword in self.config.get('slack', {}).get('respond_to_keywords', [])):
+                return
+
+            # 2. Respond to keywords in public/private channels
+            keywords = self.config.get('slack', {}).get('respond_to_keywords', [])
+            if any(keyword in text.lower() for keyword in keywords):
                 self._handle_message(event, say)
 
     def _handle_message(self, event, say):
@@ -128,8 +152,14 @@ class SlackGateway:
             command = self.command_parser.parse_message(message_text)
 
             if not command:
-                response = "🤔 I don't understand that command. Try 'help' for available commands."
-                say(response)
+                # Only reply with "don't understand" for DMs or explicit mentions
+                # to avoid being noisy in channels based on keywords
+                is_dm = event.get('channel_type') == 'im'
+                is_mention = event.get('type') == 'app_mention'
+                
+                if is_dm or is_mention:
+                    response = "🤔 I don't understand that command. Try 'help' for available commands."
+                    say(response)
                 return
 
             # Execute command based on type
@@ -176,13 +206,29 @@ class SlackGateway:
         Args:
             socket_mode: Whether to use Socket Mode (True) or HTTP mode (False)
         """
-        # Use config default if not specified
+        # Automatic detection: If SLACK_APP_TOKEN is present, default to Socket Mode
+        # unless explicitly overridden by the socket_mode argument
         if socket_mode is None:
-            socket_mode = self.config.get('slack', {}).get('socket_mode', True)
+            if self.app_token:
+                socket_mode = True
+            else:
+                socket_mode = self.config.get('slack', {}).get('socket_mode', False)
 
         print("🤖 Starting JaxWatch Slack Gateway")
+        
+        # Verify connection and get bot identity
+        try:
+            auth_info = self.app.client.auth_test()
+            bot_user_id = auth_info["user_id"]
+            bot_name = auth_info["user"]
+            print(f"   Bot Identity: {bot_name} ({bot_user_id})")
+        except Exception as e:
+            print(f"   ⚠️ Could not verify bot identity: {e}")
+            bot_user_id = "unknown"
+
         print(f"   Mode: {'Socket Mode' if socket_mode else 'HTTP Mode'}")
         print(f"   JaxWatch Root: {self.jaxwatch_root}")
+
         print(f"   Ready to receive commands!")
 
         if socket_mode:
@@ -198,8 +244,8 @@ class SlackGateway:
     def test_connection(self):
         """Test Slack API connection."""
         try:
-            client = WebClient(token=self.slack_token)
-            response = client.auth_test()
+            # Use the app's client to test
+            response = self.app.client.auth_test()
 
             print("✅ Slack connection successful!")
             print(f"   Bot User ID: {response['user_id']}")
@@ -226,21 +272,20 @@ def main():
     args = parser.parse_args()
 
     try:
+        # Determine initial socket mode preference from args
+        forced_socket_mode = None
+        if args.http_mode:
+            forced_socket_mode = False
+        elif args.socket_mode:
+            forced_socket_mode = True
+
         gateway = SlackGateway()
 
         if args.test_connection:
             gateway.test_connection()
             return
 
-        # Determine mode
-        if args.http_mode:
-            socket_mode = False
-        elif args.socket_mode:
-            socket_mode = True
-        else:
-            socket_mode = None  # Use config default
-
-        gateway.start(socket_mode=socket_mode)
+        gateway.start(socket_mode=forced_socket_mode)
 
     except KeyboardInterrupt:
         print("\n👋 Shutting down Slack gateway...")
