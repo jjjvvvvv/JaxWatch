@@ -40,3 +40,42 @@ Thumbs.db
 *.log
 *.pid
 server.log
+
+# ---- Local architecture & audit notes ----
+ARCHITECTURE_*.md
+*CLEANUP*.md
+*SUMMARY*.md
+*FIX*.md
+
+# ---- Local admin / backups ----
+admin_ui/data/backups/
+admin_ui/data/*.backup*
+admin_ui/data/test_*.json
+
+# ---- Local experimental tools ----
+backend/tools/
+backend/collector/admin_api_ext.py
+
+# ---- Local dashboard experiments ----
+dashboard/test_*.py
+dashboard/status.json
+dashboard/requirements.txt
+dashboard/static/
+
+# ---- Disabled / local scripts ----
+process_summaries.py.DISABLED
+
+# ---- Legacy directories (kept temporarily) ----
+clawdbot/
+moltbot/
+
+# ---- Local corrective / adjustment notes ----
+CORRECTIVE_ADJUSTMENTS.md
+
+# ---- Admin UI backups ----
+admin_ui/data/*backup*.json
+
+# ---- Local dashboard overrides / experiments ----
+dashboard/README.md
+dashboard/templates/base.html
+dashboard/templates/projects.html
