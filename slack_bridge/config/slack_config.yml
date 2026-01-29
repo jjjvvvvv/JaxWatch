@@ -5,7 +5,7 @@
 
 slack:
   # App settings
-  socket_mode: false  # Set to true if using Socket Mode instead of HTTP
+  socket_mode: true  # Set to true if using Socket Mode instead of HTTP
   port: 3000  # Port for Slack events (if using HTTP mode)
 
   # Bot behavior
