@@ -1,0 +1,256 @@
+{% extends "base.html" %}
+
+{% block title %}{{ project.title[:50] }}{% if project.title|length > 50 %}...{% endif %} - JaxWatch{% endblock %}
+
+{% block content %}
+<div style="margin-bottom: 1rem;">
+    <a href="{{ url_for('projects') }}" class="btn btn-secondary">← Back to Project Views</a>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        {{ project.title }}
+        <span style="float: right; font-weight: normal;">
+            {% if project.get('is_master_project') %}
+                <span class="badge badge-primary">Master Project</span>
+            {% else %}
+                <span class="badge badge-secondary">Sub Project</span>
+            {% endif %}
+
+            {% if has_enhancement %}
+                <span class="badge badge-success">AI Annotated</span>
+            {% else %}
+                <span class="badge badge-secondary">Not Annotated</span>
+            {% endif %}
+        </span>
+    </div>
+
+    <div class="card-body">
+        <p><strong>ID:</strong> <code>{{ project.id }}</code></p>
+        {% if project.get('summary') %}
+        <p><strong>Summary:</strong> {{ project.summary }}</p>
+        {% endif %}
+        {% if project.get('address') %}
+        <p><strong>Address:</strong> {{ project.address }}</p>
+        {% endif %}
+        {% if project.get('source') %}
+        <p><strong>Source:</strong> {{ project.source }}</p>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Source Documents Section -->
+{% if project.mentions %}
+<div class="card">
+    <div class="card-header">📄 Source Documents (City Website)</div>
+    <div class="card-body">
+        <div style="max-height: 400px; overflow-y: auto;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Document</th>
+                        <th>Type</th>
+                        <th>Date</th>
+                        <th>Source</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for mention in project.mentions %}
+                    <tr>
+                        <td>{{ mention.title[:60] }}{% if mention.title|length > 60 %}...{% endif %}</td>
+                        <td><span class="badge badge-secondary">{{ mention.doc_type or 'Document' }}</span></td>
+                        <td>{{ mention.meeting_date or '—' }}</td>
+                        <td>{{ mention.source_name or mention.source or '—' }}</td>
+                        <td>
+                            {% if mention.url %}
+                            <a href="{{ mention.url }}" target="_blank" class="btn" style="font-size: 0.75rem; padding: 0.25rem 0.5rem;">
+                                Open ↗
+                            </a>
+                            {% else %}
+                            <span style="color: #999;">N/A</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+<div class="card">
+    <div class="card-header">📄 Source Data (Derived from Documents)</div>
+    <div class="card-body">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;">
+            <div>
+                <h4>Basic Information</h4>
+                <table style="width: 100%;">
+                    <tr><td><strong>Document Type:</strong></td><td>{{ project.get('doc_type', 'Unknown') }}</td></tr>
+                    <tr><td><strong>Status:</strong></td><td>{{ project.get('status', 'Unknown') }}</td></tr>
+                    {% if project.get('hierarchy_level') is not none %}
+                    <tr><td><strong>Hierarchy Level:</strong></td><td>{{ project.hierarchy_level }}</td></tr>
+                    {% endif %}
+                    {% if project.get('project_level') is not none %}
+                    <tr><td><strong>Project Level:</strong></td><td>{{ project.project_level }}</td></tr>
+                    {% endif %}
+                </table>
+            </div>
+
+            <div>
+                <h4>Relationships</h4>
+                <table style="width: 100%;">
+                    {% if project.get('child_project_count') %}
+                    <tr><td><strong>Child Projects:</strong></td><td>{{ project.child_project_count }}</td></tr>
+                    {% endif %}
+                    {% if project.get('total_child_mentions') %}
+                    <tr><td><strong>Total Mentions:</strong></td><td>{{ project.total_child_mentions }}</td></tr>
+                    {% endif %}
+                    {% if project.get('parent_project_id') %}
+                    <tr><td><strong>Parent Project:</strong></td><td><code>{{ project.parent_project_id }}</code></td></tr>
+                    {% endif %}
+                </table>
+            </div>
+
+            {% if project.get('latitude') or project.get('longitude') %}
+            <div>
+                <h4>Location Data</h4>
+                <table style="width: 100%;">
+                    {% if project.get('latitude') %}
+                    <tr><td><strong>Latitude:</strong></td><td>{{ project.latitude }}</td></tr>
+                    {% endif %}
+                    {% if project.get('longitude') %}
+                    <tr><td><strong>Longitude:</strong></td><td>{{ project.longitude }}</td></tr>
+                    {% endif %}
+                    {% if project.get('geocoding_confidence') %}
+                    <tr><td><strong>Geocoding:</strong></td><td>{{ project.geocoding_confidence }}</td></tr>
+                    {% endif %}
+                </table>
+            </div>
+            {% endif %}
+        </div>
+
+        {% if project.get('child_project_ids') %}
+        <div style="margin-top: 1.5rem;">
+            <h4>Related Documents ({{ project.child_project_ids|length }})</h4>
+            <div style="max-height: 300px; overflow-y: auto; border: 1px solid #eee; border-radius: 4px;">
+                <table class="table" style="margin: 0;">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Type</th>
+                            <th>Mentions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for child in project.child_project_ids %}
+                        <tr>
+                            <td><code style="font-size: 0.8rem;">{{ child.id }}</code></td>
+                            <td>{{ child.title[:60] }}{% if child.title|length > 60 %}...{% endif %}</td>
+                            <td><span class="badge badge-secondary" style="font-size: 0.7rem;">{{ child.doc_type or 'Unknown' }}</span></td>
+                            <td>{{ child.mention_count or 0 }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+
+        <details style="margin-top: 1.5rem;">
+            <summary style="cursor: pointer; font-weight: bold; padding: 0.5rem; background: #f8f9fa; border-radius: 4px;">
+                View Complete Raw JSON Data
+            </summary>
+            <pre style="background: #f8f8f8; padding: 1rem; border-radius: 4px; overflow-x: auto; font-size: 0.8rem; margin-top: 0.5rem;">{{ project | tojson(indent=2) }}</pre>
+        </details>
+    </div>
+</div>
+
+{% if has_enhancement and clawdbot_analysis %}
+<div class="card">
+    <div class="card-header" style="background: #f8f8f8; color: #666;">
+        🤖 AI Interpretation (Not Authoritative)
+    </div>
+    <div class="card-body">
+        <div style="background: #fff3cd; border: 1px solid #ffeaa7; border-radius: 4px; padding: 0.75rem; margin-bottom: 1rem; font-size: 0.9rem;">
+            <strong>⚠️ Interpretation Notice:</strong> This summary is AI-generated and may contain errors. Always verify against the source documents listed above.
+        </div>
+
+        <div style="background: #f8f9fa; padding: 1rem; border-radius: 4px; border-left: 4px solid #6c757d; margin-bottom: 1rem;">
+            <h4 style="margin-top: 0; color: #495057;">AI-Generated Interpretation</h4>
+            <p style="margin-bottom: 0; line-height: 1.6;">{{ clawdbot_analysis.enhanced_summary }}</p>
+        </div>
+
+        <div style="font-size: 0.9rem; color: #666;">
+            <strong>Processing Details:</strong><br>
+            <strong>Processed:</strong> {{ clawdbot_analysis.processed_at[:19] | replace('T', ' ') if clawdbot_analysis.processed_at else 'Unknown' }}<br>
+            <strong>Version:</strong> {{ clawdbot_analysis.version or 'Unknown' }}<br>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="card">
+    <div class="card-header" style="background: #f8f8f8; color: #666;">
+        🤖 AI Interpretation
+    </div>
+    <div class="card-body" style="text-align: center; color: #666;">
+        <p><strong>This project view has not been annotated with AI interpretation yet.</strong></p>
+        <button id="analyze-project" class="btn btn-success">
+            Generate AI Interpretation
+        </button>
+        <div id="analysis-result" style="margin-top: 1rem; display: none;"></div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('analyze-project').addEventListener('click', function() {
+    const resultDiv = document.getElementById('analysis-result');
+    const btn = document.getElementById('analyze-project');
+
+    // Disable button and show loading
+    btn.disabled = true;
+    resultDiv.style.display = 'block';
+    resultDiv.innerHTML = '<div class="loading">Analyzing project with Clawdbot...</div>';
+
+    // Send POST request
+    fetch('/actions/run-summarize', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'action=live'  // Use live action for single project analysis
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            resultDiv.innerHTML = '<div class="alert alert-success">' +
+                '<strong>Success!</strong> Project analyzed. Refreshing page to show results...' +
+                '</div>';
+
+            // Refresh page after 2 seconds to show analysis
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
+        } else {
+            resultDiv.innerHTML = '<div class="alert alert-error">' +
+                '<strong>Error:</strong> ' + data.message +
+                (data.error ? '<pre style="margin-top: 0.5rem; font-size: 0.8rem;">' + data.error + '</pre>' : '') +
+                '</div>';
+        }
+    })
+    .catch(error => {
+        resultDiv.innerHTML = '<div class="alert alert-error"><strong>Error:</strong> ' + error.message + '</div>';
+    })
+    .finally(() => {
+        // Re-enable button
+        btn.disabled = false;
+    });
+});
+</script>
+{% endblock %}
