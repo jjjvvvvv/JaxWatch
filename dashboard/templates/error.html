@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Error - JaxWatch{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-header" style="background: #f8d7da; color: #721c24;">
+        ⚠️ Error
+    </div>
+    <div class="card-body">
+        <div class="alert alert-error">
+            <strong>Something went wrong:</strong><br>
+            {{ error }}
+        </div>
+
+        <div style="margin-top: 1rem;">
+            <a href="{{ url_for('index') }}" class="btn">Return to Dashboard</a>
+            <a href="{{ url_for('projects') }}" class="btn btn-secondary" style="margin-left: 0.5rem;">Browse Projects</a>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">Troubleshooting</div>
+    <div class="card-body">
+        <p>Common issues and solutions:</p>
+        <ul>
+            <li><strong>File not found:</strong> Make sure JaxWatch data files exist in the expected locations</li>
+            <li><strong>Permission errors:</strong> Check file permissions for reading/writing data files</li>
+            <li><strong>JSON parsing errors:</strong> Verify that data files contain valid JSON</li>
+            <li><strong>Document Verifier errors:</strong> Ensure Document Verifier is properly installed and configured</li>
+        </ul>
+
+        <p>Expected file locations:</p>
+        <ul>
+            <li><code>admin_ui/data/projects_index.json</code> - Raw JaxWatch data</li>
+            <li><code>admin_ui/data/projects_enriched.json</code> - Enhanced projects (created by Document Verifier)</li>
+            <li><code>document_verifier/demo_output.json</code> - Demo enhancement data</li>
+            <li><code>dashboard/status.json</code> - Dashboard status (created automatically)</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}

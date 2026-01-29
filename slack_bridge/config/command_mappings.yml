@@ -1,0 +1,43 @@
+commands:
+  # Document Verification Commands
+  - pattern: "(?i)verify|check|analyze\\s+documents?"
+    cli_command: "python document_verifier/document_verifier.py document_verify"
+    description: "Run document verification on all projects"
+    background: true
+
+  - pattern: "(?i)verify\\s+project\\s+([A-Z0-9-]+)"
+    cli_command: "python document_verifier/document_verifier.py document_verify --project {1}"
+    description: "Verify specific project"
+    background: true
+
+  - pattern: "(?i)verify\\s+(\\d{4})\\s+projects?"
+    cli_command: "python document_verifier/document_verifier.py document_verify --active-year {1}"
+    description: "Verify projects from specific year"
+    background: true
+
+  # Reference Detection Commands
+  - pattern: "(?i)scan|find\\s+references?"
+    cli_command: "python reference_scanner/reference_scanner.py run --source dia_board"
+    description: "Scan for document references"
+    background: true
+
+  - pattern: "(?i)scan\\s+([a-z_]+)\\s+(\\d{4})"
+    cli_command: "python reference_scanner/reference_scanner.py run --source {1} --year {2}"
+    description: "Scan specific source and year"
+    background: true
+
+  # Status Commands (lightweight aggregation)
+  - pattern: "(?i)status|health"
+    type: "status_check"
+    description: "System health check"
+    background: false
+
+  # Dashboard Commands (direct response)
+  - pattern: "(?i)dashboard|admin"
+    response: "📊 Dashboard available at http://localhost:5000"
+    type: "direct_response"
+
+  # Help Commands
+  - pattern: "(?i)help|commands"
+    response: "Available commands:\n• verify documents\n• scan references\n• status\n• dashboard"
+    type: "direct_response"

@@ -12,9 +12,9 @@ from typing import List, Dict, Optional
 BASE_DIR = Path(__file__).parent.parent
 PROJECTS_INDEX_PATH = BASE_DIR / 'outputs' / 'projects' / 'projects_index.json'
 PROJECTS_ENRICHED_PATH = BASE_DIR / 'outputs' / 'projects' / 'projects_enriched.json'
-CLAWDBOT_DEMO_PATH = BASE_DIR / 'clawdbot' / 'demo_output.json'
+DOCUMENT_VERIFIER_DEMO_PATH = BASE_DIR / 'document_verifier' / 'demo_output.json'
 STATUS_PATH = BASE_DIR / 'dashboard' / 'status.json'
-MOLT_ANNOTATIONS_PATH = BASE_DIR / 'outputs' / 'annotations' / 'molt'
+REFERENCE_SCANNER_ANNOTATIONS_PATH = BASE_DIR / 'outputs' / 'annotations' / 'reference_scanner'
 
 
 def load_projects_index() -> List[Dict]:
@@ -31,7 +31,7 @@ def load_projects_index() -> List[Dict]:
 def load_enriched_projects() -> List[Dict]:
     """Load enhanced projects from projects_enriched.json or demo output."""
     # Try projects_enriched.json first, fall back to demo output
-    paths_to_try = [PROJECTS_ENRICHED_PATH, CLAWDBOT_DEMO_PATH]
+    paths_to_try = [PROJECTS_ENRICHED_PATH, DOCUMENT_VERIFIER_DEMO_PATH]
 
     for path in paths_to_try:
         try:
@@ -152,24 +152,24 @@ def get_recent_activity(limit: int = 10) -> List[Dict]:
     # Sort by processed_at timestamp
     sorted_projects = sorted(
         enriched_projects,
-        key=lambda p: p.get('clawdbot_analysis', {}).get('processed_at', ''),
+        key=lambda p: p.get('document_verification', {}).get('processed_at', ''),
         reverse=True
     )
 
     return sorted_projects[:limit]
 
 
-def load_molt_references_for_project(project: Dict) -> List[Dict]:
+def load_reference_scanner_annotations_for_project(project: Dict) -> List[Dict]:
     """
-    Load Molt Bot derived references for a specific project.
+    Load Reference Scanner derived references for a specific project.
 
     Args:
         project: Project dictionary containing mentions with URLs
 
     Returns:
-        List of reference annotations from Molt Bot
+        List of reference annotations from Reference Scanner
     """
-    if not MOLT_ANNOTATIONS_PATH.exists():
+    if not REFERENCE_SCANNER_ANNOTATIONS_PATH.exists():
         return []
 
     references = []
@@ -181,7 +181,7 @@ def load_molt_references_for_project(project: Dict) -> List[Dict]:
             project_urls.add(mention['url'])
 
     # Load annotations that reference any of this project's documents
-    for annotation_file in MOLT_ANNOTATIONS_PATH.glob('*.json'):
+    for annotation_file in REFERENCE_SCANNER_ANNOTATIONS_PATH.glob('*.json'):
         try:
             with open(annotation_file, 'r') as f:
                 annotation = json.load(f)
@@ -203,9 +203,9 @@ def load_molt_references_for_project(project: Dict) -> List[Dict]:
     return references
 
 
-def get_molt_stats() -> Dict:
-    """Get statistics about Molt Bot annotations."""
-    if not MOLT_ANNOTATIONS_PATH.exists():
+def get_reference_scanner_stats() -> Dict:
+    """Get statistics about Reference Scanner annotations."""
+    if not REFERENCE_SCANNER_ANNOTATIONS_PATH.exists():
         return {
             'total_annotations': 0,
             'by_confidence': {'high': 0, 'medium': 0, 'low': 0},
@@ -213,7 +213,7 @@ def get_molt_stats() -> Dict:
         }
 
     annotations = []
-    for annotation_file in MOLT_ANNOTATIONS_PATH.glob('*.json'):
+    for annotation_file in REFERENCE_SCANNER_ANNOTATIONS_PATH.glob('*.json'):
         try:
             with open(annotation_file, 'r') as f:
                 annotation = json.load(f)

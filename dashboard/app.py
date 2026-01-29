@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-JaxWatch Clawdbot Local Admin Dashboard
+JaxWatch Document Verifier Local Admin Dashboard
 A read-only-first, CRM-style interface for browsing and managing projects
 """
 
@@ -18,7 +18,7 @@ from data_access import (
     load_status,
     get_project_by_id,
     save_status,
-    load_molt_references_for_project
+    load_reference_scanner_annotations_for_project
 )
 
 
@@ -52,7 +52,7 @@ def index():
             # Sort by processed_at and take latest 5
             sorted_projects = sorted(
                 enriched_projects,
-                key=lambda p: p.get('clawdbot_analysis', {}).get('processed_at', ''),
+                key=lambda p: p.get('document_verification', {}).get('processed_at', ''),
                 reverse=True
             )[:5]
             recent_enhanced = sorted_projects
@@ -88,8 +88,8 @@ def projects():
             project_data['has_enhancement'] = project['id'] in enriched_lookup
             if project_data['has_enhancement']:
                 enhanced = enriched_lookup[project['id']]
-                project_data['processed_at'] = enhanced.get('clawdbot_analysis', {}).get('processed_at')
-                project_data['enhancement_version'] = enhanced.get('clawdbot_analysis', {}).get('version')
+                project_data['processed_at'] = enhanced.get('document_verification', {}).get('processed_at')
+                project_data['enhancement_version'] = enhanced.get('document_verification', {}).get('version')
             projects.append(project_data)
 
         # Apply filters
@@ -142,7 +142,7 @@ def projects():
 
 @app.route('/projects/<project_id>')
 def project_detail(project_id):
-    """Project detail view showing raw data and Clawdbot analysis."""
+    """Project detail view showing raw data and Document Verifier analysis."""
     try:
         # Get project from both sources
         raw_project = get_project_by_id(project_id, source='raw')
@@ -153,18 +153,18 @@ def project_detail(project_id):
 
         # Prepare display data
         has_enhancement = enriched_project is not None
-        clawdbot_analysis = None
+        document_verification = None
 
         if has_enhancement:
-            clawdbot_analysis = enriched_project.get('clawdbot_analysis', {})
+            document_verification = enriched_project.get('document_verification', {})
 
-        # Load Molt Bot derived references
-        derived_references = load_molt_references_for_project(raw_project)
+        # Load Reference Scanner derived references
+        derived_references = load_reference_scanner_annotations_for_project(raw_project)
 
         return render_template('project_detail.html',
             project=raw_project,
             has_enhancement=has_enhancement,
-            clawdbot_analysis=clawdbot_analysis,
+            document_verification=document_verification,
             derived_references=derived_references,
             project_id=project_id
         )
@@ -175,23 +175,23 @@ def project_detail(project_id):
 
 @app.route('/actions/run-summarize', methods=['POST'])
 def run_summarize():
-    """Trigger clawdbot summarize command."""
+    """Trigger document_verifier document_verify command."""
     try:
         # Get action type
         action = request.form.get('action', 'demo')
 
-        # Change to clawdbot directory and run command
-        clawdbot_dir = Path(__file__).parent.parent / 'clawdbot'
+        # Change to document_verifier directory and run command
+        document_verifier_dir = Path(__file__).parent.parent / 'document_verifier'
 
         if action == 'live':
-            cmd = ['python3', 'clawdbot.py', 'summarize']
+            cmd = ['python3', 'document_verifier.py', 'document_verify']
         else:
-            cmd = ['python3', 'clawdbot.py', 'demo']
+            cmd = ['python3', 'document_verifier.py', 'demo']
 
         # Run command
         result = subprocess.run(
             cmd,
-            cwd=clawdbot_dir,
+            cwd=document_verifier_dir,
             capture_output=True,
             text=True,
             timeout=300  # 5 minute timeout

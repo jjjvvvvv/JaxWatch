@@ -219,7 +219,7 @@
     </div>
 </div>
 
-{% if has_enhancement and clawdbot_analysis %}
+{% if has_enhancement and document_verification %}
 <div class="card">
     <div class="card-header" style="background: #f8f8f8; color: #666;">
         🤖 AI Interpretation (Not Authoritative)
@@ -231,13 +231,13 @@
 
         <div style="background: #f8f9fa; padding: 1rem; border-radius: 4px; border-left: 4px solid #6c757d; margin-bottom: 1rem;">
             <h4 style="margin-top: 0; color: #495057;">AI-Generated Interpretation</h4>
-            <p style="margin-bottom: 0; line-height: 1.6;">{{ clawdbot_analysis.enhanced_summary }}</p>
+            <p style="margin-bottom: 0; line-height: 1.6;">{{ document_verification.enhanced_summary }}</p>
         </div>
 
         <div style="font-size: 0.9rem; color: #666;">
             <strong>Processing Details:</strong><br>
-            <strong>Processed:</strong> {{ clawdbot_analysis.processed_at[:19] | replace('T', ' ') if clawdbot_analysis.processed_at else 'Unknown' }}<br>
-            <strong>Version:</strong> {{ clawdbot_analysis.version or 'Unknown' }}<br>
+            <strong>Processed:</strong> {{ document_verification.processed_at[:19] | replace('T', ' ') if document_verification.processed_at else 'Unknown' }}<br>
+            <strong>Version:</strong> {{ document_verification.version or 'Unknown' }}<br>
         </div>
     </div>
 </div>
@@ -267,7 +267,7 @@ document.getElementById('analyze-project').addEventListener('click', function() 
     // Disable button and show loading
     btn.disabled = true;
     resultDiv.style.display = 'block';
-    resultDiv.innerHTML = '<div class="loading">Analyzing project with Clawdbot...</div>';
+    resultDiv.innerHTML = '<div class="loading">Analyzing project with Document Verifier...</div>';
 
     // Send POST request
     fetch('/actions/run-summarize', {

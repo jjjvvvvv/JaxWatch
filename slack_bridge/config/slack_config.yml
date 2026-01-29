@@ -1,0 +1,18 @@
+# Slack App Configuration
+# Set environment variables:
+# export SLACK_BOT_TOKEN="xoxb-your-bot-token"
+# export SLACK_SIGNING_SECRET="your-signing-secret"
+
+slack:
+  # App settings
+  socket_mode: false  # Set to true if using Socket Mode instead of HTTP
+  port: 3000  # Port for Slack events (if using HTTP mode)
+
+  # Bot behavior
+  respond_to_mentions: true
+  respond_to_dm: true
+  respond_to_keywords: ["molty", "molt"]
+
+  # Timeout settings
+  command_timeout: 1800  # 30 minutes for background jobs
+  status_update_interval: 60  # Status check interval in seconds

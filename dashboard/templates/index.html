@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - JaxWatch{% endblock %}
+
+{% block content %}
+<div class="stats-grid">
+    <div class="stat-item">
+        <div class="stat-number">{{ total_projects }}</div>
+        <div class="stat-label">Derived Project Views</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">{{ enriched_count }}</div>
+        <div class="stat-label">AI Annotated</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">{{ pending_count }}</div>
+        <div class="stat-label">Pending Annotation</div>
+    </div>
+    <div class="stat-item">
+        <div class="stat-number">{{ master_count }}</div>
+        <div class="stat-label">Master Projects</div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">System Status</div>
+    <div class="card-body">
+        {% if status.last_run %}
+            <p>
+                <span class="status-indicator {{ 'status-success' if status.success else 'status-error' }}"></span>
+                <strong>Last Run:</strong> {{ status.last_run[:19] | replace('T', ' ') }}
+            </p>
+            <p><strong>Command:</strong> <code>{{ status.command }}</code></p>
+            <p><strong>Type:</strong> {{ status.action_type | capitalize if status.action_type else 'Unknown' }}</p>
+
+            {% if status.success %}
+                <div class="alert alert-success">
+                    Last run completed successfully
+                </div>
+            {% else %}
+                <div class="alert alert-error">
+                    <strong>Last run failed:</strong><br>
+                    {{ status.error or "Unknown error" }}
+                </div>
+            {% endif %}
+        {% else %}
+            <p>
+                <span class="status-indicator status-unknown"></span>
+                <strong>No previous runs recorded</strong>
+            </p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">Quick Actions</div>
+    <div class="card-body">
+        <p>Generate AI annotations for project views:</p>
+        <button id="run-demo" class="btn btn-secondary" style="margin-right: 1rem;">
+            Run Demo (Mock Annotations)
+        </button>
+        <button id="run-live" class="btn btn-success">
+            Run Live Annotation (Requires Local Ollama)
+        </button>
+
+        <div id="action-result" style="margin-top: 1rem; display: none;"></div>
+    </div>
+</div>
+
+{% if recent_enhanced %}
+<div class="card">
+    <div class="card-header">Recently Annotated Project Views</div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Project</th>
+                    <th>ID</th>
+                    <th>Annotated At</th>
+                    <th>Version</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in recent_enhanced %}
+                <tr>
+                    <td>{{ project.title[:60] }}{% if project.title|length > 60 %}...{% endif %}</td>
+                    <td><code>{{ project.id }}</code></td>
+                    <td>{{ project.document_verification.processed_at[:19] | replace('T', ' ') if project.document_verification.processed_at else 'Unknown' }}</td>
+                    <td><span class="badge badge-primary">{{ project.document_verification.version if project.document_verification.version else 'Unknown' }}</span></td>
+                    <td><a href="{{ url_for('project_detail', project_id=project.id) }}" class="btn" style="font-size: 0.8rem; padding: 0.25rem 0.5rem;">View</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endif %}
+
+<div class="card">
+    <div class="card-header">Navigate</div>
+    <div class="card-body">
+        <a href="{{ url_for('projects') }}" class="btn">Browse All Project Views</a>
+        <a href="{{ url_for('projects', enhanced='no') }}" class="btn btn-secondary" style="margin-left: 1rem;">View Unannotated Project Views</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('run-demo').addEventListener('click', function() {
+    runAction('demo');
+});
+
+document.getElementById('run-live').addEventListener('click', function() {
+    runAction('live');
+});
+
+function runAction(action) {
+    const resultDiv = document.getElementById('action-result');
+    const demoBtn = document.getElementById('run-demo');
+    const liveBtn = document.getElementById('run-live');
+
+    // Disable buttons and show loading
+    demoBtn.disabled = true;
+    liveBtn.disabled = true;
+
+    resultDiv.style.display = 'block';
+    resultDiv.innerHTML = '<div class="loading">Running ' + action + ' command...</div>';
+
+    // Send POST request
+    fetch('/actions/run-summarize', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'action=' + action
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            resultDiv.innerHTML = '<div class="alert alert-success">' +
+                '<strong>Success!</strong> ' + data.message +
+                (data.output ? '<pre style="margin-top: 0.5rem; font-size: 0.8rem; background: #f8f9fa; padding: 0.5rem; border-radius: 4px; white-space: pre-wrap;">' + data.output + '</pre>' : '') +
+                '</div>';
+
+            // Refresh page after 2 seconds to show updated stats
+            setTimeout(() => {
+                window.location.reload();
+            }, 2000);
+        } else {
+            resultDiv.innerHTML = '<div class="alert alert-error">' +
+                '<strong>Error:</strong> ' + data.message +
+                (data.error ? '<pre style="margin-top: 0.5rem; font-size: 0.8rem; background: #f8f9fa; padding: 0.5rem; border-radius: 4px; white-space: pre-wrap;">' + data.error + '</pre>' : '') +
+                '</div>';
+        }
+    })
+    .catch(error => {
+        resultDiv.innerHTML = '<div class="alert alert-error"><strong>Error:</strong> ' + error.message + '</div>';
+    })
+    .finally(() => {
+        // Re-enable buttons
+        demoBtn.disabled = false;
+        liveBtn.disabled = false;
+    });
+}
+</script>
+{% endblock %}
