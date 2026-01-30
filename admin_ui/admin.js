@@ -1,5 +1,5 @@
 (function () {
-  var PRIMARY_PATH = 'data/projects_index.json';
+  var PRIMARY_PATH = 'data/projects_enriched.json';
 
   var state = {
     projects: [],

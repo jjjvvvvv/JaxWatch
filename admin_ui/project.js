@@ -1,5 +1,5 @@
 (function () {
-  var DATA_PATH = 'data/projects_index.json';
+  var DATA_PATH = 'data/projects_enriched.json';
 
   var elements = {};
   var projectId = getQueryParam('id');
@@ -45,8 +45,8 @@
   }
 
   function showDataError() {
-    console.error('Jacksonville Observer admin: ERROR – no valid projects_index.json found.');
-    showError('⚠️ No project data available. Please copy outputs/projects/projects_index.json into admin_ui/data/ before running.');
+    console.error('Jacksonville Observer admin: ERROR – no valid projects_enriched.json found.');
+    showError('⚠️ No project data available. Please copy outputs/projects/projects_enriched.json into admin_ui/data/ before running.');
   }
 
   function showError(message) {
@@ -127,6 +127,18 @@
       sourcesHtml = '<p>No sources found.</p>';
     }
 
+    // AI Analysis Section
+    var aiAnalysisHtml = '';
+    if (project.document_verification && project.document_verification.enhanced_summary) {
+      var summary = project.document_verification.enhanced_summary;
+      aiAnalysisHtml = '<div class="ai-analysis-section">' +
+        '<h3>🤖 AI Analysis</h3>' +
+        '<div class="ai-summary">' +
+        '<pre>' + escapeHtml(summary) + '</pre>' +
+        '</div>' +
+        '</div>';
+    }
+
     elements.content.html(
       '<div class="project-header-block">' +
       headerMeta +
@@ -134,6 +146,7 @@
       financialsHtml +
       '</div>' +
       metaHtml +
+      aiAnalysisHtml +
       '<h3>Primary Sources & Traceability</h3>' +
       sourcesHtml
     );

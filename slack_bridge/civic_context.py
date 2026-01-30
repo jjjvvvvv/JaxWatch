@@ -317,7 +317,7 @@ class CivicAnalysisContext:
                 for project in enriched:
                     if isinstance(project, dict):
                         # Look for compliance issues in analysis
-                        analysis = project.get('clawdbot_analysis', {})
+                        analysis = project.get('document_verification', {})
                         if isinstance(analysis, dict):
                             enhanced_summary = analysis.get('enhanced_summary', '')
                             if any(term in enhanced_summary.lower() for term in

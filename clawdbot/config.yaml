@@ -1,8 +1,0 @@
-# Clawdbot Configuration - SIMPLE
-llm_provider: "groq"
-llm_model: "llama-3.1-8b-instant"
-llm_api_key_env: "GROQ_API_KEY"
-
-# Data Paths
-input_path: "../admin_ui/data/projects_index.json"
-output_path: "../admin_ui/data/projects_enriched.json"

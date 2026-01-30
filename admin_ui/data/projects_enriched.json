@@ -1,0 +1,1641 @@
+[
+  {
+    "id": "DIA-RES-2025-10-02",
+    "title": "N Market Street Sodl Pa Crp",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-10-02",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-10-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/87d9ca66-3a64-4621-8965-62a9a8e4526d/RESOLUTION-2025-10-02_N-MARKET-STREET-SOHL-PA-CRP",
+        "title": "RESOLUTION 2025-10-02_N MARKET STREET SODL PA CRP",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-10-02",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-10-02_N MARKET STREET SODL PA CRP"
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "N Market Street Sodl Pa Crp",
+    "address": "Market Street",
+    "latitude": 30.352767,
+    "longitude": -81.6506413,
+    "geocoded_address": "Market Street",
+    "geocoding_confidence": "high",
+    "geocoding_method": "direct_match",
+    "geocoded_at": "2026-01-28T20:20:17.168181",
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-10-02",
+    "last_update": "2025-10-02",
+    "activity_timeline": [
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-02",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/87d9ca66-3a64-4621-8965-62a9a8e4526d/RESOLUTION-2025-10-02_N-MARKET-STREET-SOHL-PA-CRP",
+        "snippet": "RESOLUTION 2025-10-02_N MARKET STREET SODL PA CRP"
+      }
+    ],
+    "activity_count": 1,
+    "needs_attention": true,
+    "latest_activity_date": "2025-10-02",
+    "document_verification": {
+      "enhanced_summary": "ERROR: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "processed_at": "2026-01-29T19:03:29.498757",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-10-07",
+    "title": "Sip & Stroll Contribution",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-10-07",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-10-07",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/45f2f21c-5126-48a2-b17a-6a7448e8e660/RESOLUTION-2025-10-07_SIP-STROLL-CONTRIBUTION",
+        "title": "RESOLUTION 2025-10-07_SIP & STROLL CONTRIBUTION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-10-07",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-10-07_SIP & STROLL CONTRIBUTION"
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Sip & Stroll Contribution",
+    "address": "Sip & Stroll Contribution RESOLUTION",
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-10-07",
+    "last_update": "2025-10-07",
+    "activity_timeline": [
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-07",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/45f2f21c-5126-48a2-b17a-6a7448e8e660/RESOLUTION-2025-10-07_SIP-STROLL-CONTRIBUTION",
+        "snippet": "RESOLUTION 2025-10-07_SIP & STROLL CONTRIBUTION"
+      }
+    ],
+    "activity_count": 1,
+    "needs_attention": true,
+    "latest_activity_date": "2025-10-07",
+    "document_verification": {
+      "enhanced_summary": "ERROR: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "processed_at": "2026-01-29T19:03:29.488570",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-11-01",
+    "title": "231 N Laura Street",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-11-01",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-11-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/0ec1acb1-43db-4428-8b7b-9e16412b2472/RESOLUTION-2025-11-01-231-N-LAURA-STREET",
+        "title": "RESOLUTION 2025-11-01 231 N LAURA STREET",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-11-01",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-11-01 231 N LAURA STREET"
+      },
+      {
+        "id": "DIA-RES-2025-11-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/b4b7fbd9-5ccb-422d-91f3-0ffef6fb1c75/20251015_DIA-Board-Meeting-Agenda-Packet",
+        "title": "20251015_DIA Board Meeting Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-10-15",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/0bdb8fce-2fd6-458d-b081-543b440146b2/20251015_DIA-Board-Meeting-Amended-Agenda-Packet",
+        "title": "20251015_DIA Board Meeting Amended Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-10-15",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/b4006971-c259-4a86-9807-c0095bbd0216/20251015_DIA-Board-Meeting-Minutes",
+        "title": "20251015_DIA Board Meeting Minutes",
+        "doc_type": "minutes",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-10-15",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/6ef6a25a-67ad-4b95-ae65-7d21c2879cd9/20251015_DIA-Board-Meeting-Transcript",
+        "title": "20251015_DIA Board Meeting Transcript",
+        "doc_type": "exhibit",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-10-15",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/8250c01c-0684-4e1a-bba1-0308bdb48e4e/20251119_DIA-Board-Meeting-Agenda-Packet",
+        "title": "20251119_DIA Board Meeting Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-11-19",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/2e9a0b34-6250-44d8-b584-c41ec89a1b82/20251119_DIA-Board-Meeting-Amended-Agenda-Packet",
+        "title": "20251119_DIA Board Meeting Amended Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-11-19",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/9af6f0b7-dadd-4355-8a02-63e05986c70d/20251217_DIA-Board-Meeting-Agenda-Packet",
+        "title": "20251217_DIA Board Meeting Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-12-17",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "231 N Laura Street",
+    "address": "231 N Laura Street",
+    "latitude": 30.328674,
+    "longitude": -81.658667,
+    "geocoded_address": "231 N Laura Street",
+    "geocoding_confidence": "high",
+    "geocoding_method": "direct_match",
+    "geocoded_at": "2026-01-30T11:34:38.432256",
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-10-15",
+    "last_update": "2025-12-17",
+    "activity_timeline": [
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-12-17",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/9af6f0b7-dadd-4355-8a02-63e05986c70d/20251217_DIA-Board-Meeting-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-11-19",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/8250c01c-0684-4e1a-bba1-0308bdb48e4e/20251119_DIA-Board-Meeting-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-11-19",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/2e9a0b34-6250-44d8-b584-c41ec89a1b82/20251119_DIA-Board-Meeting-Amended-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-11-01",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/0ec1acb1-43db-4428-8b7b-9e16412b2472/RESOLUTION-2025-11-01-231-N-LAURA-STREET",
+        "snippet": "RESOLUTION 2025-11-01 231 N LAURA STREET"
+      },
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-15",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/b4b7fbd9-5ccb-422d-91f3-0ffef6fb1c75/20251015_DIA-Board-Meeting-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-15",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/0bdb8fce-2fd6-458d-b081-543b440146b2/20251015_DIA-Board-Meeting-Amended-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "minutes",
+        "mention_category": {
+          "label": "Meeting Minutes",
+          "icon": "\ud83d\udcdd",
+          "priority": 2,
+          "description": "Official meeting record"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-15",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/b4006971-c259-4a86-9807-c0095bbd0216/20251015_DIA-Board-Meeting-Minutes",
+        "snippet": ""
+      },
+      {
+        "mention_type": "exhibit",
+        "mention_category": {
+          "label": "Exhibit",
+          "icon": "\ud83d\udcce",
+          "priority": 4,
+          "description": "Supporting document or attachment"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-15",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/6ef6a25a-67ad-4b95-ae65-7d21c2879cd9/20251015_DIA-Board-Meeting-Transcript",
+        "snippet": ""
+      }
+    ],
+    "activity_count": 8,
+    "needs_attention": false,
+    "latest_activity_date": "2025-12-17",
+    "document_verification": {
+      "enhanced_summary": "Authorization\n\u2022 The Chief Executive Officer is hereby authorized to execute the contracts and documents and otherwise take all necessary action in connection therewith to effectuate the purposes of this Resolution.\n\nActors\n\u2022 DOWNTOWN INVESTMENT AUTHORITY \n\u2022 (TBD), LLC \n\nFinancial details\n\u2022 Total Development Costs (estimate): $4,717,300\n\u2022 Equity (proposed): $ 725,000 ( 15.4 % of Underwritten TDC)\n\u2022 City Funding: No more than $1,907,345.00\n\nProperty\n\u2022 Address: 231 N Laura Street\n\u2022 Location: Downtown Jacksonville\n\nTimeline\n\u2022 Not specified in document\n\nConditions\n\u2022 Per DPRP program guidelines as further captured in Section 55.303 of the Ordinance Code, the proposed incentive structure and funding will be subject to further approvals by the Jacksonville City Council.\n\u2022 Work proposed must be reviewed and approved by the Planning and Development Department,\n\nNext steps\n\u2022 The Chief Executive Officer is hereby authorized to execute the contracts and documents and otherwise take all necessary action in connection therewith to effectuate the purposes of this Resolution.",
+      "processed_at": "2026-01-30T11:39:10.619877",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-12-03",
+    "title": "Former Courthouse Site Disposition",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-12-03",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-12-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/d6a74467-9cdd-4581-ac3d-9b9b802f08ff/RESOLUTION-2025-12-03-FORMER-COURTHOUSE-SITE-DISPO",
+        "title": "RESOLUTION 2025-12-03_FORMER COURTHOUSE SITE DISPOSITION",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-12-03",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-12-03_FORMER COURTHOUSE SITE DISPOSITION"
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Former Courthouse Site Disposition",
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": "disposition",
+    "relationship_type": "disposition",
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-12-03",
+    "last_update": "2025-12-03",
+    "activity_timeline": [
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-12-03",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/d6a74467-9cdd-4581-ac3d-9b9b802f08ff/RESOLUTION-2025-12-03-FORMER-COURTHOUSE-SITE-DISPO",
+        "snippet": "RESOLUTION 2025-12-03_FORMER COURTHOUSE SITE DISPOSITION"
+      }
+    ],
+    "activity_count": 1,
+    "needs_attention": false,
+    "latest_activity_date": "2025-12-03",
+    "document_verification": {
+      "enhanced_summary": "ERROR: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "processed_at": "2026-01-29T19:02:37.104985",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-12-02",
+    "title": "Gateway N7",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-12-02",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-12-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/fe4631ba-b355-4ec1-a375-cf1c794e804c/RESOLUTION-2025-12-02-GATEWAY-N7",
+        "title": "RESOLUTION 2025-12-02_GATEWAY N7",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-12-02",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-12-02_GATEWAY N7"
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Gateway N7",
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-12-02",
+    "last_update": "2025-12-02",
+    "activity_timeline": [
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-12-02",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/fe4631ba-b355-4ec1-a375-cf1c794e804c/RESOLUTION-2025-12-02-GATEWAY-N7",
+        "snippet": "RESOLUTION 2025-12-02_GATEWAY N7"
+      }
+    ],
+    "activity_count": 1,
+    "needs_attention": false,
+    "latest_activity_date": "2025-12-02",
+    "document_verification": {
+      "enhanced_summary": "ERROR: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "processed_at": "2026-01-29T19:02:37.112073",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-12-01",
+    "title": "Ar Polar Amendment",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-12-01",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-12-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/17e4be36-7f09-4a39-a8f5-d23f1b127398/RESOLUTION-2025-12-01-AR-POLAR-AMENDMENT",
+        "title": "RESOLUTION 2025-12-01_AR POLAR AMENDMENT",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-12-01",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-12-01_AR POLAR AMENDMENT"
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Ar Polar Amendment",
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": "amendment",
+    "relationship_type": "amendment",
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-12-01",
+    "last_update": "2025-12-01",
+    "activity_timeline": [
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-12-01",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/17e4be36-7f09-4a39-a8f5-d23f1b127398/RESOLUTION-2025-12-01-AR-POLAR-AMENDMENT",
+        "snippet": "RESOLUTION 2025-12-01_AR POLAR AMENDMENT"
+      }
+    ],
+    "activity_count": 1,
+    "needs_attention": false,
+    "latest_activity_date": "2025-12-01",
+    "document_verification": {
+      "enhanced_summary": "ERROR: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "processed_at": "2026-01-29T19:02:37.114758",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-11-07",
+    "title": "Music Heritage Garden Scope",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-11-07",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-11-07",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/fb056e7c-70fe-4747-8d62-d28984f7e14e/RESOLUTION-2025-11-07-MUSIC-HERITAGE-GARDEN-SCOPE",
+        "title": "RESOLUTION 2025-11-07 MUSIC HERITAGE GARDEN SCOPE",
+        "doc_type": "other",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-11-07",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-11-07 MUSIC HERITAGE GARDEN SCOPE"
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Music Heritage Garden Scope",
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": "park",
+    "relationship_type": "development_component",
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-11-07",
+    "last_update": "2025-11-07",
+    "activity_timeline": [
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-11-07",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/fb056e7c-70fe-4747-8d62-d28984f7e14e/RESOLUTION-2025-11-07-MUSIC-HERITAGE-GARDEN-SCOPE",
+        "snippet": "RESOLUTION 2025-11-07 MUSIC HERITAGE GARDEN SCOPE"
+      }
+    ],
+    "activity_count": 1,
+    "needs_attention": false,
+    "latest_activity_date": "2025-11-07",
+    "document_verification": {
+      "enhanced_summary": "ERROR: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "processed_at": "2026-01-29T19:02:37.117580",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-11-06",
+    "title": "Duval 212 Waiver Of Condition Precedent",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-11-06",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-11-06",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/85de6f09-705a-430b-ac11-f9465f587d15/RESOLUTION-2025-11-06-DUVAL-212-WAIVER-OF-CONDITIO",
+        "title": "RESOLUTION 2025-11-06 DUVAL 212 WAIVER OF CONDITION PRECEDENT",
+        "doc_type": "other",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-11-06",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-11-06 DUVAL 212 WAIVER OF CONDITION PRECEDENT"
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Duval 212 Waiver Of Condition Precedent",
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-11-06",
+    "last_update": "2025-11-06",
+    "activity_timeline": [
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-11-06",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/85de6f09-705a-430b-ac11-f9465f587d15/RESOLUTION-2025-11-06-DUVAL-212-WAIVER-OF-CONDITIO",
+        "snippet": "RESOLUTION 2025-11-06 DUVAL 212 WAIVER OF CONDITION PRECEDENT"
+      }
+    ],
+    "activity_count": 1,
+    "needs_attention": false,
+    "latest_activity_date": "2025-11-06",
+    "document_verification": {
+      "enhanced_summary": "ERROR: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "processed_at": "2026-01-29T19:02:37.120549",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-11-03",
+    "title": "Dvi Marketing & Event Services",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-11-03",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-11-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/b876fd0f-ca2b-40c5-ab3a-b8ddea97bb83/RESOLUTION-2025-11-03-DVI-MARKETING-EVENT-SERVICES",
+        "title": "RESOLUTION 2025-11-03 DVI MARKETING & EVENT SERVICES",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-11-03",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-11-03 DVI MARKETING & EVENT SERVICES"
+      },
+      {
+        "id": "DIA-RES-2025-11-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/b4b7fbd9-5ccb-422d-91f3-0ffef6fb1c75/20251015_DIA-Board-Meeting-Agenda-Packet",
+        "title": "20251015_DIA Board Meeting Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-10-15",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/0bdb8fce-2fd6-458d-b081-543b440146b2/20251015_DIA-Board-Meeting-Amended-Agenda-Packet",
+        "title": "20251015_DIA Board Meeting Amended Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-10-15",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/b4006971-c259-4a86-9807-c0095bbd0216/20251015_DIA-Board-Meeting-Minutes",
+        "title": "20251015_DIA Board Meeting Minutes",
+        "doc_type": "minutes",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-10-15",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/6ef6a25a-67ad-4b95-ae65-7d21c2879cd9/20251015_DIA-Board-Meeting-Transcript",
+        "title": "20251015_DIA Board Meeting Transcript",
+        "doc_type": "exhibit",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-10-15",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/8250c01c-0684-4e1a-bba1-0308bdb48e4e/20251119_DIA-Board-Meeting-Agenda-Packet",
+        "title": "20251119_DIA Board Meeting Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-11-19",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/2e9a0b34-6250-44d8-b584-c41ec89a1b82/20251119_DIA-Board-Meeting-Amended-Agenda-Packet",
+        "title": "20251119_DIA Board Meeting Amended Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-11-19",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-03",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/9af6f0b7-dadd-4355-8a02-63e05986c70d/20251217_DIA-Board-Meeting-Agenda-Packet",
+        "title": "20251217_DIA Board Meeting Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-12-17",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Dvi Marketing & Event Services",
+    "address": "Dvi Marketing & Event Services RESOLUTION",
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-10-15",
+    "last_update": "2025-12-17",
+    "activity_timeline": [
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-12-17",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/9af6f0b7-dadd-4355-8a02-63e05986c70d/20251217_DIA-Board-Meeting-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-11-19",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/8250c01c-0684-4e1a-bba1-0308bdb48e4e/20251119_DIA-Board-Meeting-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-11-19",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/2e9a0b34-6250-44d8-b584-c41ec89a1b82/20251119_DIA-Board-Meeting-Amended-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-11-03",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/b876fd0f-ca2b-40c5-ab3a-b8ddea97bb83/RESOLUTION-2025-11-03-DVI-MARKETING-EVENT-SERVICES",
+        "snippet": "RESOLUTION 2025-11-03 DVI MARKETING & EVENT SERVICES"
+      },
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-15",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/b4b7fbd9-5ccb-422d-91f3-0ffef6fb1c75/20251015_DIA-Board-Meeting-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-15",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/0bdb8fce-2fd6-458d-b081-543b440146b2/20251015_DIA-Board-Meeting-Amended-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "minutes",
+        "mention_category": {
+          "label": "Meeting Minutes",
+          "icon": "\ud83d\udcdd",
+          "priority": 2,
+          "description": "Official meeting record"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-15",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/b4006971-c259-4a86-9807-c0095bbd0216/20251015_DIA-Board-Meeting-Minutes",
+        "snippet": ""
+      },
+      {
+        "mention_type": "exhibit",
+        "mention_category": {
+          "label": "Exhibit",
+          "icon": "\ud83d\udcce",
+          "priority": 4,
+          "description": "Supporting document or attachment"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-15",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/6ef6a25a-67ad-4b95-ae65-7d21c2879cd9/20251015_DIA-Board-Meeting-Transcript",
+        "snippet": ""
+      }
+    ],
+    "activity_count": 8,
+    "needs_attention": false,
+    "latest_activity_date": "2025-12-17",
+    "document_verification": {
+      "enhanced_summary": "Authorization\n\u2022 The DIA Board hereby authorizes the CEO to take all actions necessary to effectuate the intent of this Resolution including execution of an agreement for services or functional equivalent.\n\u2022 The expenditure of $28,000.00 payable to Downtown Vision, Inc., for events, marketing, and communications services during FY 25-26.\n\nActors\n\u2022 DIA Board\n\u2022 CEO\n\u2022 City Council\n\u2022 DVI (Downtown Vision, Inc.)\n\nFinancial details\n\u2022 One-time contribution of $28,000 from General Fund Advertising & Promotion.\n\u2022 Approximately $8,000 will support hosting and technical functionality of the Development Map and Find Property platforms.\n\u2022 The remaining $20,000 will support event planning, marketing, communications, and related as-needed services.\n\nProperty\n\u2022 Downtown Vision, Inc. (recipient)\n\nTimeline\n\u2022 This Resolution shall become effective on the date it is signed by the Chair of the DIA Board.\n\nConditions\n\u2022 Services must be within the Downtown boundaries.\n\u2022 Agreements do not require further City Council approval if they do not exceed one hundred thousand dollars ($100,000).\n\nNext steps\n\u2022 Execution of an agreement for services or functional equivalent.",
+      "processed_at": "2026-01-30T11:57:20.440609",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-11-02",
+    "title": "44 W Monroe Street",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-11-02",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-11-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/4fcb4233-63b9-4c72-8258-9e01683032f4/RESOLUTION-2025-11-02-44-W-MONROE-STREET",
+        "title": "RESOLUTION 2025-11-02 44 W MONROE STREET",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-11-02",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-11-02 44 W MONROE STREET"
+      },
+      {
+        "id": "DIA-RES-2025-11-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/b4b7fbd9-5ccb-422d-91f3-0ffef6fb1c75/20251015_DIA-Board-Meeting-Agenda-Packet",
+        "title": "20251015_DIA Board Meeting Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-10-15",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/0bdb8fce-2fd6-458d-b081-543b440146b2/20251015_DIA-Board-Meeting-Amended-Agenda-Packet",
+        "title": "20251015_DIA Board Meeting Amended Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-10-15",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/b4006971-c259-4a86-9807-c0095bbd0216/20251015_DIA-Board-Meeting-Minutes",
+        "title": "20251015_DIA Board Meeting Minutes",
+        "doc_type": "minutes",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-10-15",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/6ef6a25a-67ad-4b95-ae65-7d21c2879cd9/20251015_DIA-Board-Meeting-Transcript",
+        "title": "20251015_DIA Board Meeting Transcript",
+        "doc_type": "exhibit",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-10-15",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/8250c01c-0684-4e1a-bba1-0308bdb48e4e/20251119_DIA-Board-Meeting-Agenda-Packet",
+        "title": "20251119_DIA Board Meeting Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-11-19",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/2e9a0b34-6250-44d8-b584-c41ec89a1b82/20251119_DIA-Board-Meeting-Amended-Agenda-Packet",
+        "title": "20251119_DIA Board Meeting Amended Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-11-19",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      },
+      {
+        "id": "DIA-RES-2025-11-02",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/9af6f0b7-dadd-4355-8a02-63e05986c70d/20251217_DIA-Board-Meeting-Agenda-Packet",
+        "title": "20251217_DIA Board Meeting Agenda Packet",
+        "doc_type": "packet",
+        "source": null,
+        "source_name": null,
+        "meeting_date": "2025-12-17",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "",
+        "page": 1,
+        "anchor_id": null,
+        "financials": []
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "44 W Monroe Street",
+    "address": "44 W Monroe Street",
+    "latitude": 30.3286227,
+    "longitude": -81.658427,
+    "geocoded_address": "44 W Monroe Street",
+    "geocoding_confidence": "high",
+    "geocoding_method": "direct_match",
+    "geocoded_at": "2026-01-30T11:34:38.432790",
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-10-15",
+    "last_update": "2025-12-17",
+    "activity_timeline": [
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-12-17",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/9af6f0b7-dadd-4355-8a02-63e05986c70d/20251217_DIA-Board-Meeting-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-11-19",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/8250c01c-0684-4e1a-bba1-0308bdb48e4e/20251119_DIA-Board-Meeting-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-11-19",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/2e9a0b34-6250-44d8-b584-c41ec89a1b82/20251119_DIA-Board-Meeting-Amended-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-11-02",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/4fcb4233-63b9-4c72-8258-9e01683032f4/RESOLUTION-2025-11-02-44-W-MONROE-STREET",
+        "snippet": "RESOLUTION 2025-11-02 44 W MONROE STREET"
+      },
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-15",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/b4b7fbd9-5ccb-422d-91f3-0ffef6fb1c75/20251015_DIA-Board-Meeting-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "agenda",
+        "mention_category": {
+          "label": "Agenda Item",
+          "icon": "\ud83d\udcc5",
+          "priority": 2,
+          "description": "Meeting agenda discussion"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-15",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/0bdb8fce-2fd6-458d-b081-543b440146b2/20251015_DIA-Board-Meeting-Amended-Agenda-Packet",
+        "snippet": ""
+      },
+      {
+        "mention_type": "minutes",
+        "mention_category": {
+          "label": "Meeting Minutes",
+          "icon": "\ud83d\udcdd",
+          "priority": 2,
+          "description": "Official meeting record"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-15",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/b4006971-c259-4a86-9807-c0095bbd0216/20251015_DIA-Board-Meeting-Minutes",
+        "snippet": ""
+      },
+      {
+        "mention_type": "exhibit",
+        "mention_category": {
+          "label": "Exhibit",
+          "icon": "\ud83d\udcce",
+          "priority": 4,
+          "description": "Supporting document or attachment"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-15",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/6ef6a25a-67ad-4b95-ae65-7d21c2879cd9/20251015_DIA-Board-Meeting-Transcript",
+        "snippet": ""
+      }
+    ],
+    "activity_count": 8,
+    "needs_attention": false,
+    "latest_activity_date": "2025-12-17",
+    "document_verification": {
+      "enhanced_summary": "Authorization\n\u2022 The DIA Board is authorized by the Jacksonville City Council through Ordinance 2020-0527-E.\n\nActors\n\u2022 DIA is the Community Redevelopment Agency and Economic Development entity for Downtown Jacksonville; \n  Chief Executive Officer of the Downtown Investment Authority; Carmen Godwin, Managing Member;\n  Rafael Godwin, Managing Member.\n\nFinancial details\n\u2022 Total Development Costs: $4,085,200; Equity: $625,000 (15.3% of Underwritten TDC); City Funding:\n  No more than $1,620,655 through the Northbank Downtown Redevelopment Trust Fund.\n\nProperty\n\u2022 Address: 44 W Monroe Street; approximately 2,700 square feet of retail space proposed for retail/cafe\n  space with sidewalk activation within City Center, Downtown Jacksonville.\n\nTimeline\n\u2022 Not specified in document\n\nConditions\n\u2022 Work proposed must be reviewed and approved by the Planning and Development Department;\n  Proposed incentive structure and funding will be subject to further approvals by the Jacksonville\n  City Council.\n\nNext steps\n\u2022 The Chief Executive Officer is hereby authorized to execute the contracts and documents and otherwise\n  take all necessary action in connection therewith to effectuate the purposes of this Resolution.",
+      "processed_at": "2026-01-30T11:56:17.426691",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-10-09",
+    "title": "Mosh Amendment",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-10-09",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-10-09",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/a8f0a969-499a-4281-bbfe-cc96b8e6184e/RESOLUTION-2025-10-09_MOSH-AMENDMENT",
+        "title": "RESOLUTION 2025-10-09_MOSH AMENDMENT",
+        "doc_type": "other",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-10-09",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-10-09_MOSH AMENDMENT"
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Mosh Amendment",
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": "amendment",
+    "relationship_type": "amendment",
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-10-09",
+    "last_update": "2025-10-09",
+    "activity_timeline": [
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-09",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/a8f0a969-499a-4281-bbfe-cc96b8e6184e/RESOLUTION-2025-10-09_MOSH-AMENDMENT",
+        "snippet": "RESOLUTION 2025-10-09_MOSH AMENDMENT"
+      }
+    ],
+    "activity_count": 1,
+    "needs_attention": true,
+    "latest_activity_date": "2025-10-09",
+    "document_verification": {
+      "enhanced_summary": "ERROR: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "processed_at": "2026-01-29T19:02:37.138514",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-10-08",
+    "title": "Gateway Mobility Fee Credit",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-10-08",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-10-08",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/d800a331-f97f-466a-bfe8-09a244436971/RESOLUTION-2025-10-08_GATEWAY-MOBILITY-FEE-CREDIT",
+        "title": "RESOLUTION 2025-10-08_GATEWAY MOBILITY FEE CREDIT",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-10-08",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-10-08_GATEWAY MOBILITY FEE CREDIT"
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Gateway Mobility Fee Credit",
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": "financing",
+    "relationship_type": "financing",
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-10-08",
+    "last_update": "2025-10-08",
+    "activity_timeline": [
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-08",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/d800a331-f97f-466a-bfe8-09a244436971/RESOLUTION-2025-10-08_GATEWAY-MOBILITY-FEE-CREDIT",
+        "snippet": "RESOLUTION 2025-10-08_GATEWAY MOBILITY FEE CREDIT"
+      }
+    ],
+    "activity_count": 1,
+    "needs_attention": true,
+    "latest_activity_date": "2025-10-08",
+    "document_verification": {
+      "enhanced_summary": "ERROR: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "processed_at": "2026-01-29T19:02:37.141270",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-10-06",
+    "title": "Keanes Sidewalk Enhancement Grant",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-10-06",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-10-06",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/79226061-bfd1-41b8-a0ac-6db277af2236/RESOLUTION-2025-10-06_KEANE-S-SIDEWALK-ENHANCEMENT",
+        "title": "RESOLUTION 2025-10-06_KEANES SIDEWALK ENHANCEMENT GRANT",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-10-06",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-10-06_KEANES SIDEWALK ENHANCEMENT GRANT"
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Keanes Sidewalk Enhancement Grant",
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-10-06",
+    "last_update": "2025-10-06",
+    "activity_timeline": [
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-06",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/79226061-bfd1-41b8-a0ac-6db277af2236/RESOLUTION-2025-10-06_KEANE-S-SIDEWALK-ENHANCEMENT",
+        "snippet": "RESOLUTION 2025-10-06_KEANES SIDEWALK ENHANCEMENT GRANT"
+      }
+    ],
+    "activity_count": 1,
+    "needs_attention": true,
+    "latest_activity_date": "2025-10-06",
+    "document_verification": {
+      "enhanced_summary": "ERROR: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "processed_at": "2026-01-29T19:03:29.490243",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-10-05",
+    "title": "Music Heritage Garden Funding",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-10-05",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-10-05",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/78a439aa-8a1b-407c-8029-6bfa0f016404/RESOLUTION-2025-10-05_MUSIC-HERITAGE-GARDEN-FUNDIN",
+        "title": "RESOLUTION 2025-10-05_MUSIC HERITAGE GARDEN FUNDING",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-10-05",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-10-05_MUSIC HERITAGE GARDEN FUNDING"
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Music Heritage Garden Funding",
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": "park",
+    "relationship_type": "financing",
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-10-05",
+    "last_update": "2025-10-05",
+    "activity_timeline": [
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-05",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/78a439aa-8a1b-407c-8029-6bfa0f016404/RESOLUTION-2025-10-05_MUSIC-HERITAGE-GARDEN-FUNDIN",
+        "snippet": "RESOLUTION 2025-10-05_MUSIC HERITAGE GARDEN FUNDING"
+      }
+    ],
+    "activity_count": 1,
+    "needs_attention": true,
+    "latest_activity_date": "2025-10-05",
+    "document_verification": {
+      "enhanced_summary": "ERROR: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "processed_at": "2026-01-29T19:03:29.492918",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-10-04",
+    "title": "Snyder Due Diligence Funding",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-10-04",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-10-04",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/fd46ce52-280c-466d-a48d-45513e463dfe/RESOLUTION-2025-10-04_SNYDER-DUE-DILIGENCE-FUNDING",
+        "title": "RESOLUTION 2025-10-04_SNYDER DUE DILIGENCE FUNDING",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-10-04",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-10-04_SNYDER DUE DILIGENCE FUNDING"
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Snyder Due Diligence Funding",
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": "financing",
+    "relationship_type": "financing",
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-10-04",
+    "last_update": "2025-10-04",
+    "activity_timeline": [
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-04",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/fd46ce52-280c-466d-a48d-45513e463dfe/RESOLUTION-2025-10-04_SNYDER-DUE-DILIGENCE-FUNDING",
+        "snippet": "RESOLUTION 2025-10-04_SNYDER DUE DILIGENCE FUNDING"
+      }
+    ],
+    "activity_count": 1,
+    "needs_attention": true,
+    "latest_activity_date": "2025-10-04",
+    "document_verification": {
+      "enhanced_summary": "ERROR: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "processed_at": "2026-01-29T19:03:29.495379",
+      "version": "0.1.0"
+    }
+  },
+  {
+    "id": "DIA-RES-2025-10-01",
+    "title": "Starbucks Fab Rep",
+    "doc_type": "DIA-RES",
+    "source": "dia_board",
+    "meeting_date": "2025-10-01",
+    "meeting_title": "DIA Board Meeting",
+    "mentions": [
+      {
+        "id": "DIA-RES-2025-10-01",
+        "url": "https://dia.jacksonville.gov/cms/getattachment/a7133ea2-cfb6-4051-848b-fed494d17e1d/RESOLUTION-2025-10-01_STARBUCKS-FAB-REP",
+        "title": "RESOLUTION 2025-10-01_STARBUCKS FAB-REP",
+        "doc_type": "resolution",
+        "source": "dia_board",
+        "source_name": "DIA Board",
+        "meeting_date": "2025-10-01",
+        "meeting_title": "DIA Board Meeting",
+        "snippet": "RESOLUTION 2025-10-01_STARBUCKS FAB-REP"
+      }
+    ],
+    "pending_review": true,
+    "source_name": "DIA Board",
+    "name": "Starbucks Fab Rep",
+    "address": null,
+    "latitude": null,
+    "longitude": null,
+    "geocoded_address": null,
+    "geocoding_confidence": "failed",
+    "geocoding_method": null,
+    "geocoded_at": null,
+    "status": "needs_review",
+    "parent_project_id": null,
+    "sub_projects": [],
+    "component_type": null,
+    "relationship_type": null,
+    "hierarchy_level": 0,
+    "is_master_project": false,
+    "child_project_ids": [],
+    "project_level": 0,
+    "total_child_mentions": 0,
+    "child_project_count": 0,
+    "date_opened": "2025-10-01",
+    "last_update": "2025-10-01",
+    "activity_timeline": [
+      {
+        "mention_type": "resolution",
+        "mention_category": {
+          "label": "Resolution",
+          "icon": "\ud83d\udccb",
+          "priority": 1,
+          "description": "Official DIA resolution or decision"
+        },
+        "metadata_richness": "partial",
+        "mention_date": "2025-10-01",
+        "mention_url": "https://dia.jacksonville.gov/cms/getattachment/a7133ea2-cfb6-4051-848b-fed494d17e1d/RESOLUTION-2025-10-01_STARBUCKS-FAB-REP",
+        "snippet": "RESOLUTION 2025-10-01_STARBUCKS FAB-REP"
+      }
+    ],
+    "activity_count": 1,
+    "needs_attention": true,
+    "latest_activity_date": "2025-10-01",
+    "document_verification": {
+      "enhanced_summary": "ERROR: HTTPConnectionPool(host='localhost', port=11434): Max retries exceeded with url: /api/chat (Caused by NewConnectionError(\"HTTPConnection(host='localhost', port=11434): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "processed_at": "2026-01-29T19:03:29.504065",
+      "version": "0.1.0"
+    }
+  }
+]
