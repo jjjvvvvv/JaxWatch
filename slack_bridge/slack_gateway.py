@@ -1,11 +1,25 @@
 #!/usr/bin/env python3
 """
-Slack Gateway for JaxWatch Integration
+DEPRECATED: Legacy Slack Gateway for JaxWatch Integration
 
+⚠️  DEPRECATED: This regex-based gateway is deprecated in favor of
+ConversationalSlackGateway which uses Claude-powered natural language understanding.
+
+Please use ConversationalSlackGateway instead for new deployments.
+
+Legacy functionality maintained for backward compatibility only.
 Main entry point for Slack-first molt.bot integration.
 Acts as command router + job orchestrator + status reporter.
 NO analysis - all processing delegated to JaxWatch CLI tools.
 """
+
+import warnings
+
+warnings.warn(
+    "SlackGateway is deprecated. Use ConversationalSlackGateway instead.",
+    DeprecationWarning,
+    stacklevel=2
+)
 
 import os
 import yaml

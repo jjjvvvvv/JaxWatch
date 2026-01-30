@@ -4,14 +4,18 @@ Enhanced Job Manager for Slack Bridge
 Handles background execution of CLI commands with conversational context
 """
 
-import subprocess
 import threading
 import time
 import json
 import os
+import re
+import sys
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Dict, Optional
+
+# Add parent directory to path for JaxWatch imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 try:
     # Try relative import first (when run as module)
@@ -23,6 +27,9 @@ except ImportError:
     from slack_handlers.response_formatter import ResponseFormatter
     from persistent_memory import PersistentConversationMemory
     from civic_context import CivicAnalysisContext
+
+# Import JaxWatch Core API
+from jaxwatch.api import JaxWatchCore
 
 
 class JobManager:
@@ -90,7 +97,7 @@ class JobManager:
 
     def _execute_job(self, job_id: str):
         """
-        Execute CLI command in background thread.
+        Execute job using JaxWatch Core API instead of subprocess.
 
         Args:
             job_id: ID of job to execute
@@ -98,36 +105,32 @@ class JobManager:
         job = self.active_jobs[job_id]
 
         try:
-            # Split command into arguments
-            cmd_args = job['command'].split()
+            # Initialize JaxWatch Core API
+            core = JaxWatchCore()
 
-            # Use dynamic working directory
-            result = subprocess.run(
-                cmd_args,
-                cwd=job['jaxwatch_root'],
-                capture_output=True,
-                text=True,
-                timeout=1800  # 30 minute timeout
-            )
+            # Parse CLI command and execute via API
+            command = job['command']
+            result = self._execute_api_command(core, command)
 
-            job['status'] = 'completed' if result.returncode == 0 else 'failed'
+            job['status'] = 'completed' if result['success'] else 'failed'
             job['completed_at'] = datetime.now()
-            job['output'] = result.stdout
-            job['error'] = result.stderr
-            job['return_code'] = result.returncode
+            job['output'] = result['output']
+            job['error'] = result.get('error', '')
+            job['return_code'] = 0 if result['success'] else 1
+
+            # Add API-specific metadata
+            job['api_stats'] = result.get('stats', {})
+            job['execution_method'] = 'jaxwatch_core_api'
 
             # Notify Slack of completion
             self._notify_completion(job)
 
-        except subprocess.TimeoutExpired:
-            job['status'] = 'timeout'
-            job['error'] = 'Job exceeded 30 minute timeout'
-            job['completed_at'] = datetime.now()
-            self._notify_completion(job)
         except Exception as e:
             job['status'] = 'error'
-            job['error'] = str(e)
+            job['error'] = f"API execution error: {str(e)}"
             job['completed_at'] = datetime.now()
+            job['return_code'] = 1
+            job['execution_method'] = 'jaxwatch_core_api'
             self._notify_completion(job)
 
         # Update session if available
@@ -145,6 +148,110 @@ class JobManager:
         # Keep only last 50 jobs in history
         if len(self.job_history) > 50:
             self.job_history = self.job_history[-50:]
+
+    def _execute_api_command(self, core: JaxWatchCore, command: str) -> Dict:
+        """
+        Execute a command using the JaxWatch Core API.
+
+        Args:
+            core: JaxWatchCore instance
+            command: CLI command string
+
+        Returns:
+            Dict with 'success', 'output', 'error', and optional 'stats'
+        """
+        try:
+            # Document verification commands
+            if 'document_verifier.py document_verify' in command:
+                if '--project' in command:
+                    # Extract project ID
+                    project_match = re.search(r'--project\s+([A-Z0-9-]+)', command)
+                    project_id = project_match.group(1) if project_match else None
+                    result = core.verify_documents(project_id=project_id)
+                elif '--active-year' in command:
+                    # Extract year
+                    year_match = re.search(r'--active-year\s+(\d{4})', command)
+                    year = int(year_match.group(1)) if year_match else None
+                    result = core.verify_documents(active_year=year)
+                else:
+                    # Verify all documents
+                    result = core.verify_documents()
+
+                if result.success:
+                    output = f"✅ Document Verification Complete\n"
+                    output += f"📊 Projects processed: {result.projects_processed}\n"
+                    output += f"🔍 Projects verified: {result.projects_verified}\n"
+                    if result.projects_verified > 0:
+                        output += "📋 Verification results available in enhanced projects data"
+                    return {
+                        'success': True,
+                        'output': output,
+                        'stats': {
+                            'projects_processed': result.projects_processed,
+                            'projects_verified': result.projects_verified
+                        }
+                    }
+                else:
+                    return {
+                        'success': False,
+                        'output': "❌ Document verification failed",
+                        'error': ', '.join(result.errors)
+                    }
+
+            # Reference scanning commands
+            elif 'reference_scanner.py run' in command:
+                source = None
+                year = None
+
+                # Extract source
+                source_match = re.search(r'--source\s+([a-z_]+)', command)
+                if source_match:
+                    source = source_match.group(1)
+
+                # Extract year
+                year_match = re.search(r'--year\s+(\d{4})', command)
+                if year_match:
+                    year = year_match.group(1)
+
+                result = core.scan_references(source=source, year=year)
+
+                if result.success:
+                    output = f"✅ Reference Scanning Complete\n"
+                    output += f"📄 Documents processed: {result.documents_processed}\n"
+                    output += f"🔗 References detected: {result.references_detected}\n"
+                    if source:
+                        output += f"📂 Source: {source}\n"
+                    if year:
+                        output += f"📅 Year: {year}\n"
+                    output += "📋 Reference data stored in annotations directory"
+                    return {
+                        'success': True,
+                        'output': output,
+                        'stats': {
+                            'documents_processed': result.documents_processed,
+                            'references_detected': result.references_detected
+                        }
+                    }
+                else:
+                    return {
+                        'success': False,
+                        'output': "❌ Reference scanning failed",
+                        'error': ', '.join(result.errors)
+                    }
+
+            else:
+                return {
+                    'success': False,
+                    'output': f"❌ Unknown command: {command}",
+                    'error': f"Command not mapped to API: {command}"
+                }
+
+        except Exception as e:
+            return {
+                'success': False,
+                'output': f"❌ API execution failed: {str(e)}",
+                'error': str(e)
+            }
 
     def _notify_completion(self, job: Dict):
         """

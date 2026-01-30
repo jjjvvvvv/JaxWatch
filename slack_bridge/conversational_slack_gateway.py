@@ -7,6 +7,7 @@ understanding while maintaining all civic integrity safeguards.
 """
 
 import os
+import sys
 import yaml
 import asyncio
 from pathlib import Path
@@ -15,6 +16,9 @@ from typing import Dict, Optional
 from slack_sdk import WebClient
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
+
+# Add parent directory to path for JaxWatch imports
+sys.path.insert(0, str(Path(__file__).parent.parent))
 
 try:
     # Try relative imports first (when run as module)
@@ -30,6 +34,9 @@ except ImportError:
     from status_collector import StatusCollector
     from session_manager import SessionManager
     from proactive_monitor import create_proactive_monitor
+
+# Import JaxWatch Core API
+from jaxwatch.api import JaxWatchCore
 
 
 class ConversationalSlackGateway:
@@ -76,6 +83,9 @@ class ConversationalSlackGateway:
         # Get JaxWatch root directory
         self.jaxwatch_root = self._get_jaxwatch_root()
 
+        # Initialize JaxWatch Core API
+        self.jaxwatch_core = JaxWatchCore()
+
         # Initialize conversational components
         self.civic_agent = create_conversational_agent(
             str(self.jaxwatch_root), self.claude_api_key
@@ -83,7 +93,11 @@ class ConversationalSlackGateway:
 
         # Initialize supporting components
         self.session_manager = SessionManager()
-        self.job_manager = JobManager(slack_app=self.app, session_manager=self.session_manager)
+        self.job_manager = JobManager(
+            slack_app=self.app,
+            session_manager=self.session_manager,
+            jaxwatch_root=self.jaxwatch_root
+        )
         self.status_collector = StatusCollector()
 
         # Initialize proactive monitoring (optional)
@@ -93,8 +107,10 @@ class ConversationalSlackGateway:
                 self.proactive_monitor = create_proactive_monitor(
                     str(self.jaxwatch_root), self.claude_api_key
                 )
+                print("✅ Proactive Monitor: Initialized")
             except Exception as e:
-                print(f"Warning: Could not initialize proactive monitoring: {e}")
+                print(f"⚠️ Proactive Monitor: Disabled ({e})")
+                self.proactive_monitor = None
 
         # Load configuration
         self.config = self._load_config()
@@ -133,11 +149,26 @@ class ConversationalSlackGateway:
         """Set up Slack handlers for natural conversation."""
 
         @self.app.event("app_mention")
-        async def handle_mention(event, say):
-            await self._handle_conversational_message(event, say)
+        def handle_mention(event, say):
+            # Handle mentions synchronously by running async code in thread
+            import threading
+            import asyncio
+
+            def run_async():
+                try:
+                    loop = asyncio.new_event_loop()
+                    asyncio.set_event_loop(loop)
+                    loop.run_until_complete(self._handle_conversational_message(event, say))
+                    loop.close()
+                except Exception as e:
+                    print(f"Error in mention handler: {e}")
+
+            thread = threading.Thread(target=run_async)
+            thread.daemon = True
+            thread.start()
 
         @self.app.event("message")
-        async def handle_message(event, say):
+        def handle_message(event, say):
             # Avoid responding to our own messages or other bots
             if event.get('bot_id') or event.get('subtype') == 'bot_message':
                 return
@@ -145,15 +176,35 @@ class ConversationalSlackGateway:
             text = event.get('text', '')
             channel_type = event.get('channel_type')
 
+            should_respond = False
+
             # Always respond to Direct Messages
             if channel_type == 'im':
-                await self._handle_conversational_message(event, say)
-                return
+                should_respond = True
 
             # Respond to keywords in public/private channels
-            keywords = self.config.get('slack', {}).get('respond_to_keywords', [])
-            if any(keyword in text.lower() for keyword in keywords):
-                await self._handle_conversational_message(event, say)
+            if not should_respond:
+                keywords = self.config.get('slack', {}).get('respond_to_keywords', [])
+                if any(keyword in text.lower() for keyword in keywords):
+                    should_respond = True
+
+            if should_respond:
+                # Handle messages synchronously by running async code in thread
+                import threading
+                import asyncio
+
+                def run_async():
+                    try:
+                        loop = asyncio.new_event_loop()
+                        asyncio.set_event_loop(loop)
+                        loop.run_until_complete(self._handle_conversational_message(event, say))
+                        loop.close()
+                    except Exception as e:
+                        print(f"Error in message handler: {e}")
+
+                thread = threading.Thread(target=run_async)
+                thread.daemon = True
+                thread.start()
 
     async def _handle_conversational_message(self, event, say):
         """
@@ -234,7 +285,7 @@ class ConversationalSlackGateway:
 
     async def _execute_civic_action(self, civic_intent, user_id: str, channel_id: str, session):
         """
-        Execute the civic analysis action determined by conversational AI.
+        Execute the civic analysis action using JaxWatch Core API.
 
         Args:
             civic_intent: CivicIntent with action to execute
@@ -244,11 +295,19 @@ class ConversationalSlackGateway:
         """
         try:
             if civic_intent.action_type == 'status_check':
-                # Execute status check immediately
-                status = self.status_collector.get_system_status(self.jaxwatch_root)
+                # Execute status check immediately using Core API
+                stats = self.jaxwatch_core.get_project_stats()
                 job_summary = self.status_collector.get_job_summary(self.job_manager)
 
-                status_response = f"📊 JaxWatch Status (running locally):\n{status}\n\n{job_summary}"
+                status_response = f"""📊 JaxWatch Status (Core API):
+🗂️ Total Projects: {stats.get('total_projects', 0)}
+✅ Verified: {stats.get('verified_projects', 0)}
+📋 Pending Review: {stats.get('pending_review', 0)}
+🏛️ DIA Resolutions: {stats.get('dia_resolutions', 0)}
+🏗️ DDRB Cases: {stats.get('ddrb_cases', 0)}
+🔗 With References: {stats.get('with_references', 0)}
+
+{job_summary}"""
 
                 await self.app.client.chat_postMessage(
                     channel=channel_id or user_id,
@@ -256,7 +315,18 @@ class ConversationalSlackGateway:
                 )
                 return
 
-            # Build CLI command for document_verify or reference_scan
+            # Handle quick operations directly with Core API
+            if civic_intent.action_type == 'document_verify':
+                # Check if this is a quick single-project verification
+                project_id = civic_intent.parameters.get('project')
+                if project_id:
+                    # Quick verification - execute directly
+                    await self._execute_quick_verification(
+                        civic_intent, user_id, channel_id, session, project_id
+                    )
+                    return
+
+            # For batch operations or complex tasks, use background jobs
             command = self._build_command_from_intent(civic_intent)
 
             if command:
@@ -271,13 +341,60 @@ class ConversationalSlackGateway:
                 # Send job started confirmation
                 await self.app.client.chat_postMessage(
                     channel=channel_id or user_id,
-                    text=f"✅ Started {civic_intent.action_description} (Job ID: {job_id})"
+                    text=f"✅ Started {civic_intent.action_description} (Job ID: {job_id})\n🔄 Processing in background - you'll be notified when complete"
                 )
 
         except Exception as e:
             await self.app.client.chat_postMessage(
                 channel=channel_id or user_id,
-                text=f"Error executing civic action: {str(e)}"
+                text=f"❌ Error executing civic action: {str(e)}"
+            )
+
+    async def _execute_quick_verification(self, civic_intent, user_id: str, channel_id: str,
+                                        session, project_id: str):
+        """Execute quick project verification using Core API."""
+        try:
+            # Send "working on it" message
+            await self.app.client.chat_postMessage(
+                channel=channel_id or user_id,
+                text=f"🔍 Verifying project {project_id}..."
+            )
+
+            # Get project details first
+            project = self.jaxwatch_core.get_project(project_id)
+            if not project:
+                await self.app.client.chat_postMessage(
+                    channel=channel_id or user_id,
+                    text=f"❌ Project {project_id} not found"
+                )
+                return
+
+            # Run verification
+            result = self.jaxwatch_core.verify_documents(project_id=project_id)
+
+            if result.success:
+                response = f"""✅ Verification Complete for {project_id}
+
+📋 **Project:** {project.title}
+🏛️ **Type:** {project.project.doc_type}
+📊 **Status:** Verified
+🔍 **Processed:** {result.projects_processed} project(s)
+
+The verification data has been saved and is available in the dashboard."""
+            else:
+                response = f"""❌ Verification Failed for {project_id}
+
+**Errors:** {', '.join(result.errors)}"""
+
+            await self.app.client.chat_postMessage(
+                channel=channel_id or user_id,
+                text=response
+            )
+
+        except Exception as e:
+            await self.app.client.chat_postMessage(
+                channel=channel_id or user_id,
+                text=f"❌ Error during quick verification: {str(e)}"
             )
 
     def _build_command_from_intent(self, civic_intent) -> Optional[Dict]:
@@ -372,9 +489,9 @@ class ConversationalSlackGateway:
         print(f"   Conversational AI: {'✅ Claude Available' if self.civic_agent.claude_available else '⚠️ Fallback Mode'}")
         print(f"   Proactive Monitor: {'✅ Enabled' if self.proactive_monitor else '❌ Disabled'}")
 
-        # Start proactive monitoring if enabled
+        # Start proactive monitoring if enabled (disabled for now due to async issues)
         if enable_proactive and self.proactive_monitor:
-            asyncio.create_task(self.start_proactive_monitoring())
+            print("   Proactive Monitor: Temporarily disabled (async compatibility)")
 
         print("   Ready for natural conversation!")
 
