@@ -2,7 +2,7 @@ commands:
   # Document Verification Commands
   - pattern: "(?i)verify|check|analyze\\s+documents?"
     cli_command: "python document_verifier/document_verifier.py document_verify"
-    description: "Run document verification on all projects"
+    description: "Analyze all civic documents for verification and compliance"
     background: true
 
   - pattern: "(?i)verify\\s+project\\s+([A-Z0-9-]+)"
@@ -35,9 +35,28 @@ commands:
   # Dashboard Commands (direct response)
   - pattern: "(?i)dashboard|admin"
     response: "📊 Dashboard available at http://localhost:5000"
+    description: "Show dashboard URL"
     type: "direct_response"
 
   # Help Commands
   - pattern: "(?i)help|commands"
-    response: "Available commands:\n• verify documents\n• scan references\n• status\n• dashboard"
+    response: "🤖 **What I can do:**\n\n📋 **Analysis Commands:**\n• `verify documents` - Check all civic documents for compliance\n• `scan references` - Find cross-references between documents\n• `verify 2026 projects` - Check only current year projects\n\n📊 **Info Commands:**\n• `status` - System health check\n• `dashboard` - Get dashboard link\n\n💬 **Tips:**\n• I can handle typos and suggest corrections\n• I remember what you're working on\n• Try `molty inspect` to see my current state"
+    description: "Show detailed help and available commands"
     type: "direct_response"
+
+  # Introspection Commands
+  - pattern: "(?i)molty\\s+(explain|debug|state|inspect)"
+    type: "introspection"
+    description: "Show Molty's current state and memory"
+    background: false
+
+  # Conversational Follow-up Commands
+  - pattern: "(?i)yes,?\\s*(scan|find)\\s*(references?|refs?)?"
+    cli_command: "python reference_scanner/reference_scanner.py run --source dia_board"
+    description: "Scan for document references"
+    background: true
+
+  - pattern: "(?i)yes,?\\s*(verify|check).*"
+    cli_command: "python document_verifier/document_verifier.py document_verify"
+    description: "Analyze all civic documents for verification and compliance"
+    background: true

@@ -1,0 +1,200 @@
+# Civic Analysis Tools Catalog for JaxWatch
+# Used by conversational AI to understand available civic analysis capabilities
+
+tools:
+  - name: document_verify
+    command: python document_verifier/document_verifier.py document_verify
+    description: Verify civic documents for compliance and standards
+    long_description: |
+      Analyzes civic documents to ensure they meet compliance standards and
+      regulatory requirements. Checks for completeness, accuracy, and proper formatting.
+      Generates enhancement summaries and identifies areas requiring attention.
+    parameters:
+      - name: --project
+        description: Verify documents for a specific project ID
+        type: string
+        example: "DEN-2026-001"
+      - name: --active-year
+        description: Verify projects from a specific year
+        type: integer
+        example: 2026
+      - name: --document-type
+        description: Focus on specific document types
+        type: string
+        options: [transportation, housing, infrastructure, environment, budget]
+        example: "transportation"
+    background: true
+    typical_duration: "5-15 minutes"
+    output_description: "Enhanced document summaries with compliance analysis"
+
+  - name: reference_scan
+    command: python reference_scanner/reference_scanner.py run
+    description: Scan for cross-references between civic documents
+    long_description: |
+      Analyzes civic documents to identify cross-references, connections, and
+      relationships between different documents, projects, and data sources.
+      Builds a reference network for better civic transparency and analysis.
+    parameters:
+      - name: --source
+        description: Specify data source to scan
+        type: string
+        options: [dia_board, city_council, planning_commission, public_records]
+        default: dia_board
+        example: "dia_board"
+      - name: --year
+        description: Focus on documents from specific year
+        type: integer
+        example: 2026
+      - name: --project
+        description: Scan references related to specific project
+        type: string
+        example: "DEN-2026-001"
+    background: true
+    typical_duration: "2-10 minutes"
+    output_description: "Reference annotations showing document connections"
+
+  - name: status_check
+    command: null
+    description: Get system health and current analysis status
+    long_description: |
+      Provides overview of current civic analysis status including project counts,
+      verification status, reference analysis progress, and recent activity.
+      Helps users understand the current state of civic transparency work.
+    parameters: []
+    background: false
+    typical_duration: "immediate"
+    output_description: "Current system status and recent activity summary"
+
+# Natural Language Patterns for Tool Recognition
+natural_language_patterns:
+  document_verify:
+    - "verify documents"
+    - "check documents"
+    - "analyze documents"
+    - "document verification"
+    - "compliance check"
+    - "verify projects"
+    - "check compliance"
+    - "analyze civic documents"
+    - "document analysis"
+    - "verify [year] projects"
+    - "check [project-type] documents"
+
+  reference_scan:
+    - "scan references"
+    - "find references"
+    - "reference scan"
+    - "cross-reference analysis"
+    - "scan for connections"
+    - "find cross-references"
+    - "reference detection"
+    - "scan [source]"
+    - "find document connections"
+    - "analyze relationships"
+
+  status_check:
+    - "status"
+    - "health check"
+    - "what's happening"
+    - "current status"
+    - "system status"
+    - "how are things"
+    - "what's going on"
+    - "progress report"
+    - "activity summary"
+
+# Civic Context Information for AI
+civic_context:
+  domain: "Municipal civic transparency and document analysis"
+
+  data_sources:
+    - name: dia_board
+      description: "Denver International Airport board documents"
+      typical_content: "Meeting minutes, project proposals, budget documents"
+
+    - name: city_council
+      description: "City council proceedings and documents"
+      typical_content: "Ordinances, resolutions, meeting records"
+
+    - name: planning_commission
+      description: "Planning and development documents"
+      typical_content: "Development plans, zoning changes, environmental reviews"
+
+  project_types:
+    - name: transportation
+      description: "Transportation infrastructure projects"
+      examples: ["transit expansion", "road improvements", "bike lanes"]
+
+    - name: housing
+      description: "Housing and development projects"
+      examples: ["affordable housing", "zoning changes", "development permits"]
+
+    - name: infrastructure
+      description: "General infrastructure projects"
+      examples: ["utilities", "parks", "public facilities"]
+
+    - name: environment
+      description: "Environmental and sustainability projects"
+      examples: ["environmental impact", "sustainability initiatives", "conservation"]
+
+  compliance_areas:
+    - "Environmental impact assessment"
+    - "Public consultation requirements"
+    - "Budget transparency"
+    - "Timeline compliance"
+    - "Regulatory approval status"
+    - "Documentation completeness"
+
+# AI Interaction Guidelines
+interaction_guidelines:
+  civic_integrity:
+    - "Never modify civic documents or data"
+    - "Only read and analyze existing information"
+    - "Maintain transparent audit trails"
+    - "Require confirmation for significant actions"
+    - "Focus on civic transparency goals"
+
+  response_style:
+    - "Be helpful but factual"
+    - "Explain what analysis will be performed"
+    - "Acknowledge limitations clearly"
+    - "Focus on civic compliance and transparency"
+    - "Use calm, professional tone"
+
+  clarification_triggers:
+    - "Ambiguous project or document references"
+    - "Multiple possible interpretations"
+    - "Missing critical parameters"
+    - "Potentially sensitive civic operations"
+    - "User requests outside tool capabilities"
+
+# Expected Usage Patterns
+usage_patterns:
+  common_workflows:
+    - name: "New document verification"
+      description: "User adds new civic documents and wants them verified"
+      steps: ["document_verify", "reference_scan (optional)"]
+
+    - name: "Periodic compliance check"
+      description: "Regular review of civic project compliance"
+      steps: ["status_check", "document_verify --active-year YYYY"]
+
+    - name: "Project analysis"
+      description: "Deep analysis of specific civic project"
+      steps: ["document_verify --project ID", "reference_scan --project ID"]
+
+    - name: "Cross-reference investigation"
+      description: "Finding connections between civic documents"
+      steps: ["reference_scan --source XXX", "document_verify (if issues found)"]
+
+  user_preferences:
+    notification_styles:
+      - brief: "Short status updates only"
+      - detailed: "Full progress reports with details"
+      - proactive: "Suggestions for next steps"
+
+    focus_areas:
+      - transportation: "Focus on transportation projects"
+      - housing: "Focus on housing and development"
+      - environment: "Focus on environmental compliance"
+      - all: "General civic analysis across all areas"

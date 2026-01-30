@@ -11,13 +11,24 @@ import os
 import yaml
 import re
 from pathlib import Path
+from datetime import datetime
+from typing import Dict
 from slack_sdk import WebClient
 from slack_bolt import App
 from slack_bolt.adapter.socket_mode import SocketModeHandler
 
-from .command_parser import CommandParser
-from .job_manager import JobManager
-from .status_collector import StatusCollector
+try:
+    # Try relative imports first (when run as module)
+    from .command_parser import CommandParser
+    from .job_manager import JobManager
+    from .status_collector import StatusCollector
+    from .session_manager import SessionManager
+except ImportError:
+    # Fall back to absolute imports (when run as script)
+    from command_parser import CommandParser
+    from job_manager import JobManager
+    from status_collector import StatusCollector
+    from session_manager import SessionManager
 
 
 class SlackGateway:
@@ -66,7 +77,8 @@ class SlackGateway:
 
         # Initialize components
         self.command_parser = CommandParser()
-        self.job_manager = JobManager(slack_app=self.app)
+        self.session_manager = SessionManager()
+        self.job_manager = JobManager(slack_app=self.app, session_manager=self.session_manager)
         self.status_collector = StatusCollector()
 
         # Robust working directory resolution
@@ -134,7 +146,7 @@ class SlackGateway:
 
     def _handle_message(self, event, say):
         """
-        Handle incoming Slack message.
+        Handle incoming Slack message with fuzzy matching and session awareness.
 
         Args:
             event: Slack event data
@@ -148,56 +160,218 @@ class SlackGateway:
             if not message_text:
                 return
 
-            # Parse command (NO AI, regex only)
-            command = self.command_parser.parse_message(message_text)
+            # Get or create user session
+            session = self.session_manager.get_or_create_session(user_id)
 
-            if not command:
-                # Only reply with "don't understand" for DMs or explicit mentions
-                # to avoid being noisy in channels based on keywords
-                is_dm = event.get('channel_type') == 'im'
-                is_mention = event.get('type') == 'app_mention'
-                
-                if is_dm or is_mention:
-                    response = "🤔 I don't understand that command. Try 'help' for available commands."
-                    say(response)
+            # Check for pending clarification response first
+            pending_clarification = session.get_pending_clarification()
+            if pending_clarification:
+                return self._handle_clarification_response(
+                    message_text, pending_clarification, session, say
+                )
+
+            # Check for context references (like "how's that going?")
+            context_command = session.can_resolve_context_reference(message_text)
+            if context_command:
+                return self._handle_context_reference(context_command, session, say)
+
+            # Try exact command parsing first
+            parse_result = self.command_parser.parse_message_with_clarification(message_text)
+
+            if parse_result['type'] == 'exact_match':
+                # Execute exact match immediately
+                command = parse_result['command']
+                return self._execute_command(command, user_id, channel_id, session, say)
+
+            elif parse_result['type'] in ['single_suggestion', 'multiple_suggestions']:
+                # Store clarification context and respond
+                session.set_pending_clarification(parse_result)
+                say(parse_result['response'])
                 return
 
-            # Execute command based on type
-            if command.get('type') == 'direct_response':
-                say(command['response'])
+            elif parse_result['type'] == 'no_matches':
+                # Only reply for DMs or explicit mentions to avoid channel noise
+                is_dm = event.get('channel_type') == 'im'
+                is_mention = event.get('type') == 'app_mention'
 
-            elif command.get('type') == 'status_check':
-                status = self.status_collector.get_system_status(self.jaxwatch_root)
-                job_summary = self.status_collector.get_job_summary(self.job_manager)
-
-                response = f"📊 JaxWatch Status (running locally):\n{status}\n\n{job_summary}"
-                say(response)
-
-            elif command.get('background', False):
-                # Queue background job
-                job_id = self.job_manager.start_job(
-                    command, user_id, channel_id, self.jaxwatch_root
-                )
-                response = (
-                    f"✅ Running locally on JaxWatch. Started {command['description']} "
-                    f"(ID: {job_id}). I'll report back here when done."
-                )
-                say(response)
+                if is_dm or is_mention:
+                    say(parse_result['response'])
+                return
 
             else:
-                # Execute immediately
-                result = self.job_manager.execute_immediate(command, self.jaxwatch_root)
-
-                if result['status'] == 'success':
-                    response = f"🔧 Executed locally: {result.get('output', 'Command completed')}"
-                else:
-                    response = f"❌ Command failed: {result.get('error', 'Unknown error')}"
-
-                say(response)
+                # Fallback - should not reach here
+                if event.get('channel_type') == 'im' or event.get('type') == 'app_mention':
+                    say("🤔 I don't understand that command. Try 'help' for available commands.")
 
         except Exception as e:
             error_msg = f"💥 Error processing command: {str(e)}"
             say(error_msg)
+
+    def _handle_clarification_response(self, message_text: str, clarification_context: Dict,
+                                     session, say) -> None:
+        """Handle user's response to a clarification request."""
+        try:
+            response_result = self.command_parser.parse_clarification_response(
+                message_text, clarification_context
+            )
+
+            if response_result is None:
+                # User cancelled
+                session.clear_pending_clarification()
+                say("👍 Cancelled.")
+                return
+
+            if response_result.get('type') == 'invalid_response':
+                # Invalid response - ask again but don't clear context
+                say(response_result['message'])
+                return
+
+            # Valid selection - build and execute command
+            session.clear_pending_clarification()
+
+            # Build command from selected mapping
+            command = self.command_parser.build_command_from_mapping(
+                response_result, clarification_context.get('original_message')
+            )
+
+            # Execute the confirmed command
+            user_id = session.user_id
+            channel_id = None  # Will be available in event context if needed
+            self._execute_command(command, user_id, channel_id, session, say)
+
+        except Exception as e:
+            session.clear_pending_clarification()
+            say(f"💥 Error processing confirmation: {str(e)}")
+
+    def _handle_context_reference(self, context_command: Dict, session, say) -> None:
+        """Handle context-aware references like 'how's that going?'."""
+        if context_command['type'] == 'job_status_request':
+            job_id = context_command['job_id']
+            job = self.job_manager.get_job(job_id)
+
+            if job:
+                if job['status'] == 'running':
+                    elapsed = datetime.now() - context_command['started_at']
+                    elapsed_str = self._format_duration(elapsed)
+                    say(f"🔧 Your {context_command['original_command']} is still running (started {elapsed_str} ago).")
+                elif job['status'] == 'completed':
+                    say(f"✅ Your {context_command['original_command']} finished successfully!")
+                else:
+                    say(f"❌ Your {context_command['original_command']} failed: {job.get('error', 'Unknown error')}")
+            else:
+                say("🤔 I couldn't find that job. It may have finished already.")
+
+    def _execute_command(self, command: Dict, user_id: str, channel_id: str, session, say) -> None:
+        """Execute a parsed command."""
+        # Record command in session
+        job_id = None
+
+        if command.get('type') == 'direct_response':
+            say(command['response'])
+
+        elif command.get('type') == 'status_check':
+            status = self.status_collector.get_system_status(self.jaxwatch_root)
+            job_summary = self.status_collector.get_job_summary(self.job_manager)
+            response = f"📊 JaxWatch Status (running locally):\n{status}\n\n{job_summary}"
+            say(response)
+
+        elif command.get('type') == 'introspection':
+            response = self._handle_introspection_command(session)
+            say(response)
+
+        elif command.get('background', False):
+            # Queue background job
+            job_id = self.job_manager.start_job(
+                command, user_id, channel_id, self.jaxwatch_root
+            )
+            response = (
+                f"✅ Running locally on JaxWatch. Started {command['description']} "
+                f"(ID: {job_id}). I'll report back here when done."
+            )
+            say(response)
+
+        else:
+            # Execute immediately
+            result = self.job_manager.execute_immediate(command, self.jaxwatch_root)
+
+            if result['status'] == 'success':
+                response = f"🔧 Executed locally: {result.get('output', 'Command completed')}"
+            else:
+                response = f"❌ Command failed: {result.get('error', 'Unknown error')}"
+
+            say(response)
+
+        # Record command in session
+        session.add_command(command, job_id)
+
+    def _handle_introspection_command(self, session) -> str:
+        """Show transparent view of Molty's current state."""
+        response = "🔍 **Molty State Inspection**\n\n"
+
+        # Session info
+        session_data = session.to_dict()
+        response += f"**Session Info:**\n"
+        response += f"• User: {session.user_id}\n"
+        response += f"• Active for: {self._format_duration(datetime.now() - session.last_activity)}\n"
+        response += f"• Expires in: {session_data['expires_in_minutes']} minutes\n\n"
+
+        # Active jobs
+        if session.active_jobs:
+            response += f"**Active Jobs ({len(session.active_jobs)}):**\n"
+            for job_id in session.active_jobs:
+                job = self.job_manager.get_job(job_id)
+                if job:
+                    elapsed = datetime.now() - job['started_at']
+                    response += f"• {job_id}: {job['description']} (running {self._format_duration(elapsed)})\n"
+            response += "\n"
+        else:
+            response += "**Active Jobs:** None\n\n"
+
+        # Recent commands
+        if session.command_history:
+            response += f"**Recent Commands ({len(session.command_history)}):**\n"
+            for entry in session.command_history[-3:]:  # Show last 3 only
+                timestamp = entry['timestamp'].strftime('%H:%M:%S')
+                status = entry['status']
+                response += f"• {timestamp}: {entry['command']['description']} ({status})\n"
+            response += "\n"
+        else:
+            response += "**Recent Commands:** None\n\n"
+
+        # Pending clarifications
+        if session.pending_clarification:
+            response += f"**Pending Clarification:**\n"
+            original = session.pending_clarification['context'].get('original_message', 'Unknown')
+            response += f"• Waiting for response to: '{original}'\n\n"
+        else:
+            response += "**Pending Clarification:** None\n\n"
+
+        # What Molty can/cannot do
+        response += "**Boundaries:**\n"
+        response += "• ✅ Execute JaxWatch CLI commands\n"
+        response += "• ✅ Track active jobs and provide status\n"
+        response += "• ✅ Remember last 3 commands for 15 minutes\n"
+        response += "• ✅ Provide fuzzy matching with explicit confirmation\n"
+        response += "• ❌ Never analyzes documents directly\n"
+        response += "• ❌ Never stores preferences or user profiles\n"
+        response += "• ❌ Never executes commands without explicit confirmation\n"
+        response += "• ❌ Never auto-executes fuzzy matches\n"
+
+        return response
+
+    def _format_duration(self, duration) -> str:
+        """Format duration for human readability."""
+        total_seconds = int(duration.total_seconds())
+        hours = total_seconds // 3600
+        minutes = (total_seconds % 3600) // 60
+        seconds = total_seconds % 60
+
+        if hours > 0:
+            return f"{hours}h {minutes}m"
+        elif minutes > 0:
+            return f"{minutes}m {seconds}s"
+        else:
+            return f"{seconds}s"
 
     def start(self, socket_mode: bool = None):
         """

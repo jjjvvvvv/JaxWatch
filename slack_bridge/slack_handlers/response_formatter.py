@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
 Response Formatter for Slack Integration
-Formats responses for consistent Slack presentation
+Formats responses for consistent Slack presentation with conversational awareness
 """
 
-from typing import Dict, Any, List
+import re
+from typing import Dict, Any, List, Optional
 from datetime import datetime
 
 
@@ -70,46 +71,164 @@ class ResponseFormatter:
 
     def format_job_completion(self, job: Dict[str, Any]) -> str:
         """
-        Format job completion notification.
+        Format job completion notification with conversational awareness.
 
         Args:
             job: Job record with completion status
 
         Returns:
-            Formatted completion message
+            Formatted completion message with factual details and optional next steps
+        """
+        return self.format_job_completion_with_context(job)
+
+    def format_job_completion_with_context(self, job: Dict[str, Any]) -> str:
+        """
+        Format completion with factual details from job output only.
+
+        Args:
+            job: Job record with completion status
+
+        Returns:
+            Conversational completion message with extracted details
         """
         status = job.get('status', 'unknown')
         description = job.get('description', 'task')
 
         if status == 'completed':
-            message = f"{self.emoji_map['success']} {description} completed locally!"
+            base_message = f"{self.emoji_map['success']} {description} completed"
 
-            # Add brief output summary if available
-            if job.get('output'):
-                output_lines = job['output'].strip().split('\n')
-                # Look for summary lines
-                for line in output_lines:
-                    if any(keyword in line.lower() for keyword in ['enhanced', 'processed', 'found']):
-                        message += f" {line.strip()}"
-                        break
+            # Add time context (factual)
+            if 'started_at' in job and 'completed_at' in job:
+                duration = job['completed_at'] - job['started_at']
+                if duration.seconds > 120:  # More than 2 minutes
+                    base_message += f" (took {self._format_duration(duration)})"
 
-            message += " Check dashboard for details."
+            # Extract factual details from CLI output only
+            details = self._extract_job_details(job.get('output', ''), job.get('cli_command', ''))
+            if details:
+                base_message += f"\n\n{details}"
+
+            # Optional next step - phrased as question, never assumption
+            next_step = self._get_optional_next_step(job.get('cli_command', ''))
+            if next_step:
+                base_message += f"\n\n❓ {next_step}"
+
+            return base_message
 
         elif status == 'failed':
-            message = f"{self.emoji_map['error']} {description} failed."
+            message = f"{self.emoji_map['error']} {description} failed"
             if job.get('error'):
                 error_preview = job['error'][:200]
                 if len(job['error']) > 200:
                     error_preview += "..."
                 message += f"\n```{error_preview}```"
+            return message
 
         elif status == 'timeout':
-            message = f"{self.emoji_map['timeout']} {description} timed out after 30 minutes."
+            return f"{self.emoji_map['timeout']} {description} timed out after 30 minutes."
 
         else:  # error
-            message = f"💥 {description} encountered an error: {job.get('error', 'Unknown error')}"
+            return f"💥 {description} encountered an error: {job.get('error', 'Unknown error')}"
 
-        return message
+    def _extract_job_details(self, output: str, command: str) -> Optional[str]:
+        """
+        Extract meaningful details from CLI output.
+
+        Args:
+            output: Raw CLI output
+            command: CLI command that was executed
+
+        Returns:
+            Formatted details string or None if no meaningful info found
+        """
+        if not output:
+            return None
+
+        details = ""
+
+        if 'document_verify' in command:
+            # Look for patterns like "Enhanced 23 documents with verification"
+            enhanced_match = re.search(r'Enhanced (\d+) documents?', output)
+            errors_match = re.search(r'(\d+) errors?', output)
+            processed_match = re.search(r'Processed (\d+)', output)
+
+            if enhanced_match:
+                count = enhanced_match.group(1)
+                details += f"• Enhanced {count} documents with verification details\n"
+            elif processed_match:
+                count = processed_match.group(1)
+                details += f"• Processed {count} documents\n"
+
+            if errors_match:
+                count = errors_match.group(1)
+                details += f"• Found {count} items needing review\n"
+
+            if details:
+                details += "• Check dashboard for full results: http://localhost:5000"
+
+        elif 'reference_scanner' in command:
+            # Look for "Found X new references"
+            refs_match = re.search(r'Found (\d+) (?:new )?references?', output)
+            scanned_match = re.search(r'Scanned (\d+)', output)
+
+            if refs_match:
+                count = refs_match.group(1)
+                details += f"• Detected {count} new document references\n"
+            elif scanned_match:
+                count = scanned_match.group(1)
+                details += f"• Scanned {count} items\n"
+
+            if details:
+                details += "• Review annotations in dashboard"
+
+        # Generic patterns for other tools
+        if not details:
+            # Look for common success indicators
+            success_patterns = [
+                (r'(\d+)\s+(?:files?|documents?|items?)\s+(?:processed|created|updated)', 'Processed {} items'),
+                (r'(?:Added|Created|Generated)\s+(\d+)', 'Generated {} items'),
+                (r'(?:Success|Completed).*?(\d+)', 'Completed {} operations')
+            ]
+
+            for pattern, template in success_patterns:
+                match = re.search(pattern, output, re.IGNORECASE)
+                if match:
+                    count = match.group(1)
+                    details = f"• {template.format(count)}\n• Check output for details"
+                    break
+
+        return details if details else None
+
+    def _get_optional_next_step(self, command: str) -> Optional[str]:
+        """
+        Optional next step questions - never assumptive.
+
+        Args:
+            command: CLI command that was executed
+
+        Returns:
+            Optional next step question or None
+        """
+        if 'document_verify' in command:
+            return "Would you like me to scan for references in these documents?"
+        elif 'reference_scanner' in command:
+            return "Would you like me to verify any specific projects from these references?"
+
+        return None
+
+    def _format_duration(self, duration) -> str:
+        """Format duration for human readability."""
+        total_seconds = int(duration.total_seconds())
+        hours = total_seconds // 3600
+        minutes = (total_seconds % 3600) // 60
+        seconds = total_seconds % 60
+
+        if hours > 0:
+            return f"{hours} hours, {minutes} minutes"
+        elif minutes > 0:
+            return f"{minutes} minutes, {seconds} seconds"
+        else:
+            return f"{seconds} seconds"
 
     def format_error_response(self, error_message: str, include_help: bool = False) -> str:
         """
