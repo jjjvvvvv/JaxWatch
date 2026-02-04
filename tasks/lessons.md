@@ -11,8 +11,7 @@
 ### Key Files to Know
 - `jaxwatch/api/core.py` — Central API, use `JaxWatchCore` class for all operations
 - `jaxwatch/config/manager.py` — Configuration system, use `get_config()` for paths
-- `document_verifier/commands/summarize.py` — The "correct" summarization path (uses cached text)
-- `process_summaries.py` — DEPRECATED, violates architecture (re-downloads PDFs, writes to raw)
+- `document_verifier/commands/summarize.py` — The single AI summarization/verification path (uses cached text, writes to enrichment layer)
 
 ### Data Flow
 ```
@@ -27,7 +26,8 @@ AI enrichment → outputs/projects/projects_enriched.json
 1. **Don't write to raw data** — The `outputs/raw/` directory is for source metadata only
 2. **Don't re-download PDFs** — Text is cached in `outputs/files/`, use it
 3. **Don't hardcode paths** — Use `JaxWatchConfig.paths` from config manager
-4. **Don't create new LLM functions** — Three exist already, need consolidation first
+4. **Don't create new LLM functions** — Two exist already (`document_verifier/commands/summarize.py:call_llm()` and `dia_meeting_scraper.py:_call_llm()`), need consolidation (P1)
+5. **Don't create parallel AI paths** — Use `document_verifier` for all document analysis; duplicate paths lead to architecture violations
 
 ## Best Practices Discovered
 
