@@ -13,6 +13,8 @@
 - `jaxwatch/config/manager.py` — Configuration system, use `get_config()` for paths
 - `jaxwatch/llm/client.py` — Unified LLM client, use `get_llm_client()` for all AI calls
 - `jaxwatch/pipeline/orchestrator.py` — Full pipeline runner, use `make pipeline` or `CivicPipeline`
+- `jaxwatch/state/manifest.py` — Collection manifest, use `get_manifest()` for URL tracking
+- `jaxwatch/scheduler.py` — Cron-compatible entry point, use `make schedule` for automation
 - `document_verifier/commands/summarize.py` — Document verification (uses unified LLM client)
 
 ### Data Flow
@@ -40,3 +42,5 @@ AI enrichment → outputs/projects/projects_enriched.json
 4. **JaxWatchCore is the API** — Route all operations through it, not direct subprocess calls
 5. **Use unified LLM client** — `from jaxwatch.llm import get_llm_client` for all AI operations
 6. **Use pipeline for full runs** — `make pipeline` or `CivicPipeline.run_full_cycle()` handles all stages
+7. **Use manifest for URL tracking** — `from jaxwatch.state import get_manifest` tracks processed URLs
+8. **Use scheduler for automation** — `make schedule` is cron-compatible for automated runs

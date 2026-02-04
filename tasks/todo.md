@@ -201,17 +201,17 @@ class CivicPipeline:
 - [x] **Add pipeline orchestrator** - `make pipeline` runs full cycle via `jaxwatch/pipeline/orchestrator.py`
 - [x] **Use config system everywhere** - Removed hardcoded paths from document_verifier and dia_meeting_scraper
 
-### P2 - Medium (Maintainability)
+### P2 - Medium (Maintainability) ✅ COMPLETE
 
-- [ ] **Add collection manifest** - Track processed URLs for incremental updates
-- [ ] **Unify storage paths** - All project data through `JaxWatchConfig.paths`
-- [ ] **Add scheduling support** - Cron-compatible entry point for automated runs
+- [x] **Add collection manifest** - `jaxwatch/state/manifest.py` tracks processed URLs in `outputs/state/collection_manifest.json`
+- [x] **Unify storage paths** - Collector engine now uses `JaxWatchConfig.paths` via `_get_raw_out_dir()` and `_get_log_dir()`
+- [x] **Add scheduling support** - `jaxwatch/scheduler.py` provides cron-compatible `make schedule` command
 
 ### P3 - Nice to Have
 
-- [ ] **Add pipeline dry-run mode** - Preview what would be processed
+- [x] **Add pipeline dry-run mode** - Already implemented in P1 (`make pipeline ARGS="--dry-run"`)
 - [ ] **Add telemetry/metrics** - Track processing times, success rates
-- [ ] **Consider SQLite for state** - If JSON files become unwieldy
+- [ ] **Consider SQLite for state** - If JSON manifest becomes unwieldy
 
 ---
 
@@ -220,3 +220,4 @@ class CivicPipeline:
 - [x] **Architectural review** (2026-02-04) - Comprehensive analysis of data collection, ingestion, and summarization pipelines. Identified 7 key inefficiencies with prioritized recommendations.
 - [x] **P0: Delete process_summaries.py** (2026-02-04) - Removed duplicate summarization path that violated immutable raw data principle. Updated docs/LLM_EXTRACTION.md to reflect single-path architecture via document_verifier.
 - [x] **P1: Unified LLM + Pipeline** (2026-02-04) - Created `jaxwatch/llm/client.py` as single LLM interface. Added `jaxwatch/pipeline/orchestrator.py` with `make pipeline` command. Refactored document_verifier and dia_meeting_scraper to use unified client and config system.
+- [x] **P2: Manifest + Scheduler** (2026-02-04) - Created `jaxwatch/state/manifest.py` for tracking processed URLs across runs. Added `jaxwatch/scheduler.py` for cron-compatible automation. Updated collector engine to use config paths and integrate with manifest.

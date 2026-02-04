@@ -35,6 +35,8 @@ class PathConfig:
     raw_dir: Path
     files_dir: Path
     enhanced_projects: Path
+    state_dir: Path
+    logs_dir: Path
 
     @classmethod
     def from_dict(cls, data: dict, base_path: Path) -> 'PathConfig':
@@ -44,7 +46,9 @@ class PathConfig:
             outputs_dir=outputs_dir,
             raw_dir=outputs_dir / 'raw',
             files_dir=outputs_dir / 'files',
-            enhanced_projects=outputs_dir / data.get('enhanced_projects_path', 'projects/enhanced_projects.json')
+            enhanced_projects=outputs_dir / data.get('enhanced_projects_path', 'projects/enhanced_projects.json'),
+            state_dir=outputs_dir / 'state',
+            logs_dir=outputs_dir / 'logs',
         )
 
 
