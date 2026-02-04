@@ -1,10 +1,11 @@
-.PHONY: help collect-all collect-source admin-view verify-outputs show-logs fetch-pdfs extract-projects reset-projects inspect-project test-pdf test-project slack-digest copy-projects-json deploy-admin
+.PHONY: help collect-all collect-source admin-view verify-outputs show-logs fetch-pdfs extract-projects reset-projects inspect-project test-pdf test-project slack-digest copy-projects-json deploy-admin pipeline
 
 # Default target
 help:
 	@echo "JaxWatch — collection-first municipal observatory"
 	@echo ""
 	@echo "Commands:"
+	@echo "  pipeline         Run full data cycle (collect → extract → enrich)"
 	@echo "  collect-all      Run all sources and verify outputs"
 	@echo "  collect-source   Run a single source: make collect-source name=<id|Name>"
 	@echo "  admin-view       Preview static admin UI (http://localhost:8005/admin.html)"
@@ -13,6 +14,10 @@ help:
 	@echo "  extract-projects Scan text files and update projects index"
 	@echo "  inspect-project  Print all mentions for a project id=<ID>"
 	@echo "  show-logs        Print logs: make show-logs date=YYYY-MM-DD"
+
+pipeline:
+	@echo "🚀 Running full JaxWatch pipeline"
+	python3 -m jaxwatch.pipeline.orchestrator $(ARGS)
 
 collect-all:
 	@echo "📥 Collecting all sources (collection-first)"

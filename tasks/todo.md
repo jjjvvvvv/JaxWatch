@@ -144,46 +144,7 @@ class CivicPipeline:
 
 ---
 
-### Architecture Diagram (Current — After P0 Cleanup)
-
-```
-                     ┌─────────────────────────────────────┐
-                     │     Government Websites             │
-                     │  (DIA, DDRB, Council, Planning)     │
-                     └──────────────┬──────────────────────┘
-                                    │
-                     ┌──────────────▼──────────────────────┐
-                     │  backend/collector/engine.py        │
-                     │  (BeautifulSoup scraping)           │
-                     └──────────────┬──────────────────────┘
-                                    │
-              ┌─────────────────────┼─────────────────────┐
-              │                     │                     │
-              ▼                     ▼                     ▼
-    ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
-    │ outputs/raw/    │  │ outputs/files/  │  │ outputs/projects│
-    │ (metadata JSON) │  │ (extracted txt) │  │ (project index) │
-    │  [IMMUTABLE]    │  │                 │  │                 │
-    └─────────────────┘  └────────┬────────┘  └────────┬────────┘
-                                  │                    │
-                                  └────────┬───────────┘
-                                           │
-                                           ▼
-                              ┌─────────────────────────┐
-                              │   document_verifier     │
-                              │   (single AI path)      │
-                              └───────────┬─────────────┘
-                                          │
-                                          ▼
-                              ┌─────────────────────────┐
-                              │  projects_enriched.json │
-                              │  (ALL AI outputs here)  │
-                              └─────────────────────────┘
-```
-
----
-
-### Target Architecture (P1+)
+### Architecture Diagram (Current — After P0+P1)
 
 ```
                      ┌─────────────────────────────────────┐
@@ -191,8 +152,8 @@ class CivicPipeline:
                      └──────────────┬──────────────────────┘
                                     │
                      ┌──────────────▼──────────────────────┐
-                     │  CivicPipeline.orchestrator         │
-                     │  (unified control plane)            │
+                     │  CivicPipeline (make pipeline)      │
+                     │  jaxwatch/pipeline/orchestrator.py  │
                      └──────────────┬──────────────────────┘
                                     │
          ┌──────────────────────────┼──────────────────────────┐
@@ -213,10 +174,9 @@ class CivicPipeline:
                          ▼                     ▼           ▼
               ┌─────────────────┐   ┌─────────────────────────────┐
               │ jaxwatch/llm/   │   │ 4. Enrich (unified)         │
-              │ (shared client) │◄──│ - verify_documents()        │
-              └─────────────────┘   │ - scan_references()         │
-                                    │ - generate_summaries()      │
-                                    └──────────────┬──────────────┘
+              │ client.py       │◄──│ - verify_documents()        │
+              │ (single client) │   │ - scan_references()         │
+              └─────────────────┘   └──────────────┬──────────────┘
                                                    │
                                                    ▼
                                     ┌─────────────────────────────┐
@@ -235,11 +195,11 @@ class CivicPipeline:
 - [x] **Remove summaries from raw data** - No migration needed (outputs/ didn't exist yet)
 - [x] **Delete `process_summaries.py`** - Removed; document_verifier is now the single AI path
 
-### P1 - High (Efficiency)
+### P1 - High (Efficiency) ✅ COMPLETE
 
-- [ ] **Create unified LLM client** - `jaxwatch/llm/client.py` with provider abstraction
-- [ ] **Add pipeline orchestrator** - Single `make pipeline` command runs full cycle
-- [ ] **Use config system everywhere** - Remove hardcoded paths
+- [x] **Create unified LLM client** - `jaxwatch/llm/client.py` with config-driven provider
+- [x] **Add pipeline orchestrator** - `make pipeline` runs full cycle via `jaxwatch/pipeline/orchestrator.py`
+- [x] **Use config system everywhere** - Removed hardcoded paths from document_verifier and dia_meeting_scraper
 
 ### P2 - Medium (Maintainability)
 
@@ -259,3 +219,4 @@ class CivicPipeline:
 
 - [x] **Architectural review** (2026-02-04) - Comprehensive analysis of data collection, ingestion, and summarization pipelines. Identified 7 key inefficiencies with prioritized recommendations.
 - [x] **P0: Delete process_summaries.py** (2026-02-04) - Removed duplicate summarization path that violated immutable raw data principle. Updated docs/LLM_EXTRACTION.md to reflect single-path architecture via document_verifier.
+- [x] **P1: Unified LLM + Pipeline** (2026-02-04) - Created `jaxwatch/llm/client.py` as single LLM interface. Added `jaxwatch/pipeline/orchestrator.py` with `make pipeline` command. Refactored document_verifier and dia_meeting_scraper to use unified client and config system.

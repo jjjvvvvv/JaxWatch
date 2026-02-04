@@ -5,37 +5,33 @@ Verifies JaxWatch civic documents with AI analysis
 """
 
 import json
-import requests
-import os
+import sys
 import yaml
 import argparse
 from datetime import datetime
 from pathlib import Path
 
+# Add parent path for jaxwatch imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+
+from jaxwatch.llm import get_llm_client
+from jaxwatch.config.manager import get_config
+
 
 def load_config():
-    """Load configuration from config.yaml"""
+    """Load configuration from config.yaml (legacy support)"""
     config_path = Path(__file__).parent.parent / "config.yaml"
     with open(config_path, 'r') as f:
         return yaml.safe_load(f)
 
 
-def call_llm(prompt, config):
-    """Simple LLM call using local Ollama service."""
-    url = "http://localhost:11434/api/chat"
-
-    response = requests.post(url, json={
-        "model": config['llm_model'],
-        "messages": [{"role": "user", "content": prompt}],
-        "stream": False
-    }, headers={
-        "Content-Type": "application/json"
-    })
-
-    if response.status_code != 200:
-        raise Exception(f"Ollama API call failed: {response.status_code} - {response.text}")
-
-    return response.json()["message"]["content"]
+def call_llm(prompt, config=None):
+    """LLM call using unified JaxWatch LLM client."""
+    client = get_llm_client()
+    response = client.chat(prompt)
+    if response is None:
+        raise Exception("LLM call failed - check if Ollama is running")
+    return response
 
 
 def load_prompt_template():
@@ -181,7 +177,7 @@ def get_pdf_text_for_project(project):
     return "\n\n---\n\n".join(all_text_content)
 
 
-def enhance_project(project, prompt_template, config):
+def enhance_project(project, prompt_template):
     """Add document_verification to single project with PDF content."""
     # Get PDF text content for this project
     pdf_content = get_pdf_text_for_project(project)
@@ -212,7 +208,7 @@ def enhance_project(project, prompt_template, config):
     prompt = enhanced_prompt
 
     try:
-        analysis = call_llm(prompt, config)
+        analysis = call_llm(prompt)
 
         project["document_verification"] = {
             "enhanced_summary": analysis.strip(),
@@ -318,13 +314,12 @@ def main(argv=None):
     args = parser.parse_args(argv)
 
     try:
-        config = load_config()
         prompt_template = load_prompt_template()
 
-        # Resolve paths relative to document_verifier directory
-        document_verifier_dir = Path(__file__).parent.parent
-        input_path = document_verifier_dir / config['input_path']
-        output_path = document_verifier_dir / config['output_path']
+        # Use unified config system for paths
+        jaxwatch_config = get_config()
+        input_path = jaxwatch_config.paths.projects_index
+        output_path = jaxwatch_config.paths.enhanced_projects
 
         print(f"Loading projects from: {input_path}")
 
@@ -360,7 +355,7 @@ def main(argv=None):
         newly_enhanced = []
         for i, project in enumerate(selected_projects, 1):
             print(f"\n[{i}/{len(selected_projects)}] Processing: {project.get('id')}")
-            enhanced_project = enhance_project(project.copy(), prompt_template, config)
+            enhanced_project = enhance_project(project.copy(), prompt_template)
             newly_enhanced.append(enhanced_project)
 
         # Merge newly enhanced projects with existing ones

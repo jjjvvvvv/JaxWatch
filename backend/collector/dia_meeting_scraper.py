@@ -2,13 +2,19 @@ from __future__ import annotations
 
 import json
 import logging
+import sys
+from pathlib import Path
 from typing import Dict, List, Optional, Any
 from urllib.parse import urljoin, urlparse
 
-import requests
 from bs4 import BeautifulSoup
 
 from .retry_utils import HttpRetrySession
+
+# Add parent path for jaxwatch imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+
+from jaxwatch.llm import get_llm_client
 
 # Configure logger
 logger = logging.getLogger("collector.dia_scraper")
@@ -18,29 +24,16 @@ DESKTOP_UA = (
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"
 )
 
-OLLAMA_URL = "http://localhost:11434/api/chat"
-MODEL_NAME = "llama3.1:8b"
-
 
 def _call_llm(prompt: str, json_mode: bool = True) -> Any:
-    """Helper to call Ollama API."""
-    payload = {
-        "model": MODEL_NAME,
-        "messages": [{"role": "user", "content": prompt}],
-        "stream": False,
-        "options": {"temperature": 0.0},
-    }
-    if json_mode:
-        payload["format"] = "json"
+    """Helper to call LLM using unified JaxWatch client."""
+    client = get_llm_client()
 
     try:
-        resp = requests.post(OLLAMA_URL, json=payload, timeout=120)
-        resp.raise_for_status()
-        data = resp.json()
-        content = data.get("message", {}).get("content", "")
         if json_mode:
-            return json.loads(content)
-        return content
+            return client.chat_json(prompt)
+        else:
+            return client.chat(prompt)
     except Exception as e:
         logger.error(f"LLM call failed: {e}")
         return None
