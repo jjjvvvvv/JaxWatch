@@ -210,7 +210,7 @@ class CivicPipeline:
 
     def _run_scan_references(self, source: Optional[str], year: Optional[str], dry_run: bool) -> dict:
         """Run reference scanning stage."""
-        cmd = ["python3", "-m", "reference_scanner"]
+        cmd = ["python3", "-m", "reference_scanner", "run"]
         if source:
             cmd.extend(["--source", source])
         if year:
