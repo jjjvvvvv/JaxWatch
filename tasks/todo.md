@@ -144,7 +144,7 @@ class CivicPipeline:
 
 ---
 
-### Architecture Diagram (Current)
+### Architecture Diagram (Current — After P0 Cleanup)
 
 ```
                      ┌─────────────────────────────────────┐
@@ -163,26 +163,27 @@ class CivicPipeline:
     ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐
     │ outputs/raw/    │  │ outputs/files/  │  │ outputs/projects│
     │ (metadata JSON) │  │ (extracted txt) │  │ (project index) │
-    └────────┬────────┘  └────────┬────────┘  └────────┬────────┘
-             │                    │                    │
-             │    ┌───────────────┘                    │
-             │    │ (IGNORED!)                         │
-             ▼    │                                    ▼
-    ┌─────────────────┐                     ┌─────────────────┐
-    │process_summaries│ ──DUPLICATES──────► │document_verifier│
-    │ (re-downloads!) │                     │ (uses cache)    │
-    └─────────────────┘                     └─────────────────┘
-             │                                        │
-             ▼                                        ▼
-    ┌─────────────────┐                     ┌─────────────────┐
-    │ Writes to RAW!  │                     │projects_enriched│
-    │ (violates arch) │                     │ (correct layer) │
-    └─────────────────┘                     └─────────────────┘
+    │  [IMMUTABLE]    │  │                 │  │                 │
+    └─────────────────┘  └────────┬────────┘  └────────┬────────┘
+                                  │                    │
+                                  └────────┬───────────┘
+                                           │
+                                           ▼
+                              ┌─────────────────────────┐
+                              │   document_verifier     │
+                              │   (single AI path)      │
+                              └───────────┬─────────────┘
+                                          │
+                                          ▼
+                              ┌─────────────────────────┐
+                              │  projects_enriched.json │
+                              │  (ALL AI outputs here)  │
+                              └─────────────────────────┘
 ```
 
 ---
 
-### Recommended Architecture (Target)
+### Target Architecture (P1+)
 
 ```
                      ┌─────────────────────────────────────┐
@@ -229,10 +230,10 @@ class CivicPipeline:
 
 ## Backlog
 
-### P0 - Critical (Architecture Violations)
+### P0 - Critical (Architecture Violations) ✅ COMPLETE
 
-- [ ] **Remove summaries from raw data** - Migrate `summary` field from `outputs/raw/` to enrichment layer
-- [ ] **Delete `process_summaries.py`** - Consolidate into document_verifier with cached text support
+- [x] **Remove summaries from raw data** - No migration needed (outputs/ didn't exist yet)
+- [x] **Delete `process_summaries.py`** - Removed; document_verifier is now the single AI path
 
 ### P1 - High (Efficiency)
 
@@ -256,4 +257,5 @@ class CivicPipeline:
 
 ## Completed
 
-- [x] **Architectural review** (2026-02-02) - Comprehensive analysis of data collection, ingestion, and summarization pipelines. Identified 7 key inefficiencies with prioritized recommendations.
+- [x] **Architectural review** (2026-02-04) - Comprehensive analysis of data collection, ingestion, and summarization pipelines. Identified 7 key inefficiencies with prioritized recommendations.
+- [x] **P0: Delete process_summaries.py** (2026-02-04) - Removed duplicate summarization path that violated immutable raw data principle. Updated docs/LLM_EXTRACTION.md to reflect single-path architecture via document_verifier.
