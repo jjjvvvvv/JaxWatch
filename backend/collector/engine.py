@@ -9,6 +9,7 @@ from __future__ import annotations
 import json
 import os
 import re
+import sys
 from dataclasses import dataclass
 from datetime import datetime
 from pathlib import Path
@@ -22,11 +23,25 @@ from .retry_utils import HttpRetrySession
 from .dia_meeting_scraper import scrape_dia_meeting_detail
 import logging
 
+# Add parent path for jaxwatch imports
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+
+from jaxwatch.config.manager import get_config
+from jaxwatch.state import get_manifest
+
 
 DEFAULT_CONFIG_PATH = Path(__file__).parent / "sources.yaml"
-RAW_OUT_DIR = Path("outputs/raw")
-LOG_DIR = Path("outputs/logs")
-# Note: no persistent state in MVP (only logs + raw outputs)
+
+# Use config system for paths (lazy initialization to avoid import-time config load)
+def _get_raw_out_dir() -> Path:
+    return get_config().paths.raw_dir
+
+def _get_log_dir() -> Path:
+    return get_config().paths.logs_dir
+
+# Legacy aliases for backward compatibility
+RAW_OUT_DIR = Path("outputs/raw")  # Will be overridden at runtime
+LOG_DIR = Path("outputs/logs")  # Will be overridden at runtime
 
 try:  # pragma: no cover - optional dependency
     from dateutil import parser as dateparser  # type: ignore
@@ -207,13 +222,14 @@ def enrich_item_metadata(item: Dict[str, Any]) -> Tuple[str, List[str]]:
 
 
 def setup_logger() -> logging.Logger:
-    LOG_DIR.mkdir(parents=True, exist_ok=True)
+    log_dir = _get_log_dir()
+    log_dir.mkdir(parents=True, exist_ok=True)
     logger = logging.getLogger("collector")
     logger.setLevel(logging.INFO)
     # Avoid duplicate handlers if re-invoked
     if not any(isinstance(h, logging.FileHandler) for h in logger.handlers):
         date_str = datetime.now().strftime("%Y-%m-%d")
-        fh = logging.FileHandler(LOG_DIR / f"{date_str}.log")
+        fh = logging.FileHandler(log_dir / f"{date_str}.log")
         ch = logging.StreamHandler()
         fmt = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s")
         fh.setFormatter(fmt)
@@ -314,7 +330,7 @@ def classify_doc_type(source_id: str, url: str, title: str) -> str:
 
 
 def load_year_store(source_id: str) -> Tuple[Dict[str, List[dict]], Dict[str, Tuple[str, dict]]]:
-    base = RAW_OUT_DIR / source_id
+    base = _get_raw_out_dir() / source_id
     items_by_year: Dict[str, List[dict]] = {}
     url_index: Dict[str, Tuple[str, dict]] = {}
     if not base.exists():
@@ -378,8 +394,9 @@ def save_year_store(
 ) -> Dict[str, Path]:
     saved: Dict[str, Path] = {}
     now_iso = datetime.now().isoformat()
+    raw_out_dir = _get_raw_out_dir()
     for year, items in sorted(items_by_year.items()):
-        year_dir = RAW_OUT_DIR / source_id / str(year)
+        year_dir = raw_out_dir / source_id / str(year)
         year_dir.mkdir(parents=True, exist_ok=True)
         path = year_dir / f"{source_id}.json"
         payload = {
@@ -747,7 +764,7 @@ def _collect_dia_archive(source: Dict[str, Any], session: HttpRetrySession, logg
     }
 
 
-def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: logging.Logger) -> Dict[str, Any]:
+def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: logging.Logger, manifest=None) -> Dict[str, Any]:
     name = source.get("name") or source.get("id") or "unknown"
     sid = source.get("id") or slugify(name)
     root_url = source.get("root_url") or ""
@@ -903,6 +920,16 @@ def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: lo
     items_by_year = {year: items for year, items in items_by_year.items() if items}
     saved_paths = save_year_store(sid, name, items_by_year, root_url=root_url)
     total_after = sum(len(values) for values in items_by_year.values())
+
+    # Update manifest with processed URLs
+    if manifest:
+        for year, items in items_by_year.items():
+            for item in items:
+                url = item.get("url")
+                if url:
+                    manifest.mark_url_processed(url, sid)
+        manifest.save()
+
     logger.info(
         "✅ Source finished: %s added=%s moved=%s rebucketed=%s total=%s years=%s",
         name,
@@ -925,7 +952,7 @@ def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: lo
     }
 
 
-def collect_all(config_path: Optional[str] = None, only_source: Optional[str] = None) -> int:
+def collect_all(config_path: Optional[str] = None, only_source: Optional[str] = None, use_manifest: bool = True) -> int:
     logger = setup_logger()
     cfg_path = Path(config_path) if config_path else DEFAULT_CONFIG_PATH
     try:
@@ -934,15 +961,33 @@ def collect_all(config_path: Optional[str] = None, only_source: Optional[str] = 
         logger.error(f"Failed to load sources.yaml: {e}")
         return 2
 
+    # Initialize manifest for tracking
+    manifest = get_manifest() if use_manifest else None
+    if manifest:
+        run = manifest.start_run(source=only_source)
+        logger.info(f"Collection run started, tracking with manifest")
+
     session = HttpRetrySession()
     sources = cfg.get("sources", [])
     ran = 0
+    total_new = 0
+    total_processed = 0
+
     for src in sources:
         sid = src.get("id") or slugify(src.get("name", ""))
         if only_source and only_source not in (sid, src.get("name")):
             continue
-        collect_source(src, session, logger)
+        result = collect_source(src, session, logger, manifest=manifest)
         ran += 1
+        total_new += result.get("added", 0)
+        total_processed += result.get("added", 0) + result.get("existing", 0)
+
+    # End manifest run
+    if manifest:
+        run.urls_processed = total_processed
+        run.urls_new = total_new
+        manifest.end_run(run, success=True)
+        logger.info(f"Manifest updated: {total_new} new URLs, {total_processed} total")
 
     logger.info(f"🏁 Collection complete. Sources run: {ran}")
     return 0

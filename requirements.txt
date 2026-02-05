@@ -4,3 +4,7 @@ beautifulsoup4>=4.9.0
 python-dateutil>=2.8.0
 PyYAML>=6.0.0
 flask>=2.0.0
+mlx>=0.30.5
+mlx-lm>=0.18.0
+transformers>=4.40.0
+torch>=2.0.0

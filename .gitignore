@@ -62,9 +62,6 @@ dashboard/status.json
 dashboard/requirements.txt
 dashboard/static/
 
-# ---- Disabled / local scripts ----
-process_summaries.py.DISABLED
-
 # ---- Legacy directories (kept temporarily) ----
 clawdbot/
 moltbot/
