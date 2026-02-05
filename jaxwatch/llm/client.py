@@ -7,8 +7,7 @@ Single interface for all LLM operations across the project.
 import json
 import logging
 from typing import Any, Optional
-
-import requests
+from pathlib import Path
 
 from jaxwatch.config.manager import get_config, JaxWatchConfig
 
@@ -19,27 +18,45 @@ _global_client: Optional['LLMClient'] = None
 
 
 class LLMClient:
-    """Unified LLM client for JaxWatch.
+    """MLX-powered LLM client for Apple Silicon optimization.
 
     Supports:
-    - Ollama (local, default)
+    - MLX local inference only
     - JSON mode for structured responses
-    - Configurable temperature and timeout
+    - Configurable max_tokens
     """
 
     def __init__(self, config: Optional[JaxWatchConfig] = None):
         self.config = config or get_config()
-        self._api_url = self.config.llm.api_url
-        self._model = self.config.llm.model
-        self._api_key = self.config.llm.api_key
+        self._model_name = self.config.llm.model
+        self._model = None
+        self._tokenizer = None
+        self._load_mlx_model()
+
+    def _load_mlx_model(self):
+        """Load MLX model - MLX handles caching automatically."""
+        try:
+            from mlx_lm import load
+        except ImportError as e:
+            logger.error("MLX not available. Please install MLX dependencies: pip install mlx mlx-lm transformers torch")
+            raise ImportError("MLX dependencies required") from e
+
+        # MLX automatically handles caching - just use the model identifier directly
+        logger.info(f"Loading MLX model: {self._model_name}")
+        try:
+            self._model, self._tokenizer = load(self._model_name)
+            logger.info(f"Successfully loaded MLX model: {self._model_name}")
+        except Exception as e:
+            logger.error(f"Failed to load MLX model {self._model_name}: {e}")
+            raise
 
     @property
     def model(self) -> str:
-        return self._model
+        return self._model_name
 
     @property
     def api_url(self) -> str:
-        return self._api_url
+        return "mlx://local"
 
     def chat(
         self,
@@ -53,47 +70,30 @@ class LLMClient:
         Args:
             prompt: The user prompt to send
             json_mode: If True, request JSON-formatted response
-            temperature: Sampling temperature (0.0 = deterministic)
-            timeout: Request timeout in seconds
+            temperature: Sampling temperature (ignored in MLX, kept for API compatibility)
+            timeout: Request timeout (ignored in MLX, kept for API compatibility)
 
         Returns:
             Response text, or None if request failed
         """
-        payload = {
-            "model": self._model,
-            "messages": [{"role": "user", "content": prompt}],
-            "stream": False,
-            "options": {"temperature": temperature},
-        }
-
-        if json_mode:
-            payload["format"] = "json"
-
-        headers = {"Content-Type": "application/json"}
-        if self._api_key:
-            headers["Authorization"] = f"Bearer {self._api_key}"
-
         try:
-            resp = requests.post(
-                self._api_url,
-                json=payload,
-                headers=headers,
-                timeout=timeout
+            from mlx_lm import generate
+
+            if json_mode:
+                prompt = f"{prompt}\n\nPlease respond with valid JSON only. Do not include any other text outside the JSON object."
+
+            # MLX generate function - basic parameters only
+            response = generate(
+                self._model,
+                self._tokenizer,
+                prompt=prompt,
+                max_tokens=self.config.llm.mlx_options.get('max_tokens', 2048),
+                verbose=False
             )
-            resp.raise_for_status()
+            return response
 
-            data = resp.json()
-            content = data.get("message", {}).get("content", "")
-            return content
-
-        except requests.exceptions.Timeout:
-            logger.error(f"LLM request timed out after {timeout}s")
-            return None
-        except requests.exceptions.RequestException as e:
-            logger.error(f"LLM request failed: {e}")
-            return None
         except Exception as e:
-            logger.error(f"Unexpected error in LLM call: {e}")
+            logger.error(f"MLX chat request failed: {e}")
             return None
 
     def chat_json(
@@ -124,27 +124,40 @@ class LLMClient:
 
         try:
             return json.loads(content)
-        except json.JSONDecodeError as e:
-            logger.error(f"Failed to parse LLM response as JSON: {e}")
+        except json.JSONDecodeError:
+            # Try to extract JSON from markdown code blocks or other formats
+            import re
+
+            # Try to find JSON within ```json or ``` blocks
+            json_pattern = r'```(?:json)?\s*(\{.*?\})\s*```'
+            match = re.search(json_pattern, content, re.DOTALL)
+            if match:
+                try:
+                    return json.loads(match.group(1))
+                except json.JSONDecodeError:
+                    pass
+
+            # Try to find JSON object directly
+            json_pattern = r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}'
+            match = re.search(json_pattern, content)
+            if match:
+                try:
+                    return json.loads(match.group(0))
+                except json.JSONDecodeError:
+                    pass
+
+            logger.error(f"Failed to parse LLM response as JSON")
             logger.debug(f"Raw content: {content[:500]}...")
             return None
 
     def is_available(self) -> bool:
-        """Check if the LLM service is available."""
-        try:
-            # Simple health check - try a minimal request
-            resp = requests.get(
-                self._api_url.replace("/api/chat", "/api/tags"),
-                timeout=5
-            )
-            return resp.status_code == 200
-        except Exception:
-            return False
+        """Check if the MLX model is loaded and available."""
+        return self._model is not None and self._tokenizer is not None
 
 
 def get_llm_client(config: Optional[JaxWatchConfig] = None) -> LLMClient:
     """Get global LLM client instance."""
     global _global_client
-    if _global_client is None or config is not None:
+    if _global_client is None:
         _global_client = LLMClient(config)
     return _global_client

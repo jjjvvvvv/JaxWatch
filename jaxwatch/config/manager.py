@@ -13,17 +13,21 @@ from dataclasses import dataclass
 
 @dataclass
 class LLMConfig:
-    """Configuration for LLM services"""
+    """Configuration for MLX LLM services"""
     model: str
-    api_url: str
-    api_key: Optional[str] = None
+    model_path: Optional[str] = None  # MLX model cache path
+    mlx_options: Dict[str, Any] = None  # MLX-specific settings
 
     @classmethod
     def from_dict(cls, data: dict) -> 'LLMConfig':
         return cls(
-            model=data.get('model', 'llama3.1:8b'),
-            api_url=data.get('api_url', 'http://localhost:11434/api/chat'),
-            api_key=data.get('api_key')
+            model=data.get('model', 'mlx-community/Meta-Llama-3.1-8B-Instruct-4bit'),
+            model_path=data.get('model_path'),
+            mlx_options=data.get('mlx_options', {
+                'max_tokens': 2048,
+                'temperature': 0.0,
+                'quantization': '4bit'
+            })
         )
 
 
@@ -139,9 +143,13 @@ class JaxWatchConfig:
         """Get default configuration values"""
         return {
             'llm': {
-                'model': 'llama3.1:8b',
-                'api_url': 'http://localhost:11434/api/chat',
-                'api_key': None
+                'model': 'mlx-community/Llama-3.2-1B-Instruct-4bit',
+                'model_path': '~/.cache/mlx/models/Llama-3.2-1B-Instruct',
+                'mlx_options': {
+                    'quantization': '4bit',
+                    'max_tokens': 512,
+                    'temperature': 0.0
+                }
             },
             'paths': {
                 'outputs_dir': 'outputs',
