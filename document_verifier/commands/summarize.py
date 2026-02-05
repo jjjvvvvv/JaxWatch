@@ -121,7 +121,7 @@ def extract_key_sections(full_text, max_chars=3000):
 def get_pdf_text_for_project(project):
     """Extract and return PDF text content for project mentions."""
     import sys
-    sys.path.append('../../backend/tools')
+    sys.path.append('../backend/tools')
 
     # Import make_filename function
     try:
@@ -153,14 +153,14 @@ def get_pdf_text_for_project(project):
         filename = make_filename(mention)
 
         # Determine source and year from mention
-        source = mention.get('source', 'dia_board')
+        source = mention.get('source') or 'dia_board'  # Handle null values
         meeting_date = mention.get('meeting_date', '')
         year = meeting_date[:4] if meeting_date else '2025'
 
         # Build path to extracted text file
-        # Resolve path relative to document_verifier directory
+        # Resolve path relative to project root directory
         document_verifier_dir = Path(__file__).parent.parent
-        text_file_path = document_verifier_dir / f"../outputs/files/{source}/{year}/{filename}.txt"
+        text_file_path = document_verifier_dir.parent / f"outputs/files/{source}/{year}/{filename}.txt"
 
         if text_file_path.exists():
             try:
