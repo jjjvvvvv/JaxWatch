@@ -1,0 +1,82 @@
+JaxWatch Jacksonville Development Image Prompts
+============================================================
+Generated: 2026-02-05 20:55:45
+Projects: 4
+Prompt types: streetview, aerial, conceptual
+
+Optimized for: streetview generators, DALL-E, Midjourney, Stable Diffusion
+
+============================================================
+
+PROJECT 1: N Market Street Sodl Pa Crp
+Location: Market Street
+Coordinates: (30.352767, -81.6506413)
+Scale: Standard Development
+Type: Public Infrastructure
+Status: Approved Project
+
+STREETVIEW PROMPT:
+Enhanced streetscape and public infrastructure at Market Street, Jacksonville, Florida. thoughtfully designed urban architecture, contemporary Florida architectural style. subtropical landscaping with palm trees, Florida sunshine lighting, wide sidewalks with modern streetscape elements. finished development ready for use. professional architectural photography, high resolution, realistic lighting, urban planning visualization.
+
+AERIAL PROMPT:
+Aerial drone view of development at Market Street, Jacksonville, Florida. bird's-eye perspective showing urban planning integration, surrounding street network and neighboring buildings, green spaces and landscaping incorporated, professional urban planning visualization, high resolution aerial photography, clear weather, optimal lighting
+
+CONCEPTUAL PROMPT:
+Artistic conceptual visualization of 'N Market Street Sodl Pa Crp' development project, Jacksonville. Enhanced public realm, people-friendly streetscape, community gathering, architectural rendering style, optimistic future vision, warm Florida lighting, people enjoying the space, urban planning concept art, inspirational presentation style
+
+--------------------------------------------------------------------------------
+
+PROJECT 2: 231 N Laura Street
+Location: 231 N Laura Street
+Coordinates: (30.328674, -81.658667)
+Scale: Standard Development
+Type: Public Infrastructure
+Status: Approved Project
+
+STREETVIEW PROMPT:
+Enhanced streetscape and public infrastructure at 231 N Laura Street, Jacksonville, Florida. thoughtfully designed urban architecture, contemporary Florida architectural style. urban downtown setting, mixed pedestrian and vehicle traffic, city skyline visible in background, subtropical landscaping with palm trees, Florida sunshine lighting, wide sidewalks with modern streetscape elements. finished development ready for use. professional architectural photography, high resolution, realistic lighting, urban planning visualization.
+
+AERIAL PROMPT:
+Aerial drone view of development at 231 N Laura Street, Jacksonville, Florida. Downtown Jacksonville urban grid pattern, bird's-eye perspective showing urban planning integration, surrounding street network and neighboring buildings, green spaces and landscaping incorporated, professional urban planning visualization, high resolution aerial photography, clear weather, optimal lighting
+
+CONCEPTUAL PROMPT:
+Artistic conceptual visualization of '231 N Laura Street' development project, Jacksonville. Enhanced public realm, people-friendly streetscape, community gathering, architectural rendering style, optimistic future vision, warm Florida lighting, people enjoying the space, urban planning concept art, inspirational presentation style
+
+--------------------------------------------------------------------------------
+
+PROJECT 3: 44 W Monroe Street
+Location: 44 W Monroe Street
+Coordinates: (30.3286227, -81.658427)
+Scale: Standard Development
+Type: Public Infrastructure
+Status: Approved Project
+
+STREETVIEW PROMPT:
+Enhanced streetscape and public infrastructure at 44 W Monroe Street, Jacksonville, Florida. thoughtfully designed urban architecture, contemporary Florida architectural style. urban downtown setting, mixed pedestrian and vehicle traffic, city skyline visible in background, subtropical landscaping with palm trees, Florida sunshine lighting, wide sidewalks with modern streetscape elements. finished development ready for use. professional architectural photography, high resolution, realistic lighting, urban planning visualization.
+
+AERIAL PROMPT:
+Aerial drone view of development at 44 W Monroe Street, Jacksonville, Florida. Downtown Jacksonville urban grid pattern, bird's-eye perspective showing urban planning integration, surrounding street network and neighboring buildings, green spaces and landscaping incorporated, professional urban planning visualization, high resolution aerial photography, clear weather, optimal lighting
+
+CONCEPTUAL PROMPT:
+Artistic conceptual visualization of '44 W Monroe Street' development project, Jacksonville. Enhanced public realm, people-friendly streetscape, community gathering, architectural rendering style, optimistic future vision, warm Florida lighting, people enjoying the space, urban planning concept art, inspirational presentation style
+
+--------------------------------------------------------------------------------
+
+PROJECT 4: N Market Street Sodl Pa Crp
+Location: Market Street
+Coordinates: (30.352767, -81.6506413)
+Scale: Standard Development
+Type: Public Infrastructure
+Status: Approved Project
+
+STREETVIEW PROMPT:
+Enhanced streetscape and public infrastructure at Market Street, Jacksonville, Florida. thoughtfully designed urban architecture, contemporary Florida architectural style. subtropical landscaping with palm trees, Florida sunshine lighting, wide sidewalks with modern streetscape elements. finished development ready for use. professional architectural photography, high resolution, realistic lighting, urban planning visualization.
+
+AERIAL PROMPT:
+Aerial drone view of development at Market Street, Jacksonville, Florida. bird's-eye perspective showing urban planning integration, surrounding street network and neighboring buildings, green spaces and landscaping incorporated, professional urban planning visualization, high resolution aerial photography, clear weather, optimal lighting
+
+CONCEPTUAL PROMPT:
+Artistic conceptual visualization of 'N Market Street Sodl Pa Crp' development project, Jacksonville. Enhanced public realm, people-friendly streetscape, community gathering, architectural rendering style, optimistic future vision, warm Florida lighting, people enjoying the space, urban planning concept art, inspirational presentation style
+
+--------------------------------------------------------------------------------
+

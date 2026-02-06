@@ -1,4 +1,4 @@
-.PHONY: help collect-all collect-source admin-view verify-outputs show-logs fetch-pdfs extract-projects reset-projects inspect-project test-pdf test-project slack-digest copy-projects-json deploy-admin pipeline schedule manifest-stats
+.PHONY: help collect-all collect-source admin-view verify-outputs show-logs fetch-pdfs extract-projects reset-projects inspect-project test-pdf test-project slack-digest copy-projects-json deploy-admin pipeline schedule manifest-stats image-prompts
 
 # Default target
 help:
@@ -16,6 +16,7 @@ help:
 	@echo "  inspect-project  Print all mentions for a project id=<ID>"
 	@echo "  manifest-stats   Show collection manifest statistics"
 	@echo "  show-logs        Print logs: make show-logs date=YYYY-MM-DD"
+	@echo "  image-prompts    Generate AI image prompts from project data"
 
 pipeline:
 	@echo "🚀 Running full JaxWatch pipeline"
@@ -138,3 +139,12 @@ deploy-admin:
 	@echo "📁 Copied outputs/projects/projects_index.json -> admin_ui/data/projects_index.json"
 	@echo "🚀 Deploying admin_ui/ with Vercel"
 	vercel --prod --cwd admin_ui
+
+image-prompts:
+	@echo "🎨 Generating AI image prompts from project data"
+	@echo "Usage: make image-prompts ARGS='--type all --output prompts.txt'"
+	@echo "Examples:"
+	@echo "  make image-prompts ARGS='--preview'"
+	@echo "  make image-prompts ARGS='--filter \"Laura Street\" --type streetview'"
+	@echo "  make image-prompts ARGS='--type conceptual --output art_prompts.txt'"
+	python3 tools/image_prompt_generator.py $(ARGS)
