@@ -155,7 +155,7 @@ python slack_gateway.py --http-mode
 
 **JaxWatch responsibilities:**
 - All PDF processing and text extraction
-- All AI operations (Ollama/Llama 3.1 analysis)
+- All AI operations (MLX/Llama 3.2 analysis)
 - All data storage and annotation management
 - All dashboard and web interface operations
 

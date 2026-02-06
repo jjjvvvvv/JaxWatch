@@ -1,15 +1,14 @@
 #!/usr/bin/env python3
 """
-JaxWatch Slack Bridge - Simplified Entry Point
+JaxWatch Slack Bridge - Entry Point
 
-Uses ConversationalSlackGateway (Claude-powered) by default.
-Legacy SlackGateway (regex-based) is deprecated.
+Uses ConversationalSlackGateway with Claude-powered natural language understanding.
 
-Architecture (Simplified):
+Architecture:
 Slack Message → ConversationalSlackGateway → JaxWatchCore API → Response
 
 Usage:
-    python -m slack_bridge [--legacy]
+    python -m slack_bridge [--debug]
 
 Environment Variables Required:
     SLACK_BOT_TOKEN - Slack bot token
@@ -20,7 +19,6 @@ Environment Variables Required:
 import os
 import sys
 import argparse
-import warnings
 from pathlib import Path
 
 def load_env_file():
@@ -56,11 +54,6 @@ def main():
     load_env_file()
     parser = argparse.ArgumentParser(description="JaxWatch Slack Bridge")
     parser.add_argument(
-        '--legacy',
-        action='store_true',
-        help='Use legacy SlackGateway (deprecated, regex-based)'
-    )
-    parser.add_argument(
         '--debug',
         action='store_true',
         help='Enable debug logging'
@@ -81,34 +74,17 @@ def main():
 
     # Optional Claude API key
     claude_api_key = os.getenv('ANTHROPIC_API_KEY')
-    if not claude_api_key and not args.legacy:
+    if not claude_api_key:
         print("⚠️  ANTHROPIC_API_KEY not set - AI features will be limited")
         print("   Set ANTHROPIC_API_KEY for full conversational capabilities")
 
-    if args.legacy:
-        # Use deprecated legacy gateway
-        print("⚠️  Using DEPRECATED legacy SlackGateway")
-        print("   Please migrate to ConversationalSlackGateway for better functionality")
+    # Use conversational gateway
+    print("🚀 Starting ConversationalSlackGateway...")
+    print("   Enhanced with Claude-powered natural language understanding")
 
-        warnings.warn(
-            "Legacy SlackGateway is deprecated. Use ConversationalSlackGateway instead.",
-            DeprecationWarning,
-            stacklevel=2
-        )
+    from slack_bridge.conversational_slack_gateway import ConversationalSlackGateway
 
-        from slack_bridge.slack_gateway import SlackGateway
-
-        gateway = SlackGateway()
-        print("🔗 Starting legacy Slack gateway...")
-
-    else:
-        # Use modern conversational gateway
-        print("🚀 Starting ConversationalSlackGateway...")
-        print("   Enhanced with Claude-powered natural language understanding")
-
-        from slack_bridge.conversational_slack_gateway import ConversationalSlackGateway
-
-        gateway = ConversationalSlackGateway()
+    gateway = ConversationalSlackGateway()
 
     # Set debug mode if requested
     if args.debug:

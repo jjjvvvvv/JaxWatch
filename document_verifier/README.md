@@ -15,9 +15,9 @@ Document Verifier annotates JaxWatch derived project views with AI interpretatio
    python3 document_verifier.py demo
    ```
 
-3. **For live AI annotation (requires local Ollama):**
+3. **For live AI annotation (requires MLX framework):**
    ```bash
-   # Ensure Ollama is running locally
+   # MLX automatically loads models on first use
    python3 document_verifier.py document_verify
    ```
 
@@ -43,7 +43,7 @@ Annotates derived JaxWatch project views with AI interpretations.
 - **Input**: `../admin_ui/data/projects_index.json`
 - **Output**: `../admin_ui/data/projects_enriched.json`
 - **Process**: Selects 10 most relevant project views and adds AI annotations
-- **Requirements**: Local Ollama installation
+- **Requirements**: MLX framework installation
 
 **Annotated output format:**
 ```json
@@ -77,9 +77,10 @@ Edit `config.yaml` to customize:
 
 ```yaml
 # LLM Settings
-llm_provider: "ollama"
-llm_model: "llama3.1"
-llm_api_key_env: "OLLAMA_API_KEY"
+llm_provider: "mlx"
+mlx_model: "mlx-community/Llama-3.2-1B-Instruct-4bit"
+max_tokens: 2048
+temperature: 0.1
 
 # Data Paths (relative to document_verifier directory)
 input_path: "../admin_ui/data/projects_index.json"
@@ -102,15 +103,15 @@ This ensures processing focuses on substantial, well-documented projects rather 
 
 - Python 3.7+
 - Dependencies: `requests`, `pyyaml`
-- For live mode: Local Ollama installation with llama3.1 model
+- For live mode: MLX framework with Llama 3.2 model
 - No internet connection required for local processing
 
-## Setting up Ollama
+## Setting up MLX
 
-1. Install Ollama from https://ollama.ai
-2. Pull the required model: `ollama pull llama3.1`
-3. Start Ollama service: `ollama serve`
-4. Verify: `curl http://localhost:11434/api/version`
+1. Install MLX framework: `pip install mlx-lm`
+2. The model `mlx-community/Llama-3.2-1B-Instruct-4bit` downloads automatically on first use
+3. No additional setup required - MLX handles model loading and inference
+4. Verify by running a test document verification
 
 Local processing ensures data privacy and no API costs.
 

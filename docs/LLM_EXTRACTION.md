@@ -1,6 +1,6 @@
-# Local LLM Extraction System (Ollama + Llama 3.1)
+# Local LLM Extraction System (MLX + Llama 3.2)
 
-This project uses a local LLM (Ollama + Llama 3.1 8B) for semantic extraction, parsing, and document verification. This approach significantly improves data quality over previous regex-based heuristics.
+This project uses a local LLM (MLX + Llama 3.2 1B) for semantic extraction, parsing, and document verification. This approach significantly improves data quality over previous regex-based heuristics.
 
 ## Key Features
 - **Semantic Metadata Extraction**: Intelligently identifies meeting titles and dates from webpage text, avoiding "semantic blindness" (e.g., distinguishing a meeting date from a budget year).
@@ -8,7 +8,7 @@ This project uses a local LLM (Ollama + Llama 3.1 8B) for semantic extraction, p
 - **Document Verification**: AI-powered analysis extracts explicit facts, authorization language, and financial mentions from civic documents.
 
 ## Components
-- `backend/collector/dia_meeting_scraper.py`: Uses the Ollama API for page parsing and link classification.
+- `backend/collector/dia_meeting_scraper.py`: Uses the MLX API for page parsing and link classification.
 - `document_verifier/commands/summarize.py`: Document verification and enrichment (reads cached text from `outputs/files/`, writes to `outputs/projects/projects_enriched.json`).
 
 ## Architecture Principles
@@ -17,8 +17,20 @@ This project uses a local LLM (Ollama + Llama 3.1 8B) for semantic extraction, p
 - **Enrichment layer**: All AI-generated content goes to `outputs/projects/projects_enriched.json`
 
 ## Requirements
-- **Ollama**: Must be running locally on port 11434.
-- **Model**: `llama3.1:8b` must be pulled (`ollama pull llama3.1:8b`).
+- **MLX**: MLX framework for Apple Silicon inference.
+- **Model**: `mlx-community/Llama-3.2-1B-Instruct-4bit` (downloaded automatically on first use).
+
+## Configuration
+Configure the LLM provider in your application configuration:
+
+```yaml
+# config.yaml
+llm:
+  provider: "mlx"
+  mlx_model: "mlx-community/Llama-3.2-1B-Instruct-4bit"
+  max_tokens: 2048
+  temperature: 0.1
+```
 
 ## Usage
 
