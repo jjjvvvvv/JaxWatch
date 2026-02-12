@@ -79,14 +79,22 @@ class LLMClient:
         try:
             from mlx_lm import generate
 
+            messages = []
             if json_mode:
-                prompt = f"{prompt}\n\nPlease respond with valid JSON only. Do not include any other text outside the JSON object."
+                messages.append({
+                    "role": "system",
+                    "content": "You are a JSON extraction bot. Always respond with valid JSON only, no other text."
+                })
+            messages.append({"role": "user", "content": prompt})
 
-            # MLX generate function - basic parameters only
+            formatted_prompt = self._tokenizer.apply_chat_template(
+                messages, tokenize=False, add_generation_prompt=True
+            )
+
             response = generate(
                 self._model,
                 self._tokenizer,
-                prompt=prompt,
+                prompt=formatted_prompt,
                 max_tokens=self.config.llm.mlx_options.get('max_tokens', 2048),
                 verbose=False
             )
