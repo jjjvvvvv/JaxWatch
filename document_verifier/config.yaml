@@ -1,6 +1,10 @@
-# Clawdbot Configuration - SIMPLE
-llm_provider: "ollama"
-llm_model: "llama3.1:8b"
+# JaxWatch Document Verifier Configuration
+llm:
+  model: "mlx-community/Llama-3.2-1B-Instruct-4bit"
+  mlx_options:
+    max_tokens: 512
+    temperature: 0.0
+    quantization: "4bit"
 
 # Data Paths
 input_path: "../outputs/projects/projects_index.json"

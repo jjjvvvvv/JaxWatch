@@ -30,7 +30,7 @@ def call_llm(prompt, config=None):
     client = get_llm_client()
     response = client.chat(prompt)
     if response is None:
-        raise Exception("LLM call failed - check if Ollama is running")
+        raise Exception("LLM call failed - check MLX model availability")
     return response
 
 

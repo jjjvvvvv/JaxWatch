@@ -112,11 +112,15 @@ def verify_configuration():
         with open(config_path, 'r') as f:
             config = yaml.safe_load(f)
 
-        required_keys = ["llm_provider", "llm_model", "llm_api_key_env", "input_path", "output_path"]
+        required_keys = ["llm", "input_path", "output_path"]
         for key in required_keys:
             if key not in config:
                 print(f"❌ Missing config key: {key}")
                 return False
+
+        if "model" not in config.get("llm", {}):
+            print("❌ Missing config key: llm.model")
+            return False
 
         print("✅ Configuration valid")
         return True
@@ -149,7 +153,7 @@ def main():
         print("🎉 All verification checks passed!")
         print("\nTo use document_verifier:")
         print("1. Demo mode:  python3 document_verifier.py demo")
-        print("2. Live mode:  export GROQ_API_KEY=your-key && python3 document_verifier.py summarize")
+        print("2. Live mode:  python3 document_verifier.py summarize")
         return 0
     else:
         print("❌ Some verification checks failed")
