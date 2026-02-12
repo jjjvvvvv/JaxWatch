@@ -1,9 +1,30 @@
 sources:
   - id: dia_board
+    name: DIA Board
+    candidates:
+      - https://dia.jacksonville.gov/meetings/dia-meetings
     artifact_policy: parse_then_discard
+
   - id: dia_ddrb
+    name: DDRB
+    candidates:
+      - https://dia.jacksonville.gov/meetings/ddrb-meetings
     artifact_policy: parse_then_discard
+
+  - id: dia_transcripts
+    name: DIA Transcripts
+    candidates:
+      - https://dia.jacksonville.gov/meetings/meeting-transcripts/dia-transcripts
+    artifact_policy: parse_then_discard
+
+  - id: dia_resolutions
+    name: DIA Resolutions
+    candidates:
+      - https://dia.jacksonville.gov/meetings/dia-resolutions
+    artifact_policy: parse_then_discard
+
   - id: city_council
     artifact_policy: reference_only
+
   - id: planning_commission
     artifact_policy: reference_only

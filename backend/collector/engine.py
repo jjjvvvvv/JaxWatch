@@ -19,6 +19,7 @@ from urllib.parse import urljoin, urlparse, parse_qs
 import yaml
 from bs4 import BeautifulSoup
 
+import requests
 from .retry_utils import HttpRetrySession
 from .dia_meeting_scraper import scrape_dia_meeting_detail
 import logging
@@ -45,7 +46,7 @@ LOG_DIR = Path("outputs/logs")  # Will be overridden at runtime
 
 try:  # pragma: no cover - optional dependency
     from dateutil import parser as dateparser  # type: ignore
-except Exception:  # pragma: no cover
+except ImportError:  # pragma: no cover
     dateparser = None
 
 DATE_WITH_SEPARATORS_RE = re.compile(r"(20\d{2})[-_/](\d{1,2})[-_/](\d{1,2})")
@@ -80,6 +81,18 @@ MONTH_MAP = {
 def _reasonable_year(year: int) -> bool:
     current_year = datetime.now().year
     return 2000 <= year <= current_year + 1
+
+
+def is_meeting_detail_url(url: str) -> bool:
+    """Check if URL matches the DIA meeting detail page pattern.
+
+    Detail pages follow: /meetings/{section}/{year-hash}/{YYYYMMDD_slug}
+    """
+    parsed = urlparse(url)
+    parts = [p for p in parsed.path.split('/') if p]
+    if len(parts) < 4 or parts[0] != 'meetings':
+        return False
+    return bool(re.match(r'^\d{8}', parts[-1]))
 
 
 def _coerce_iso_date(year: int, month: int, day: int) -> Optional[str]:
@@ -146,7 +159,7 @@ def extract_date_from_text(value: Optional[str]) -> Optional[str]:
             dt = dateparser.parse(text, fuzzy=True, dayfirst=False)
             if dt and _reasonable_year(dt.year):
                 return dt.date().isoformat()
-        except Exception:  # pragma: no cover - guard against unexpected parse errors
+        except (ValueError, OverflowError):  # pragma: no cover - guard against unexpected parse errors
             pass
 
     return None
@@ -258,17 +271,15 @@ def is_match(url: str, title: str, patterns: List[str]) -> bool:
             continue
         # Regex-style if wrapped with /.../
         if isinstance(pat, str) and pat.startswith("/") and pat.endswith("/"):
-            import re
             try:
                 rx = re.compile(pat[1:-1], re.I)
                 if rx.search(s):
                     return True
-            except Exception:
+            except re.error:
                 pass
             continue
         # Heuristic: treat commonly-regex-like strings as regex (e.g., "\\.pdf")
         if isinstance(pat, str):
-            import re
             regex_like = any(tok in pat for tok in ["\\", "^", "$", "[", "(", "|"])
             if regex_like:
                 try:
@@ -276,7 +287,7 @@ def is_match(url: str, title: str, patterns: List[str]) -> bool:
                     if rx.search(s):
                         return True
                     continue
-                except Exception:
+                except re.error:
                     # Fall back to substring
                     pass
             if pat.lower() in s:
@@ -347,7 +358,7 @@ def load_year_store(source_id: str) -> Tuple[Dict[str, List[dict]], Dict[str, Tu
             items = data.get("items", [])
             if not isinstance(items, list):
                 items = []
-        except Exception:
+        except (json.JSONDecodeError, OSError):
             items = []
         items_by_year[year] = items
         for item in items:
@@ -362,7 +373,7 @@ def load_year_store(source_id: str) -> Tuple[Dict[str, List[dict]], Dict[str, Tu
             items = data.get("items", [])
             if not isinstance(items, list):
                 items = []
-        except Exception:
+        except (json.JSONDecodeError, OSError):
             items = []
         legacy_year = str(data.get("year") or datetime.now().year)
         bucket = items_by_year.setdefault(legacy_year, [])
@@ -447,7 +458,7 @@ def _collect_ddrb(source: Dict[str, Any], session: HttpRetrySession, logger: log
             resp = session.get(url)
             pages_fetched += 1
             logger.info(f"Fetched page: {url} status={resp.status_code} bytes={len(resp.content)}")
-        except Exception as e:
+        except requests.RequestException as e:
             logger.warning(f"Page fetch failed: {url} err={e}")
             continue
 
@@ -482,7 +493,7 @@ def _collect_ddrb(source: Dict[str, Any], session: HttpRetrySession, logger: log
                 })
                 local_seen.add(abs_url)
                 continue
-            if lu.startswith("http") and "dia.jacksonville.gov" in lu and not lu.endswith('.pdf'):
+            if lu.startswith("http") and "dia.jacksonville.gov" in lu and is_meeting_detail_url(abs_url):
                 meeting_pages.append(abs_url)
 
     meeting_pages = list(dict.fromkeys(meeting_pages))
@@ -556,7 +567,7 @@ def _collect_dia_board(source: Dict[str, Any], session: HttpRetrySession, logger
             resp = session.get(url)
             pages_fetched += 1
             logger.info(f"Fetched page: {url} status={resp.status_code} bytes={len(resp.content)}")
-        except Exception as e:
+        except requests.RequestException as e:
             logger.warning(f"Page fetch failed: {url} err={e}")
             continue
 
@@ -578,7 +589,6 @@ def _collect_dia_board(source: Dict[str, Any], session: HttpRetrySession, logger
                 if not keep:
                     continue
                 filename = Path(urlparse(abs_url).path).name or 'document.pdf'
-                already = False
                 discovered.append({
                     "url": abs_url,
                     "filename": filename,
@@ -589,13 +599,13 @@ def _collect_dia_board(source: Dict[str, Any], session: HttpRetrySession, logger
                     "date_collected": datetime.now().isoformat(),
                     "status": "discovered",
                     "http_status": "discovered",
-                    "seen_before": already,
+                    "seen_before": False,
                     "doc_type": classify_doc_type(sid, abs_url, title),
                 })
                 local_seen.add(abs_url)
                 continue
             # Collect meeting detail pages within dia.jacksonville.gov
-            if lu.startswith("http") and "dia.jacksonville.gov" in lu and not lu.endswith('.pdf'):
+            if lu.startswith("http") and "dia.jacksonville.gov" in lu and is_meeting_detail_url(abs_url):
                 meeting_pages.append(abs_url)
 
     meeting_pages = list(dict.fromkeys(meeting_pages))
@@ -618,7 +628,6 @@ def _collect_dia_board(source: Dict[str, Any], session: HttpRetrySession, logger
             if not keep:
                 continue
             filename = Path(urlparse(abs_url).path).name or 'document.pdf'
-            already = False
             discovered.append({
                 "url": abs_url,
                 "filename": filename,
@@ -629,7 +638,7 @@ def _collect_dia_board(source: Dict[str, Any], session: HttpRetrySession, logger
                 "date_collected": datetime.now().isoformat(),
                 "status": "discovered",
                 "http_status": "discovered",
-                "seen_before": already,
+                "seen_before": False,
                 "doc_type": att.get("doc_type") or classify_doc_type(sid, abs_url, title),
                 "meeting_url": detail,
                 "meeting_title": att.get("meeting_title"),
@@ -678,7 +687,7 @@ def _collect_dia_archive(source: Dict[str, Any], session: HttpRetrySession, logg
             resp = session.get(url)
             pages_fetched += 1
             logger.info(f"Fetched page: {url} status={resp.status_code} bytes={len(resp.content)}")
-        except Exception as e:
+        except requests.RequestException as e:
             logger.warning(f"Page fetch failed: {url} err={e}")
             continue
         soup = BeautifulSoup(resp.content, "html.parser")
@@ -713,7 +722,7 @@ def _collect_dia_archive(source: Dict[str, Any], session: HttpRetrySession, logg
                 local_seen.add(abs_url)
                 continue
             # Collect detail pages on dia domain
-            if lu.startswith("http") and "dia.jacksonville.gov" in lu and not lu.endswith('.pdf'):
+            if lu.startswith("http") and "dia.jacksonville.gov" in lu and is_meeting_detail_url(abs_url):
                 detail_pages.append(abs_url)
 
     detail_pages = list(dict.fromkeys(detail_pages))
@@ -724,7 +733,7 @@ def _collect_dia_archive(source: Dict[str, Any], session: HttpRetrySession, logg
         try:
             resp = session.get(detail)
             pages_fetched += 1
-        except Exception as e:
+        except requests.RequestException as e:
             logger.warning(f"DIA detail fetch failed: {detail} err={e}")
             continue
         soup = BeautifulSoup(resp.content, "html.parser")
@@ -809,7 +818,7 @@ def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: lo
                 resp = session.get(url)
                 pages_fetched += 1
                 logger.info(f"Fetched page: {url} status={resp.status_code} bytes={len(resp.content)}")
-            except Exception as e:
+            except requests.RequestException as e:
                 logger.warning(f"Page fetch failed: {url} err={e}")
                 continue
 
@@ -832,7 +841,6 @@ def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: lo
                 if keep:
                     seen.add(abs_url)
                     filename = Path(urlparse(abs_url).path).name
-                    already = False
                     item = {
                         "url": abs_url,
                         "filename": filename,
@@ -843,7 +851,7 @@ def collect_source(source: Dict[str, Any], session: HttpRetrySession, logger: lo
                         "date_collected": datetime.now().isoformat(),
                         "status": "discovered",
                         "http_status": "discovered",
-                        "seen_before": already,
+                        "seen_before": False,
                         "doc_type": classify_doc_type(sid, abs_url, title),
                     }
                     discovered.append(item)
@@ -957,7 +965,7 @@ def collect_all(config_path: Optional[str] = None, only_source: Optional[str] = 
     cfg_path = Path(config_path) if config_path else DEFAULT_CONFIG_PATH
     try:
         cfg = load_sources(cfg_path)
-    except Exception as e:
+    except (OSError, yaml.YAMLError) as e:
         logger.error(f"Failed to load sources.yaml: {e}")
         return 2
 
