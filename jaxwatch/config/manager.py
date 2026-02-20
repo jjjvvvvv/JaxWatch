@@ -111,7 +111,7 @@ class JaxWatchConfig:
         current = Path.cwd()
 
         # Look for JaxWatch project markers
-        markers = ['outputs/projects', 'dashboard', 'slack_bridge', 'backend/tools']
+        markers = ['outputs/projects', 'dashboard', 'backend/tools', 'jaxwatch/api']
 
         # Check current directory and parents
         for path in [current] + list(current.parents):
