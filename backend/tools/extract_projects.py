@@ -28,7 +28,27 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 
-from .project_schema_ext import enhance_project_schema
+try:
+    from .project_schema_ext import enhance_project_schema
+except ImportError:  # module is local-only (backend/tools/ is gitignored)
+    _SCHEMA_DEFAULTS = {
+        "is_master_project": False,
+        "parent_project_id": None,
+        "child_project_ids": [],
+        "child_project_count": 0,
+        "sub_projects": [],
+        "total_child_mentions": 0,
+        "hierarchy_level": 0,
+        "project_level": 0,
+        "relationship_type": None,
+        "component_type": None,
+    }
+
+    def enhance_project_schema(project: dict) -> dict:
+        """Fallback: ensure hierarchy fields exist without overwriting values."""
+        for key, value in _SCHEMA_DEFAULTS.items():
+            project.setdefault(key, list(value) if isinstance(value, list) else value)
+        return project
 
 FILES_DIR = Path("outputs/files")
 RAW_DIR = Path("outputs/raw")
