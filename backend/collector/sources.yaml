@@ -3,12 +3,14 @@ sources:
     name: DIA Board
     candidates:
       - https://dia.jacksonville.gov/meetings/dia-meetings
+      - https://dia.jacksonville.gov/meetings/dia-meetings/past-dia-meetings
     artifact_policy: parse_then_discard
 
   - id: dia_ddrb
     name: DDRB
     candidates:
       - https://dia.jacksonville.gov/meetings/ddrb-meetings
+      - https://dia.jacksonville.gov/meetings/ddrb-meetings/past-ddrb-meetings
     artifact_policy: parse_then_discard
 
   - id: dia_transcripts
